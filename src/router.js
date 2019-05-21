@@ -1,8 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Map from './views/Map.vue';
+import App from './App.vue';
+
+const EntryIntro = () => import(/* webpackChunkName: "entry" */ './views/EntryIntro.vue');
+const EntryHomeTownSelect = () => import(/* webpackChunkName: "entry" */ './views/EntryHomeTownSelect.vue');
+
 
 Vue.use(Router);
+
 
 export default new Router({
   mode: 'history',
@@ -10,8 +15,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'map',
-      component: Map,
+      name: 'Map',
+      component: App,
+    },
+    {
+      path: '/welcome/into/',
+      name: 'EntryIntro',
+      component: EntryIntro,
+    },
+    {
+      path: '/welcome/hometown/',
+      name: 'EntryHomeTownSelect',
+      component: EntryHomeTownSelect,
     },
   ],
 });
