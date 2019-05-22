@@ -1,3 +1,12 @@
+<i18n>
+{
+  "de": {
+    "title": "🏡Verrate mir als erstes den Namen der Stadt in der du wohnst",
+    "inputPlaceholder": "gebe hier den Namen deines Wohnortes ein"
+  }
+}
+</i18n>
+
 <template>
   <div class="modal" v-bind:class="{ active: modalOpen }">
       <div class="modal-container">
@@ -5,7 +14,7 @@
           <a @click="modalClose" class="btn btn-clear float-right"
              aria-label="Close"></a>
           <div class="modal-title h5">
-            🏡  Verrate mir als erstes den Namen der Stadt in der du wohnst
+            {{ $t("title") }}
           </div>
         </div>
         <div class="modal-body">
@@ -13,16 +22,16 @@
             <div class="form-autocomplete">
               <div class="form-autocomplete-input form-input">
                 <div class="has-icon-left">
-                  <input v-model="city2GeoCode" ref="city2GeoCode" @input="doCity2GeoCode"
+                  <input v-model="city2geoCode" ref="city2geoCode" @input="doCity2GeoCode"
                          class="form-input" type="text" size="50" style="width: 100%"
-                         placeholder="gebe hier den Namen deines Wohnortes ein">
-                  <i class="form-icon" v-bind:class="{ loading: city2GeoCodeIsLoading }"></i>
+                         :placeholder="$t('inputPlaceholder')">
+                  <i class="form-icon" v-bind:class="{ loading: city2geoCodeIsLoading }"></i>
                 </div>
               </div>
             </div>
           </div>
           <ul class="menu" v-bind:class="{ hide: !citySuggestions.length }">
-            <li v-for="(suggestion, index) in citySuggestions" class="menu-item">
+            <li v-for="(suggestion, index) in citySuggestions" class="menu-item" v-bind:key="index">
               <a @click="selectCity(index)">
                 <div class="tile tile-centered">
                   <div class="tile-content">
@@ -42,8 +51,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
+import axios from 'axios';
 
 export default {
   name: 'EntryHomeTownSelect',
@@ -51,32 +60,33 @@ export default {
   data() {
     return {
       modalOpen: true,
-      city2GeoCode: '',
-      city2GeoCodeIsLoading: false,
+      city2geoCode: '',
+      city2geoCodeIsLoading: false,
       citySuggestions: [],
     };
   },
-  mounted () {
-    this.$refs.city2GeoCode.focus();
+
+  mounted() {
+    this.$refs.city2geoCode.focus();
   },
+
   methods: {
     modalClose() {
       this.modalOpen = false;
     },
 
     doCity2GeoCode() {
-      this.citySuggestions = [];
-
       this.$nextTick(() => {
-        if (this.city2GeoCode.length < 2) {
+        if (this.city2geoCode.length < 2) {
           return;
         }
 
-        this.city2GeoCodeIsLoading = true;
+        this.citySuggestions = [];
+        this.city2geoCodeIsLoading = true;
 
         // get cities for autocomplete
         axios.get(
-          `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2GeoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`,
+          `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2geoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`,
         )
           .then((response) => {
             if (!response.data.suggestions) {
@@ -89,13 +99,13 @@ export default {
             console.log(error);
           })
           .finally(() => {
-            this.city2GeoCodeIsLoading = false;
+            this.city2geoCodeIsLoading = false;
           });
       });
     },
 
     selectCity(index) {
-      this.city2GeoCodeIsLoading = true;
+      this.city2geoCodeIsLoading = true;
       const { locationId } = this.citySuggestions[index];
 
       // get selected city polygon
@@ -141,7 +151,7 @@ export default {
           console.log(error);
         })
         .finally(() => {
-          this.city2GeoCodeIsLoading = false;
+          this.city2geoCodeIsLoading = false;
         });
     },
   },

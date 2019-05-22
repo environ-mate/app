@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import App from './App.vue';
+
 
 const EntryIntro = () => import(/* webpackChunkName: "entry" */ './views/EntryIntro.vue');
 const EntryHomeTownSelect = () => import(/* webpackChunkName: "entry" */ './views/EntryHomeTownSelect.vue');
@@ -15,11 +15,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Map',
-      component: App,
-    },
-    {
-      path: '/welcome/into/',
       name: 'EntryIntro',
       component: EntryIntro,
     },
