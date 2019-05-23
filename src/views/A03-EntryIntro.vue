@@ -20,7 +20,7 @@
           <div class="column col-9">
             {{ $t("intro_1") }}<br/>
             {{ $t("intro_2") }}<br/>
-            {{ $t("intro_3", { homeTown: homeTownName }) }}<br/>
+            {{ $t("intro_3", { homeTown: this.$parent.$data.homeTownName }) }}<br/>
             <img class="img-responsive tutor" src="/assets/example_graph.png"/>
           </div>
           <div class="column col-3"><img class="img-responsive tutor" src="/assets/wimmel/eliot.png"/></div>
@@ -38,12 +38,10 @@ export default {
   data() {
     return {
       modalOpen: true,
-      homeTownName: null,
     };
   },
 
   mounted() {
-    this.homeTownName = this.$parent.$data.homeTownName;
   },
 
   methods: {
