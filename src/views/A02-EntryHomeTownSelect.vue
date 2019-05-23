@@ -53,6 +53,7 @@
 <script>
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 import axios from 'axios';
+import Helper from '@/helper';
 
 export default {
   name: 'EntryHomeTownSelect',
@@ -127,8 +128,10 @@ export default {
 
           // });
 
+          const location = response.data.Response.View[0].Result[0].Location;
+
           const jsonLayer = omnivore.wkt.parse(
-            response.data.Response.View[0].Result[0].Location.Shape.Value,
+            location.Shape.Value,
           );
 
           jsonLayer.style = {
@@ -136,6 +139,9 @@ export default {
             fillColor: '#00ad79',
             fillOpacity: 0.3,
           };
+
+          this.$parent.$data.homeTownCoords = [location.DisplayPosition.Latitude, location.DisplayPosition.Longitude];
+          this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
 
           this.modalOpen = false;
 
@@ -145,6 +151,10 @@ export default {
 
           this.$parent.$data.map.once('moveend', () => {
             jsonLayer.addTo(this.$parent.$data.map);
+
+            Helper.sleep(5, () => {
+              this.$router.push({ name: 'EntryIntro' });
+            });
           });
         })
         .catch((error) => {

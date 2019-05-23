@@ -31,8 +31,10 @@
 </template>
 
 <script>
+import Helper from '@/helper';
+
 export default {
-  name: 'EntryIntro',
+  name: 'EntryWelcome',
 
   data() {
     return {
@@ -41,7 +43,19 @@ export default {
   },
 
   mounted() {
-    this.$parent.map.once('moveend', () => this.modalOpen = true );
+    // fly map to europe
+    Helper.sleep(4, () => {
+      this.$parent.map.flyToBounds([
+        [50.99995, 9.99995],
+        [51.00005, 10.00005],
+      ], this.$parent.$options.flyToOptions(4, 5, 1.0));
+    });
+
+    this.$parent.map.once('moveend', () => {
+      Helper.sleep(3, () => {
+        this.modalOpen = true;
+      });
+    });
   },
 
   methods: {

@@ -1,11 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-
-const EntryIntro = () => import(/* webpackChunkName: "entry" */ './views/EntryIntro.vue');
-const EntryHomeTownSelect = () => import(/* webpackChunkName: "entry" */ './views/EntryHomeTownSelect.vue');
-
-
 Vue.use(Router);
 
 
@@ -15,13 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'EntryIntro',
-      component: EntryIntro,
+      name: 'EntryWelcome',
+      component: () => import(/* webpackChunkName: "entry" */ './views/A01-EntryWelcome.vue'),
     },
     {
       path: '/welcome/hometown/',
       name: 'EntryHomeTownSelect',
-      component: EntryHomeTownSelect,
+      component: () => import(/* webpackChunkName: "entry" */ './views/A02-EntryHomeTownSelect.vue'),
+    },
+    {
+      path: '/welcome/intro/',
+      name: 'EntryIntro',
+      component: () => import(/* webpackChunkName: "entry" */ './views/A03-EntryIntro.vue'),
     },
   ],
 });
