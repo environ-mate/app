@@ -17,13 +17,17 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-9">
+          <div class="column col-12">
             {{ $t("intro_1") }}<br/>
             {{ $t("intro_2") }}<br/>
             {{ $t("intro_3", { homeTown: this.$parent.$data.homeTownName }) }}<br/>
-            <img class="img-responsive tutor" src="/assets/example_graph.png"/>
           </div>
-          <div class="column col-3"><img class="img-responsive tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/></div>
+          <div class="column col-3 flex-centered">
+            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          </div>
+          <div class="column col-9">
+            <img class="img-responsive" src="/assets/example_graph.png"/>
+          </div>
         </div>
       </div>
     </div>

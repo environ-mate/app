@@ -1,7 +1,7 @@
 <i18n>
 {
   "de": {
-    "title": "🏡Verrate mir als erstes den Namen der Stadt in der du wohnst",
+    "title": "Verrate mir als erstes den Namen der Stadt in der du wohnst",
     "inputPlaceholder": "gebe hier den Namen deines Wohnortes ein"
   }
 }
@@ -12,20 +12,27 @@
       <div class="modal-container">
         <div class="modal-header">
           <div class="modal-title h5">
-            {{ $t("title") }}
+            🏡 {{ $t("title") }}
           </div>
         </div>
         <div class="modal-body">
-          <div class="form-group">
-            <div class="form-autocomplete">
-              <div class="form-autocomplete-input form-input">
-                <div class="has-icon-left">
-                  <input v-model="city2geoCode" ref="city2geoCode" @input="doCity2GeoCode"
-                         class="form-input" type="text" size="50" style="width: 100%"
-                         :placeholder="$t('inputPlaceholder')">
-                  <i class="form-icon" v-bind:class="{ loading: city2geoCodeIsLoading }"></i>
+          <div class="columns">
+            <div class="column col-10 flex-centered">
+              <div class="form-group">
+                <div class="form-autocomplete">
+                  <div class="form-autocomplete-input form-input">
+                    <div class="has-icon-left">
+                      <input v-model="city2geoCode" ref="city2geoCode" @input="doCity2GeoCode"
+                             class="form-input" type="text" size="50" style="width: 100%"
+                             :placeholder="$t('inputPlaceholder')">
+                      <i class="form-icon" v-bind:class="{ loading: city2geoCodeIsLoading }"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="column col-2 flex-centered">
+              <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
             </div>
           </div>
           <ul class="menu" v-bind:class="{ hide: !citySuggestions.length }">

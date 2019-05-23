@@ -16,7 +16,7 @@
         <center>
           <h5>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h5>
           <h6>{{ $t("helloSub") }}</h6>
-          <img class="img-responsive tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
           <h6>
             <span v-html="$t('help')"/>
             <span class="emoji"> 🐢 💨</span>
