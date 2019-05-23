@@ -1,9 +1,9 @@
 <i18n>
 {
   "de": {
-    "hello": "Howdi! 🖐 Mein Name ist Eliot.",
+    "hello": "Howdi! Mein Name ist %{name}.",
     "helloSub": "Ich begleite dich ab jetzt hier.",
-    "help": "Du kannst zu jeder Zeit die <i><b>h</b></i> Taste drücken. Ich komme dir dann zu Hilfe geeilt 🐢 💨",
+    "help": "Du kannst zu jeder Zeit die <i><b>h</b></i> Taste drücken. Ich komme dir dann zu Hilfe geeilt",
     "start": "Klicke hier um zu starten!"
   }
 }
@@ -14,10 +14,13 @@
     <div class="modal-container">
       <div class="modal-body">
         <center>
-          <h5>{{ $t("hello") }}</h5>
+          <h5>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h5>
           <h6>{{ $t("helloSub") }}</h6>
-          <img class="img-responsive tutor" src="/assets/wimmel/eliot.png"/>
-          <h6 v-html="$t('help')"></h6>
+          <img class="img-responsive tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <h6>
+            <span v-html="$t('help')"/>
+            <span class="emoji"> 🐢 💨</span>
+          </h6>
           <p>
             <br/>
             <button @click="next()" class="btn btn-lg btn-success">
@@ -44,12 +47,10 @@ export default {
 
   mounted() {
     // fly map to europe
-    Helper.sleep(4, () => {
-      this.$parent.map.flyToBounds([
-        [50.99995, 9.99995],
-        [51.00005, 10.00005],
-      ], this.$parent.$options.flyToOptions(4, 5, 1.0));
-    });
+    this.$parent.map.flyToBounds([
+      [50.99995, 9.99995],
+      [51.00005, 10.00005],
+    ], this.$parent.$options.flyToOptions(4, 5, 1.0));
 
     this.$parent.map.once('moveend', () => {
       Helper.sleep(3, () => {
@@ -60,7 +61,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'EntryHomeTownSelect' });
+      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
     },
 
     modalClose() {

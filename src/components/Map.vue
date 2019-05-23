@@ -5,10 +5,6 @@
 <script>
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'spectre.css';
-import 'spectre.css/dist/spectre-exp.css';
-import 'spectre.css/dist/spectre-icons.css';
-import 'vue-i18n/dist/vue-i18n';
 
 export default {
   name: 'Map',
@@ -30,7 +26,7 @@ export default {
         .addTo(this.$parent.map);
 
       // show centered world view
-      this.$parent.map.setView([0, 0], 0);
+      this.$parent.map.setView([30, -5], 2.5);
     },
   },
 };

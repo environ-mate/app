@@ -11,8 +11,6 @@
   <div class="modal" v-bind:class="{ active: modalOpen }">
       <div class="modal-container">
         <div class="modal-header">
-          <a @click="modalClose" class="btn btn-clear float-right"
-             aria-label="Close"></a>
           <div class="modal-title h5">
             {{ $t("title") }}
           </div>
@@ -32,13 +30,12 @@
           </div>
           <ul class="menu" v-bind:class="{ hide: !citySuggestions.length }">
             <li v-for="(suggestion, index) in citySuggestions" class="menu-item" v-bind:key="index">
-              <a @click="selectCity(index)">
+              <a @click="selectCity(index)" class="citySelect">
                 <div class="tile tile-centered">
                   <div class="tile-content">
                     <span v-html="(suggestion.matchLevel === 'city' && suggestion.address.city)
                       || (suggestion.matchLevel === 'district' && suggestion.address.district)">
                     </span>,
-                    <span v-html="suggestion.address.postalCode"></span>,
                     <span v-html="suggestion.address.country"></span>
                   </div>
                 </div>
@@ -51,9 +48,10 @@
 </template>
 
 <script>
-import omnivore from 'leaflet-omnivore/leaflet-omnivore';
-import axios from 'axios';
+import L from 'leaflet';
 import Helper from '@/helper';
+import axios from 'axios';
+import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 
 export default {
   name: 'EntryHomeTownSelect',
@@ -130,15 +128,19 @@ export default {
 
           const location = response.data.Response.View[0].Result[0].Location;
 
-          const jsonLayer = omnivore.wkt.parse(
-            location.Shape.Value,
-          );
+          let layer = L.geoJson(null, {
+            style() {
+              return {
+                weight: 2,
+                color: '#43a2ca',
+                opacity: 0.9,
+                fillColor: '#43a2ca',
+                fillOpacity: 0.3,
+              };
+            },
+          });
 
-          jsonLayer.style = {
-            weight: 0,
-            fillColor: '#00ad79',
-            fillOpacity: 0.3,
-          };
+          layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
 
           this.$parent.$data.homeTownCoords = [location.DisplayPosition.Latitude, location.DisplayPosition.Longitude];
           this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
@@ -146,14 +148,14 @@ export default {
           this.modalOpen = false;
 
           this.$parent.$data.map.flyToBounds(
-            jsonLayer.getBounds(), this.$parent.$options.flyToOptions(10),
+            layer.getBounds(), this.$parent.$options.flyToOptions(11),
           );
 
           this.$parent.$data.map.once('moveend', () => {
-            jsonLayer.addTo(this.$parent.$data.map);
+            layer.addTo(this.$parent.$data.map);
 
             Helper.sleep(5, () => {
-              this.$router.push({ name: 'EntryIntro' });
+              this.$router.push({ name: 'A04-EntryIntro' });
             });
           });
         })
@@ -167,3 +169,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .citySelect {
+    cursor: pointer;
+  }
+</style>

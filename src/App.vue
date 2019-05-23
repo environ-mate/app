@@ -7,6 +7,9 @@
 
 <script>
 import Map from '@/components/Map.vue';
+import 'spectre.css';
+import 'spectre.css/dist/spectre-exp.css';
+import 'vue-i18n/dist/vue-i18n';
 
 export default {
   name: 'App',
@@ -16,7 +19,22 @@ export default {
       map: null,
       homeTownName: null,
       homeTownCoords: null,
+      tutor: null,
     };
+  },
+
+  mounted() {
+    const tutors = [
+      {
+        name: 'Linda',
+        image: 'linda.png',
+      },
+      {
+        name: 'Eliot',
+        image: 'eliot.png',
+      },
+    ];
+    this.tutor = tutors[Math.floor(Math.random() * tutors.length)];
   },
 
   components: {
@@ -75,5 +93,9 @@ export default {
     .tutor {
       height: 280px;
     }
+  }
+
+  .emoji {
+    font-size: 1.8em;
   }
 </style>

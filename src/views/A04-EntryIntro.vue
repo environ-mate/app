@@ -23,7 +23,7 @@
             {{ $t("intro_3", { homeTown: this.$parent.$data.homeTownName }) }}<br/>
             <img class="img-responsive tutor" src="/assets/example_graph.png"/>
           </div>
-          <div class="column col-3"><img class="img-responsive tutor" src="/assets/wimmel/eliot.png"/></div>
+          <div class="column col-3"><img class="img-responsive tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/></div>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'EntryHomeTownSelect' });
+      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
     },
 
     modalClose() {
