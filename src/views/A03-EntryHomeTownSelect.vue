@@ -2,7 +2,8 @@
 {
   "de": {
     "title": "Verrate mir als erstes den Namen der Stadt in der du wohnst",
-    "inputPlaceholder": "gebe hier den Namen deines Wohnortes ein"
+    "inputPlaceholder": "gebe hier den Namen deines Wohnortes ein",
+    "popup": "Deine Heimatstadt %{city}"
   }
 }
 </i18n>
@@ -73,6 +74,11 @@ export default {
   },
 
   mounted() {
+    const { mapLayerGroup } = this.$parent.$data;
+    mapLayerGroup.eachLayer((layer) => {
+      mapLayerGroup.removeLayer(layer);
+    });
+
     this.$refs.city2geoCode.focus();
   },
 
@@ -159,7 +165,11 @@ export default {
           );
 
           this.$parent.$data.map.once('moveend', () => {
-            layer.addTo(this.$parent.$data.map);
+            layer.addTo(this.$parent.$data.mapLayerGroup);
+
+            L.marker(this.$parent.$data.homeTownCoords).addTo(this.$parent.$data.mapLayerGroup)
+              .bindPopup(this.$t('popup', { city: this.$parent.$data.homeTownName }))
+              .openPopup();
 
             Helper.sleep(5, () => {
               this.$router.push({ name: 'A04-EntryIntro' });

@@ -9,11 +9,12 @@
 </i18n>
 
 <template>
-  <div class="modal modal-lg" v-bind:class="{ active: modalOpen }">
+  <div class="modal modal-lg" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right"
            aria-label="Close"></a>
+        <button @click="navBack" class="btn btn-action"><i class="icon icon-arrow-left"></i></button>
       </div>
       <div class="modal-body">
         <div class="columns">
@@ -35,17 +36,11 @@
 </template>
 
 <script>
-
 export default {
   name: 'EntryIntro',
 
-  data() {
-    return {
-      modalOpen: true,
-    };
-  },
-
   mounted() {
+
   },
 
   methods: {
@@ -54,7 +49,11 @@ export default {
     },
 
     modalClose() {
-      this.modalOpen = false;
+      this.$parent.modalClose();
+    },
+
+    navBack() {
+      this.$router.back();
     },
   },
 };

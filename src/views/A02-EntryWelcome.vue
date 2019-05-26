@@ -10,7 +10,7 @@
 </i18n>
 
 <template>
-  <div class="modal" v-bind:class="{ active: modalOpen }">
+  <div class="modal" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-body">
         <center>
@@ -39,12 +39,6 @@ import Helper from '@/helper';
 export default {
   name: 'EntryWelcome',
 
-  data() {
-    return {
-      modalOpen: false,
-    };
-  },
-
   mounted() {
     // fly map to europe
     this.$parent.map.flyToBounds([
@@ -54,7 +48,7 @@ export default {
 
     this.$parent.map.once('moveend', () => {
       Helper.sleep(3, () => {
-        this.modalOpen = true;
+        this.$parent.$data.modalOpen = true;
       });
     });
   },
@@ -62,10 +56,6 @@ export default {
   methods: {
     next() {
       this.$router.push({ name: 'A03-EntryHomeTownSelect' });
-    },
-
-    modalClose() {
-      this.modalOpen = false;
     },
   },
 };

@@ -7,8 +7,10 @@
 
 <script>
 import Map from '@/components/Map.vue';
+import L from 'leaflet';
 import 'spectre.css';
 import 'spectre.css/dist/spectre-exp.css';
+import 'spectre.css/dist/spectre-icons.css';
 import 'vue-i18n/dist/vue-i18n';
 
 export default {
@@ -17,13 +19,19 @@ export default {
   data() {
     return {
       map: null,
+      mapLayerGroup: L.layerGroup(),
       homeTownName: null,
       homeTownCoords: null,
       tutor: null,
+      modalOpen: false,
     };
   },
 
   mounted() {
+    // add layer group
+    this.mapLayerGroup.addTo(this.map);
+
+    // choose random tutor
     const tutors = [
       {
         name: 'Linda',
@@ -37,8 +45,28 @@ export default {
     this.tutor = tutors[Math.floor(Math.random() * tutors.length)];
   },
 
+  created() {
+    // key bindings
+    const that = this;
+    window.addEventListener('keyup', (event) => {
+      if (event.keyCode === 72) {
+        // bring modal back on h key press
+        that.modalOpen = true;
+      } else if (event.keyCode === 27) {
+        // hide modal back on esc key press
+        that.modalOpen = false;
+      }
+    });
+  },
+
   components: {
     Map,
+  },
+
+  methods: {
+    modalClose() {
+      this.modalOpen = false;
+    },
   },
 
   flyToOptions(maxZoom, duration, easeLinearity) {

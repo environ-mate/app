@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-bind:class="{ active: modalOpen }">
+  <div class="modal" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
         <div class="modal-header">
           <div class="modal-title h1 text-center">
@@ -40,21 +40,18 @@ import Helper from '@/helper';
 export default {
   name: 'EntryLanguageSelect',
 
-  data() {
-    return {
-      modalOpen: false,
-    };
-  },
-
   mounted() {
+    this.$parent.$data.modalOpen = false;
     Helper.sleep(4, () => {
-      this.modalOpen = true;
+      this.$parent.$data.modalOpen = true;
     });
   },
 
   methods: {
     next(locale) {
+      this.$parent.$data.modalOpen = false;
       this.$i18n.locale = locale;
+
       this.$router.push({ name: 'A02-EntryWelcome' });
     },
   },
