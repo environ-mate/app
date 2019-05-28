@@ -94,12 +94,4 @@ export default {
   .modal-body, .modal-container {
     height: max-content;
   }
-
-  .hide {
-    display:none;
-  }
-
-  .emoji {
-    font-size: 1.8em;
-  }
 </style>

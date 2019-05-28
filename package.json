@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "c3": "^0.7.0",
     "core-js": "^2.6.7",
+    "d3": "^5.9.2",
     "leaflet": "^1.5.1",
+    "leaflet-easybutton": "^2.4.0",
     "leaflet-omnivore": "^0.3.4",
     "spectre.css": "^0.5.8",
     "vue": "^2.6.10",

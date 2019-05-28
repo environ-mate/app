@@ -6,6 +6,8 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+import 'leaflet-easybutton/src/easy-button';
+import 'leaflet-easybutton/src/easy-button.css';
 
 export default {
   name: 'Map',
@@ -37,6 +39,10 @@ export default {
           + '| Made With Love, by <b><a href="https://www.feld-m.de/" target="_blank">FELD M</a></b> ❤️ ',
       })
         .addTo(mainLayerGroup);
+
+      L.easyButton('<span class="icon icon-emoji"/>', () => {
+        this.$parent.$data.modalOpen = true;
+      }).addTo(this.$parent.$data.map);
 
       // show centered world view
       this.$parent.map.setView([30, -5], 2.5);

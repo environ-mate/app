@@ -36,9 +36,9 @@
               <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
             </div>
           </div>
-          <ul class="menu" v-bind:class="{ hide: !citySuggestions.length }">
+          <ul class="menu" v-bind:class="{ 'd-hide': !citySuggestions.length }">
             <li v-for="(suggestion, index) in citySuggestions" class="menu-item" v-bind:key="index">
-              <a @click="selectCity(index)" class="citySelect">
+              <a @click="selectCity(index)" class="c-hand">
                 <div class="tile tile-centered">
                   <div class="tile-content">
                     <span v-html="(suggestion.matchLevel === 'city' && suggestion.address.city)
@@ -74,11 +74,6 @@ export default {
   },
 
   mounted() {
-    const { mapLayerGroup } = this.$parent.$data;
-    mapLayerGroup.eachLayer((layer) => {
-      mapLayerGroup.removeLayer(layer);
-    });
-
     this.$refs.city2geoCode.focus();
   },
 
@@ -89,10 +84,6 @@ export default {
 
     doCity2GeoCode() {
       this.$nextTick(() => {
-        if (this.city2geoCode.length < 2) {
-          return;
-        }
-
         this.citySuggestions = [];
         this.city2geoCodeIsLoading = true;
 
@@ -160,9 +151,16 @@ export default {
 
           this.modalOpen = false;
 
+          // fly to city
           this.$parent.$data.map.flyToBounds(
             layer.getBounds(), this.$parent.$options.flyToOptions(11),
           );
+
+          // remove existing layers
+          const { mapLayerGroup } = this.$parent.$data;
+          mapLayerGroup.eachLayer((layer2rm) => {
+            mapLayerGroup.removeLayer(layer2rm);
+          });
 
           this.$parent.$data.map.once('moveend', () => {
             layer.addTo(this.$parent.$data.mapLayerGroup);
@@ -186,9 +184,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-  .citySelect {
-    cursor: pointer;
-  }
-</style>
