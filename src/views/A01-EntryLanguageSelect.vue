@@ -14,7 +14,7 @@
                 What language do you speak?
               </h5>
               <button @click="next('en')" class="btn btn-lg btn-success">
-                🇬🇧 English
+                💂‍♀️ English
               </button>
             </center>
           </div>
@@ -24,7 +24,7 @@
                 Welche Sprache sprichst du?
               </h5>
               <button @click="next('de')" class="btn btn-lg btn-success">
-                🇩🇪 Deutsch
+                🥨 Deutsch
               </button>
             </center>
           </div>

@@ -1,12 +1,13 @@
 <i18n>
 {
   "de": {
-    "title": "Klimawandel, was ist das eigentlich?!",
-    "intro_1": "Du hast sicher schon mal vom Klimawandel gehört.",
-    "intro_2": "Was hat es damit eigentlich auf sich?",
-    "intro_3": "In deiner Heimatstadt %{homeTown} bla bla bla",
+    "title": "Klimawandel, was ist das eigentlich?",
+    "intro_1": "Du hast sicher schon mal vom Klimawandel gehört. Was hat es damit eigentlich auf sich?",
+    "intro_2": "In den letzten Jahrzenten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. ",
     "chart_degress": "Durchschnittstemperaturen",
-    "chart_degress_desc": "Europäische Durchschnittstemperaturen über Land im Vergleich zur vorindustriellen Zeit"
+    "chart_degress_desc": "Europäische Durchschnittstemperaturen über Land im Vergleich zur vorindustriellen Zeit",
+    "next_desc": "als nächstes erkläre ich dir welche Ursachen die Erwärmung hat.",
+    "next_btn": "weiter zur Erklärung"
   }
 }
 </i18n>
@@ -18,8 +19,6 @@
         <a @click="modalClose" class="btn btn-clear float-right"
            aria-label="Close"></a>
 
-        <button @click="navBack" class="btn btn-lg btn-action float-left"><i class="icon icon-arrow-left"></i></button>
-
         <div class="modal-title h3 flex-centered">
            {{ $t("title") }}
         </div>
@@ -29,13 +28,35 @@
           <div class="column col-12">
             {{ $t("intro_1") }}<br/>
             {{ $t("intro_2") }}<br/>
-            {{ $t("intro_3", { homeTown: this.$parent.$data.homeTownName }) }}<br/>
-            {{ $t("chart_degress_desc") }}<br/>
           </div>
-          <div class="column col-12 divider"/>
-          <div id="chart" class="column col-9"/>
-          <div class="column col-3">
+
+          <div class="column col-12">
+            <br/>
+            <h5>{{ $t("chart_degress_desc") }}</h5>
+          </div>
+
+          <div class="column col-2 flex-centered">
             <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          </div>
+          <div class="column col-9">
+            <br/>
+            <div>
+              <vue-c3 :handler="chart"></vue-c3>
+            </div>
+          </div>
+          <div class="column col-1"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="columns">
+          <div class="column col-1 flex-centered">
+            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+          </div>
+          <div class="column col-8 flex-centered">
+            {{ $('next_desc') }}
+          </div>
+          <div class="column col-3 flex-centered">
+            <button @click="navBack" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -44,15 +65,23 @@
 </template>
 
 <script>
-import 'c3/c3.css';
-import c3 from 'c3/c3';
+import Vue from 'vue';
+import VueC3 from 'vue-c3';
 
 export default {
   name: 'EntryIntro',
+  components: {
+    VueC3
+  },
+
+  data() {
+    return {
+      chart: new Vue(),
+    };
+  },
 
   mounted() {
-    c3.generate({
-      bindto: '#chart',
+    this.chart.$emit('init', {
       x: 'year',
       data: {
         url: '/data/eu_average_temperatures_anual_diff.csv',
@@ -72,7 +101,7 @@ export default {
       },
       bar: {
         width: {
-          ratio: 1.0,
+          ratio: 1.2,
         },
       },
       axis: {
@@ -103,10 +132,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  #chart .c3-line {
-    stroke-width: 1.5px;
-
-  }
-</style>

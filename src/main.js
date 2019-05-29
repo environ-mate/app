@@ -4,10 +4,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+
 Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
-
 
 const locale = window.location.pathname.replace(/^\/([^/]+).*/i, '$1');
 const fallbackLocale = 'de';

@@ -9,9 +9,10 @@
 import Map from '@/components/Map.vue';
 import L from 'leaflet';
 import 'spectre.css';
-import 'spectre.css/dist/spectre-exp.css';
 import 'spectre.css/dist/spectre-icons.css';
+import 'spectre.css/dist/spectre-exp.css';
 import 'vue-i18n/dist/vue-i18n';
+import 'c3/c3.css';
 
 export default {
   name: 'App',

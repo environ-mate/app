@@ -40,7 +40,7 @@ export default {
       })
         .addTo(mainLayerGroup);
 
-      L.easyButton('<span class="icon icon-emoji"/>', () => {
+      L.easyButton('<span class="ec ec-rescue-worker-helmet"/>', () => {
         this.$parent.$data.modalOpen = true;
       }).addTo(this.$parent.$data.map);
 
