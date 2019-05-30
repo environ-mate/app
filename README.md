@@ -1,8 +1,13 @@
-# eudatathon-2019
+ODCCI (Open Data Climate Change Insights)
+=========================================
+
+Source Code for [EU Datathon 2019](https://publications.europa.eu/en/web/eudatathon/home)
+
 
 ## Project setup
 ```
-npm install
+npm install yarn -g
+yarn install
 ```
 
 ### Compiles and hot-reloads for development

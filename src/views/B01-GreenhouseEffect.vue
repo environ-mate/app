@@ -1,13 +1,8 @@
 <i18n>
 {
   "de": {
-    "title": "Klimawandel, was ist das eigentlich?",
-    "intro_1": "Du hast sicher schon mal vom Klimawandel gehört. Was hat es damit eigentlich auf sich?",
-    "intro_2": "In den letzten Jahrzenten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. ",
-    "chart_degress": "Durchschnittstemperaturen",
-    "chart_degress_desc": "Europäische Durchschnittstemperaturen über Land im Vergleich zur vorindustriellen Zeit",
-    "next_desc": "als nächstes erkläre ich dir welche Ursachen die Erwärmung hat.",
-    "next_btn": "weiter zur Erklärung"
+    "title": "Der Treibhauseffekt  🔆",
+    "next_btn": "weiter"
   }
 }
 </i18n>
@@ -26,25 +21,8 @@
       <div class="modal-body">
         <div class="columns">
           <div class="column col-12">
-            {{ $t("intro_1") }}<br/>
-            {{ $t("intro_2") }}<br/>
-          </div>
 
-          <div class="column col-12">
-            <br/>
-            <h5>{{ $t("chart_degress_desc") }}</h5>
           </div>
-
-          <div class="column col-2 flex-centered">
-            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          </div>
-          <div class="column col-9">
-            <br/>
-            <div>
-              <vue-c3 :handler="chart"></vue-c3>
-            </div>
-          </div>
-          <div class="column col-1"/>
         </div>
       </div>
       <div class="modal-footer">
@@ -56,7 +34,7 @@
             {{ $t('next_desc') }}
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="navBack" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -66,13 +44,9 @@
 
 <script>
 import Vue from 'vue';
-import VueC3 from 'vue-c3';
 
 export default {
   name: 'EntryIntro',
-  components: {
-    VueC3,
-  },
 
   data() {
     return {
@@ -119,7 +93,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'B01-GreenhouseEffect' });
+      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
     },
 
     modalClose() {

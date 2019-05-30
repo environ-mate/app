@@ -1,5 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import EntryLanguageSelect from '@/views/A01-EntryLanguageSelect.vue';
+import EntryWelcome from '@/views/A02-EntryWelcome.vue';
+import EntryHomeTownSelect from '@/views/A03-EntryHomeTownSelect.vue';
+import EntryIntro from '@/views/A04-EntryIntro.vue';
+import GreenhouseEffect from '@/views/B01-GreenhouseEffect.vue';
 
 Vue.use(Router);
 
@@ -13,22 +18,27 @@ export default new Router({
     {
       path: '/',
       name: 'A01-EntryLanguageSelect',
-      component: () => import(/* webpackChunkName: "entry" */ './views/A01-EntryLanguageSelect.vue'),
+      component: EntryLanguageSelect,
     },
     {
       path: '/welcome/hello/',
       name: 'A02-EntryWelcome',
-      component: () => import(/* webpackChunkName: "entry" */ './views/A02-EntryWelcome.vue'),
+      component: EntryWelcome,
     },
     {
       path: '/welcome/hometown/',
       name: 'A03-EntryHomeTownSelect',
-      component: () => import(/* webpackChunkName: "entry" */ './views/A03-EntryHomeTownSelect.vue'),
+      component: EntryHomeTownSelect,
     },
     {
       path: '/welcome/intro/',
       name: 'A04-EntryIntro',
-      component: () => import(/* webpackChunkName: "entry" */ './views/A04-EntryIntro.vue'),
+      component: EntryIntro,
+    },
+    {
+      path: '/greenhouse-effect/intro/',
+      name: 'B01-GreenhouseEffect',
+      component: GreenhouseEffect,
     },
   ],
 });
