@@ -7,7 +7,6 @@ library(tidyverse)
 ### NOTES
 # round emissions?
 # filter relevant years?
-# automatic conversion from kilo to giga tonnes for projections data???
 # replace NA with 0 for extreme weather data?
 
 
@@ -46,29 +45,30 @@ ghg_emissions_per_sector_raw <- read.csv("input/ghg_emissions_per_sector_raw.csv
 
 # filter ghg emissions, sectors and years
 ghg_emissions_per_sector <- ghg_emissions_per_sector_raw %>% 
-  filter(Pollutant_name=="All greenhouse gases - (CO2 equivalent)" & # including CO2, CH4, N2O, HFCs, PFCs, unspecified mix of HFCs and PFCs, SF6 and NF3 (in giga tonnes CO2 equivalent)
+  filter(Pollutant_name=="All greenhouse gases - (CO2 equivalent)" & # including CO2, CH4, N2O, HFCs, PFCs, unspecified mix of HFCs and PFCs, SF6 and NF3 (in giga tonnes CO2 equivalent) # unit???
            (Sector_name=="Total (without LULUCF, without indirect CO2)" | 
               Sector_name=="1.A.1 - Energy Industries" | Sector_name=="1.A.3 - Transport" | 
               Sector_name=="2 - Industrial Processes and Product Use" | 
               Sector_name=="3 - Agriculture" | Sector_name=="5 - Waste management") &
            !(Year %in% c("1985-1987", "1985", "1986", "1987", "1988", "1989")) & Country!="EU (KP)") %>% 
   select(Country, Country_code, emissions, Sector_name, Year) %>% 
-  rename(country.name=Country, country.code=Country_code, ghg.emissions.gtco2e=emissions, sector=Sector_name, year=Year)
+  mutate(emissions=round(emissions/1000, 2)) %>% 
+  rename(country.name=Country, country.code=Country_code, ghg.emissions.mio.tonnes=emissions, sector=Sector_name, year=Year)
 
 # replace country names and codes and sector names where necessary
 ghg_emissions_per_sector$country.name[ghg_emissions_per_sector$country.name=="EU28 (Convention)"] <- "EU28"
 ghg_emissions_per_sector$country.code[ghg_emissions_per_sector$country.code=="EUA"] <- "EU28"
 ghg_emissions_per_sector$country.name[ghg_emissions_per_sector$country.name=="United Kingdom (Convention)"] <- "United Kingdom"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="Total (without LULUCF, without indirect CO2)"] <- "total.ghg.emissions.gtco2e"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="1.A.1 - Energy Industries"] <- "energy.ghg.emissions.gtco2e"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="1.A.3 - Transport"] <- "transport.ghg.emissions.gtco2e"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="2 - Industrial Processes and Product Use"] <- "industry.ghg.emissions.gtco2e"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="3 - Agriculture"] <- "agriculture.ghg.emissions.gtco2e"
-ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="5 - Waste management"] <- "waste.ghg.emissions.gtco2e"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="Total (without LULUCF, without indirect CO2)"] <- "total.ghg.emissions.mio.tonnes"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="1.A.1 - Energy Industries"] <- "energy.ghg.emissions.mio.tonnes"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="1.A.3 - Transport"] <- "transport.ghg.emissions.mio.tonnes"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="2 - Industrial Processes and Product Use"] <- "industry.ghg.emissions.mio.tonnes"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="3 - Agriculture"] <- "agriculture.ghg.emissions.mio.tonnes"
+ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="5 - Waste management"] <- "waste.ghg.emissions.mio.tonnes"
 
 # spread sectors to separate columns
 ghg_emissions_per_sector <- ghg_emissions_per_sector %>% 
-  spread(sector, ghg.emissions.gtco2e)
+  spread(sector, ghg.emissions.mio.tonnes)
 
 # cast year to numeric data type
 ghg_emissions_per_sector$year <- as.integer(as.character(ghg_emissions_per_sector$year))
@@ -77,8 +77,8 @@ ghg_emissions_per_sector$year <- as.integer(as.character(ghg_emissions_per_secto
 european_total_ghg_emissions <- ghg_emissions_per_sector %>% 
   filter(country.name %in% c("EU28", "Liechtenstein", "Iceland", "Turkey", "Switzerland", "Norway")) %>%
   group_by(year) %>% 
-  summarize(sum.total.ghg.emissions.gtco2e=sum(total.ghg.emissions.gtco2e)) %>% 
-  mutate(cumsum.total.ghg.emissions.gtco2e=cumsum(sum.total.ghg.emissions.gtco2e))
+  summarize(sum.total.ghg.emissions.mio.tonnes=sum(total.ghg.emissions.mio.tonnes)) %>% 
+  mutate(cumsum.total.ghg.emissions.mio.tonnes=cumsum(sum.total.ghg.emissions.mio.tonnes))
 
 # write european total sum and cumsum of ghg emissions
 write.csv(european_total_ghg_emissions, "output/european_total_ghg_emissions.csv", row.names=FALSE)
@@ -154,6 +154,10 @@ write.csv(ghg_emissions, "output/ghg_emissions.csv", row.names=FALSE)
 
 ghg_emissions_projections_raw <- read.csv("input/ghg_emissions_projections_raw.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
 
+# cast Final.Gap.filled to numeric
+ghg_emissions_projections_raw$Final.Gap.filled <- as.numeric(ghg_emissions_projections_raw$Final.Gap.filled) # NA for Malta 2036-2040 waste
+
+# filter scenario, ghg emissions and sectors
 ghg_emissions_projections <- ghg_emissions_projections_raw %>% 
   filter(Scenario=="WEM" & # projections taking into account the (current) existing domestic policies
            (Category_name=="Agriculture" | 
@@ -162,22 +166,15 @@ ghg_emissions_projections <- ghg_emissions_projections_raw %>%
               Category_name=="Transport" | 
               Category_name=="Total w.out LULUCF"| 
               Category_name=="Waste") & 
-           Gas=="Total GHGs (ktCO2e)") %>% # all greenhouse gases in kilo tonnes CO2 equivalent (ktco2e) -> automatic conversion to giga tonnes???
+           Gas=="Total GHGs (ktCO2e)") %>% # unit???
   select(MS, Year, Category_name, Final.Gap.filled) %>% 
+  mutate(Final.Gap.filled=round(Final.Gap.filled/1000, 2)) %>%
   spread(Category_name, Final.Gap.filled) %>% 
-  rename(country.code=MS, year=Year, agriculture.ghg.emissions.gtco2e=Agriculture, energy.ghg.emissions.gtco2e=`Energy industries`, industry.ghg.emissions.gtco2e=`Industrial processes`, transport.ghg.emissions.gtco2e=Transport, total.ghg.emissions.gtco2e=`Total w.out LULUCF`, waste.ghg.emissions.gtco2e=Waste)
+  rename(country.code=MS, year=Year, agriculture.ghg.emissions.mio.tonnes=Agriculture, energy.ghg.emissions.mio.tonnes=`Energy industries`, industry.ghg.emissions.mio.tonnes=`Industrial processes`, transport.ghg.emissions.mio.tonnes=Transport, total.ghg.emissions.mio.tonnes=`Total w.out LULUCF`, waste.ghg.emissions.mio.tonnes=Waste)
 
 # replace country codes where necessary
 ghg_emissions_projections$country.code[ghg_emissions_projections$country.code=="GB"] <- "UK"
 ghg_emissions_projections$country.code[ghg_emissions_projections$country.code=="EU"] <- "EU28"
-
-# cast data types
-ghg_emissions_projections$agriculture.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$agriculture.ghg.emissions.gtco2e)
-ghg_emissions_projections$energy.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$energy.ghg.emissions.gtco2e)
-ghg_emissions_projections$industry.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$industry.ghg.emissions.gtco2e)
-ghg_emissions_projections$transport.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$transport.ghg.emissions.gtco2e)
-ghg_emissions_projections$total.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$total.ghg.emissions.gtco2e)
-ghg_emissions_projections$waste.ghg.emissions.gtco2e <- as.numeric(ghg_emissions_projections$waste.ghg.emissions.gtco2e) # NA for Malta 2036-2040
 
 # add country names and drop country code
 ghg_emissions_projections <- merge(ghg_emissions_projections, country_names_and_codes, by="country.code") %>% 
@@ -214,11 +211,15 @@ names(extreme_weather_raw)[names(extreme_weather_raw) == "Homeless"] <- "homeles
 names(extreme_weather_raw)[names(extreme_weather_raw) == "Total.affected"] <- "total.affected"
 names(extreme_weather_raw)[names(extreme_weather_raw) == "Total.damage....000.US.."] <- "total.damage"
 
+# convert total damage to millions
+extreme_weather_raw$total.damage.mio.dollars <- round(extreme_weather_raw$total.damage/1000, 2)
+
 # drop columns that are not needed
 extreme_weather_raw$iso <- NULL
 extreme_weather_raw$injured <- NULL
 extreme_weather_raw$affected <- NULL
 extreme_weather_raw$homeless <- NULL
+extreme_weather_raw$total.damage <- NULL
 
 # relevant disasters
 relevant_disasters <- c("Drought", "Extreme temperature", "Flood", "Storm", "Wildfire")
@@ -256,9 +257,9 @@ total_affected <- extreme_weather %>%
 
 # total damage
 total_damage <- extreme_weather %>% 
-  select(country.name, disaster.type, year, total.damage) %>% 
-  spread(disaster.type, total.damage) %>% 
-  rename(drought.total.damage=Drought, storm.total.damage=Storm, flood.total.damage=Flood, wildfire.total.damage=Wildfire)
+  select(country.name, disaster.type, year, total.damage.mio.dollars) %>% 
+  spread(disaster.type, total.damage.mio.dollars) %>% 
+  rename(drought.total.damage.mio.dollars=Drought, storm.total.damage.mio.dollars=Storm, flood.total.damage.mio.dollars=Flood, wildfire.total.damage.mio.dollars=Wildfire)
 
 # merge transformed indicators
 extreme_weather_processed <- merge(occurrence, total_deaths, by=c("country.name", "year"))
@@ -272,19 +273,19 @@ germany <- extreme_weather_processed %>%
   summarize(drought.occurrence=sum(drought.occurrence), 
             drought.total.deaths=sum(drought.total.deaths),
             drought.total.affected=sum(drought.total.affected),
-            drought.total.damage=sum(drought.total.damage),
+            drought.total.damage.mio.dollars=sum(drought.total.damage.mio.dollars),
             flood.occurrence=sum(flood.occurrence), 
             flood.total.deaths=sum(flood.total.deaths),
             flood.total.affected=sum(flood.total.affected),
-            flood.total.damage=sum(flood.total.damage),
+            flood.total.damage.mio.dollars=sum(flood.total.damage.mio.dollars),
             storm.occurrence=sum(storm.occurrence), 
             storm.total.deaths=sum(storm.total.deaths),
             storm.total.affected=sum(storm.total.affected),
-            storm.total.damage=sum(storm.total.damage),
+            storm.total.damage.mio.dollars=sum(storm.total.damage.mio.dollars),
             wildfire.occurrence=sum(wildfire.occurrence), 
             wildfire.total.deaths=sum(wildfire.total.deaths),
             wildfire.total.affected=sum(wildfire.total.affected),
-            wildfire.total.damage=sum(wildfire.total.damage)) %>% 
+            wildfire.total.damage.mio.dollars=sum(wildfire.total.damage.mio.dollars)) %>% 
   mutate(country.name="Germany")
 
 # replace Germany, BRD and DDR events with aggregated ones
