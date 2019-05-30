@@ -1,0 +1,18 @@
+EXTREME WEATHER
+
+EM-DAT: The Emergency Events Database - Université catholique de Louvain (UCL) - CRED, www.emdat.be, Brussels, Belgium. Classification: https://emdat.be/classification -> extreme_weather_raw.csv
+
+
+
+GREENHOUSE GAS (GHG) EMISSIONS
+
+https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10 -> ghg_emissions_indexed_and_per_capita.tsv
+https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15 -> ghg_emissions_per_sector_raw.csv
+https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4 -> ghg_emissions_projections_raw.csv
+
+
+
+
+TEMPERATURE
+
+https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment -> temperature_deviations_raw.csv
