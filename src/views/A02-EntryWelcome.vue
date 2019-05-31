@@ -10,7 +10,7 @@
 </i18n>
 
 <template>
-  <div class="modal" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div class="modal modal-bottom" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-body">
         <center>

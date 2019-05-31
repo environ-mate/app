@@ -90,7 +90,7 @@ export default {
     };
 
     d3.csv('/data/ghg_emissions.csv').then((rows) => {
-      for (let row of rows) {
+      for (const row of rows) {
         if (row.year === '1996') {
           const emissionsPerCapita = parseFloat(row['total.ghg.emissions.mio.tonnes']);
           let color;
@@ -117,11 +117,10 @@ export default {
           });
 
           const countryCode = mapping[row['country.name']];
-          d3.json(`/data/geo_countries/${countryCode}.json`).then((countryInfo) => {
+          d3.json(`/data/geo_countries/${countryCode}.json.simp.json`).then((countryInfo) => {
             const location = countryInfo.View[0].Result[0].Location;
-            const layer = omnivore.wkt.parse(location.Shape.Value, {precision: 5}, layerTpl);
+            const layer = omnivore.wkt.parse(location.Shape.Value, { precision: 5 }, layerTpl);
             layer.addTo(this.$parent.$data.mapLayerGroup);
-            console.log(countryCode, emissionsPerCapita);
           });
         }
       }
