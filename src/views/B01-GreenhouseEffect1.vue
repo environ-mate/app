@@ -51,6 +51,9 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 
+const colors = ['#fcae91', '#fb6a4a', '#de2d26', '#a50f15'];
+const valueColumn = 'ghg.emissions.per.capita.tonnes';  //
+
 const countryMappings = {
   Hungary: 'HUN',
   Lithuania: 'LTU',
@@ -120,6 +123,10 @@ export default {
     this.$parent.map.once('moveend', () => {
       // emissions data load csv
       d3.csv('/data/ghg_emissions.csv').then((rows) => {
+        rows.forEach(function(d) {
+          d[valueColumn] = parseFloat(d[valueColumn]);
+        });
+
         that.emissionData = rows;
         let countriesProcessed = 0;
 
@@ -142,7 +149,6 @@ export default {
               if (countriesProcessed === Object.keys(countryMappings).length) {
                 that.renderYear();
               }
-
           });
         }
       });
@@ -153,22 +159,33 @@ export default {
     renderYear() {
       const that = this;
 
-      for (const row of this.emissionData) {
+      let rowsOfInterest = this.emissionData.filter(r => r.year === that.year && r['country.name'] !== 'EU28');
+
+      const valueMin = Math.min(...rowsOfInterest.map(r => r[valueColumn]));
+      const valueMax = Math.max(...rowsOfInterest.map(r => r[valueColumn]));
+      const valueRange = valueMax - valueMin;
+      const valueRangeDistributed = valueRange / colors.length;
+
+      console.log(valueMin, valueMax, valueRangeDistributed);
+
+      for (const row of rowsOfInterest) {
         if (row.year === that.year) {
-          const emissionsPerCapita = parseFloat(row['ghg.emissions.per.capita.tonnes']);
+          const value = parseFloat(row[valueColumn]);
           const countryCode = countryMappings[row['country.name']];
           const style = layerStyle;
           style.fillOpacity = 0.5;
 
-          if (emissionsPerCapita <= 5) {
-            style.fillColor = '#fcae91';
-          } else if (emissionsPerCapita <= 10) {
-            style.fillColor = '#fb6a4a';
-          } else if (emissionsPerCapita <= 15) {
-            style.fillColor = '#de2d26';
-          } else {
-            style.fillColor = '#a50f15';
+          let colorIndex = Math.ceil(((value - valueMin) / valueRangeDistributed) - 1);
+          if (colorIndex < 0) {
+            colorIndex = 0;
           }
+          if (colorIndex > colors.length - 1) {
+            colorIndex = colors.length - 1;
+          }
+
+          console.log(value, colorIndex);
+
+          style.fillColor = colors[colorIndex];
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);
