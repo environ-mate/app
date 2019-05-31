@@ -5,8 +5,7 @@ setwd("C:/Users/alex.merdian-tarko/Desktop/EU Datathon 2019/data/")
 library(tidyverse)
 
 ### NOTES
-# round emissions?
-# filter relevant years?
+# filter relevant years for ghg emissions projections?
 # replace NA with 0 for extreme weather data?
 
 
@@ -27,7 +26,7 @@ european_land_temperature_deviations_annual <- temperature_deviations_raw %>%
   select(Year.year, HadCRUT4.number) %>% 
   rename(year=Year.year, temperature.deviation.degree.celcius=HadCRUT4.number)
 
-# write processed data
+# write csv
 write.csv(european_land_temperature_deviations_annual, "output/european_land_temperature_deviations_annual.csv", row.names=FALSE)
 
 
@@ -52,7 +51,7 @@ ghg_emissions_per_sector <- ghg_emissions_per_sector_raw %>%
               Sector_name=="3 - Agriculture" | Sector_name=="5 - Waste management") &
            !(Year %in% c("1985-1987", "1985", "1986", "1987", "1988", "1989")) & Country!="EU (KP)") %>% 
   select(Country, Country_code, emissions, Sector_name, Year) %>% 
-  mutate(emissions=round(emissions/1000, 2)) %>% 
+  mutate(emissions=emissions/1000) %>% 
   rename(country.name=Country, country.code=Country_code, ghg.emissions.mio.tonnes=emissions, sector=Sector_name, year=Year)
 
 # replace country names and codes and sector names where necessary
@@ -73,15 +72,15 @@ ghg_emissions_per_sector <- ghg_emissions_per_sector %>%
 # cast year to numeric data type
 ghg_emissions_per_sector$year <- as.integer(as.character(ghg_emissions_per_sector$year))
 
-# calculate european total sum and cumsum ghg emissions in gtco2e
-european_total_ghg_emissions <- ghg_emissions_per_sector %>% 
-  filter(country.name %in% c("EU28", "Liechtenstein", "Iceland", "Turkey", "Switzerland", "Norway")) %>%
+# calculate EU28 total sum and cumsum ghg emissions in gtco2e
+EU28_total_ghg_emissions <- ghg_emissions_per_sector %>% 
+  filter(country.name=="EU28") %>% 
   group_by(year) %>% 
-  summarize(sum.total.ghg.emissions.mio.tonnes=sum(total.ghg.emissions.mio.tonnes)) %>% 
-  mutate(cumsum.total.ghg.emissions.mio.tonnes=cumsum(sum.total.ghg.emissions.mio.tonnes))
+  summarize(sum.total.ghg.emissions.mio.tonnes=round(sum(total.ghg.emissions.mio.tonnes), 1)) %>% 
+  mutate(cumsum.total.ghg.emissions.mio.tonnes=round(cumsum(sum.total.ghg.emissions.mio.tonnes), 1))
 
-# write european total sum and cumsum of ghg emissions
-write.csv(european_total_ghg_emissions, "output/european_total_ghg_emissions.csv", row.names=FALSE)
+# write csv
+write.csv(EU28_total_ghg_emissions, "output/EU28_total_ghg_emissions.csv", row.names=FALSE)
 
 
 
@@ -142,8 +141,38 @@ ghg_emissions$country.code <- NULL
 # change order of columns
 ghg_emissions <- ghg_emissions[,c(2,1,3:10)]
 
-# write ghg emissions
-write.csv(ghg_emissions, "output/ghg_emissions.csv", row.names=FALSE)
+# round ghg emissions
+ghg_emissions <- ghg_emissions %>% 
+  mutate_at(vars(agriculture.ghg.emissions.mio.tonnes, 
+                 energy.ghg.emissions.mio.tonnes, 
+                 industry.ghg.emissions.mio.tonnes, 
+                 total.ghg.emissions.mio.tonnes,
+                 transport.ghg.emissions.mio.tonnes,
+                 waste.ghg.emissions.mio.tonnes), funs(round(., 1)))
+
+# calculate national and EU28 ghg emission shares
+EU28_ghg_emissions <- ghg_emissions %>%
+  filter(country.name=="EU28") %>% 
+  select(-country.name) %>% 
+  rename_all(function(x) paste0("EU28.", x)) %>% 
+  rename(year=EU28.year)
+
+ghg_emissions_with_shares <- merge(ghg_emissions, EU28_ghg_emissions, by="year") %>% 
+  arrange(country.name, year) %>% 
+  mutate(agriculture.ghg.emissions.national.share=round(agriculture.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         energy.ghg.emissions.national.share=round(energy.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         industry.ghg.emissions.national.share=round(industry.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         transport.ghg.emissions.national.share=round(transport.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         waste.ghg.emissions.national.share=round(waste.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         agriculture.ghg.emissions.EU28.share=round(agriculture.ghg.emissions.mio.tonnes/EU28.agriculture.ghg.emissions.mio.tonnes, 4),
+         energy.ghg.emissions.EU28.share=round(energy.ghg.emissions.mio.tonnes/EU28.energy.ghg.emissions.mio.tonnes, 4),
+         industry.ghg.emissions.EU28.share=round(industry.ghg.emissions.mio.tonnes/EU28.industry.ghg.emissions.mio.tonnes, 4),
+         total.ghg.emissions.EU28.share=round(total.ghg.emissions.mio.tonnes/EU28.total.ghg.emissions.mio.tonnes, 4),
+         transport.ghg.emissions.EU28.share=round(transport.ghg.emissions.mio.tonnes/EU28.transport.ghg.emissions.mio.tonnes, 4),
+         waste.ghg.emissions.EU28.share=round(waste.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4))
+
+# write csv
+write.csv(ghg_emissions_with_shares, "output/ghg_emissions.csv", row.names=FALSE)
 
 
 
@@ -168,7 +197,7 @@ ghg_emissions_projections <- ghg_emissions_projections_raw %>%
               Category_name=="Waste") & 
            Gas=="Total GHGs (ktCO2e)") %>% # unit???
   select(MS, Year, Category_name, Final.Gap.filled) %>% 
-  mutate(Final.Gap.filled=round(Final.Gap.filled/1000, 2)) %>%
+  mutate(Final.Gap.filled=Final.Gap.filled/1000) %>%
   spread(Category_name, Final.Gap.filled) %>% 
   rename(country.code=MS, year=Year, agriculture.ghg.emissions.mio.tonnes=Agriculture, energy.ghg.emissions.mio.tonnes=`Energy industries`, industry.ghg.emissions.mio.tonnes=`Industrial processes`, transport.ghg.emissions.mio.tonnes=Transport, total.ghg.emissions.mio.tonnes=`Total w.out LULUCF`, waste.ghg.emissions.mio.tonnes=Waste)
 
@@ -187,7 +216,7 @@ ghg_emissions_projections <- ghg_emissions_projections[,c(8,1,2:7)]
 # sort by country code and year
 ghg_emissions_projections <- ghg_emissions_projections[with(ghg_emissions_projections, order(country.name, year)), ]
 
-# write ghg emissions projections
+# write csv
 write.csv(ghg_emissions_projections, "output/ghg_emissions_projections.csv", row.names=FALSE)
 
 
@@ -212,7 +241,7 @@ names(extreme_weather_raw)[names(extreme_weather_raw) == "Total.affected"] <- "t
 names(extreme_weather_raw)[names(extreme_weather_raw) == "Total.damage....000.US.."] <- "total.damage"
 
 # convert total damage to millions
-extreme_weather_raw$total.damage.mio.dollars <- round(extreme_weather_raw$total.damage/1000, 2)
+extreme_weather_raw$total.damage.mio.dollars <- round(extreme_weather_raw$total.damage/1000)
 
 # drop columns that are not needed
 extreme_weather_raw$iso <- NULL
@@ -294,10 +323,8 @@ extreme_weather_processed <- extreme_weather_processed %>%
   rbind(germany) %>% 
   arrange(country.name, year)
 
-# write extreme weather processed
+# write csv
 write.csv(extreme_weather_processed, "output/extreme_weather.csv", row.names=FALSE)
-
-
 
 
 
