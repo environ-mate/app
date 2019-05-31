@@ -84,14 +84,14 @@ export default {
     this.chart.$emit('init', {
       x: 'year',
       data: {
-        url: '/data/eu_average_temperatures_anual_diff.csv',
+        url: '/data/european_land_temperature_deviations_annual.csv',
         x: 'year',
         names: {
-          hadcrut4: this.$t('chart_degress'),
+          'temperature.deviation.degree.celcius': this.$t('chart_degress'),
         },
         type: 'bar',
         colors: {
-          hadcrut4: (d) => {
+          'temperature.deviation.degree.celcius': (d) => {
             if (d.value < 0) {
               return '#6baed6';
             }
@@ -119,7 +119,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'B01-GreenhouseEffect' });
+      this.$router.push({ name: 'B01-GreenhouseEffect1' });
     },
 
     modalClose() {

@@ -23,6 +23,7 @@ export default {
       mapLayerGroup: L.layerGroup(),
       homeTownName: null,
       homeTownCoords: null,
+      homeTownCountry: null,
       tutor: null,
       modalOpen: false,
     };
@@ -67,6 +68,12 @@ export default {
   methods: {
     modalClose() {
       this.modalOpen = false;
+    },
+
+    removeLayers() {
+      this.mapLayerGroup.eachLayer((layer2rm) => {
+        this.mapLayerGroup.removeLayer(layer2rm);
+      });
     },
   },
 

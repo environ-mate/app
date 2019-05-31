@@ -144,23 +144,20 @@ export default {
             },
           });
 
-          layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
-
           this.$parent.$data.homeTownCoords = [location.DisplayPosition.Latitude, location.DisplayPosition.Longitude];
           this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
+          this.$parent.$data.homeTownCountry = location.Address.Country;
 
           this.modalOpen = false;
 
           // fly to city
+          layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
+
           this.$parent.$data.map.flyToBounds(
             layer.getBounds(), this.$parent.$options.flyToOptions(11),
           );
 
-          // remove existing layers
-          const { mapLayerGroup } = this.$parent.$data;
-          mapLayerGroup.eachLayer((layer2rm) => {
-            mapLayerGroup.removeLayer(layer2rm);
-          });
+          this.$parent.removeLayers();
 
           this.$parent.$data.map.once('moveend', () => {
             layer.addTo(this.$parent.$data.mapLayerGroup);
