@@ -1,3 +1,9 @@
+########## Data Preparation for EU Datathon 2019 ##########
+
+
+
+##### SETUP #####
+
 # set working directory
 setwd("C:/Users/alex.merdian-tarko/Desktop/EU Datathon 2019/data/")
 
@@ -5,8 +11,70 @@ setwd("C:/Users/alex.merdian-tarko/Desktop/EU Datathon 2019/data/")
 library(tidyverse)
 
 ### NOTES
-# filter relevant years for ghg emissions projections?
 # replace NA with 0 for extreme weather data?
+
+
+
+
+
+##### POPULATION #####
+
+### population for 2017 and 2018
+# source: https://ec.europa.eu/eurostat/web/products-datasets/-/namq_10_pe
+
+# load raw data
+population_raw <- read.csv("input/population_raw.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
+
+# process raw data
+population <- population_raw %>% 
+  separate(unit.s_adj.na_item.geo.time, c("unit", "s_adj", "na_item", "geo", "time"), sep=",") %>% 
+  filter(unit=="THS_PER" & s_adj=="NSA" & na_item=="POP_NC" & !(geo %in% c("EA", "EA12", "EA19", "EU15", "EU27_2019", "RS"))) %>% 
+  select(geo, X2018Q4, X2018Q3, X2018Q2, X2018Q1, X2017Q4, X2017Q3, X2017Q2, X2017Q1) %>% 
+  rename(country.code=geo)
+
+# replace values and cast data types
+population <- data.frame(population[1], lapply(population[2:9], function(x) gsub(":", NA, x)))
+population <- data.frame(population[1], lapply(population[2:9], function(x) as.numeric(gsub("p", "", x))*1000))
+population$country.code <- gsub("EL", "GR", population$country.code)
+
+# calculate mean population for 2017 and 2018
+population <- population %>% 
+  mutate("2017"=round((X2017Q4+X2017Q3+X2017Q2+X2017Q1)/4),
+         "2018"=ifelse(country.code=="CH", round((X2018Q3+X2018Q2+X2018Q1)/3), round((X2018Q4+X2018Q3+X2018Q2+X2018Q1)/4))) %>% 
+  gather("year", "population", 10:11) %>% 
+  select(country.code, year, population)
+
+
+
+### population projections for 2015 to 2080
+# source: https://ec.europa.eu/eurostat/web/products-datasets/-/tps00002
+
+# load raw data
+population_projections_raw <- read.csv("input/population_projections_raw.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
+
+# process raw data
+population_projections <- population_projections_raw %>% 
+  separate(unit.age.sex.projection.geo.time, c("unit", "age", "sex", "projection", "geo", "time"), sep=",") %>% 
+  filter(sex=="T") %>% 
+  select(geo, X2020, X2030, X2040) %>% 
+  rename(country.code=geo)
+  
+# calculate population projections for missing years
+population_projections <- population_projections %>% 
+  mutate("2025"=round((X2020+X2030)/2),
+         "2035"=round((X2030+X2040)/2)) %>% 
+  gather("year", "population", 2:6)
+
+# change country name and year where necessary
+population_projections$country.code <- gsub("EL", "GR", population_projections$country.code)
+population_projections$year <- gsub("X", "", population_projections$year)
+
+# combine population and population projections
+population <- rbind(population, population_projections) %>% 
+  arrange(country.code, year)
+
+# cast year to integer data type
+population$year <- as.integer(population$year)
 
 
 
@@ -15,7 +83,7 @@ library(tidyverse)
 ##### TEMPERATURE #####
 
 ### European average temperatures over land areas relative to the pre-industrial period in degrees celcius
-# https://www.eea.europa.eu/data-and-maps/daviz/european-average-air-temperature-anomalies-8#tab-chart_8
+# source: https://www.eea.europa.eu/data-and-maps/daviz/european-average-air-temperature-anomalies-8#tab-chart_8
 
 # load raw data
 temperature_deviations_raw <- read.csv("input/temperature_deviations_raw.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
@@ -36,8 +104,7 @@ write.csv(european_land_temperature_deviations_annual, "output/european_land_tem
 ##### EMISSIONS #####
 
 ### greenhouse gas (ghg) emissions per sector in giga tonnes CO2 equivalent (gtco2e), 1985-2016, European countries incl. EU28
-# https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-14 (OLD)
-# https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15
+# source: https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15
 
 # load raw data
 ghg_emissions_per_sector_raw <- read.csv("input/ghg_emissions_per_sector_raw.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
@@ -51,10 +118,9 @@ ghg_emissions_per_sector <- ghg_emissions_per_sector_raw %>%
               Sector_name=="3 - Agriculture" | Sector_name=="5 - Waste management") &
            !(Year %in% c("1985-1987", "1985", "1986", "1987", "1988", "1989")) & Country!="EU (KP)") %>% 
   select(Country, Country_code, emissions, Sector_name, Year) %>% 
-  mutate(emissions=emissions/1000) %>% 
   rename(country.name=Country, country.code=Country_code, ghg.emissions.mio.tonnes=emissions, sector=Sector_name, year=Year)
 
-# replace country names and codes and sector names where necessary
+# replace country names, country codes and sector names where necessary
 ghg_emissions_per_sector$country.name[ghg_emissions_per_sector$country.name=="EU28 (Convention)"] <- "EU28"
 ghg_emissions_per_sector$country.code[ghg_emissions_per_sector$country.code=="EUA"] <- "EU28"
 ghg_emissions_per_sector$country.name[ghg_emissions_per_sector$country.name=="United Kingdom (Convention)"] <- "United Kingdom"
@@ -69,14 +135,14 @@ ghg_emissions_per_sector$sector[ghg_emissions_per_sector$sector=="5 - Waste mana
 ghg_emissions_per_sector <- ghg_emissions_per_sector %>% 
   spread(sector, ghg.emissions.mio.tonnes)
 
-# cast year to numeric data type
+# cast year to integer data type
 ghg_emissions_per_sector$year <- as.integer(as.character(ghg_emissions_per_sector$year))
 
 # calculate EU28 total sum and cumsum ghg emissions in gtco2e
 EU28_total_ghg_emissions <- ghg_emissions_per_sector %>% 
   filter(country.name=="EU28") %>% 
   group_by(year) %>% 
-  summarize(sum.total.ghg.emissions.mio.tonnes=round(sum(total.ghg.emissions.mio.tonnes), 1)) %>% 
+  summarize(sum.total.ghg.emissions.mio.tonnes=round(sum(total.ghg.emissions.mio.tonnes/1000), 1)) %>% 
   mutate(cumsum.total.ghg.emissions.mio.tonnes=round(cumsum(sum.total.ghg.emissions.mio.tonnes), 1))
 
 # write csv
@@ -84,13 +150,12 @@ write.csv(EU28_total_ghg_emissions, "output/EU28_total_ghg_emissions.csv", row.n
 
 
 
-
-
 ### ghg emissions indexed (base year 1990), ghg emissions per capita (tonnes), 1990-2016, European countries incl. EU28
-# https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10
+# source: https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10
 
 #  The indicator measures all man-made emissions of the so called 'Kyoto basket' of greenhouse gases, including carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), and the so-called F-gases (hydrofluorocarbons, perfluorocarbons, nitrogen triflouride (NF3) and sulphur hexafluoride (SF6)). Using each gas' individual global warming potential (GWP), they are being integrated into a single indicator expressed in units of CO2 equivalents. Emissions data are submitted annually by the EU Member States as part of the reporting under the United Nations Framework Convention on Climate Change (UNFCCC). 
 
+# load raw data
 ghg_emissions_indexed_and_per_capita_raw <- read.csv(paste0("input/ghg_emissions_indexed_and_per_capita_raw.tsv"), header=TRUE, sep="\t", stringsAsFactors=FALSE)
 
 # split first column
@@ -100,7 +165,7 @@ ghg_emissions_indexed_and_per_capita <- ghg_emissions_indexed_and_per_capita_raw
 # replace country codes where necessary
 ghg_emissions_indexed_and_per_capita$country.code[ghg_emissions_indexed_and_per_capita$country.code=="EL"] <- "GR"
 
-# ghg emissions indexed
+# get ghg emissions indexed
 ghg_emissions_indexed <- ghg_emissions_indexed_and_per_capita %>% 
   filter(indicator=="GHG_I90") %>% 
   gather("year", "ghg.emissions.indexed", 3:29) %>% 
@@ -111,7 +176,7 @@ ghg_emissions_indexed$year <- gsub("X", "", ghg_emissions_indexed$year)
 ghg_emissions_indexed$year <- as.integer(ghg_emissions_indexed$year)
 ghg_emissions_indexed$ghg.emissions.indexed <- as.numeric(ghg_emissions_indexed$ghg.emissions.indexed)
 
-# ghg emissions per capita
+# get ghg emissions per capita
 ghg_emissions_per_capita <- ghg_emissions_indexed_and_per_capita %>% 
   filter(indicator=="GHG_T_HAB") %>% 
   gather("year", "ghg.emissions.per.capita", 3:29) %>% 
@@ -126,61 +191,12 @@ ghg_emissions_per_capita$ghg.emissions.per.capita.tonnes <- as.numeric(ghg_emiss
 ghg_emissions_per_capita$year <- gsub("X", "", ghg_emissions_per_capita$year)
 ghg_emissions_per_capita$year <- as.integer(ghg_emissions_per_capita$year)
 
-# merge all ghg emissions dataframes
-ghg_emissions <- merge(ghg_emissions_per_sector, ghg_emissions_indexed, by=c("country.code", "year")) 
-ghg_emissions <- merge(ghg_emissions, ghg_emissions_per_capita, by=c("country.code", "year")) 
-
-# get country names and codes for mapping
-country_names_and_codes <- ghg_emissions %>% 
-  select(country.name, country.code) %>%
-  unique()
-
-# drop country code
-ghg_emissions$country.code <- NULL
-
-# change order of columns
-ghg_emissions <- ghg_emissions[,c(2,1,3:10)]
-
-# round ghg emissions
-ghg_emissions <- ghg_emissions %>% 
-  mutate_at(vars(agriculture.ghg.emissions.mio.tonnes, 
-                 energy.ghg.emissions.mio.tonnes, 
-                 industry.ghg.emissions.mio.tonnes, 
-                 total.ghg.emissions.mio.tonnes,
-                 transport.ghg.emissions.mio.tonnes,
-                 waste.ghg.emissions.mio.tonnes), funs(round(., 1)))
-
-# calculate national and EU28 ghg emission shares
-EU28_ghg_emissions <- ghg_emissions %>%
-  filter(country.name=="EU28") %>% 
-  select(-country.name) %>% 
-  rename_all(function(x) paste0("EU28.", x)) %>% 
-  rename(year=EU28.year)
-
-ghg_emissions_with_shares <- merge(ghg_emissions, EU28_ghg_emissions, by="year") %>% 
-  arrange(country.name, year) %>% 
-  mutate(agriculture.ghg.emissions.national.share=round(agriculture.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
-         energy.ghg.emissions.national.share=round(energy.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
-         industry.ghg.emissions.national.share=round(industry.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
-         transport.ghg.emissions.national.share=round(transport.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
-         waste.ghg.emissions.national.share=round(waste.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
-         agriculture.ghg.emissions.EU28.share=round(agriculture.ghg.emissions.mio.tonnes/EU28.agriculture.ghg.emissions.mio.tonnes, 4),
-         energy.ghg.emissions.EU28.share=round(energy.ghg.emissions.mio.tonnes/EU28.energy.ghg.emissions.mio.tonnes, 4),
-         industry.ghg.emissions.EU28.share=round(industry.ghg.emissions.mio.tonnes/EU28.industry.ghg.emissions.mio.tonnes, 4),
-         total.ghg.emissions.EU28.share=round(total.ghg.emissions.mio.tonnes/EU28.total.ghg.emissions.mio.tonnes, 4),
-         transport.ghg.emissions.EU28.share=round(transport.ghg.emissions.mio.tonnes/EU28.transport.ghg.emissions.mio.tonnes, 4),
-         waste.ghg.emissions.EU28.share=round(waste.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4))
-
-# write csv
-write.csv(ghg_emissions_with_shares, "output/ghg_emissions.csv", row.names=FALSE)
-
-
-
 
 
 ### ghg emissions projections (no projections for Switzerland, Iceland, Liechtenstein and Turkey)
-# https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4
+# source: https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4
 
+# load raw data
 ghg_emissions_projections_raw <- read.csv("input/ghg_emissions_projections_raw.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
 
 # cast Final.Gap.filled to numeric
@@ -197,7 +213,6 @@ ghg_emissions_projections <- ghg_emissions_projections_raw %>%
               Category_name=="Waste") & 
            Gas=="Total GHGs (ktCO2e)") %>% # unit???
   select(MS, Year, Category_name, Final.Gap.filled) %>% 
-  mutate(Final.Gap.filled=Final.Gap.filled/1000) %>%
   spread(Category_name, Final.Gap.filled) %>% 
   rename(country.code=MS, year=Year, agriculture.ghg.emissions.mio.tonnes=Agriculture, energy.ghg.emissions.mio.tonnes=`Energy industries`, industry.ghg.emissions.mio.tonnes=`Industrial processes`, transport.ghg.emissions.mio.tonnes=Transport, total.ghg.emissions.mio.tonnes=`Total w.out LULUCF`, waste.ghg.emissions.mio.tonnes=Waste)
 
@@ -205,19 +220,78 @@ ghg_emissions_projections <- ghg_emissions_projections_raw %>%
 ghg_emissions_projections$country.code[ghg_emissions_projections$country.code=="GB"] <- "UK"
 ghg_emissions_projections$country.code[ghg_emissions_projections$country.code=="EU"] <- "EU28"
 
-# add country names and drop country code
-ghg_emissions_projections <- merge(ghg_emissions_projections, country_names_and_codes, by="country.code") %>% 
-  select(-country.code) %>% 
+# get 1990 ghg emissions
+ghg_emissions_1990 <- ghg_emissions_per_sector %>% 
+  filter(year==1990) %>% 
+  select(country.code, total.ghg.emissions.mio.tonnes) %>% 
+  rename(total.ghg.emissions.mio.tonnes.1990=total.ghg.emissions.mio.tonnes)
+
+# get country names and codes for mapping
+country_names_and_codes <- ghg_emissions_per_sector %>% 
+  select(country.name, country.code) %>%
+  unique()
+
+# filter only required years and calculate ghg emissions indexed and ghg emissions per capita for current and future years
+ghg_emissions_projections_filtered <- ghg_emissions_projections %>% 
+  filter(year %in% c(2017, 2018, 2020, 2025, 2030, 2035)) %>% 
+  left_join(ghg_emissions_1990, by="country.code") %>% 
+  mutate(ghg.emissions.indexed=round((total.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes.1990)*100, 1)) %>% 
+  inner_join(population, by=c("country.code", "year")) %>% 
+  mutate(ghg.emissions.per.capita.tonnes=round(((total.ghg.emissions.mio.tonnes/1000)/(population/1000000)), 1)) %>% 
+  select(-population, -total.ghg.emissions.mio.tonnes.1990) %>% 
+  left_join(country_names_and_codes, by="country.code") %>% 
+  arrange(country.code, year)
+
+
+
+### put everything together
+
+# combine all ghg emissions dataframes
+ghg_emissions <- ghg_emissions_per_sector %>% 
+  inner_join(ghg_emissions_indexed, by=c("country.code", "year")) %>% 
+  inner_join(ghg_emissions_per_capita, by=c("country.code", "year")) %>% 
+  rbind(ghg_emissions_projections_filtered) %>% 
   arrange(country.name, year)
 
-# change order of columns
-ghg_emissions_projections <- ghg_emissions_projections[,c(8,1,2:7)]
+# extract EU28 ghg emissions
+EU28_ghg_emissions <- ghg_emissions %>%
+  filter(country.name=="EU28") %>% 
+  select(-country.name, -country.code, -ghg.emissions.indexed, -ghg.emissions.per.capita.tonnes) %>% 
+  rename_all(function(x) paste0("EU28.", x)) %>% 
+  rename(year=EU28.year)
 
-# sort by country code and year
-ghg_emissions_projections <- ghg_emissions_projections[with(ghg_emissions_projections, order(country.name, year)), ]
+# calculate national and EU28 ghg emission shares
+ghg_emissions_with_shares <- ghg_emissions %>% 
+  left_join(EU28_ghg_emissions, by="year") %>% 
+  mutate(agriculture.ghg.emissions.national.share=round(agriculture.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         energy.ghg.emissions.national.share=round(energy.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         industry.ghg.emissions.national.share=round(industry.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         transport.ghg.emissions.national.share=round(transport.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         waste.ghg.emissions.national.share=round(waste.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         agriculture.ghg.emissions.EU28.share=round(agriculture.ghg.emissions.mio.tonnes/EU28.agriculture.ghg.emissions.mio.tonnes, 4),
+         energy.ghg.emissions.EU28.share=round(energy.ghg.emissions.mio.tonnes/EU28.energy.ghg.emissions.mio.tonnes, 4),
+         industry.ghg.emissions.EU28.share=round(industry.ghg.emissions.mio.tonnes/EU28.industry.ghg.emissions.mio.tonnes, 4),
+         total.ghg.emissions.EU28.share=round(total.ghg.emissions.mio.tonnes/EU28.total.ghg.emissions.mio.tonnes, 4),
+         transport.ghg.emissions.EU28.share=round(transport.ghg.emissions.mio.tonnes/EU28.transport.ghg.emissions.mio.tonnes, 4),
+         waste.ghg.emissions.EU28.share=round(waste.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4)) %>% 
+  select(-EU28.agriculture.ghg.emissions.mio.tonnes,
+         -EU28.energy.ghg.emissions.mio.tonnes,
+         -EU28.industry.ghg.emissions.mio.tonnes,
+         -EU28.total.ghg.emissions.mio.tonnes,
+         -EU28.transport.ghg.emissions.mio.tonnes,
+         -EU28.waste.ghg.emissions.mio.tonnes)
+
+# round ghg emissions
+ghg_emissions_with_shares <- ghg_emissions_with_shares %>%
+  mutate_at(vars(agriculture.ghg.emissions.mio.tonnes,
+                 energy.ghg.emissions.mio.tonnes,
+                 industry.ghg.emissions.mio.tonnes,
+                 total.ghg.emissions.mio.tonnes,
+                 transport.ghg.emissions.mio.tonnes,
+                 waste.ghg.emissions.mio.tonnes), funs(round(./1000, 1)))
 
 # write csv
-write.csv(ghg_emissions_projections, "output/ghg_emissions_projections.csv", row.names=FALSE)
+write.csv(ghg_emissions_with_shares, "output/ghg_emissions.csv", row.names=FALSE)
 
 
 
