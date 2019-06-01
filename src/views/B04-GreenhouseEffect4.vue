@@ -106,6 +106,7 @@ export default {
           'waste.ghg.emissions.mio.tonnes',
           'transport.ghg.emissions.mio.tonnes',
           'industry.ghg.emissions.mio.tonnes',
+          'other.ghg.emissions.mio.tonnes',
         ].reduce((result, key) => {
           // eslint-disable-next-line no-param-reassign
           result[key] = data[key];
