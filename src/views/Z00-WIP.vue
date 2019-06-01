@@ -86,7 +86,7 @@ export default {
     this.$parent.map.once('moveend', () => {
       // emissions data load csv
       d3.csv('/data/ghg_emissions.csv').then((rows) => {
-        rows.forEach(function(d) {
+        rows.forEach((d) => {
           d[valueColumn] = parseFloat(d[valueColumn]);
         });
 
@@ -104,16 +104,16 @@ export default {
           });
 
           d3.json(`/data/geo_countries/${countryCode}-simplified.json`).then((countryInfo) => {
-              const location = countryInfo.View[0].Result[0].Location;
-              const layer = omnivore.wkt.parse(location.Shape.Value, null, layerTpl);
+            const location = countryInfo.View[0].Result[0].Location;
+            const layer = omnivore.wkt.parse(location.Shape.Value, null, layerTpl);
 
-              that.countryLayer[countryCode] = layer;
-              layer.addTo(that.$parent.$data.mapLayerGroup);
-            }).then(() => {
-              countriesProcessed = countriesProcessed + 1;
-              if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-                that.renderYear();
-              }
+            that.countryLayer[countryCode] = layer;
+            layer.addTo(that.$parent.$data.mapLayerGroup);
+          }).then(() => {
+            countriesProcessed += 1;
+            if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
+              that.renderYear();
+            }
           });
         }
       });
@@ -124,7 +124,7 @@ export default {
     renderYear() {
       const that = this;
 
-      let rowsOfInterest = this.emissionData.filter(r => r.year === that.year && r['country.name'] !== 'EU28');
+      const rowsOfInterest = this.emissionData.filter(r => r.year === that.year && r['country.name'] !== 'EU28');
 
       const valueMin = Math.min(...rowsOfInterest.map(r => r[valueColumn]));
       const valueMax = Math.max(...rowsOfInterest.map(r => r[valueColumn]));

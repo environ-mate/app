@@ -6,7 +6,7 @@
     "desc_2": "Treibhausgase bleiben einmal freigesetzt unterschiedlich lange in der Atmosphäre. CO2 verbleibt bis zu 120 Jahre. ",
     "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht sofort umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
-    "vis_title": "Treibhausgas Emissionen 2018 in deinem Heimatland {homeTown}",
+    "vis_title": "Treibhausgas Emissionen {year} in deinem Heimatland {homeTown}",
     "vis_legend_agriculture": "Landxwirtschaft",
     "vis_legend_energy": "Energiesektor",
     "vis_legend_waste": "Abfall",
@@ -41,7 +41,7 @@
             <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
           </div>
           <div class="column col-7">
-            <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName}) }}</h5>
+            <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName, year: this.year}) }}</h5>
             <vue-c3 :handler="chart"></vue-c3>
           </div>
         </div>
@@ -77,52 +77,63 @@ export default {
   data() {
     return {
       chart: new Vue(),
-      year: '2018',
+      year: null,
     };
   },
 
-  mounted() {
+  mounted: function () {
     // emissions data load csv
-    d3.csv('/data/ghg_emissions.csv').then((rows) => {
-      // map csv country name to home towbn
-      const homeCountryName = Object
-        .values(Mappings.countryMapping)
-        .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
+    d3.csv('/data/ghg_emissions.csv')
+      .then((rows) => {
+        // map csv country name to home towbn
+        const homeCountryName = Object
+          .values(Mappings.countryMapping)
+          .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
 
-      let data = rows.filter(r => r.year === this.year && r['country.name'] === homeCountryName )[0];
-      data = [
-        'agriculture.ghg.emissions.mio.tonnes',
-        'energy.ghg.emissions.mio.tonnes',
-        'waste.ghg.emissions.mio.tonnes',
-        'transport.ghg.emissions.mio.tonnes',
-        'industry.ghg.emissions.mio.tonnes',
-      ].reduce((result, key) => { result[key] = data[key]; return result; }, {});
+        let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r['year']) < new Date().getFullYear());
 
-      console.log(data);
+        // take last year found
+        data = data.sort(function (a, b) {
+          return a.year - b.year;
+        });
+        data = data.slice(-1)[0];
 
-      this.chart.$emit('init', {
-        data: {
-          json: data,
-          names: {
-            'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
-            'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
-            'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
-            'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
-            'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
-            'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
+        this.year = data.year;
+
+        data = [
+          'agriculture.ghg.emissions.mio.tonnes',
+          'energy.ghg.emissions.mio.tonnes',
+          'waste.ghg.emissions.mio.tonnes',
+          'transport.ghg.emissions.mio.tonnes',
+          'industry.ghg.emissions.mio.tonnes',
+        ].reduce((result, key) => {
+          result[key] = data[key];
+          return result;
+        }, {});
+
+        this.chart.$emit('init', {
+          data: {
+            json: data,
+            names: {
+              'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
+              'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
+              'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
+              'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
+              'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
+              'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
+            },
+            colors: {
+              'agriculture.ghg.emissions.mio.tonnes': '#74c476',
+              'energy.ghg.emissions.mio.tonnes': '#fc8d59',
+              'waste.ghg.emissions.mio.tonnes': '#fb6a4a',
+              'transport.ghg.emissions.mio.tonnes': '#67a9cf',
+              'industry.ghg.emissions.mio.tonnes': '#9e9ac8',
+              'other.ghg.emissions.mio.tonnes': '#ffffb2',
+            },
+            type: 'donut',
           },
-          colors: {
-            'agriculture.ghg.emissions.mio.tonnes': '#74c476',
-            'energy.ghg.emissions.mio.tonnes': '#fc8d59',
-            'waste.ghg.emissions.mio.tonnes': '#fb6a4a',
-            'transport.ghg.emissions.mio.tonnes': '#67a9cf',
-            'industry.ghg.emissions.mio.tonnes': '#9e9ac8',
-            'other.ghg.emissions.mio.tonnes': '#ffffb2',
-          },
-          type: 'donut',
-        },
+        });
       });
-    });
   },
 
   methods: {
