@@ -65,6 +65,7 @@
 <script>
 import Vue from 'vue';
 import VueC3 from 'vue-c3';
+import Colors from '@/utils/colors';
 
 export default {
   components: {
@@ -90,9 +91,9 @@ export default {
         colors: {
           'temperature.deviation.degree.celcius': (d) => {
             if (d.value < 0) {
-              return '#6baed6';
+              return Colors.blue;
             }
-            return '#fb6a4a';
+            return Colors.red;
           },
         },
       },

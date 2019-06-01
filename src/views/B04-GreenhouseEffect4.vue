@@ -68,6 +68,7 @@ import * as d3 from 'd3';
 import Vue from 'vue';
 import VueC3 from 'vue-c3';
 import Mappings from '@/utils/mappings';
+import Colors from '@/utils/colors';
 
 export default {
   components: {
@@ -81,7 +82,7 @@ export default {
     };
   },
 
-  mounted: function () {
+  mounted() {
     // emissions data load csv
     d3.csv('/data/ghg_emissions.csv')
       .then((rows) => {
@@ -90,14 +91,13 @@ export default {
           .values(Mappings.countryMapping)
           .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
 
-        let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r['year']) < new Date().getFullYear());
+        let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r.year, 10) < new Date().getFullYear());
 
         // take last year found
-        data = data.sort(function (a, b) {
-          return a.year - b.year;
-        });
-        data = data.slice(-1)[0];
+        data = data.sort((a, b) => a.year - b.year);
 
+        // eslint-disable-next-line
+        data = data.slice(-1)[0];
         this.year = data.year;
 
         data = [
@@ -107,6 +107,7 @@ export default {
           'transport.ghg.emissions.mio.tonnes',
           'industry.ghg.emissions.mio.tonnes',
         ].reduce((result, key) => {
+          // eslint-disable-next-line no-param-reassign
           result[key] = data[key];
           return result;
         }, {});
@@ -123,12 +124,12 @@ export default {
               'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
             },
             colors: {
-              'agriculture.ghg.emissions.mio.tonnes': '#74c476',
-              'energy.ghg.emissions.mio.tonnes': '#fc8d59',
-              'waste.ghg.emissions.mio.tonnes': '#fb6a4a',
-              'transport.ghg.emissions.mio.tonnes': '#67a9cf',
-              'industry.ghg.emissions.mio.tonnes': '#9e9ac8',
-              'other.ghg.emissions.mio.tonnes': '#ffffb2',
+              'agriculture.ghg.emissions.mio.tonnes': Colors.green,
+              'energy.ghg.emissions.mio.tonnes': Colors.orange,
+              'waste.ghg.emissions.mio.tonnes': Colors.red,
+              'transport.ghg.emissions.mio.tonnes': Colors.blue,
+              'industry.ghg.emissions.mio.tonnes': Colors.purple,
+              'other.ghg.emissions.mio.tonnes': Colors.yellow,
             },
             type: 'donut',
           },

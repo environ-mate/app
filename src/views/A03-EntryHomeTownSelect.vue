@@ -57,6 +57,7 @@
 
 <script>
 import L from 'leaflet';
+import Colors from '@/utils/colors';
 import Helper from '@/utils/helper';
 import axios from 'axios';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
@@ -114,29 +115,15 @@ export default {
         `https://geocoder.api.here.com/6.2/geocode.json?locationid=${locationId}&gen=9&app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&maxresults=1&additionaldata=IncludeShapeLevel,city`,
       )
         .then((response) => {
-          // const jsonLayer = L.geoJson(response.data, {
-
-          // style: {
-          //   weight: 0,
-          //   fillColor: '#00ad79',
-          //   fillOpacity: 0.3
-          // },
-
-          // onEachFeature(feature, layer) {
-          // layer.bindPopup("<strong>" + feature.properties['DISTRICT'])
-          // },
-
-          // });
-
           const location = response.data.Response.View[0].Result[0].Location;
 
           let layer = L.geoJson(null, {
             style() {
               return {
                 weight: 2,
-                color: '#43a2ca',
+                color: Colors.blue,
                 opacity: 0.9,
-                fillColor: '#43a2ca',
+                fillColor: Colors.blue,
                 fillOpacity: 0.3,
               };
             },

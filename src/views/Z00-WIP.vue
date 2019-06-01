@@ -87,15 +87,23 @@ export default {
       // emissions data load csv
       d3.csv('/data/ghg_emissions.csv').then((rows) => {
         rows.forEach((d) => {
+          // eslint-disable-next-line
           d[valueColumn] = parseFloat(d[valueColumn]);
         });
 
         that.emissionData = rows;
         let countriesProcessed = 0;
 
+        function renderInitial() {
+          countriesProcessed += 1;
+          if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
+            that.renderYear();
+          }
+        }
+
         // load country shapes
-        for (const countryInfo of Object.values(Mappings.countryMapping)) {
-          const countryCode = countryInfo[1];
+        for (const countryMapping of Object.values(Mappings.countryMapping)) {
+          const countryCode = countryMapping[1];
 
           const layerTpl = L.geoJson(null, {
             style() {
@@ -109,12 +117,7 @@ export default {
 
             that.countryLayer[countryCode] = layer;
             layer.addTo(that.$parent.$data.mapLayerGroup);
-          }).then(() => {
-            countriesProcessed += 1;
-            if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-              that.renderYear();
-            }
-          });
+          }).then(renderInitial);
         }
       });
     });
