@@ -62,8 +62,6 @@ import axios from 'axios';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 
 export default {
-  name: 'EntryHomeTownSelect',
-
   data() {
     return {
       modalOpen: true,
@@ -146,7 +144,8 @@ export default {
 
           this.$parent.$data.homeTownCoords = [location.DisplayPosition.Latitude, location.DisplayPosition.Longitude];
           this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
-          this.$parent.$data.homeTownCountry = location.Address.Country;
+          this.$parent.$data.homeTownCountryCode = location.Address.Country;
+          this.$parent.$data.homeTownCountryName = location.Address.AdditionalData.filter(d => d.key === 'CountryName')[0].value;
 
           this.modalOpen = false;
 

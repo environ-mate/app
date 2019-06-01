@@ -1,10 +1,16 @@
 <i18n>
 {
   "de": {
-    "title": "Was ist eigentlich mit Treibhauseffekt gemeint? 🔆",
-    "desc_1": "Um die Erde ist eine Lufthülle, die man Atmosphäre nennt.",
-    "desc_2": "Darin gibt es verschiedene Gase von denen einige Sonnenlicht zur Erde durchlassen aber die Wärme zurückhalten",
-    "desc_3": "Das ist ähnlich wie in einem Gewächshaus (Treibhaus) und deshalb nennt man diese Gase auch Treibhausgase.",
+    "title": "Was sind Treibhausgase und woher kommen sie?",
+    "title_1": "Wo entstehen Treibhausgase",
+    "title_2": "Die wichtigsten Treibhausgase heißen",
+    "bullet_1": "Kohlenstoffdioxid (CO2)",
+    "bullet_2": "Methan (CH4)",
+    "bullet_3": "Schwefelhexalflourid (SF6)",
+    "bullet_4": "Distickstoffmonoxid (N2O)",
+    "bullet_5": "Stickstofftrifluorid (NF3)",
+    "bullet_6": "Fluorkohlenwasserstoffe auch FKW/HFKW",
+    "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
     "next_btn": "weiter"
   }
 }
@@ -23,16 +29,25 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-7">
+          <div class="column col-6">
+            <h5>{{ $t('title_1') }}</h5>
+          </div>
+          <div class="column col-6">
+            <h5>{{ $t('title_2') }}</h5>
+          </div>
+          <div class="column col-6">
             TODO: Bild
           </div>
-          <div class="column col-4">
-            <p>{{ $t('desc_1') }}</p>
-            <p>{{ $t('desc_2') }}</p>
-            <p>{{ $t('desc_3') }}</p>
-          </div>
-          <div class="column col-1 flex">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <div class="column col-6">
+            <ul>
+              <li>{{ $t('bullet_1') }}</li>
+              <li>{{ $t('bullet_2') }}</li>
+              <li>{{ $t('bullet_3') }}</li>
+              <li>{{ $t('bullet_4') }}</li>
+              <li>{{ $t('bullet_5') }}</li>
+              <li>{{ $t('bullet_6') }}</li>
+            </ul>
+            <p>{{ $t('bullet_desc') }}</p>
           </div>
         </div>
       </div>
@@ -56,7 +71,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'B02-GreenhouseEffect2' });
+      this.$router.push({ name: 'B04-GreenhouseEffect4' });
     },
 
     modalClose() {

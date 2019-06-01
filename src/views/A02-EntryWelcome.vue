@@ -37,8 +37,6 @@
 import Helper from '@/helper';
 
 export default {
-  name: 'EntryWelcome',
-
   mounted() {
     // fly map to europe
     this.$parent.map.flyToBounds([

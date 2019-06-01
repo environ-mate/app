@@ -23,7 +23,8 @@ export default {
       mapLayerGroup: L.layerGroup(),
       homeTownName: null,
       homeTownCoords: null,
-      homeTownCountry: null,
+      homeTownCountryName: null,
+      homeTownCountryCode: null,
       tutor: null,
       modalOpen: false,
     };
@@ -97,6 +98,17 @@ export default {
   html, body, #app {
     height: 100%;
     width: 100%;
+  }
+
+  .flex {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .flex-end {
+    align-self: flex-end;
   }
 
   .modal-body, .modal-container {

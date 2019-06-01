@@ -38,8 +38,6 @@
 import Helper from '@/helper';
 
 export default {
-  name: 'EntryLanguageSelect',
-
   mounted() {
     this.$parent.$data.modalOpen = false;
     Helper.sleep(4, () => {

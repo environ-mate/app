@@ -6,6 +6,9 @@ import EntryHomeTownSelect from '@/views/A03-EntryHomeTownSelect.vue';
 import EntryIntro from '@/views/A04-EntryIntro.vue';
 import GreenhouseEffect1 from '@/views/B01-GreenhouseEffect1.vue';
 import GreenhouseEffect2 from '@/views/B02-GreenhouseEffect2.vue';
+import GreenhouseEffect3 from '@/views/B03-GreenhouseEffect3.vue';
+import GreenhouseEffect4 from '@/views/B04-GreenhouseEffect4.vue';
+import WIP from '@/views/Z00-WIP.vue';
 
 Vue.use(Router);
 
@@ -45,6 +48,21 @@ export default new Router({
       path: '/greenhouse-effect/intro-2/',
       name: 'B02-GreenhouseEffect2',
       component: GreenhouseEffect2,
+    },
+    {
+      path: '/greenhouse-effect/intro-3/',
+      name: 'B03-GreenhouseEffect3',
+      component: GreenhouseEffect3,
+    },
+    {
+      path: '/greenhouse-effect/intro-4/',
+      name: 'B04-GreenhouseEffect4',
+      component: GreenhouseEffect4,
+    },
+    {
+      path: '/wip/',
+      name: 'Z00-WIP',
+      component: WIP,
     },
   ],
 });
