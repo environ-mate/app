@@ -6,7 +6,7 @@
     "intro_2": "In den letzten Jahrzehnten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. 1-2 Grad hören sich dabei wenig an, haben aber einen großen Effekt auf unsere Umwelt.",
     "chart_degress_desc": "Schaut man sich die Durchschnittstemperaturen in Europa im Vergleich zur vorindustriellen Zeit an, sieht man wie gerade die letzten Jahre immer wärmer wurden:",
     "chart_degress": "Durchschnittstemperaturen",
-    "next_desc": "als nächstes erkläre ich dir welche Ursachen die Erwärmung hat.",
+    "next_desc": "Als nächstes erkläre ich dir welche Ursachen die Erwärmung hat.",
     "next_btn": "Start Erklärung Klimawandel"
   }
 }
