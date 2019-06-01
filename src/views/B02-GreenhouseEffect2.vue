@@ -22,8 +22,10 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-7">
-            TODO: Bild
+          <div class="column col-7 flex-centered">
+            <img type="image/svg+xml" class="img-responsive">
+              <GreenhouseEffect :animate="true"/>
+            </img>
           </div>
           <div class="column col-1 flex-centered">
             <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
@@ -51,7 +53,13 @@
 </template>
 
 <script>
+import GreenhouseEffect from '@/components/GreenhouseEffect.vue';
+
 export default {
+  components: {
+    GreenhouseEffect,
+  },
+
   methods: {
     next() {
       this.$router.push({ name: 'B03-GreenhouseEffect3' });
@@ -67,3 +75,4 @@ export default {
   },
 };
 </script>
+
