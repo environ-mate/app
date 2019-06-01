@@ -7,7 +7,7 @@
     "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht sofort umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
     "vis_title": "Treibhausgas Emissionen {year} in deinem Heimatland {homeTown}",
-    "vis_legend_agriculture": "Landxwirtschaft",
+    "vis_legend_agriculture": "Landwirtschaft",
     "vis_legend_energy": "Energiesektor",
     "vis_legend_waste": "Abfall",
     "vis_legend_transport": "Verkehr",

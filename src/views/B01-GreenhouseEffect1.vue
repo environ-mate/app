@@ -23,8 +23,8 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-7">
-            TODO: Bild
+          <div class="column col-7 flex-centered">
+            <img class="img-responsive" src="/assets/B01-greenhouse-effect.svg"/>
           </div>
           <div class="column col-4">
             <p>{{ $t('desc_1') }}</p>
