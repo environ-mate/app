@@ -4,9 +4,6 @@
 
 ##### SETUP #####
 
-# set working directory
-setwd("C:/Users/alex.merdian-tarko/Desktop/EU Datathon 2019/data/")
-
 # load libraries
 library(tidyverse)
 
@@ -246,11 +243,16 @@ ghg_emissions_projections_filtered <- ghg_emissions_projections %>%
 
 ### put everything together
 
-# combine all ghg emissions dataframes
+# combine all ghg emissions dataframes and add 'Other' category to sectors for the sum of emissions per sector to be equal to total ghg emissions
 ghg_emissions <- ghg_emissions_per_sector %>% 
   inner_join(ghg_emissions_indexed, by=c("country.code", "year")) %>% 
   inner_join(ghg_emissions_per_capita, by=c("country.code", "year")) %>% 
   rbind(ghg_emissions_projections_filtered) %>% 
+  mutate(other.ghg.emissions.mio.tonnes=total.ghg.emissions.mio.tonnes-agriculture.ghg.emissions.mio.tonnes
+         -energy.ghg.emissions.mio.tonnes
+         -industry.ghg.emissions.mio.tonnes
+         -transport.ghg.emissions.mio.tonnes
+         -waste.ghg.emissions.mio.tonnes) %>% 
   arrange(country.name, year)
 
 # extract EU28 ghg emissions
@@ -268,18 +270,21 @@ ghg_emissions_with_shares <- ghg_emissions %>%
          industry.ghg.emissions.national.share=round(industry.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
          transport.ghg.emissions.national.share=round(transport.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
          waste.ghg.emissions.national.share=round(waste.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
+         other.ghg.emissions.national.share=round(other.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes, 4),
          agriculture.ghg.emissions.EU28.share=round(agriculture.ghg.emissions.mio.tonnes/EU28.agriculture.ghg.emissions.mio.tonnes, 4),
          energy.ghg.emissions.EU28.share=round(energy.ghg.emissions.mio.tonnes/EU28.energy.ghg.emissions.mio.tonnes, 4),
          industry.ghg.emissions.EU28.share=round(industry.ghg.emissions.mio.tonnes/EU28.industry.ghg.emissions.mio.tonnes, 4),
          total.ghg.emissions.EU28.share=round(total.ghg.emissions.mio.tonnes/EU28.total.ghg.emissions.mio.tonnes, 4),
          transport.ghg.emissions.EU28.share=round(transport.ghg.emissions.mio.tonnes/EU28.transport.ghg.emissions.mio.tonnes, 4),
-         waste.ghg.emissions.EU28.share=round(waste.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4)) %>% 
+         waste.ghg.emissions.EU28.share=round(waste.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4),
+         other.ghg.emissions.EU28.share=round(other.ghg.emissions.mio.tonnes/EU28.waste.ghg.emissions.mio.tonnes, 4)) %>% 
   select(-EU28.agriculture.ghg.emissions.mio.tonnes,
          -EU28.energy.ghg.emissions.mio.tonnes,
          -EU28.industry.ghg.emissions.mio.tonnes,
          -EU28.total.ghg.emissions.mio.tonnes,
          -EU28.transport.ghg.emissions.mio.tonnes,
-         -EU28.waste.ghg.emissions.mio.tonnes)
+         -EU28.waste.ghg.emissions.mio.tonnes,
+         -EU28.other.ghg.emissions.mio.tonnes)
 
 # round ghg emissions
 ghg_emissions_with_shares <- ghg_emissions_with_shares %>%
@@ -288,7 +293,11 @@ ghg_emissions_with_shares <- ghg_emissions_with_shares %>%
                  industry.ghg.emissions.mio.tonnes,
                  total.ghg.emissions.mio.tonnes,
                  transport.ghg.emissions.mio.tonnes,
-                 waste.ghg.emissions.mio.tonnes), funs(round(./1000, 1)))
+                 waste.ghg.emissions.mio.tonnes,
+                 other.ghg.emissions.mio.tonnes), funs(round(./1000, 1)))
+
+# change order of columns
+ghg_emissions_with_shares <- ghg_emissions_with_shares[, c(1:3,10,11,4:9,12:25)]
 
 # write csv
 write.csv(ghg_emissions_with_shares, "output/ghg_emissions.csv", row.names=FALSE)
