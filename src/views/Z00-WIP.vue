@@ -50,45 +50,10 @@
 import * as d3 from 'd3';
 import L from 'leaflet';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
+import Mappings from '@/utils/mappings';
 
 const colors = ['#fcae91', '#fb6a4a', '#de2d26', '#a50f15'];
-const valueColumn = 'ghg.emissions.per.capita.tonnes';  //
-
-const countryMappings = {
-  Hungary: 'HUN',
-  Lithuania: 'LTU',
-  Turkey: 'TUR',
-  Bulgaria: 'BGR',
-  Greece: 'GRC',
-  Czechia: 'CZE',
-  Austria: 'AUT',
-  Ireland: 'IRL',
-  Estonia: 'EST',
-  Slovakia: 'SVK',
-  Romania: 'ROU',
-  Belgium: 'BEL',
-  Poland: 'POL',
-  Norway: 'NOR',
-  Sweden: 'SWE',
-  Germany: 'DEU',
-  Finland: 'FIN',
-  'United Kingdom': 'GBR',
-  Liechtenstein: 'LIE',
-  Croatia: 'HRV',
-  Netherlands: 'NLD',
-  Slovenia: 'SVN',
-  Spain: 'ESP',
-  Switzerland: 'CHE',
-  Italy: 'ITA',
-  France: 'FRA',
-  Denmark: 'DNK',
-  Malta: 'MLT',
-  Luxembourg: 'LUX',
-  Iceland: 'ISL',
-  Latvia: 'LVA',
-  Cyprus: 'CYP',
-  Portugal: 'PRT',
-};
+const valueColumn = 'ghg.emissions.per.capita.tonnes';
 
 const layerStyle = {
   weight: 0.5,
@@ -129,7 +94,9 @@ export default {
         let countriesProcessed = 0;
 
         // load country shapes
-        for (const countryCode of Object.values(countryMappings)) {
+        for (const countryInfo of Object.values(Mappings.countryMapping)) {
+          const countryCode = countryInfo[1];
+
           const layerTpl = L.geoJson(null, {
             style() {
               return layerStyle;
@@ -144,7 +111,7 @@ export default {
               layer.addTo(that.$parent.$data.mapLayerGroup);
             }).then(() => {
               countriesProcessed = countriesProcessed + 1;
-              if (countriesProcessed === Object.keys(countryMappings).length) {
+              if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
                 that.renderYear();
               }
           });
@@ -169,7 +136,10 @@ export default {
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
           const value = parseFloat(row[valueColumn]);
-          const countryCode = countryMappings[row['country.name']];
+          const countryCode = Object
+            .values(Mappings.countryMapping)
+            .filter(m => m[0] === row['country.name'])[0][1];
+
           const style = layerStyle;
           style.fillOpacity = 0.5;
 

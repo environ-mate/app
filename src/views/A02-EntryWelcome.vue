@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Helper from '@/helper';
+import Helper from '@/utils/helper';
 
 export default {
   mounted() {

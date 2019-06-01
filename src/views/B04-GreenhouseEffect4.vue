@@ -7,6 +7,12 @@
     "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht sofort umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
     "vis_title": "Treibhausgas Emissionen 2018 in deinem Heimatland {homeTown}",
+    "vis_legend_agriculture": "Landxwirtschaft",
+    "vis_legend_energy": "Energiesektor",
+    "vis_legend_waste": "Abfall",
+    "vis_legend_transport": "Verkehr",
+    "vis_legend_industry": "Industrie",
+    "vis_legend_other": "Sonstige",
     "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
@@ -26,13 +32,13 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-1">
-            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          </div>
           <div class="column col-4">
             <p>{{ $t('desc_1') }}</p>
             <p>{{ $t('desc_2') }}</p>
             <p>{{ $t('desc_3') }}</p>
+          </div>
+          <div class="column col-1 flex">
+            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
           </div>
           <div class="column col-7">
             <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName}) }}</h5>
@@ -61,6 +67,7 @@
 import * as d3 from 'd3';
 import Vue from 'vue';
 import VueC3 from 'vue-c3';
+import Mappings from '@/utils/mappings';
 
 export default {
   components: {
@@ -77,7 +84,12 @@ export default {
   mounted() {
     // emissions data load csv
     d3.csv('/data/ghg_emissions.csv').then((rows) => {
-      let data = rows.filter(r => r.year === this.year && r['country.name'] === 'Germany')[0];
+      // map csv country name to home towbn
+      const homeCountryName = Object
+        .values(Mappings.countryMapping)
+        .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
+
+      let data = rows.filter(r => r.year === this.year && r['country.name'] === homeCountryName )[0];
       data = [
         'agriculture.ghg.emissions.mio.tonnes',
         'energy.ghg.emissions.mio.tonnes',
@@ -92,11 +104,20 @@ export default {
         data: {
           json: data,
           names: {
-            'agriculture.ghg.emissions.mio.tonnes': 'Landwirtschaft',
-            'energy.ghg.emissions.mio.tonnes': 'Energiesektor',
-            'waste.ghg.emissions.mio.tonnes': 'Abfall',
-            'transport.ghg.emissions.mio.tonnes': 'Verkehr',
-            'industry.ghg.emissions.mio.tonnes': 'Industrie',
+            'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
+            'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
+            'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
+            'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
+            'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
+            'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
+          },
+          colors: {
+            'agriculture.ghg.emissions.mio.tonnes': '#74c476',
+            'energy.ghg.emissions.mio.tonnes': '#fc8d59',
+            'waste.ghg.emissions.mio.tonnes': '#fb6a4a',
+            'transport.ghg.emissions.mio.tonnes': '#67a9cf',
+            'industry.ghg.emissions.mio.tonnes': '#9e9ac8',
+            'other.ghg.emissions.mio.tonnes': '#ffffb2',
           },
           type: 'donut',
         },

@@ -57,7 +57,7 @@
 
 <script>
 import L from 'leaflet';
-import Helper from '@/helper';
+import Helper from '@/utils/helper';
 import axios from 'axios';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 

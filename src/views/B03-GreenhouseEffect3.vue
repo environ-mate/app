@@ -35,6 +35,7 @@
           <div class="column col-6">
             <h5>{{ $t('title_2') }}</h5>
           </div>
+
           <div class="column col-6">
             TODO: Bild
           </div>
