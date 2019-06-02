@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Was sind Treibhausgase und woher kommen sie?",
-    "title_1": "Wo entstehen Treibhausgase",
+    "title_1": "Wo entstehen Treibhausgase?",
     "title_2": "Die wichtigsten Treibhausgase heißen",
     "bullet_1": "Kohlenstoffdioxid (CO2)",
     "bullet_2": "Methan (CH4)",
@@ -11,6 +11,18 @@
     "bullet_5": "Stickstofftrifluorid (NF3)",
     "bullet_6": "Fluorkohlenwasserstoffe auch FKW/HFKW",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
+    "cause_1_name": "Methan",
+    "cause_1_examples": "Biogas, Rinderhlatung, Nassreisanabau",
+    "cause_2_name": "Schwefelhexafluorid",
+    "cause_2_examples": "Gasisolierte Schaltanlagen",
+    "cause_3_name": "Distickstoffmonoxid",
+    "cause_3_examples": "Stickstoffdünger",
+    "cause_4_name": "Stickstofftrifluorid",
+    "cause_4_examples": "Flachbildschirm, Dünnschicht-Solarzellen",
+    "cause_5_name": "Kohlenstoffdioxid",
+    "cause_5_examples": "Energieerzeugung, Industrie, Verkehr",
+    "cause_6_name": "FKW/HFKW",
+    "cause_6_examples": "Kältemittel, Klimaanlagen",
     "next_btn": "weiter"
   }
 }
@@ -29,17 +41,81 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-6">
+          <div class="column col-8">
             <h5>{{ $t('title_1') }}</h5>
           </div>
-          <div class="column col-6">
+          <div class="column col-4">
             <h5>{{ $t('title_2') }}</h5>
           </div>
-
-          <div class="column col-6">
-            TODO: Bild
+          <div class="column col-8">
+            <div class="columns">
+              <div class="column col-6">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🐮 🌾 🚜 {{ $t('cause_1_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_1_examples') }}
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5"> 🔌 {{ $t('cause_2_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_2_examples') }}
+                  </div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🐄💩 {{ $t('cause_3_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_3_examples') }}
+                  </div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column col-6">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🖥 {{ $t('cause_4_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_4_examples') }}
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">✈️ 🚍 🏭 {{ $t('cause_5_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_5_examples') }}
+                  </div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">❄️ {{ $t('cause_6_name') }}</div>
+                  </div>
+                  <div class="card-body">
+                    {{ $t('cause_6_examples') }}
+                  </div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="column col-6">
+          <div class="column col-4">
             <ul>
               <li>{{ $t('bullet_1') }}</li>
               <li>{{ $t('bullet_2') }}</li>

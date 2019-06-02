@@ -13,7 +13,7 @@
     "vis_legend_transport": "Verkehr",
     "vis_legend_industry": "Industrie",
     "vis_legend_other": "Sonstige",
-    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
+    "next_desc": "zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
 }
