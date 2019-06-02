@@ -13,7 +13,7 @@
     "vis_legend_transport": "Verkehr",
     "vis_legend_industry": "Industrie",
     "vis_legend_other": "Sonstige",
-    "next_desc": "zu den Auswirkungen erzähle ich Dir jetzt mehr.",
+    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
 }
@@ -140,7 +140,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'Z00-WIP' });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     modalClose() {

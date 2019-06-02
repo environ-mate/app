@@ -8,6 +8,7 @@ import GreenhouseEffect1 from '@/views/B01-GreenhouseEffect1.vue';
 import GreenhouseEffect2 from '@/views/B02-GreenhouseEffect2.vue';
 import GreenhouseEffect3 from '@/views/B03-GreenhouseEffect3.vue';
 import GreenhouseEffect4 from '@/views/B04-GreenhouseEffect4.vue';
+import ClimateChangeEffectsIntro from '@/views/C01-ClimateChangeEffectsIntro.vue';
 import WIP from '@/views/Z00-WIP.vue';
 
 Vue.use(Router);
@@ -58,6 +59,11 @@ export default new Router({
       path: '/greenhouse-effect/intro-4/',
       name: 'B04-GreenhouseEffect4',
       component: GreenhouseEffect4,
+    },
+    {
+      path: '/climate-change/effects/intro/',
+      name: 'C01-ClimateChangeEffectsIntro',
+      component: ClimateChangeEffectsIntro,
     },
     {
       path: '/wip/',
