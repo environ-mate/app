@@ -2,8 +2,9 @@
 {
   "de": {
     "title": "Was ist eigentlich mit Treibhauseffekt gemeint? 🔆",
-    "desc_1": "Ohne diese Gase wäre die Erde sehr kalt.",
+    "desc_1": "Ohne diese Gase wäre unsere Erde sehr kalt und mit Eis bedeckt.",
     "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind um so mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
+    "desc_3": "Eine Folge: Mehr Wasser verdunstet von den Meeren und die wärmere Atmosphäre kann mehr Wasserdampf ansammeln. Dadurch erhöht sich die Chance auf extreme Regenfälle.",
     "next_btn": "weiter"
   }
 }
@@ -33,6 +34,7 @@
           <div class="column col-4">
             <p>{{ $t('desc_1') }}</p>
             <p>{{ $t('desc_2') }}</p>
+            <p>{{ $t('desc_3') }}</p>
           </div>
         </div>
       </div>

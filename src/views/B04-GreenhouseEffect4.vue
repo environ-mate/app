@@ -4,7 +4,7 @@
     "title": "Was sind Treibhausgase und woher kommen sie?",
     "desc_1": "Den größten Anteil hat CO2 und im Energiesektor entstehen die meisten Emissionen (Ausstoß an Gasen in die Umwelt). ",
     "desc_2": "Treibhausgase bleiben einmal freigesetzt unterschiedlich lange in der Atmosphäre. CO2 verbleibt bis zu 120 Jahre. ",
-    "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht sofort umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
+    "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
     "vis_title": "Treibhausgas Emissionen {year} in deinem Heimatland {homeTown}",
     "vis_legend_agriculture": "Landwirtschaft",
