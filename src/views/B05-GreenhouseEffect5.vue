@@ -1,7 +1,15 @@
 <i18n>
 {
   "de": {
-    "title": "Der Treibhauseffekt 🔆 ",
+    "title": "Emissionen über die Zeit in Europa",
+    "sector_agriculture": "Landwirtschaft",
+    "sector_all": "alle Sektoren",
+    "sector_energy": "Energiesektor",
+    "sector_waste": "Abfall",
+    "sector_transport": "Verkehr",
+    "sector_industry": "Industrie",
+    "sector_other": "Sonstige",
+    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
 }
@@ -15,16 +23,22 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-          {{ $t('title') }}
+          {{ $t('title') }} 🔆
         </div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-12">
+          <div class="column col-1"><h5>{{ this.year }}</h5></div>
+          <div class="column col-11">
             <input @input="renderYear" v-model="year" class="slider" type="range" min="1996" max="2016">
           </div>
-          <div class="column col-12 flex-centered">
-            <h5>{{ this.year }}</h5>
+          <div class="column col-4 flex-centered">
+            <select v-model="sectorSelected" @change="renderYear()" class="form-select">
+              <option v-for="(name, sectorID) in sectors" v-bind:value="sectorID" v-bind:key="sectorID">{{ name }}</option>
+            </select>
+          </div>
+          <div class="column col-6">
+            TODO: Sektor erklärung
           </div>
         </div>
       </div>
@@ -53,7 +67,6 @@ import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 import Mappings from '@/utils/mappings';
 
 const colors = ['#fcae91', '#fb6a4a', '#de2d26', '#a50f15'];
-const valueColumn = 'ghg.emissions.per.capita.tonnes';
 
 const layerStyle = {
   weight: 0.5,
@@ -70,6 +83,16 @@ export default {
       firstRound: true,
       countryLayer: {},
       emissionData: [],
+      sectorSelected: 'total',
+      defaultSector: 'total',
+      sectors: {
+        total: this.$t('sector_all'),
+        energy: this.$t('sector_energy'),
+        waste: this.$t('sector_waste'),
+        transport: this.$t('sector_transport'),
+        industry: this.$t('sector_industry'),
+        other: this.$t('sector_other'),
+      },
     };
   },
 
@@ -86,11 +109,6 @@ export default {
     this.$parent.map.once('moveend', () => {
       // emissions data load csv
       d3.csv('/data/ghg_emissions.csv').then((rows) => {
-        rows.forEach((d) => {
-          // eslint-disable-next-line
-          d[valueColumn] = parseFloat(d[valueColumn]);
-        });
-
         that.emissionData = rows;
         let countriesProcessed = 0;
 
@@ -129,16 +147,17 @@ export default {
 
       const rowsOfInterest = this.emissionData.filter(r => r.year === that.year && r['country.name'] !== 'EU28');
 
-      const valueMin = Math.min(...rowsOfInterest.map(r => r[valueColumn]));
-      const valueMax = Math.max(...rowsOfInterest.map(r => r[valueColumn]));
+      // filter by sector
+      this.valueColumn = `${this.sectorSelected}.ghg.emissions.mio.tonnes`;
+
+      const valueMin = Math.min(...rowsOfInterest.map(r => r[this.valueColumn]));
+      const valueMax = Math.max(...rowsOfInterest.map(r => r[this.valueColumn]));
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / colors.length;
 
-      console.log(valueMin, valueMax, valueRangeDistributed);
-
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
-          const value = parseFloat(row[valueColumn]);
+          const value = parseFloat(row[this.valueColumn]);
           const countryCode = Object
             .values(Mappings.countryMapping)
             .filter(m => m[0] === row['country.name'])[0][1];
@@ -153,8 +172,6 @@ export default {
           if (colorIndex > colors.length - 1) {
             colorIndex = colors.length - 1;
           }
-
-          console.log(value, colorIndex);
 
           style.fillColor = colors[colorIndex];
 

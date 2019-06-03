@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Verrate mir als erstes den Namen der Stadt in der du wohnst",
-    "inputPlaceholder": "gebe hier den Namen deines Wohnortes ein",
+    "input_placeholder": "gebe hier den Namen deines Wohnortes ein",
     "popup": "Deine Heimatstadt %{city}"
   }
 }
@@ -25,7 +25,7 @@
                     <div class="has-icon-left">
                       <input v-model="city2geoCode" ref="city2geoCode" @input="doCity2GeoCode"
                              class="form-input" type="text" size="50" style="width: 100%"
-                             :placeholder="$t('inputPlaceholder')">
+                             :placeholder="$t('input_placeholder')">
                       <i class="form-icon" v-bind:class="{ loading: city2geoCodeIsLoading }"></i>
                     </div>
                   </div>

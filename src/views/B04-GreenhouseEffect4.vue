@@ -13,7 +13,6 @@
     "vis_legend_transport": "Verkehr",
     "vis_legend_industry": "Industrie",
     "vis_legend_other": "Sonstige",
-    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
 }
@@ -52,7 +51,6 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-            {{ $t('next_desc') }}
           </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
@@ -140,7 +138,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
+      this.$router.push({ name: 'B05-GreenhouseEffect5' });
     },
 
     modalClose() {

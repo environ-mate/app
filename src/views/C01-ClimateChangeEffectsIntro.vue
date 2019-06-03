@@ -88,7 +88,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'Z00_WIP' });
+      this.$router.push({ name: 'B05-GreenhouseEffect5' });
     },
 
     modalClose() {

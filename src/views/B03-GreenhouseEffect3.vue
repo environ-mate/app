@@ -11,7 +11,7 @@
     "bullet_5": "Stickstofftrifluorid (NF3)",
     "bullet_6": "Fluorkohlenwasserstoffe auch FKW/HFKW",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF6 z.B. 23.500-fach stärker als CO2",
-    "cause_1_name": "Methan",
+    "cause1_name": "Methan",
     "cause_1_examples": "Biogas, Rinderhlatung, Nassreisanabau",
     "cause_2_name": "Schwefelhexafluorid",
     "cause_2_examples": "Gasisolierte Schaltanlagen",

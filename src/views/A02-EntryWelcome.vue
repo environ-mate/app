@@ -2,7 +2,7 @@
 {
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
-    "helloSub": "Ich begleite dich ab jetzt hier.",
+    "hello_sub": "Ich begleite dich ab jetzt hier.",
     "help": "Du kannst zu jeder Zeit die <i><b>h</b></i> Taste drücken. Ich komme dir dann zu Hilfe geeilt",
     "start": "Klicke hier um zu starten!"
   }
@@ -15,11 +15,10 @@
       <div class="modal-body">
         <center>
           <h5>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h5>
-          <h6>{{ $t("helloSub") }}</h6>
+          <h6>{{ $t("hello_sub") }}</h6>
           <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
           <h6>
-            <span v-html="$t('help')"/>
-            <span class="emoji"> 🐢 💨</span>
+            <span v-html="$t('help')"/> 🐢 💨
           </h6>
           <p>
             <br/>
