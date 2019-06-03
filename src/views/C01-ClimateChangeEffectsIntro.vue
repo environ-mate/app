@@ -18,7 +18,7 @@
     "effect_indirect_5": "Neue Krankheiten (tropische Krankheiten in Europa)",
     "effect_indirect_6": "Waldbrände",
     "effect_indirect_7": "Überflutungen",
-    "subtitle_msg": "Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
+    "subtitle_msg": "In den letzten Jahrzehnten wurde ein Anstieg von ca. 0,5°C gemessen. Bis 2100 erwartet man weitere 1,5 bis 3°C. Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
     "next_btn": "weiter"
   }
 }

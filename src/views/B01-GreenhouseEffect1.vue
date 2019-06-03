@@ -2,9 +2,10 @@
 {
   "de": {
     "title": "Was ist eigentlich mit Treibhauseffekt gemeint? 🔆",
-    "desc_1": "Um die Erde ist eine Lufthülle, die man Atmosphäre nennt.",
-    "desc_2": "Darin gibt es verschiedene Gase von denen einige Sonnenlicht zur Erde durchlassen aber die Wärme zurückhalten",
-    "desc_3": "Das ist ähnlich wie in einem Gewächshaus (Treibhaus) und deshalb nennt man diese Gase auch Treibhausgase.",
+    "desc_1": "Um die Erde ist eine Lufthülle, die man Atmosphäre nennt. Diese besteht zu über 98% aus Sauerstoff und Stickstoff.",
+    "desc_2": "Sonnenstrahlen scheinen auf die Erde, die Erde erwärmt sich und ein Teil der Strahlung wird von der Erde zurückgeworfen. Einen Teil davon hält die Atmosphäre auf und wirft sie erneut auf die Erde, der andere Teil entweicht ins Weltall.", 
+    "desc_3": "Bestimmte Gase (wie CO2) in der Atmosphäre sind für diesen Effekt verantwortlich.",
+    "desc_4": "Der ganze Prozess ist ähnlich wie in einem Gewächshaus (Treibhaus) und deshalb nennt man diese Gase auch Treibhausgase.",
     "next_btn": "weiter"
   }
 }
@@ -32,6 +33,7 @@
             <p>{{ $t('desc_1') }}</p>
             <p>{{ $t('desc_2') }}</p>
             <p>{{ $t('desc_3') }}</p>
+            <p>{{ $t('desc_4') }}</p>
           </div>
           <div class="column col-1 flex-centered">
             <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
