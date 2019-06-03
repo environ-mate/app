@@ -110,6 +110,8 @@ export default {
       // emissions data load csv
       d3.csv('/data/ghg_emissions.csv').then((rows) => {
         that.emissionData = rows;
+        that.emissionData = this.emissionData.filter(r => r['country.name'] !== 'EU28');
+
         let countriesProcessed = 0;
 
         function renderInitial() {
@@ -145,15 +147,15 @@ export default {
     renderYear() {
       const that = this;
 
-      const rowsOfInterest = this.emissionData.filter(r => r.year === that.year && r['country.name'] !== 'EU28');
-
       // filter by sector
       this.valueColumn = `${this.sectorSelected}.ghg.emissions.mio.tonnes`;
 
-      const valueMin = Math.min(...rowsOfInterest.map(r => r[this.valueColumn]));
-      const valueMax = Math.max(...rowsOfInterest.map(r => r[this.valueColumn]));
+      const valueMin = Math.min(...this.emissionData.map(r => r[this.valueColumn]));
+      const valueMax = Math.max(...this.emissionData.map(r => r[this.valueColumn]));
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / colors.length;
+
+      const rowsOfInterest = this.emissionData.filter(r => r.year === that.year);
 
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
