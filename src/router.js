@@ -17,11 +17,9 @@ import SeaLevelRiseIntro from '@/views/S01-SeaLevelRiseIntro.vue';
 Vue.use(Router);
 
 
-const locale = window.location.pathname.replace(/^\/([^/]+).*/i, '$1');
-
 export default new Router({
   mode: 'history',
-  base: (locale.trim().length && locale !== '/') ? `/${locale}` : undefined,
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',

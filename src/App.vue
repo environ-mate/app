@@ -31,6 +31,11 @@ export default {
   },
 
   mounted() {
+    if (this.tutor === null) {
+      this.removeLayers();
+      this.$router.push({ name: 'A01-EntryLanguageSelect' });
+    }
+
     // add layer group
     this.mapLayerGroup.addTo(this.map);
 
