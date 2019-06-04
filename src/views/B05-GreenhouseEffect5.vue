@@ -2,12 +2,12 @@
 {
   "de": {
     "title": "{year}: Gesamtemissionen und pro Kopf im Vergleich",
+    "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
     "description_gesamt": "",
     "description_per_capita": "",
-    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
-    "next_btn": "weiter"
+        "next_btn": "weiter"
   }
 }
 </i18n>
@@ -20,12 +20,17 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-          {{ $t('title', {year: this.year}) }} 🔆
+          {{ $t('title', {year: this.year}) }}
         </div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-5 flex-centered">
+          <div class="column col-12">
+            <p>
+              {{ $t('desc', {year: this.year}) }}
+            </p>
+          </div>
+          <div class="column col-5">
             <label class="form-radio">
               <input v-model="picked" value="total" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_total') }}
             </label>
@@ -44,7 +49,6 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-            {{ $t('next_desc') }}
           </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i
@@ -78,7 +82,7 @@ export default {
       year: '2016',
       countryLayer: {},
       emissionData: [],
-      picked: 'total',
+      picked: 'capita',
     };
   },
 
