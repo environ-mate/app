@@ -8,6 +8,7 @@ library(tidyverse)
 
 # load data
 ghg_emissions <- read.csv("output/ghg_emissions.csv", header=TRUE, stringsAsFactors=FALSE)
+extreme_weather <- read.csv("output/extreme_weather.csv", header=TRUE, stringsAsFactors=FALSE)
 
 
 
@@ -126,3 +127,89 @@ viz <- ggplot(sectors, aes(x = 2, y = share, fill = sector)) +
 viz
 
 ggsave("viz/EU28_2018_ghg_emissions_per_sector_draft.png", width=16, height=9, dpi=100)
+
+
+
+
+
+# extreme weather
+extreme_weather_aggregated <- extreme_weather %>% 
+  filter(year!=2019) %>% 
+  replace_na(list(drought.occurrence=0, flood.occurrence=0, storm.occurrence=0, wildfire.occurrence=0,
+                  drought.total.deaths=0, flood.total.deaths=0, storm.total.deaths=0, wildfire.total.deaths=0,
+                  drought.total.damage.mio.dollars=0, flood.total.damage.mio.dollars=0, storm.total.damage.mio.dollars=0, wildfire.total.damage.mio.dollars=0)) %>% 
+  group_by(year) %>% 
+  summarize(drought.occurrence=sum(drought.occurrence),
+            flood.occurrence=sum(flood.occurrence),
+            storm.occurrence=sum(storm.occurrence),
+            wildfire.occurrence=sum(wildfire.occurrence),
+            drought.total.deaths=sum(drought.total.deaths),
+            flood.total.deaths=sum(flood.total.deaths),
+            storm.total.deaths=sum(storm.total.deaths),
+            wildfire.total.deaths=sum(wildfire.total.deaths),
+            drought.total.damage.mio.dollars=sum(drought.total.damage.mio.dollars),
+            flood.total.damage.mio.dollars=sum(flood.total.damage.mio.dollars),
+            storm.total.damage.mio.dollars=sum(storm.total.damage.mio.dollars),
+            wildfire.total.damage.mio.dollars=sum(wildfire.total.damage.mio.dollars)) %>% 
+  mutate(occurrence.total=drought.occurrence+flood.occurrence+storm.occurrence+wildfire.occurrence,
+         deaths.total=drought.total.deaths+flood.total.deaths+storm.total.deaths+wildfire.total.deaths,
+         damage.mio.dollars.total=drought.total.damage.mio.dollars+flood.total.damage.mio.dollars+storm.total.damage.mio.dollars+wildfire.total.damage.mio.dollars)
+
+# occurrence
+viz <- ggplot(extreme_weather_aggregated,
+              aes(x=year,
+                  y=occurrence.total)) +
+  geom_line(size=1.25) +
+  geom_point(size=2.5) +
+  geom_smooth(method = "lm") +
+  labs(title="Occurrence of Extreme Weather Events in Europe", y="Occurrence", x="Year")
+
+viz
+
+ggsave("viz/occurrence_extreme_weather_events_Europe_draft.png", width=16, height=9, dpi=100)
+
+# deaths
+viz <- ggplot(extreme_weather_aggregated,
+              aes(x=year,
+                  y=deaths.total)) +
+  geom_line(size=1.25) +
+  geom_point(size=2.5) +
+  geom_smooth(method = "lm") +
+  labs(title="Total Deaths caused by Extreme Weather Events in Europe", y="Total deaths", x="Year")
+
+viz
+
+ggsave("viz/deaths_extreme_weather_events_Europe_draft.png", width=16, height=9, dpi=100)
+
+# damage
+viz <- ggplot(extreme_weather_aggregated,
+              aes(x=year,
+                  y=damage.mio.dollars.total)) +
+  geom_line(size=1.25) +
+  geom_point(size=2.5) +
+  geom_smooth(method = "lm") +
+  labs(title="Total Damage caused by Extreme Weather Events in Europe", y="Total damage in million US dollars", x="Year")
+
+viz
+
+ggsave("viz/damage_extreme_weather_events_Europe_draft.png", width=16, height=9, dpi=100)
+
+# occurrence by event
+viz <- ggplot(extreme_weather_aggregated,
+              aes(x=year)) +
+  geom_line(aes(y=drought.occurrence, color="drought.occurrence"), size=1.25) +
+  geom_point(aes(y=drought.occurrence, color="drought.occurrence"), size=2.5) +
+  geom_line(aes(y=flood.occurrence, color="flood.occurrence"), size=1.25) +
+  geom_point(aes(y=flood.occurrence, color="flood.occurrence"), size=2.5) +
+  geom_line(aes(y=storm.occurrence, color="storm.occurrence"), size=1.25) +
+  geom_point(aes(y=storm.occurrence, color="storm.occurrence"), size=2.5) +
+  geom_line(aes(y=wildfire.occurrence, color="wildfire.occurrence"), size=1.25) +
+  geom_point(aes(y=wildfire.occurrence, color="wildfire.occurrence"), size=2.5) +
+  labs(title="Occurrence of Droughts, Floods, Storms and Wildfires in Europe", y="Number of extreme weather events", x="Year")
+
+viz
+
+ggsave("viz/droughts_floods_storms_wildfires_Europe_draft.png", width=16, height=9, dpi=100)
+
+
+
