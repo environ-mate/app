@@ -12,6 +12,7 @@ import GreenhouseEffect5 from '@/views/B05-GreenhouseEffect5.vue';
 import GreenhouseEffect6 from '@/views/B06-GreenhouseEffect6.vue';
 import ClimateChangeEffectsIntro from '@/views/C01-ClimateChangeEffectsIntro.vue';
 import SeaLevelRiseIntro from '@/views/S01-SeaLevelRiseIntro.vue';
+import SeaLevelRiseStory1 from '@/views/S02-SeaLevelRiseStory1.vue';
 
 
 Vue.use(Router);
@@ -81,6 +82,10 @@ export default new Router({
       name: 'S01-SeaLevelRiseIntro',
       component: SeaLevelRiseIntro,
     },
-
+    {
+      path: '/climate-change/effects/story/1/',
+      name: 'SeaLevelRiseStory1',
+      component: SeaLevelRiseStory1,
+    },
   ],
 });
