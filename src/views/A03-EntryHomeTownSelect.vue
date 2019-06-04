@@ -1,7 +1,7 @@
 <i18n>
 {
   "de": {
-    "title": "Verrate mir als erstes den Namen der Stadt in der du wohnst",
+    "title": "In welcher Stadt wohnst du?",
     "input_placeholder": "Gebe hier den Namen deines Wohnortes ein",
     "popup": "Deine Heimatstadt %{city}"
   }

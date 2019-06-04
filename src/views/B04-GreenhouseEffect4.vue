@@ -3,8 +3,8 @@
   "de": {
     "title": "Was sind Treibhausgase und woher kommen sie?",
     "desc_1": "Den größten Anteil am Treibhauseffekt hat das Gas CO₂. Der Autoverkehr und die Verbrennung fossiler Brennstoffe (Gas, Erdöl, Kohle) verursachen die meisten CO₂-Emissionen (Ausstoß des Gases in die Umwelt). ",
-    "desc_2": "Treibhausgase bleiben einmal freigesetzt unterschiedlich lange in der Atmosphäre. CO₂ verbleibt bis zu 120 Jahre. ",
-    "desc_3": "Somit können wir die Effekte auch mit einem sofortigen Stopp nicht umkehren aber zumindest dafür sorgen, dass sich die Auswirkungen nicht weiter verstärken. ",
+    "desc_2": "Wenn Treibhausgase einmal freigesetzt sind, bleiben sie unterschiedlich lange in der Atmosphäre - CO₂ zum Beispiel bis zu 120 Jahre.",
+    "desc_3": "Daher können wir die Effekte auch mit einem unmittelbaren Stopp der Emissionen nicht sofort umkehren, aber zumindest dafür sorgen, dass sich die Situation nicht verschlimmert.",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF₆ z.B. 23.500-fach stärker als CO₂",
     "vis_title": "Treibhausgas-Emissionen {year} in deinem Heimatland {homeTown}",
     "vis_legend_agriculture": "Landwirtschaft",

@@ -2,11 +2,12 @@
 {
   "de": {
     "title": "Klimawandel, was ist das eigentlich?",
-    "intro_1": "Du hast sicher schon mal vom Klimawandel gehört. Was hat es damit eigentlich auf sich?",
+    "intro_1": "Du hast sicher schon mal vom Klimawandel gehört. Was hat es damit auf sich?",
     "intro_2": "In den letzten Jahrzehnten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. 1-2 Grad hören sich dabei wenig an, haben aber einen großen Effekt auf unsere Umwelt.",
-    "chart_degress_desc": "Schaut man sich die Durchschnittstemperaturen in Europa im Vergleich zur vorindustriellen Zeit an, sieht man wie gerade die letzten Jahre immer wärmer wurden:",
+    "chart_degress_desc": "Schaut man sich die Durchschnittstemperaturen in Europa im Vergleich zur Zeit vor 1900 an, sieht man wie gerade die letzten Jahre immer wärmer wurden:",
     "chart_degress": "Durchschnittstemperaturen",
-    "next_desc": "Als nächstes erkläre ich dir welche Ursachen die Erwärmung hat.",
+    "next_desc": "Aber wieso hat sich die Erde auf einmal erwärmt?",
+    "next_next_desc": "Das erkläre ich dir auf den nächsten Seiten.",
     "next_btn": "Start Erklärung Klimawandel"
   }
 }
@@ -50,10 +51,11 @@
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
-          <div class="column col-8 flex-centered">
-            {{ $t('next_desc') }}
+          <div class="column col-7 flex-centered">
+            {{ $t('next_desc') }}<br/>
+	    {{ $t('next_next_desc') }}
           </div>
-          <div class="column col-3 flex-centered">
+          <div class="column col-4 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>

@@ -2,8 +2,8 @@
 {
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
-    "hello_sub": "Ich begleite dich ab jetzt hier.",
-    "help": "Du kannst zu jeder Zeit die <i><b>h</b></i> Taste drücken. Ich komme dir dann zu Hilfe geeilt",
+    "hello_sub": "Ich begleite dich hier ab jetzt.",
+    "help": "Du kannst zu jederzeit die <i><b>h</b></i> Taste drücken. Ich eile dir dann zu Hilfe!",
     "start": "Klicke hier um zu starten!"
   }
 }
