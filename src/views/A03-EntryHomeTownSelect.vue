@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Verrate mir als erstes den Namen der Stadt in der du wohnst",
-    "input_placeholder": "gebe hier den Namen deines Wohnortes ein",
+    "input_placeholder": "Gebe hier den Namen deines Wohnortes ein",
     "popup": "Deine Heimatstadt %{city}"
   }
 }

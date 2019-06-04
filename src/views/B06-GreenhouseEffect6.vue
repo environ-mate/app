@@ -1,7 +1,7 @@
 <i18n>
 {
   "de": {
-    "title": "2017: Gesamtemissionen und pro Kopf im Vergleich",
+    "title": "Emissionen über die Zeit in Europa",
     "sector_agriculture": "Landwirtschaft",
     "sector_all": "alle Sektoren",
     "sector_energy": "Energiesektor",
@@ -9,8 +9,13 @@
     "sector_transport": "Verkehr",
     "sector_industry": "Industrie",
     "sector_other": "Sonstige",
-    "description_gesamt": "",
-    "description_per_capita": "",
+    "description_all": "",
+    "description_agriculture": "In der Landwirtschaft wird der größte Anteil an nicht CO2-Gasen erzeugt. NO2 entsteht bei der Düngung der Felder. CH4 (Methan) bei der Verdauung in Nutztieren (Kühe, Schweine, Schafe, …). CH4 beim Reisanbau.",
+    "description_energy": "",
+    "description_waste": "",
+    "description_transport": "",
+    "description_industry": "",
+    "description_other": "",
     "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
   }
@@ -190,7 +195,7 @@ export default {
       this.$parent.modalClose();
     },
     next() {
-      this.$router.push({ name: 'B06-GreenhouseEffect6' });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     navBack() {

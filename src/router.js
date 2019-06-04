@@ -9,7 +9,9 @@ import GreenhouseEffect2 from '@/views/B02-GreenhouseEffect2.vue';
 import GreenhouseEffect3 from '@/views/B03-GreenhouseEffect3.vue';
 import GreenhouseEffect4 from '@/views/B04-GreenhouseEffect4.vue';
 import GreenhouseEffect5 from '@/views/B05-GreenhouseEffect5.vue';
+import GreenhouseEffect6 from '@/views/B06-GreenhouseEffect6.vue';
 import ClimateChangeEffectsIntro from '@/views/C01-ClimateChangeEffectsIntro.vue';
+import SeaLevelRiseIntro from '@/views/S01-SeaLevelRiseIntro.vue';
 
 
 Vue.use(Router);
@@ -67,9 +69,20 @@ export default new Router({
       component: GreenhouseEffect5,
     },
     {
+      path: '/greenhouse-effect/explore_details/',
+      name: 'B06-GreenhouseEffect6',
+      component: GreenhouseEffect6,
+    },
+    {
       path: '/climate-change/effects/intro/',
       name: 'C01-ClimateChangeEffectsIntro',
       component: ClimateChangeEffectsIntro,
     },
+    {
+      path: '/climate-change/effects/sea-level-intro/',
+      name: 'S01-SeaLevelRiseIntro',
+      component: SeaLevelRiseIntro,
+    },
+
   ],
 });
