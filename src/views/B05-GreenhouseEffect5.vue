@@ -2,6 +2,8 @@
 {
   "de": {
     "title": "2017: Gesamtemissionen und pro Kopf im Vergleich",
+    "radio_button_total": "Gesamtemissionen",
+    "radio_button_capita": "Emissionen pro Kopf",
     "sector_agriculture": "Landwirtschaft",
     "sector_all": "alle Sektoren",
     "sector_energy": "Energiesektor",
@@ -30,17 +32,16 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-1"><h5>{{ this.year }}</h5></div>
-          <div class="column col-11">
-            <input @input="renderYear" v-model="year" class="slider" type="range" min="1996" max="2016">
-          </div>
           <div class="column col-4 flex-centered">
-            <select v-model="sectorSelected" @change="renderYear()" class="form-select">
-              <option v-for="(name, sectorID) in sectors" v-bind:value="sectorID" v-bind:key="sectorID">{{ name }}</option>
-            </select>
+             <input type="radio" id="gesamt" value="One" v-model="picked">
+             <label for="one">{{ $t('radio_button_total') }}</label>
+             <br>
+             <input type="radio" id="kopf" value="Two" v-model="picked">
+             <label for="two">{{ $t('radio_button_capita') }}</label>
+             <br>
           </div>
           <div class="column col-6">
-            TODO: Sektor erklärung
+            TODO: GESAMT | KOPF
           </div>
         </div>
       </div>
