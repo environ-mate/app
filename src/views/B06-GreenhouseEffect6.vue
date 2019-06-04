@@ -87,7 +87,6 @@ export default {
   data() {
     return {
       year: '2016',
-      firstRound: true,
       countryLayer: {},
       emissionData: [],
       sectorSelected: 'total',
@@ -124,7 +123,7 @@ export default {
         function renderInitial() {
           countriesProcessed += 1;
           if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-            that.renderYear();
+            that.renderEmissions();
           }
         }
 
@@ -151,7 +150,7 @@ export default {
   },
 
   methods: {
-    renderYear() {
+    renderEmissions() {
       const that = this;
 
       // filter by sector
