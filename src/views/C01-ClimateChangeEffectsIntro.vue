@@ -66,8 +66,10 @@
           </div>
         </div>
       </div>
+      <div  class="column col-12">
+        <p>{{ $t('subtitle_msg') }}</p>
+      </div>
       <div class="modal-footer">
-       <h5>{{ $t('subtitle_msg') }}</h5>
        <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>

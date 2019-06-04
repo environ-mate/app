@@ -8,8 +8,9 @@
     "sector_waste": "Abfall",
     "sector_transport": "Verkehr",
     "sector_industry": "Industrie",
+    "sector_agriculture": "Landwirtschaft",
     "sector_other": "Sonstige",
-    "description_all": "",
+    "description_all": "2017 wurden durch die EU 4168 Gigatonnen Treibhausgas-Emissionen produziert. Damit liegt die EU weltweit auf Platz 3 hinter den USA und China. In den verschiedenen Sektoren unterscheiden sich aber die Länder und auch in ihrem Gesamtanteil.",
     "description_agriculture": "In der Landwirtschaft wird der größte Anteil an nicht CO2-Gasen erzeugt. NO2 entsteht bei der Düngung der Felder. CH4 (Methan) bei der Verdauung in Nutztieren (Kühe, Schweine, Schafe, …). CH4 beim Reisanbau.",
     "description_energy": "",
     "description_waste": "",
@@ -35,17 +36,24 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-1"><h5>{{ this.year }}</h5></div>
           <div class="column col-11">
             <input @input="renderYear" v-model="year" class="slider" type="range" min="1996" max="2016">
           </div>
-          <div class="column col-4 flex-centered">
+          <div class="column col-1"><h5>{{ this.year }}</h5></div>
+
+          <div class="column col-4">
             <select v-model="sectorSelected" @change="renderYear()" class="form-select">
               <option v-for="(name, sectorID) in sectors" v-bind:value="sectorID" v-bind:key="sectorID">{{ name }}</option>
             </select>
           </div>
           <div class="column col-6">
-            TODO: Sektor erklärung
+            <div v-if="sectorSelected === 'total'">{{ $t('description_all') }}</div>
+            <div v-if="sectorSelected === 'agriculture'">{{ $t('description_agriculture') }}</div>
+            <div v-if="sectorSelected === 'waste'">{{ $t('description_waste') }}</div>
+            <div v-if="sectorSelected === 'energy'">{{ $t('description_energy') }}</div>
+            <div v-if="sectorSelected === 'industry'">{{ $t('description_industry') }}</div>
+            <div v-if="sectorSelected === 'transport'">{{ $t('description_transport') }}</div>
+            <div v-if="sectorSelected === 'other'">{{ $t('description_other') }}</div>
           </div>
         </div>
       </div>
@@ -97,6 +105,7 @@ export default {
         waste: this.$t('sector_waste'),
         transport: this.$t('sector_transport'),
         industry: this.$t('sector_industry'),
+        agriculture: this.$t('sector_agriculture'),
         other: this.$t('sector_other'),
       },
     };
@@ -123,7 +132,7 @@ export default {
         function renderInitial() {
           countriesProcessed += 1;
           if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-            that.renderEmissions();
+            that.renderYear();
           }
         }
 
@@ -150,7 +159,7 @@ export default {
   },
 
   methods: {
-    renderEmissions() {
+    renderYear() {
       const that = this;
 
       // filter by sector

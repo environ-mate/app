@@ -21,7 +21,7 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
+           {{ $t("title") }} 🌊
         </div>
       </div>
       <div class="modal-body">
@@ -40,10 +40,12 @@
           <div class="column col-5">
             <h5>{{ $t('title_indirect') }}</h5>
           </div>
+          <div class="column col-12">
+            <p>{{ $t('subtitle_msg') }}</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-       <h5>{{ $t('subtitle_msg') }}</h5>
        <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
@@ -64,7 +66,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'B05-GreenhouseEffect5' });
+      this.$router.push({ name: 'SeaLevelRiseStory1' });
     },
 
     modalClose() {

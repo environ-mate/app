@@ -7,7 +7,7 @@
     "radio_button_capita": "Emissionen pro Kopf",
     "description_gesamt": "",
     "description_per_capita": "",
-        "next_btn": "weiter"
+    "next_btn": "weiter"
   }
 }
 </i18n>
