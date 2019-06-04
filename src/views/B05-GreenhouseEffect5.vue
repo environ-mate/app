@@ -1,20 +1,13 @@
 <i18n>
 {
   "de": {
-    "title": "2017: Gesamtemissionen und pro Kopf im Vergleich",
+    "title": "{year}: Gesamtemissionen und pro Kopf im Vergleich",
+    "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
-    "sector_agriculture": "Landwirtschaft",
-    "sector_all": "alle Sektoren",
-    "sector_energy": "Energiesektor",
-    "sector_waste": "Abfall",
-    "sector_transport": "Verkehr",
-    "sector_industry": "Industrie",
-    "sector_other": "Sonstige",
     "description_gesamt": "",
     "description_per_capita": "",
-    "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
-    "next_btn": "weiter"
+        "next_btn": "weiter"
   }
 }
 </i18n>
@@ -27,20 +20,25 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-          {{ $t('title') }} 🔆
+          {{ $t('title', {year: this.year}) }}
         </div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-4 flex-centered">
-             <input type="radio" id="gesamt" value="One" v-model="picked">
-             <label for="one">{{ $t('radio_button_total') }}</label>
-             <br>
-             <input type="radio" id="kopf" value="Two" v-model="picked">
-             <label for="two">{{ $t('radio_button_capita') }}</label>
-             <br>
+          <div class="column col-12">
+            <p>
+              {{ $t('desc', {year: this.year}) }}
+            </p>
           </div>
-          <div class="column col-6">
+          <div class="column col-5">
+            <label class="form-radio">
+              <input v-model="picked" value="total" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_total') }}
+            </label>
+            <label class="form-radio">
+              <input v-model="picked" value="capita" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_capita') }}
+            </label>
+          </div>
+          <div class="column col-">
             TODO: GESAMT | KOPF
           </div>
         </div>
@@ -51,7 +49,6 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-            {{ $t('next_desc') }}
           </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i
@@ -83,19 +80,9 @@ export default {
   data() {
     return {
       year: '2016',
-      firstRound: true,
       countryLayer: {},
       emissionData: [],
-      sectorSelected: 'total',
-      defaultSector: 'total',
-      sectors: {
-        total: this.$t('sector_all'),
-        energy: this.$t('sector_energy'),
-        waste: this.$t('sector_waste'),
-        transport: this.$t('sector_transport'),
-        industry: this.$t('sector_industry'),
-        other: this.$t('sector_other'),
-      },
+      picked: 'capita',
     };
   },
 
@@ -120,7 +107,7 @@ export default {
         function renderInitial() {
           countriesProcessed += 1;
           if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-            that.renderYear();
+            that.renderEmissions();
           }
         }
 
@@ -147,11 +134,14 @@ export default {
   },
 
   methods: {
-    renderYear() {
+    renderEmissions() {
       const that = this;
 
-      // filter by sector
-      this.valueColumn = `${this.sectorSelected}.ghg.emissions.mio.tonnes`;
+      if (this.picked === 'capita') {
+        this.valueColumn = 'ghg.emissions.per.capita.tonnes';
+      } else {
+        this.valueColumn = 'total.ghg.emissions.mio.tonnes';
+      }
 
       const valueMin = Math.min(...this.emissionData.map(r => r[this.valueColumn]));
       const valueMax = Math.max(...this.emissionData.map(r => r[this.valueColumn]));
