@@ -12,7 +12,7 @@
   },
   "en": {
     "title": "5 practical advices for your everyday life",
-    "intro": "Many (even small) steps bring us closer to our goal to reduce emissions. Set yourself goals and figure out where to start. Here are some simple advices:", 
+    "intro": "Many (even small) steps bring us closer to our goal to reduce emissions. Set yourself goals and figure out where to start. Here are some simple advices:",
     "act_1": "tipp1",
     "act_2": "tipp2",
     "act_3": "tipp3",
@@ -57,7 +57,7 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-          </div>          
+          </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
