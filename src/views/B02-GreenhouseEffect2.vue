@@ -3,10 +3,17 @@
   "de": {
     "title": "Was ist eigentlich mit Treibhauseffekt gemeint? 🔆",
     "desc_1": "Ohne Treibhausgase wäre unsere Erdoberfläche sehr kalt (etwa -18°C).",
-    "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind um so mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
+    "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind, um so mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
     "desc_3": "Eine Folge: Mehr Wasser verdunstet von den Meeren und die wärmere Atmosphäre kann mehr Wasserdampf ansammeln. Dadurch erhöht sich die Chance auf extreme Regenfälle.",
     "next_btn": "weiter"
-  }
+  },
+  "en": {
+    "title": "What is meant by greenhouse effect? 🔆",
+    "desc_1": "Without greenhouse gases the earth's surface would be very cold (around -18°C).",
+    "desc_2": "But the more these gases are in the atmosphere, the more heat is retained and the more our earth warms up.",
+    "desc_3": "As a consequence, more water evaporates from the seas and the warmer atmosphere can accumulate more water vapor. This increases the chance of extreme rainfall.",
+    "next_btn": "Continue"
+  }  
 }
 </i18n>
 

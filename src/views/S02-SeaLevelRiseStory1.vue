@@ -47,6 +47,8 @@
 <script>
 import * as d3 from 'd3';
 import L from 'leaflet';
+import Colors from '@/utils/colors';
+
 
 export default {
   mounted() {
@@ -55,11 +57,17 @@ export default {
       [40.64123, -8.65391], 9, this.$parent.$options.flyToOptions(11),
     );
 
+    const style = {
+      color: Colors.red,
+      weight: 0,
+      opacity: 1.0,
+    };
+
     d3.json('/data/tmp/2100_europe.geojson').then((geoJSON) => {
       L.geoJson(geoJSON, {
-        //style: myStyle
+        style,
       }).addTo(this.$parent.$data.mapLayerGroup);
-    }); //.then(renderInitial);
+    });
   },
 
   methods: {

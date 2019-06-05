@@ -1,6 +1,6 @@
 export default {
   countryMapping: {
-    ßHU: ['Hungary', 'HUN'],
+    HU: ['Hungary', 'HUN'],
     LT: ['Lithuania', 'LTU'],
     TR: ['Turkey', 'TUR'],
     BG: ['Bulgaria', 'BGR'],

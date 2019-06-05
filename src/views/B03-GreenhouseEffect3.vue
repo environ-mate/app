@@ -24,6 +24,31 @@
     "cause_6_name": "FKW/HFKW",
     "cause_6_examples": "Kältemittel, Klimaanlagen",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "What are greenhouse gases and where do they come from?",
+    "title_1": "Where do greenhouse gases emerge?",
+    "title_2": "The most important greenhouse gases are called",
+    "bullet_1": "carbon dioxide (CO₂)",
+    "bullet_2": "methane (CH₄)",
+    "bullet_3": "sulfur hexafluoride (SF₆)",
+    "bullet_4": "dinitrous oxides (N₂O)",
+    "bullet_5": "nitrogen trifluoride (NF₃)",
+    "bullet_6": "hydrofluorocarbons (HFC)",
+    "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: SF₆ e.g. 23.500 times stronger than CO₂",
+    "cause_1_name": "methane",
+    "cause_1_examples": "biogas, cattle farming, wet rice cultivation",
+    "cause_2_name": "sulfur hexafluoride",
+    "cause_2_examples": "gas-insulated switchgear",
+    "cause_3_name": "dinitrous oxide",
+    "cause_3_examples": "nitrogen fertilizer",
+    "cause_4_name": "nitrogen trifluoride",
+    "cause_4_examples": "flat screens, thin film solar cells",
+    "cause_5_name": "carbon dioxide",
+    "cause_5_examples": "power generation, industry, transportation",
+    "cause_6_name": "HFC",
+    "cause_6_examples": "refrigerant, air conditioning",
+    "next_btn": "Continue"
   }
 }
 </i18n>

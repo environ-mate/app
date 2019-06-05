@@ -5,8 +5,9 @@
     "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
-    "description_gesamt": "Dein Land ist der {rank_eu}-größte Produzent in der EU und für {percent_eu} % des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO₂-Emissionen und kommt damit hinter den USA mit 14% und China mit 29% (2017).",
-    "description_per_capita": "Der Durchschnitt in der EU liegt bei {eu_capita} dein Land liegt bei {country_capita}. Weltweit liegt der Schnitt bei 4.9 (USA: 15.7 und China: 7.7; 2017)",
+    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO2 Emissionen und kommt damit hinter USA und China auf Platz 3 (2017).",
+    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bei 4.9 (USA: 15.7 und China: 7.7).",
+    "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (TODO: Link).",
     "next_btn": "weiter"
   }
 }
@@ -30,7 +31,7 @@
               {{ $t('desc', {year: this.year}) }}
             </p>
           </div>
-          <div class="column col-5">
+          <div class="column col-3">
             <label class="form-radio">
               <input v-model="picked" value="total" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_total') }}
             </label>
@@ -38,9 +39,13 @@
               <input v-model="picked" value="capita" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_capita') }}
             </label>
           </div>
-          <div class="column col-">
-            TODO: GESAMT | KOPF
+          <div class="column col-9">
+            <p v-if="picked === 'total'">{{ $t('description_total', {countryShare: this.countryShare, countryIndex: this.countryIndex}) }}</p>
+            <p v-if="picked === 'capita'">{{ $t('description_capita', {capitaShare: this.capitaShare, capitaAvg: this.capitaAvg}) }}</p>
           </div>
+        </div>
+        <div class="column col-12">
+          <p>{{ $t('description_footprint') }}</p>
         </div>
       </div>
       <div class="modal-footer">
@@ -83,6 +88,10 @@ export default {
       countryLayer: {},
       emissionData: [],
       picked: 'capita',
+      countryIndex: null,
+      countryShare: null,
+      capitaAvg: null,
+      capitaShare: null,
     };
   },
 
@@ -95,6 +104,19 @@ export default {
       [50.99995, 9.99995],
       [51.00005, 10.00005],
     ], this.$parent.$options.flyToOptions(3, 1, 1.0));
+
+    // read countty based stats
+    d3.csv('/data/ghg_emissions_ranking-share-2016.csv').then((emissionsRanking) => {
+      const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(m => m[1][1] === this.$parent.$data.homeTownCountryCode)[0][0];
+
+      const emisssionsForHomeCountry = emissionsRanking.filter(r => r['country.code'] === homeCountryCode2)[0];
+      const emisssionsForEU28 = emissionsRanking.filter(r => r['country.code'] === 'EU28')[0];
+      that.countryIndex = emisssionsForHomeCountry.total_eu28_ghg_tonnes_rank;
+      that.countryShare = emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
+      that.capitaAvg = emisssionsForEU28['ghg.emissions.per.capita.tonnes'];
+      that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
+
+    });
 
     this.$parent.map.once('moveend', () => {
       // emissions data load csv

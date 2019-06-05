@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Was sind Treibhausgase und woher kommen sie?",
-    "desc_1": "Den größten Anteil am Treibhauseffekt hat das Gas CO₂. Der Autoverkehr und die Verbrennung fossiler Brennstoffe (Gas, Erdöl, Kohle) verursachen die meisten CO₂-Emissionen (Ausstoß des Gases in die Umwelt). ",
+    "desc_1": "Den größten Anteil am Treibhauseffekt hat das Gas CO₂. Der Autoverkehr und die Verbrennung fossiler Brennstoffe (Gas, Erdöl, Kohle) verursachen die meisten CO₂-Emissionen (Ausstoß des Gases in die Umwelt).",
     "desc_2": "Wenn Treibhausgase einmal freigesetzt sind, bleiben sie unterschiedlich lange in der Atmosphäre - CO₂ zum Beispiel bis zu 120 Jahre.",
     "desc_3": "Daher können wir die Effekte auch mit einem unmittelbaren Stopp der Emissionen nicht sofort umkehren, aber zumindest dafür sorgen, dass sich die Situation nicht verschlimmert.",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF₆ z.B. 23.500-fach stärker als CO₂",
@@ -14,7 +14,22 @@
     "vis_legend_industry": "Industrie",
     "vis_legend_other": "Sonstige",
     "next_btn": "weiter"
-  }
+  },
+  "en": {
+    "title": "What are greenhouse gases and where do they come from?",
+    "desc_1": "The biggest contributor to the greenhouse effect is CO₂ gas. Car traffic and the burning of fossil fuels (gas, oil, coal) cause most of the CO₂ emissions (emissions of the gas into the environment).",
+    "desc_2": "Once greenhouse gases are released their stay in the atmosphere varies - CO₂ for example up to 120 years.",
+    "desc_3": "Therefore, we can not immediately reverse the effects with a sudden stop of emissions, but at least make sure that the situation does not get worse.",
+    "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: SF₆ e.g. 23.500 times stronger than CO₂",
+    "vis_title": "Greenhouse gas emissions {year} in your country {homeTown}",
+    "vis_legend_agriculture": "agriculture",
+    "vis_legend_energy": "energy sector",
+    "vis_legend_waste": "waste",
+    "vis_legend_transport": "transport",
+    "vis_legend_industry": "industry",
+    "vis_legend_other": "other",
+    "next_btn": "Continue"
+  }  
 }
 </i18n>
 

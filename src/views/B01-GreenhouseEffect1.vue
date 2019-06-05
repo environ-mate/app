@@ -7,6 +7,14 @@
     "desc_3": "Bestimmte Gase (wie CO₂) in der Atmosphäre sind für diesen Effekt verantwortlich.",
     "desc_4": "Der ganze Prozess ist ähnlich wie in einem Gewächshaus (Treibhaus) und deshalb nennt man diese Gase auch Treibhausgase.",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "What is meant by the greenhouse effect? 🔆",
+    "desc_1": "Around the earth is an air-envelope called atmosphere. This consists of over 98% oxygen and nitrogen.",
+    "desc_2": "Sunbeams shine on earth, the ground warms up and part of this radiation is thrown back from earth. Part of is being stopped by the atmosphere and is then thrown back at earth, the other part escapes into space.", 
+    "desc_3": "Certain gases (like CO₂) in the atmosphere are responsible for this effect.",
+    "desc_4": "The overall process is muh like in a glasshouse (greenhouse). This is why the gases are called greenhouse gases.",
+    "next_btn": "Continue"
   }
 }
 </i18n>
