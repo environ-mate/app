@@ -20,7 +20,7 @@
     "act_4": "European Environmental Agency: https://www.eea.europa.eu/de",
     "act_5": "EU Open Data Portal: https://data.europa.eu/euodp/de/data/",
    "next_btn": "Choose another city",
-   "next_examples": "Back to overview"
+   "next_examples": "Back to Overview"
   }
 }
 </i18n>
