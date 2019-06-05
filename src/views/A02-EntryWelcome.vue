@@ -3,8 +3,14 @@
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
     "hello_sub": "Ich begleite dich hier ab jetzt.",
-    "help": "Du kannst zu jederzeit die <i><b>h</b></i> Taste drücken. Ich eile dir dann zu Hilfe!",
-    "start": "Klicke hier um zu starten!"
+    "help": "Du kannst jederzeit die <i><b>h</b></i> Taste drücken - ich eile dir dann zu Hilfe!",
+    "start": "Klicke hier, um zu starten!"
+  },
+   "en": {
+    "hello": "Howdi! My name is %{name}.",
+    "hello_sub": "I will accompany you from here on.",
+    "help": "You can type the <i><b>h</b></i> key at any time - I will assist you then!",
+    "start": "Press here to start!"
   }
 }
 </i18n>
