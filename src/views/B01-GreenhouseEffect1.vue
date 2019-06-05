@@ -74,7 +74,7 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'Z01-ActOverview' });
+      this.$router.push({ name: 'B02-GreenhouseEffect2' });
     },
 
     modalClose() {
