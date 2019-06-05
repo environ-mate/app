@@ -3,6 +3,10 @@
   "de": {
     "title": "Anstieg des Meeresspiegels am Beispiel Aveiro in Portugal",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "Example of sea level rise in Aveiro, Portugal",
+    "next_btn": "continue"
   }
 }
 </i18n>
