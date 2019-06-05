@@ -119,4 +119,13 @@ export default {
   .modal-body, .modal-container {
     height: max-content;
   }
+
+  .modal-bottom-center {
+    top: unset;
+  }
+
+  .modal-bottom-right {
+    top: unset;
+    left: unset;
+  }
 </style>
