@@ -13,6 +13,10 @@ import GreenhouseEffect6 from '@/views/B06-GreenhouseEffect6.vue';
 import ClimateChangeEffectsIntro from '@/views/C01-ClimateChangeEffectsIntro.vue';
 import SeaLevelRiseIntro from '@/views/S01-SeaLevelRiseIntro.vue';
 import SeaLevelRiseStory1 from '@/views/S02-SeaLevelRiseStory1.vue';
+import ActOverview from '@/views/Z01-ActOverview.vue';
+import ActInfos1 from '@/views/Z02-ActInfos1.vue';
+import ActInfos2 from '@/views/Z03-ActInfos2.vue';
+import ActRandom from '@/views/Z04-ActRandom.vue';
 
 
 Vue.use(Router);
@@ -87,5 +91,27 @@ export default new Router({
       name: 'SeaLevelRiseStory1',
       component: SeaLevelRiseStory1,
     },
+    {
+      path: '/climate-change/effects/act-overview/',
+      name: 'Z01-ActOverview',
+      component: ActOverview,
+    },
+    {
+      path: '/climate-change/effects/act-infos-1/',
+      name: 'Z02-ActInfos1',
+      component: ActInfos1,
+    },
+    {
+      path: '/climate-change/effects/act-infos-2/',
+      name: 'Z03-ActInfos2',
+      component: ActInfos2,
+    },
+    {
+      path: '/climate-change/effects/act-examples/',
+      name: 'Z04-ActRandom',
+      component: ActRandom,
+    },
+
+
   ],
 });
