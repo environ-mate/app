@@ -4,6 +4,11 @@
     "earth": "Erde",
     "atmosphere": "Atmosphäre",
     "greenhouse_gases": "Treibhausgase"
+  },
+  "en": {
+    "earth": "Earth",
+    "atmosphere": "Atmosphere",
+    "greenhouse_gases": "Greenhouse gases"
   }
 }
 </i18n>
