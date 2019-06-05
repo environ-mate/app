@@ -61,12 +61,12 @@
           </div>
           <div class="column col-1"><h5>{{ this.year }}</h5></div>
 
-          <div class="column col-4">
+          <div class="column col-3">
             <select v-model="sectorSelected" @change="renderYear()" class="form-select">
               <option v-for="(name, sectorID) in sectors" v-bind:value="sectorID" v-bind:key="sectorID">{{ name }}</option>
             </select>
           </div>
-          <div class="column col-6">
+          <div class="column col-8">
             <div v-if="sectorSelected === 'total'">{{ $t('description_all') }}</div>
             <div v-if="sectorSelected === 'agriculture'">{{ $t('description_agriculture') }}</div>
             <div v-if="sectorSelected === 'waste'">{{ $t('description_waste') }}</div>
@@ -233,8 +233,3 @@ export default {
 };
 </script>
 
-<style scoped>
-  .modal-bottom-center {
-    top: unset;
-  }
-</style>

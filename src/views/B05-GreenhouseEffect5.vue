@@ -41,7 +41,7 @@
               {{ $t('desc', {year: this.year}) }}
             </p>
           </div>
-          <div class="column col-3">
+          <div class="column col-4">
             <label class="form-radio">
               <input v-model="picked" value="total" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_total') }}
             </label>
@@ -49,7 +49,7 @@
               <input v-model="picked" value="capita" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_capita') }}
             </label>
           </div>
-          <div class="column col-9">
+          <div class="column col-8">
             <p v-if="picked === 'total'">{{ $t('description_total', {countryShare: this.countryShare, countryIndex: this.countryIndex}) }}</p>
             <p v-if="picked === 'capita'">{{ $t('description_capita', {capitaShare: this.capitaShare, capitaAvg: this.capitaAvg}) }}</p>
           </div>
