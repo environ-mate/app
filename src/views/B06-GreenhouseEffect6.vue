@@ -19,6 +19,26 @@
     "description_other": "",
     "next_desc": "Zu den Auswirkungen erzähle ich Dir jetzt mehr.",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "Emissions Over Time in Europe",
+    "sector_agriculture": "Agriculture",
+    "sector_all": "All Sectors",
+    "sector_energy": "Energy",
+    "sector_waste": "Waste",
+    "sector_transport": "Transport",
+    "sector_industry": "Industry",
+    "sector_agriculture": "Agriculture",
+    "sector_other": "Other",
+    "description_all": "In 2017 the EU produced 4168 Gigatons of greenhouse gases. This makes the EU the 3rd biggest global greenhouse gas emitter, after the USA and China. However, individual EU nations differ both in how much each sector contributes, and their overall contribution to total EU emissions.",
+    "description_agriculture": "In agriculture most emissions come from non-CO2 gases. NO2 is produced by the fertilisation of fields. CH4 (methane) is produced by the digestive systems of livestock (cows, pigs, sheep, etc.) and by rice fields.",
+    "description_energy": "",
+    "description_waste": "",
+    "description_transport": "",
+    "description_industry": "",
+    "description_other": "",
+    "next_desc": "Now, I'll explain some of the consequences to you.",
+    "next_btn": "continue"
   }
 }
 </i18n>
