@@ -2,11 +2,14 @@
 {
   "de": {
     "title": "Was passiert eigentlich beim Anstieg des Meeresspiegels?",
-    "title_direct": "Direkte Auswirkungen",
-    "title_indirect": "Indirekte Auswirkungen ",
-    "effect_direct_1": "Temperaturanstieg",
-    "effect_direct_2": "Änderung der Regenmenge und -häufigkeit (u.a. Starkregen)",
-    "effect_direct_3": "Häufigere Dürre- und Hitzeperioden",
+    "title_direct": "Es gibt drei Auswirkungen der Erderwärmung die den Anstieg überwiegend verursachen:",
+    "title_indirect": "Auswirkungen auf unser Leben",
+    "cause_direct_1": "Wärmeausdehnung: Warmes wasser dehnt sich weiter aus. Die Hälfte des Anstiegs in den letzten 25 Jahren geht auf diesen Effekt zurück.",
+    "cause_direct_2": "Abschmelzen der Gletscher: Durch kürzere und wärmere Winter können sich die Gletcher nicht mehr regenerieren und schmilzen nach und nach ab. Das Wasser fließt ins Meer ab.",
+    "cause_direct_3": "Abschmelzen der Eisschichten über Grönland und der Antarktis: Wie bei den Gletschern nehmen die Eisschichten in diesen Regionen sichtlich ab und geben das Wasser ins Meer ab.",
+    "effect_direct_1": "Hochwasser",
+    "effect_direct_2": "Hurricanes/Typhune und Starkregen", 
+    "effect_direct_3": "...",
     "subtitle_msg": "Der Anstieg des Meeresspiegels mag mit etwa 70cm bis 2100 gering wirken aber die Auswirkungen fallen regional äusserst unterschiedlich aus und wie sich der Anstieg über die kommenden Jahre beschleunigt kann man nicht exakt vorhersagen.",
     "next_btn": "weiter"
   },
@@ -14,8 +17,11 @@
     "title": "What happens when the sea rises?",
     "title_direct": "Direct consequences",
     "title_indirect": "Indirect consequences",
+    "cause_direct_1": "Rising temperatures",
+    "cause_direct_2": "Changes in amount and frequency of rainfall",
+    "cause_direct_3": "More frequent droughts and heatwaves",
     "effect_direct_1": "Rising temperatures",
-    "effect_direct_2": "Changes in amount and frequency of rainfall",
+    "effect_direct_2": "Changes in amount and frequency of rainfall", 
     "effect_direct_3": "More frequent droughts and heatwaves",
     "subtitle_msg": "A rise in sea level of around 70cm by 2100 might not sound like much, but the potential outcomes vary widely between different regions and it is difficult to predict how the sea level rise will accelerate in coming years.",
     "next_btn": "continue"
@@ -42,13 +48,18 @@
           <div class="column col-5">
             <h5>{{ $t('title_direct') }}</h5>
             <ul>
-              <li>{{ $t('effect_direct_1') }}</li>
-              <li>{{ $t('effect_direct_2') }}</li>
-              <li>{{ $t('effect_direct_3') }}</li>
+              <li>{{ $t('cause_direct_1') }}</li>
+              <li>{{ $t('cause_direct_2') }}</li>
+              <li>{{ $t('cause_direct_3') }}</li>
             </ul>
           </div>
           <div class="column col-5">
             <h5>{{ $t('title_indirect') }}</h5>
+            <ul>
+              <li>{{ $t('effect_direct_1') }}</li>
+              <li>{{ $t('effect_direct_2') }}</li>
+              <li>{{ $t('effect_direct_3') }}</li>
+            </ul>
           </div>
           <div class="column col-12">
             <p>{{ $t('subtitle_msg') }}</p>
