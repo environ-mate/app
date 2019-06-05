@@ -13,12 +13,12 @@
     "desc_2": "But the more these gases are in the atmosphere, the more heat is retained and the more our earth warms up.",
     "desc_3": "As a consequence, more water evaporates from the seas and the warmer atmosphere can accumulate more water vapor. This increases the chance of extreme rainfall.",
     "next_btn": "Continue"
-  }  
+  }
 }
 </i18n>
 
 <template>
-  <div class="modal modal-lg" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right"

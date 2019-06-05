@@ -19,32 +19,32 @@
     "next_desc": "But why the increase in temperatures on earth?",
     "next_next_desc": "I'll explain that to you on the next pages.",
     "next_btn": "Start explanation climate change"
-  }  
+  }
 }
 </i18n>
 
 <template>
-  <div class="modal modal-lg" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right"
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
+          {{ $t('title') }}
         </div>
       </div>
       <div class="modal-body">
         <div class="columns">
           <div class="column col-12">
             <p>
-              {{ $t("intro_1") }}<br/>
-              {{ $t("intro_2") }}
+              {{ $t('intro_1') }}<br/>
+              {{ $t('intro_2') }}
             </p>
           </div>
 
           <div class="column col-12">
-            <h6>{{ $t("chart_degress_desc") }}</h6>
+            <h6>{{ $t('chart_degress_desc') }}</h6>
           </div>
 
           <div class="column col-2 flex-centered">
@@ -53,20 +53,18 @@
           <div class="column col-9">
             <vue-c3 :handler="chart"></vue-c3>
           </div>
-          <div class="column col-1"/>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="columns">
+          <div class="column col-1"></div>
+
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-7 flex-centered">
             {{ $t('next_desc') }}<br/>
-	    {{ $t('next_next_desc') }}
+            {{ $t('next_next_desc') }}
           </div>
           <div class="column col-4 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i
+              class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -75,11 +73,11 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import VueC3 from 'vue-c3';
-import Colors from '@/utils/colors';
+  import Colors from '@/utils/colors';
+  import Vue from 'vue';
+  import VueC3 from 'vue-c3';
 
-export default {
+  export default {
   components: {
     VueC3,
   },
@@ -142,3 +140,10 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+  .c3-grid {
+    height: 10px;
+  }
+</style>

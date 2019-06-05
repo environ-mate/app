@@ -8,9 +8,9 @@
 <script>
 import Map from '@/components/Map.vue';
 import L from 'leaflet';
-import 'spectre.css';
-import 'spectre.css/dist/spectre-icons.css';
-import 'spectre.css/dist/spectre-exp.css';
+import '@/vendors/spectre.css/spectre.css';
+import '@/vendors/spectre.css/spectre-icons.css';
+import '@/vendors/spectre.css/spectre-exp.css';
 import 'vue-i18n/dist/vue-i18n';
 import 'c3/c3.css';
 
