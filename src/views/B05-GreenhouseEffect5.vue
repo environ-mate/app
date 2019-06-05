@@ -9,6 +9,16 @@
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bei 4.9 (USA: 15.7 und China: 7.7).",
     "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (TODO: Link).",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "{year}: Total Emissions and Emissions Per Person in Comparison",
+    "desc": "Alongside the total emissions of each country, it's also important to show the emissions per person. Here, for example, are the emissions per person in {year}.",
+    "radio_button_total": "Total emissions",
+    "radio_button_capita": "Emissions per person",
+    "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO2 emissions, making it the 3rd biggest producer after USA and China (2017).",
+    "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
+    "description_footprint": "Check your own footprint in comparison: (TODO: Link).",
+    "next_btn": "continue"
   }
 }
 </i18n>
