@@ -105,7 +105,7 @@ export default {
     },
 
     next() {
-      this.$router.push({ name: 'S025-SeaLevelRiseStory1' });
+      this.$router.push({ name: 'Z01-ActOverview' });
     },
 
     modalClose() {

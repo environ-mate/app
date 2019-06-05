@@ -88,7 +88,7 @@ export default new Router({
     },
     {
       path: '/climate-change/effects/story/1/',
-      name: 'SeaLevelRiseStory1',
+      name: 'S02-SeaLevelRiseStory1',
       component: SeaLevelRiseStory1,
     },
     {

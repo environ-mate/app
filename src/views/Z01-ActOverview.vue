@@ -2,18 +2,17 @@
 {
   "de": {
     "title": "Was kannst du tun, um dem Klimawandel und seinen Konsequenzen entgegenzuwirken?",
-    "intro": "Du hast jetzt viele Informationen zum Klimawandel, seinen Ursachen und seinen Konsequenzen erhalten. Sicher fragst du dich nun, was du als einzelne Person tun kannst, um alldem entgegenzuwirken. Hier sind ein paar Tipps, wie du deinen eigenen Beitrag für eine bessere Zukunft für uns alle leisten kannst", 
-   "act_1": "Sprich mit Familie, Freunden und Bekannten über das Thema und zeig, was du über den Klimawandel gelernt hast",
+    "intro": "Du hast jetzt viele Informationen zum Klimawandel, seinen Ursachen und seinen Konsequenzen erhalten. Sicher fragst du dich nun, was du als einzelne Person tun kannst, um alldem entgegenzuwirken. Hier sind ein paar Tipps, wie du deinen eigenen Beitrag für eine bessere Zukunft für uns alle leisten kannst",
+    "act_1": "Sprich mit Familie, Freunden und Bekannten über das Thema und zeig, was du über den Klimawandel gelernt hast",
     "act_2": "Gehe zur nächsten Fridays for Future Demo in deiner Nähe, um Gleichgesinnte zu treffen und dich auszutauschen: https://www.fridaysforfuture.org/events/list",
     "act_3": "Berechne deinen ökologischen Fußabdruck, um zu überprüfen, wie nachhaltig dein Lebensstil ist: https://www.footprintcalculator.org/",
     "act_4": "Schaue dir die Tipps der EU an, was du gegen den Klimawandel tun kannst: https://europa.eu/euandme/passion/fighting-climate-change_en",
     "act_5": "Probiere die Zero Waste (Null Müll) Regeln aus, um dein Leben noch nachhaltiger und klimwaverträglicher zu gestalten (Link unterhalb).",
-   "subtitle_msg": "Die folgenden Seiten geben dir noch weitere Tipps.",
-   "next_btn": "Null Müll Regeln",
-   "next_examples": "5 Praktische Beispiele",
-   "next_euact": "Weitere Infos"
+    "subtitle_msg": "Die folgenden Seiten geben dir noch weitere Tipps.",
+    "next_btn": "Null Müll Regeln",
+    "next_examples": "5 Praktische Beispiele",
+    "next_euact": "Weitere Infos"
   }
-  
 }
 </i18n>
 

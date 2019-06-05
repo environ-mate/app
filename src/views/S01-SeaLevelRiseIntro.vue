@@ -66,7 +66,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'SeaLevelRiseStory1' });
+      this.$router.push({ name: 'S02-SeaLevelRiseStory1' });
     },
 
     modalClose() {
