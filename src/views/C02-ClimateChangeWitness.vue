@@ -9,6 +9,16 @@
     "effect_direct_3": "Häufigere Dürre- und Hitzeperioden",
     "effect_direct_4": "Wirbelstürme wie Hurricanes treten häufiger und stärker auf (Tornados in Europa)",
    "next_btn": "weiter"
+  },
+  "en": {
+    "title": "What stories do the outcomes tell?",
+    "story_one": "Migration",
+    "story_two": "Anxiety over the future",
+    "story_three": "Heatwaves",
+    "effect_direct_2": "Changes in amount and frequency of rainfall",
+    "effect_direct_3": "More frequent droughts and heatwaves",
+    "effect_direct_4": "Major storms such as Hurricanes become more frequent and more severe (tornadoes in Europe)",
+   "next_btn": "continue"
   }
 }
 </i18n>
