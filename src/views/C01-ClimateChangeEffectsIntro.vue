@@ -20,6 +20,27 @@
     "effect_indirect_7": "Überflutungen",
     "subtitle_msg": "In den letzten Jahrzehnten wurde ein Anstieg von ca. 0,5°C gemessen. Bis 2100 erwartet man weitere 1,5 bis 3°C. Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "What are the biggest consequences of climate change?",
+    "title_direct": "Direct Consequences",
+    "title_indirect": "Indirect Consequences",
+    "effect_direct_1": "Rising temperatures",
+    "effect_direct_2": "Changes in amount and frequency of rainfall",
+    "effect_direct_3": "More frequent droughts and heatwaves",
+    "effect_direct_4": "Major storms such as Hurricanes become more frequent and more severe (tornadoes in Europe)",
+    "effect_direct_5": "Sea level rise",
+    "effect_direct_6": "Shifts in seasonal patterns (durations and temperatures)",
+    "effect_direct_7": "The Arctic will be ice-free in summer by mid-century",
+    "effect_indirect_1": "Water scarcity",
+    "effect_indirect_2": "Crop loss",
+    "effect_indirect_3": "Loss of habitation for plant and animal species",
+    "effect_indirect_4": "Mass migrations",
+    "effect_indirect_5": "New diseases (tropical diseases spread to Europe)",
+    "effect_indirect_6": "Wildfires",
+    "effect_indirect_7": "Floods",
+    "subtitle_msg": "Temperatures have risen around 0.5°C over the past decades. A further rise of between 1.5 to 3°C is expected by 2100. The consequences vary from region to region and are difficult to predict in detail.",
+    "next_btn": "continue"
   }
 }
 </i18n>
