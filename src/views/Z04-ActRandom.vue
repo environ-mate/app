@@ -54,12 +54,12 @@
      <div class="modal-footer">
        <div class="columns">
           <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <button @click="navBack" class="btn btn btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="next" class="btn btn btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>

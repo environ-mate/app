@@ -12,7 +12,14 @@
    "next_examples": "Zurück zur Übersicht"
   },
   "en": {
-  "next_btn": "Select a different city",
+    "title": "Further information refarding climate change and the role of the EU",
+    "intro": "If you want to know more about climate change and what the EU is doing to counter it, we recommend looking at the following sites. Open datasets are the core of our project and help us better understand climate change - in the EU Open Data Portal you'll find many interesting datasets and visualisations concerning climate change:",
+    "act_1": "Intergovernmental Panel on Climate Change: https://www.ipcc.ch/",
+    "act_2": "Intergovernmental Platform on Biodiversity and Ecosystem Services: https://www.ipbes.net/",
+    "act_3": "EU climate action: https://ec.europa.eu/clima/index_de",
+    "act_4": "European Environmental Agency: https://www.eea.europa.eu/de",
+    "act_5": "EU Open Data Portal: https://data.europa.eu/euodp/de/data/",
+   "next_btn": "Choose another city",
    "next_examples": "Back to Overview"
   }
 }
@@ -49,15 +56,15 @@
      <div class="modal-footer">
        <div class="columns">
           <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <button @click="navBack" class="btn btn btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-5 flex-centered">
-          </div>          
-          <div class="column col-3 flex-centered">
-            <button @click="examples" class="btn btn-lg btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="examples" class="btn btn btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
+          </div>
+          <div class="column col-3 flex-centered">
+            <button @click="next" class="btn btn btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
