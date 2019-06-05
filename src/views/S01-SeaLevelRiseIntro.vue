@@ -9,6 +9,16 @@
     "effect_direct_3": "Häufigere Dürre- und Hitzeperioden",
     "subtitle_msg": "Der Anstieg des Meeresspiegels mag mit etwa 70cm bis 2100 gering wirken aber die Auswirkungen fallen regional äusserst unterschiedlich aus und wie sich der Anstieg über die kommenden Jahre beschleunigt kann man nicht exakt vorhersagen.",
     "next_btn": "weiter"
+  },
+  "en": {
+    "title": "What happens when the sea rises?",
+    "title_direct": "Direct consequences",
+    "title_indirect": "Indirect consequences",
+    "effect_direct_1": "Rising temperatures",
+    "effect_direct_2": "Changes in amount and frequency of rainfall",
+    "effect_direct_3": "More frequent droughts and heatwaves",
+    "subtitle_msg": "A rise in sea level of around 70cm by 2100 might not sound like much, but the potential outcomes vary widely between different regions and it is difficult to predict how the sea level rise will accelerate in coming years.",
+    "next_btn": "continue"
   }
 }
 </i18n>
