@@ -5,8 +5,8 @@
     "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
-    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO2 Emissionen und kommt damit hinter USA und China auf Platz 3 (2017).",
-    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bei 4.9 (USA: 15.7 und China: 7.7).",
+    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO2 Emissionen und kommt damit auf Platz 3 hinter den USA und China (Stand: 2017).",
+    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
     "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (TODO: Link).",
     "next_btn": "weiter"
   },
@@ -15,7 +15,7 @@
     "desc": "Alongside the total emissions of each country, it's also important to show the emissions per person. Here, for example, are the emissions per person in {year}.",
     "radio_button_total": "Total emissions",
     "radio_button_capita": "Emissions per person",
-    "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO2 emissions, making it the 3rd biggest producer after USA and China (2017).",
+    "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2017).",
     "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
     "description_footprint": "Check your own footprint in comparison: (TODO: Link).",
     "next_btn": "continue"
@@ -119,7 +119,7 @@ export default {
       [51.00005, 10.00005],
     ], this.$parent.$options.flyToOptions(3, 1, 1.0));
 
-    // read countty based stats
+    // read county based stats
     d3.csv('/data/ghg_emissions_ranking-share-2016.csv').then((emissionsRanking) => {
       const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(m => m[1][1] === this.$parent.$data.homeTownCountryCode)[0][0];
 
@@ -131,6 +131,8 @@ export default {
       that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
 
     });
+
+
 
     this.$parent.map.once('moveend', () => {
       // emissions data load csv
