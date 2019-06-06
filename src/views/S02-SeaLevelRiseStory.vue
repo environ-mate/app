@@ -2,16 +2,24 @@
 {
   "de": {
     "title": "Anstieg des Meeresspiegels am Beispiel {storyName}",
+    "desc": "Einige Regionen werden stark vom Anstieg des Meeresspiegels betroffen sein. Hier kannst du dir eine Simulation in vier Küstenregionen ansehen. Durch aufwändige und sehr teure Baumaßnahmen wie Dämme kann eine Überflutung unter Umständen verhindert werden.",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Rumänien",
+    "story_name_the_broads": "The Broads, UK",
+    "photo_popup": "Hier wurde das Foto aufgenommen",
+    "photo_cc_license": "ist lizenziert unter CC BY 2.0",
     "next_btn": "weiter"
   },
   "en": {
     "title": "Example of sea level rise in {storyName}",
+    "desc": "Some regions will be severely affected by sea-level rise. Here you can see a simulation of four coastal regions. Flooding can be prevented under certain circumstances by expensive construction measures such as dams",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Romania",
+    "story_name_the_broads": "The Broads, UK",
+    "photo_popup": "The photo was taken here",
+    "photo_cc_license": "is licensed under CC BY 2.0",
     "next_btn": "continue"
   }
 }
@@ -39,11 +47,14 @@
           <div class="column col-6"></div>
 
           <div class="column col-7">
-            TODO: 123
+            {{ $t('desc') }}
           </div>
           <div class="column col-5">
-            <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg">
-            Copyright
+            <img class="img-responsive" :src="this.storySelectedData.imageURL">
+            <em>
+              <a :href="this.storySelectedData.imageCopyrightLink" target="_blank">{{ this.storySelectedData.imageCopyrightText }}</a>,
+              <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">{{ $t("photo_cc_license") }}</a>
+            </em>
           </div>
         </div>
       </div>
@@ -70,6 +81,7 @@
 import * as d3 from 'd3';
 import L from 'leaflet';
 import Colors from '@/utils/colors';
+import '@/vendors/leaflet-svgicon/svg-icon';
 
 
 export default {
@@ -82,39 +94,69 @@ export default {
           name: this.$t('story_name_aveiro'),
           coords: [40.7323, -8.65391],
           zoomLevel: 12,
+          imageLocation: [40.661995, -8.647931],
+          imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg",
+          imageCopyrightText: "Sergei G.",
+          imageCopyrightLink: "https://www.flickr.com/photos/sergeigussev/",
         },
         foulness: {
           name: this.$t('story_name_foulness'),
-          coords: [51.6042714, 0.8407641],
-          zoomLevel: 12,
+          coords: [51.60542714, 0.8507641],
+          zoomLevel: 13,
+          imageLocation: [51.5855078, 0.8701842],
+          imageURL: "https://s0.geograph.org.uk/geophotos/01/49/08/1490822_b3982918.jpg",
+          imageCopyrightText: "Trevor H.",
+          imageCopyrightLink: "https://www.geograph.org.uk/profile/27744",
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
           coords: [44.9885519, 29.2160797],
           zoomLevel: 11,
+          imageLocation: null,
+          imageURL: "https://live.staticflickr.com/8458/29150953465_415df82b8e_z.jpg",
+          imageCopyrightText: "F.Micki",
+          imageCopyrightLink: "https://www.flickr.com/photos/f_micki/",
+        },
+        the_broads: {
+          name: this.$t('story_name_the_broads'),
+          coords: [52.633363, 1.709751],
+          zoomLevel: 11,
+          imageLocation: [52.7004576, 1.6675209],
+          imageURL: "https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg",
+          imageCopyrightText: "Richard L.",
+          imageCopyrightLink: "https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg",
         },
       },
-      storySelectedId: 'aveiro',
+      storySelectedId: 'foulness',
       storySelectedData: null,
+      storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
       loop: null,
     };
   },
 
   created() {
-    // set up stuff for the default story
+    this.removeLayers();
     this.changeStory();
   },
 
   mounted() {
+    // set up stuff for the default story
     this.$parent.removeLayers();
   },
 
   destroyed() {
     this.$parent.removeLayers();
+    this.removeLayers();
     this.animationStop();
   },
 
   methods: {
+    removeLayers() {
+      this.storyImageMapLayerGroup.eachLayer((layer2rm) => {
+        this.storyImageMapLayerGroup.removeLayer(layer2rm);
+      });
+    },
+
     animationStop() {
       if (this.loop) {
         clearInterval(this.loop);
@@ -129,6 +171,10 @@ export default {
         this.storySelectedData.coords, this.storySelectedData.zoomLevel, this.$parent.$options.flyToOptions(60),
       );
 
+      this.removeLayers();
+      this.animationStop();
+
+      // animation loop
       this.$parent.$data.map.once('moveend', () => {
         this.loop = setInterval(() => {
           let yearIndexNext = this.years.indexOf(this.year);
@@ -141,6 +187,13 @@ export default {
           this.renderYear();
         }, 800);
       });
+
+      // add story photo marker to map
+      if (this.storySelectedData.imageLocation) {
+        new L.Marker.SVGMarker(L.latLng(...this.storySelectedData.imageLocation), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 }}).addTo(this.storyImageMapLayerGroup)
+          .bindPopup(this.$t('photo_popup'))
+          .openPopup();
+      }
     },
 
     renderYear(year) {

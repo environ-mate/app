@@ -57,4 +57,10 @@ export default {
     height: 100%;
     width: 100%;
   }
+
+  .leaflet-popup-content {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+  }
 </style>
