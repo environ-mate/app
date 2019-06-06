@@ -3,22 +3,22 @@
   "de": {
     "title": "Weitere Infos zum Klimawandel und der Rolle der EU",
     "intro": "Wenn du noch mehr über den Klimawandel und darüber, was die EU gegen ihn tut, lernen möchtest, empfehlen wir dir folgende Seiten einmal anzuschauen. Offene Daten bilden zudem das Herzstücks unserer Projekts und helfen dabei, den Klimawandel besser zu verstehen - im offenen Datenportal der EU findest du viele interessante Datensätze und Visualisierungen rund um dem Klimawandel:",
-    "act_1": "Intergovernmental Panel on Climate Change ('Weltklimarat'): https://www.ipcc.ch/",
-    "act_2": "Intergovernmental Platform on Biodiversity and Ecosystem Services ('Weltbiodiversitätsrat'): https://www.ipbes.net/",
-    "act_3": "Klimapolitik der EU: https://ec.europa.eu/clima/index_de",
-    "act_4": "Europäische Umweltagentur: https://www.eea.europa.eu/de",
-    "act_5": "Offenes Datenportal der EU: https://data.europa.eu/euodp/de/data/",
+    "act_1": "<a href='https://www.ipcc.ch/' target='_blank'>Intergovernmental Panel on Climate Change ('Weltklimarat')</a>",
+    "act_2": "<a href='https://www.ipbes.net/' target='_blank'>Intergovernmental Platform on Biodiversity and Ecosystem Services ('Weltbiodiversitätsrat')</a>",
+    "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>Klimapolitik der EU</a>",
+    "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>Umweltagentur</a>",
+    "act_5": "<a href='https://data.europa.eu/euodp/de/data/' target='_blank'>Offenes Datenportal der EU</a>",
    "next_btn": "Wähle eine andere Stadt",
    "next_examples": "Zurück zur Übersicht"
   },
   "en": {
     "title": "Further information refarding climate change and the role of the EU",
-    "intro": "If you want to know more about climate change and what the EU is doing to counter it, we recommend looking at the following sites. Open datasets are the core of our project and help us better understand climate change - in the EU Open Data Portal you'll find many interesting datasets and visualisations concerning climate change:",
-    "act_1": "Intergovernmental Panel on Climate Change: https://www.ipcc.ch/",
-    "act_2": "Intergovernmental Platform on Biodiversity and Ecosystem Services: https://www.ipbes.net/",
-    "act_3": "EU climate action: https://ec.europa.eu/clima/index_de",
-    "act_4": "European Environmental Agency: https://www.eea.europa.eu/de",
-    "act_5": "EU Open Data Portal: https://data.europa.eu/euodp/de/data/",
+    "intro": "If you want to know more about climate change and what the EU is doing to counter it, we recommend looking at the following sites. Open datasets are the core of our project and help us better understand climate change - in the EU Open Data Portal you'll find many interesting datasets and visualisations concerning climate change",
+    "act_1": "<a href='https://www.ipcc.ch/' target='_blank'>Intergovernmental Panel on Climate Change</a>",
+    "act_2": "<a href='https://www.ipbes.net/' target='_blank'>Intergovernmental Platform on Biodiversity and Ecosystem Services</a>",
+    "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>EU climate action</a>",
+    "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>European Environmental Agency</a>",
+        "act_5": "<a href='https://data.europa.eu/euodp/de/data/' target='_blank'>EU Open Data Portal</a>",
    "next_btn": "Choose another city",
    "next_examples": "Back to Overview"
   }
@@ -44,11 +44,11 @@
           </div>
           <div class="column col-7">
             <ul>
-              <li>{{ $t('act_1') }}</li>
-              <li>{{ $t('act_2') }}</li>
-              <li>{{ $t('act_3') }}</li>
-              <li>{{ $t('act_4') }}</li>
-              <li>{{ $t('act_5') }}</li>
+              <li v-html="$t('act_1')"></li>
+              <li v-html="$t('act_2')"></li>
+              <li v-html="$t('act_3')"></li>
+              <li v-html="$t('act_4')"></li>
+              <li v-html="$t('act_5')"></li>
             </ul>
           </div>
         </div>
