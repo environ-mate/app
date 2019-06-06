@@ -10,8 +10,10 @@ library(tidyverse)
 ### NOTES
 # replace NA with 0 for extreme weather data?
 
-
-
+# set this variable to exclude and include the proper years from the projection and ghg measures
+# NOTE: note affecting the population calculations yet (TODO?)
+# NOTE: ghg emission for each country AND per capita must be up to date to the same year!
+MOST_RECENT_YEAR_FOR_GHG_DATA = 2016
 
 
 ##### POPULATION #####
@@ -230,7 +232,7 @@ country_names_and_codes <- ghg_emissions_per_sector %>%
 
 # filter only required years and calculate ghg emissions indexed and ghg emissions per capita for current and future years
 ghg_emissions_projections_filtered <- ghg_emissions_projections %>% 
-  filter(year %in% c(2017, 2018, 2020, 2025, 2030, 2035)) %>% 
+  filter(year %in% c(MOST_RECENT_YEAR_FOR_GHG_DATA+1, MOST_RECENT_YEAR_FOR_GHG_DATA+2, 2020, 2025, 2030, 2035)) %>% 
   left_join(ghg_emissions_1990, by="country.code") %>% 
   mutate(ghg.emissions.indexed=round((total.ghg.emissions.mio.tonnes/total.ghg.emissions.mio.tonnes.1990)*100, 1)) %>% 
   inner_join(population, by=c("country.code", "year")) %>% 

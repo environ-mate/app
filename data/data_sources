@@ -16,3 +16,27 @@ https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections
 TEMPERATURE
 
 https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment -> temperature_deviations_raw.csv
+
+
+SEA LEVEL
+Digital Elevation Model Over Europe (EU-DEM), from the Copernicus project: https://www.eea.europa.eu/data-and-maps/data/eu-dem#tab-metadata
+
+RCP4.5 total sea level rise projections, from the Integrated Climate Data Center (ICDC): https://www.eea.europa.eu/data-and-maps/data/external/ar5-sea-level-rise-projections
+
+long term predictions: Winkelmann, R., Levermann, A., Ridgwell, A., & Caldeira, K. (2015). Combustion of available fossil-fuel resources sufficient to eliminate the Antarctic ice sheet, Sci. Adv., 1, e1500589.
+
+
+
+EU | Population: https://ec.europa.eu/eurostat/web/products-datasets/-/namq_10_pe
+
+EU | Population projections: https://ec.europa.eu/eurostat/web/products-datasets/-/tps00002
+
+EU | Temperature deviations: https://www.eea.europa.eu/data-and-maps/daviz/european-average-air-temperature-anomalies-8#tab-chart_8
+
+EU | Greenhouse gas emissions per sector (National emissions reported to the UNFCCC and to the EU Greenhouse Gas Monitoring Mechanism): https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15
+
+EU | Greenhouse gas emissions indexed and per capita: https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10
+
+EU | Greenhouse gas emissions projections: https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4
+
+Not EU | Extreme weather: The Emergency Events Database - Université catholique de Louvain (UCL) - CRED, www.emdat.be, Brussels, Belgium. Classification: https://emdat.be/classification
