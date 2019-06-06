@@ -13,6 +13,7 @@ import '@/vendors/spectre.css/spectre-icons.css';
 import '@/vendors/spectre.css/spectre-exp.css';
 import 'vue-i18n/dist/vue-i18n';
 import 'c3/c3.css';
+import '@/vendors/leaflet-svgicon/svg-icon';
 
 export default {
   name: 'App',
