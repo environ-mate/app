@@ -1,11 +1,19 @@
 <i18n>
 {
   "de": {
-    "title": "Anstieg des Meeresspiegels am Beispiel Aveiro in Portugal",
+    "title": "Anstieg des Meeresspiegels am Beispiel {storyName}",
+    "story_name_aveiro": "Aveiro, Portugal",
+    "story_name_foulness": "Foulness Island, UK",
+    "story_name_sa_pobla": "Sa Pobla, Spanien",
+    "story_name_uzlina": "Uzlina, Rumänien",
     "next_btn": "weiter"
   },
   "en": {
-    "title": "Example of sea level rise in Aveiro, Portugal",
+    "title": "Example of sea level rise in {storyName}",
+    "story_name_aveiro": "Aveiro, Portugal",
+    "story_name_foulness": "Foulness Island, UK",
+    "story_name_sa_pobla": "Sa Pobla, Spain",
+    "story_name_uzlina": "Uzlina, Romania",
     "next_btn": "continue"
   }
 }
@@ -19,7 +27,7 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
+           {{ $t("title", {'storyName': this.storySelectedData.name}) }}
         </div>
       </div>
       <div class="modal-body">
@@ -44,7 +52,7 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-            <select v-model="storySelected" class="form-select">
+            <select v-model="storySelectedId" @change="changeStory" class="form-select">
               <option v-for="(story, storyId) in stories" v-bind:value="storyId" v-bind:key="storyId">{{ story.name }}</option>
             </select>
           </div>
@@ -71,35 +79,64 @@ export default {
       years: [2010, 2040, 2070, 2100],
       stories: {
         aveiro: {
-          name: 'Aveiro in Portugal',
+          name: this.$t('story_name_aveiro'),
+          coords: [40.7323, -8.65391],
+          zoomLevel: 12,
+        },
+        sa_pobla: {
+          name: this.$t('story_name_sa_pobla'),
+          coords: [39.77093, 3.02727],
+          zoomLevel: 12,
+        },
+        foulness: {
+          name: this.$t('story_name_foulness'),
+          coords: [51.6042714, 0.8407641],
+          zoomLevel: 13,
+        },
+        uzlina: {
+          name: this.$t('story_name_uzlina'),
+          coords: [44.9885519, 29.2160797],
+          zoomLevel: 11,
         },
       },
-      storySelected: 'aveiro',
+      storySelectedId: 'aveiro',
+      storySelectedData: null,
     };
+  },
+
+  created() {
+    // set up stuff for the default story
+    this.changeStory();
   },
 
   mounted() {
     this.$parent.removeLayers();
-    this.renderYear();
-    this.$parent.$data.map.flyTo(
-      [40.7323, -8.65391], 12, this.$parent.$options.flyToOptions(11),
-    );
   },
 
   methods: {
+    changeStory() {
+      this.storySelectedData = this.stories[this.storySelectedId];
+      this.year = Math.min(...this.years);
+
+      this.$parent.$data.map.flyTo(
+        this.storySelectedData.coords, this.storySelectedData.zoomLevel, this.$parent.$options.flyToOptions(60),
+      );
+      this.renderYear();
+    },
+
     renderYear(year) {
       if (year) {
         this.year = year;
       }
-      this.year = parseInt(this.year, 10);
 
+      this.year = parseInt(this.year, 10);
       if (this.years.indexOf(this.year) < 0) {
         return;
       }
 
       this.$parent.removeLayers();
 
-      d3.json(`/data/sea_level_rise_stories/${this.storySelected}/${this.year}.geojson`).then((geoJSON) => {
+      d3.json(`/data/sea_level_rise_stories/${this.storySelectedId}/${this.year}.geojson`).then((geoJSON) => {
         L.geoJson(geoJSON, {
           weight: 0,
           fillColor: Colors.blue,
