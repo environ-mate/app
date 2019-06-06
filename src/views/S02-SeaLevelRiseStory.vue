@@ -4,7 +4,6 @@
     "title": "Anstieg des Meeresspiegels am Beispiel {storyName}",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
-    "story_name_sa_pobla": "Sa Pobla, Spanien",
     "story_name_uzlina": "Uzlina, Rumänien",
     "next_btn": "weiter"
   },
@@ -12,7 +11,6 @@
     "title": "Example of sea level rise in {storyName}",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
-    "story_name_sa_pobla": "Sa Pobla, Spain",
     "story_name_uzlina": "Uzlina, Romania",
     "next_btn": "continue"
   }
@@ -45,6 +43,7 @@
           </div>
           <div class="column col-5">
             <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg">
+            Copyright
           </div>
         </div>
       </div>
@@ -84,15 +83,10 @@ export default {
           coords: [40.7323, -8.65391],
           zoomLevel: 12,
         },
-        sa_pobla: {
-          name: this.$t('story_name_sa_pobla'),
-          coords: [39.77093, 3.02727],
-          zoomLevel: 12,
-        },
         foulness: {
           name: this.$t('story_name_foulness'),
           coords: [51.6042714, 0.8407641],
-          zoomLevel: 13,
+          zoomLevel: 12,
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
@@ -185,7 +179,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-</style>

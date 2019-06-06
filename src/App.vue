@@ -116,11 +116,6 @@ export default {
     align-self: flex-end;
   }
 
-  .modal-body, .modal-container {
-    height: max-content;
-    display: block;
-  }
-
   .modal-bottom-center {
     top: unset;
   }

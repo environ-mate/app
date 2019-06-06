@@ -24,7 +24,7 @@
 </i18n>
 
 <template>
-  <div class="modal modal-lg modal-bottom-center" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div class="modal modal modal-bottom-right" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right"
@@ -49,10 +49,14 @@
               <input v-model="picked" value="capita" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_capita') }}
             </label>
           </div>
-          <div class="column col-8">
+          <div class="column col-1"></div>
+          <div class="column col-7">
             <p v-if="picked === 'total'">{{ $t('description_total', {countryShare: this.countryShare, countryIndex: this.countryIndex}) }}</p>
             <p v-if="picked === 'capita'">{{ $t('description_capita', {capitaShare: this.capitaShare, capitaAvg: this.capitaAvg}) }}</p>
           </div>
+        </div>
+        <div class="column col-12">
+          <p></p>
         </div>
         <div class="column col-12">
           <p>{{ $t('description_footprint') }}</p>

@@ -2582,10 +2582,11 @@ summary.accordion-header::-webkit-details-marker {
   background: #fff;
   border-radius: .1rem;
   box-shadow: 0 .2rem .5rem rgba(48, 55, 66, .3);
-  display: block;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  max-height: 80vh;
+  max-height: 95vh;
   max-width: 640px;
   padding: 0 .8rem;
   width: 100%;
