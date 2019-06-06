@@ -32,17 +32,19 @@
       </div>
       <div class="modal-body">
         <div class="columns">
+          <div class="column col-6">
+            <div class="btn-group btn-group-block">
+                <button @click="renderYear(y)" v-for="y in years" :key="y" :class="{ 'active': y === year  }" class="btn btn-action btn-sm">{{ y }}</button>
+            </div>
+            <p></p>
+          </div>
+          <div class="column col-6"></div>
+
           <div class="column col-7">
-            TODO: bla bla bla
+            TODO: 123
           </div>
           <div class="column col-5">
             <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg">
-          </div>
-
-          <div class="column col-6">
-            <div class="btn-group btn-group-block">
-              <button @click="renderYear(y)" v-for="y in years" :key="y" :class="{ 'active': y === year  }" class="btn btn-action btn-sm">{{ y }}</button>
-            </div>
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
           <div class="column col-8 flex-centered">
-            <select v-model="storySelectedId" @change="changeStory" class="form-select">
+            <select v-model="storySelectedId" @change="changeStory" @mousedown="animationStop" @click="animationStop" class="form-select">
               <option v-for="(story, storyId) in stories" v-bind:value="storyId" v-bind:key="storyId">{{ story.name }}</option>
             </select>
           </div>
@@ -70,7 +72,6 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import Colors from '@/utils/colors';
 
-//const waterLayerStyle = ;
 
 export default {
   data() {
@@ -101,6 +102,7 @@ export default {
       },
       storySelectedId: 'aveiro',
       storySelectedData: null,
+      loop: null,
     };
   },
 
@@ -113,7 +115,18 @@ export default {
     this.$parent.removeLayers();
   },
 
+  destroyed() {
+    this.$parent.removeLayers();
+    this.animationStop();
+  },
+
   methods: {
+    animationStop() {
+      if (this.loop) {
+        clearInterval(this.loop);
+      }
+    },
+
     changeStory() {
       this.storySelectedData = this.stories[this.storySelectedId];
       this.year = Math.min(...this.years);
@@ -121,11 +134,24 @@ export default {
       this.$parent.$data.map.flyTo(
         this.storySelectedData.coords, this.storySelectedData.zoomLevel, this.$parent.$options.flyToOptions(60),
       );
-      this.renderYear();
+
+      this.$parent.$data.map.once('moveend', () => {
+        this.loop = setInterval(() => {
+          let yearIndexNext = this.years.indexOf(this.year);
+          if (yearIndexNext + 1 > this.years.length - 1) {
+            yearIndexNext = 0;
+          } else {
+            yearIndexNext = yearIndexNext + 1;
+          }
+          this.year = this.years[yearIndexNext];
+          this.renderYear();
+        }, 800);
+      });
     },
 
     renderYear(year) {
       if (year) {
+        this.animationStop();
         this.year = year;
       }
 
