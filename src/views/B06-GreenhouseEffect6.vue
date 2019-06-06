@@ -57,7 +57,7 @@
       <div class="modal-body">
         <div class="columns">
           <div class="column col-11">
-            <input @input="renderYear" v-model="year" class="slider" type="range" min="1996" max="2016">
+            <input @input="renderYear" v-model="year" class="slider" type="range" min="1990" max="2016">
           </div>
           <div class="column col-1"><h5>{{ this.year }}</h5></div>
 
