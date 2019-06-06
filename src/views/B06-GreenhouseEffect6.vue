@@ -44,7 +44,7 @@
 </i18n>
 
 <template>
-  <div class="modal modal-lg modal-bottom-center" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div class="modal modal modal-bottom-right" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right"

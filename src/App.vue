@@ -117,8 +117,7 @@ export default {
   }
 
   .modal-body, .modal-container {
-    height: max-content;
-    display: block;
+
   }
 
   .modal-bottom-center {

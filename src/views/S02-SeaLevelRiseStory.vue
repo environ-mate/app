@@ -92,7 +92,7 @@ export default {
         foulness: {
           name: this.$t('story_name_foulness'),
           coords: [51.6042714, 0.8407641],
-          zoomLevel: 13,
+          zoomLevel: 12,
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
