@@ -19,7 +19,8 @@
     "effect_indirect_6": "Waldbrände",
     "effect_indirect_7": "Überflutungen",
     "subtitle_msg": "In den letzten Jahrzehnten wurde ein Anstieg von ca. 0,5°C gemessen. Bis 2100 erwartet man weitere 1,5 bis 3°C. Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
-    "next_btn": "weiter"
+    "next_btn": "Meeresspiegel",
+    "ew_btn": "Extremwetter"
   },
   "en": {
     "title": "What are the biggest consequences of climate change?",
@@ -40,7 +41,8 @@
     "effect_indirect_6": "Wildfires",
     "effect_indirect_7": "Floods",
     "subtitle_msg": "Temperatures have risen around 0.5°C over the past decades. A further rise of between 1.5 to 3°C is expected by 2100. The consequences vary from region to region and are difficult to predict in detail.",
-    "next_btn": "continue"
+    "next_btn": "Sea Level",
+    "ew_btn": "Extreme Weather"
   }
 }
 </i18n>
@@ -95,7 +97,10 @@
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
-          <div class="column col-8 flex-centered">
+          <div class="column col-5 flex-centered">
+          </div>
+          <div class="column col-3 flex-centered">
+            <button @click="ew" class="btn btn btn-success float-right"> {{ $t('ew_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
@@ -112,6 +117,10 @@ export default {
   methods: {
     next() {
       this.$router.push({ name: 'S01-SeaLevelRiseIntro' });
+    },
+
+    ew() {
+      this.$router.push({ name: 'W01-ExtremeWeather1' });
     },
 
     modalClose() {
