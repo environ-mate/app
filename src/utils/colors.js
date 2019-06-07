@@ -5,4 +5,5 @@ export default {
   blue: '#67a9cf',
   purple: '#9e9ac8',
   yellow: '#fed976',
+  brown: '#bf812d',
 };

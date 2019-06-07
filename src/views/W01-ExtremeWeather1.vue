@@ -106,12 +106,16 @@ export default {
         names: {
           'storm.occurrence': this.$t('storm.occurrence'),
         },
-        type: 'line',
-       },
+        type: 'area',
+        colors: {
+          'storm.occurrence': Colors.purple,
+          'wildfire.occurrence': Colors.orange,
+          'flood.occurrence': Colors.blue,
+          'drought.occurrence': Colors.brown,
+        },
+      },
     });
   },
-
-
 
   methods: {
     next() {
