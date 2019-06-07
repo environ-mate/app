@@ -85,6 +85,9 @@ export default {
   },
 
   flyToOptions(maxZoom, duration, easeLinearity) {
+    if (window.webpackHotUpdate) {
+      duration = 0.1;
+    }
     return {
       maxZoom,
       duration: duration || 3.0,
