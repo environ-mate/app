@@ -232,7 +232,7 @@ export default {
     },
 
     next() {
-      this.$router.push({ name: 'Z01-ActOverview' });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     modalClose() {

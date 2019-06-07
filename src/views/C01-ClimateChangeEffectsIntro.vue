@@ -19,8 +19,9 @@
     "effect_indirect_6": "Waldbrände",
     "effect_indirect_7": "Überflutungen",
     "subtitle_msg": "In den letzten Jahrzehnten wurde ein Anstieg von ca. 0,5°C gemessen. Bis 2100 erwartet man weitere 1,5 bis 3°C. Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
-    "next_btn": "Meeresspiegel",
-    "ew_btn": "Extremwetter"
+    "next_sea_level_btn": "Meeresspiegel",
+    "next_ew_btn": "Extremwetter",
+    "next_act_btn": "Was kannst du dagegen tun?"
   },
   "en": {
     "title": "What are the biggest consequences of climate change?",
@@ -41,8 +42,9 @@
     "effect_indirect_6": "Wildfires",
     "effect_indirect_7": "Floods",
     "subtitle_msg": "Temperatures have risen around 0.5°C over the past decades. A further rise of between 1.5 to 3°C is expected by 2100. The consequences vary from region to region and are difficult to predict in detail.",
-    "next_btn": "Sea Level",
-    "ew_btn": "Extreme Weather"
+    "next_sea_level_btn": "Sea Level",
+    "next_ew_btn": "Extreme Weather",
+    "next_act_btn": "What can I do about it?"
   }
 }
 </i18n>
@@ -60,9 +62,11 @@
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-2 flex-centered">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <div class="column col-12">
           </div>
+        </div>
+
+        <div class="columns">
           <div class="column col-5">
             <h5>{{ $t('title_direct') }}</h5>
             <ul>
@@ -74,6 +78,9 @@
               <li>{{ $t('effect_direct_6') }}</li>
               <li>{{ $t('effect_direct_7') }}</li>
             </ul>
+          </div>
+          <div class="column col-2 flex-end">
+            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
           </div>
           <div class="column col-5">
             <h5>{{ $t('title_indirect') }}</h5>
@@ -87,27 +94,37 @@
               <li>{{ $t('effect_indirect_7') }}</li>
             </ul>
           </div>
+          </div>
+          <div  class="column col-12">
+            <p>{{ $t('subtitle_msg') }}</p>
+          </div>
+
+          <div  class="column col-1"></div>
+          <div  class="column col-10 flex-centered">
+            <h5>Welche Auswirkungen der Klimawandel auf unser Wetter und den Meeresspiegel hat, kannst dir jetzt anschauen</h5>
+          </div>
+          <div  class="column col-1"></div>
+
+        </div>
+        <div class="modal-footer">
+          <div class="columns">
+            <div class="column col-1 flex-centered">
+              <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            </div>
+            <div  class="column col-1"></div>
+            <div  class="column col-3 flex-centered">
+              <button @click="nextEw" class="btn btn btn-primary"><i class="icon icon-arrow-right"></i> {{ $t('next_ew_btn') }}</button>
+              </div>
+            <div  class="column col-1"></div>
+            <div  class="column col-3 flex-centered">
+              <button @click="nextseaLevel" class="btn btn btn-primary"><i class="icon icon-arrow-right"></i> {{ $t('next_sea_level_btn') }}</button>
+            </div>
+            <div  class="column col-2">
+              <button @click="nextAct" class="btn btn btn-success"><i class="icon icon-arrow-right"></i> {{ $t('next_act_btn') }}</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div  class="column col-12">
-        <p>{{ $t('subtitle_msg') }}</p>
-      </div>
-      <div class="modal-footer">
-       <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-          </div>
-          <div class="column col-5 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="ew" class="btn btn-lg btn-primary float-right"> {{ $t('ew_btn') }}<i class="icon icon-arrow-right"></i></button>
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-primary float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -115,12 +132,16 @@
 
 export default {
   methods: {
-    next() {
+    nextseaLevel() {
       this.$router.push({ name: 'S01-SeaLevelRiseIntro' });
     },
 
-    ew() {
+    nextEw() {
       this.$router.push({ name: 'W01-ExtremeWeather1' });
+    },
+
+    nextAct() {
+      this.$router.push({ name: 'Z01-ActOverview' });
     },
 
     modalClose() {
@@ -133,3 +154,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .effect-btn {
+    width: 100%;
+  }
+</style>
