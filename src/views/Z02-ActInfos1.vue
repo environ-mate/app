@@ -13,8 +13,8 @@
     "act_4": "#4 Wiederverwerten",
     "act_5": "#5 Kompostieren",
    "subtitle_msg": "Versuch dir diese Regeln zu merken und sie in deinen Alltag anzuwenden.",
-   "next_btn": "Wähle eine andere Stadt",
-   "next_examples": "Zurück zur Übersicht"
+   "next_btn": "Übersicht Auswirkungen",
+   "next_examples": "Übersicht Handeln"
   },
   "en": {
     "title": "Zero Waste Rules",
@@ -29,8 +29,8 @@
     "act_4": "#4 RECYCLE",
     "act_5": "#5 ROT",
    "subtitle_msg": "Try to keep these rules in mind and to apply them in your everyday life.",
-   "next_btn": "Select a different city",
-   "next_examples": "Back to Overview"
+   "next_btn": "Overview Consequences",
+   "next_examples": "Overview Actions"
   }
 }
 </i18n>
@@ -98,7 +98,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     examples() {

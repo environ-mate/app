@@ -8,8 +8,8 @@
     "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>Klimapolitik der EU</a>",
     "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>Umweltagentur</a>",
     "act_5": "<a href='https://data.europa.eu/euodp/de/data/' target='_blank'>Offenes Datenportal der EU</a>",
-    "next_btn": "Wähle eine andere Stadt",
-    "next_examples": "Zurück zur Übersicht"
+    "next_btn": "Übersicht Auswirkungen",
+    "next_examples": "Übersicht Handeln"
   },
   "en": {
     "title": "Further information regarding climate change and the role of the EU",
@@ -19,8 +19,8 @@
     "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>EU climate action</a>",
     "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>European Environmental Agency</a>",
     "act_5": "<a href='https://data.europa.eu/euodp/de/data/' target='_blank'>EU Open Data Portal</a>",
-    "next_btn": "Choose another city",
-    "next_examples": "Back to Overview"
+    "next_btn": "Overview Consequences",
+    "next_examples": "Overview Actions"
   }
 }
 </i18n>
@@ -77,7 +77,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     examples() {

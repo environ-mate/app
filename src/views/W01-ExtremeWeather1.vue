@@ -8,7 +8,7 @@
     "vis_legend_flood": "Überschwemmung",
     "vis_legend_drought": "Dürre",
     "desc": "Überschwemmungen, Dürren, Hitzewellen und andere klimabedingte Extreme verursachten zwischen 1980 und 2017 Schäden in Höhe von 453 Milliarden Euro und töteten über 115.000 Menschen in ganz Europa. Wir können erwarten, dass sowohl die Häufigkeit als auch die Schwere von Stürmen und Überschwemmungen im Laufe der Zeit zunehmen werden, was Eigentum und Leben bedroht.",
-    "next_btn": "Übersicht"
+    "next_btn": "Übersicht Auswirkungen"
   },
   "en": {
     "title": "What is happening with our weather?",
@@ -18,7 +18,7 @@
     "vis_legend_flood": "Flood",
     "vis_legend_drought": "Drought",
     "desc": "Floods, droughts, heatwaves, and other climate-related extremes caused €453 billion in damages between 1980 and 2017, killing over 115,000 people across Europe. We can expect both the frequency and severity of storms and floods to rise as time goes on, threatening property and lives.",
-    "next_btn": "Overview"
+    "next_btn": "Overview Consequences"
   }
 }
 </i18n>

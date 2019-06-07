@@ -3,12 +3,13 @@
   "de": {
     "title": "5 praktische Tipps für deinen Alltag",
     "intro": "Viele (auch kleine) Schritte bringen uns unserem Ziel näher, unsere Emissionen zu reduzieren. Stecke dir neue Ziele und überlege, womit du anfangen kannst. Hier sind ein paar einfache Tipps:",
-    "act_1": "tipp1",
-    "act_2": "tipp2",
-    "act_3": "tipp3",
-    "act_4": "tipp4",
-    "act_5": "tipp5",
-   "next_btn": "Zurück zur Übersicht"
+    "act_1": "Weniger Tierprodukte - Rinderhaltung und Tierzucht sind schlecht für das Klima. Versuche daher auf Fleisch- und Milchprodukte zu verzichten.",
+    "act_2": "Mülltrennung - Versuche immer, Müll zu vermeiden, aber wenn Müll anfällt, dann trenne ihn, damit er recyclet werden kann.",
+    "act_3": "Pappe-lapapp! - Verzichte auf Getränkebecher aus Pappe. Nimm dir lieber ein Getränk in einer wiederverschließbaren Flasche von zuhause mit.",
+    "act_4": "Tritt in die Pedale! - Nimm lieber das Rad, anstatt Bus oder Auto. Hält fit und schont die Umwelt.",
+    "act_5": "Stoßlüften - Im Winter regelmäßig alle Fenster öffnen und nicht die Fenster längere Zeit gekippt lassen.",
+   "next_btn": "Übersicht Auswirkungen",
+   "next_examples": "Übersicht Handeln"
   },
   "en": {
     "title": "5 practical pieces of advice for your everyday life",
@@ -18,7 +19,8 @@
     "act_3": "tipp3",
     "act_4": "tipp4",
     "act_5": "tipp5",
-   "next_btn": "Back to Overview"
+    "next_btn": "Overview Consequences",
+   "next_examples": "Overview Actions"
   }
 }
 </i18n>
@@ -51,12 +53,15 @@
           </div>
         </div>
       </div>
-     <div class="modal-footer">
+      <div class="modal-footer">
        <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn btn float-left"><i class="icon icon-arrow-left"></i></button>
           </div>
-          <div class="column col-8 flex-centered">
+          <div class="column col-5 flex-centered">
+          </div>
+          <div class="column col-3 flex-centered">
+            <button @click="examples" class="btn btn btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
             <button @click="next" class="btn btn btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
@@ -72,8 +77,13 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'Z01-ActOverview'});
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
+
+    examples() {
+      this.$router.push({ name: 'Z01-ActOverview' });
+    },
+
 
     modalClose() {
       this.$parent.modalClose();
