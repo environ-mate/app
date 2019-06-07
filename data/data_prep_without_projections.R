@@ -427,4 +427,26 @@ write.csv(extreme_weather_processed, "output/extreme_weather.csv", row.names=FAL
 
 
 
+##
+# Process data for sum of occurences.
+##
+
+data <- extreme_weather_processed
+data <- data[,-1]
+data <- data[,c(1:5)]
+data[is.na(data)] <- 0
+data_tmp <- data %>% group_by(year) %>% summarise_all(sum)
+write.csv(data_tmp, file="output/extreme_weather_occurences.csv", row.names=F)
+
+
+
+
+
+
+
+
+
+
+
+
 
