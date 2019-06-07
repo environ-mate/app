@@ -100,10 +100,10 @@
           <div class="column col-5 flex-centered">
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="ew" class="btn btn btn-success float-right"> {{ $t('ew_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="ew" class="btn btn-lg btn-primary float-right"> {{ $t('ew_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="next" class="btn btn-lg btn-primary float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>

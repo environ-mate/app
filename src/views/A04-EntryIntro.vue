@@ -11,10 +11,10 @@
     "next_btn": "Start Erklärung Klimawandel"
   },
   "en": {
-    "title": "Climate change - what is that, actually?",
-    "intro_1": "You have definitely heard about climate change.  What's it all about?",
-    "intro_2": "In the last decades the average temperature of earth has dramatically increased.  1-2 degrees don't sound much but have a very high impact on our environment.",
-    "chart_degress_desc": "If you take a look on the average temperatures in Europe and compare it to the time before 1900, you can see it is becoming hotter and hotter:",
+    "title": "What is climate change?",
+    "intro_1": "You've likely heard of climate change. So, what's it all about?",
+    "intro_2": "In the last decades the average temperature of earth has dramatically increased.  1-2 degrees don't sound like much, but have a very high impact on our environment.",
+    "chart_degress_desc": "If you take a look on the average temperatures in Europe and compare it to before 1900, you can see it is becoming hotter and hotter:",
     "chart_degress": "Average temperatures",
     "next_desc": "But why the increase in temperatures on earth?",
     "next_next_desc": "I'll explain that to you on the next pages.",

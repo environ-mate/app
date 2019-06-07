@@ -9,7 +9,7 @@
    "en": {
     "hello": "Howdi! My name is %{name}.",
     "hello_sub": "I will accompany you from here on.",
-    "help": "You can type the <i><b>h</b></i> key at any time - I will assist you then!",
+    "help": "You can type the <i><b>h</b></i> key at any time, and I'll come to assist you!",
     "start": "Press here to start!"
   }
 }
