@@ -7,7 +7,7 @@
     "radio_button_capita": "Emissionen pro Kopf",
     "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO2 Emissionen und kommt damit auf Platz 3 hinter den USA und China (Stand: 2017).",
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
-    "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (TODO: Link).",
+    "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
     "next_btn": "weiter"
   },
   "en": {
@@ -17,7 +17,7 @@
     "radio_button_capita": "Emissions per person",
     "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2017).",
     "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
-    "description_footprint": "Check your own footprint in comparison: (TODO: Link).",
+    "description_footprint": "Check your own footprint in comparison: (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
     "next_btn": "continue"
   }
 }
@@ -59,7 +59,7 @@
           <p></p>
         </div>
         <div class="column col-12">
-          <p>{{ $t('description_footprint') }}</p>
+          <p v-html="$t('description_footprint')"></p>
         </div>
       </div>
       <div class="modal-footer">

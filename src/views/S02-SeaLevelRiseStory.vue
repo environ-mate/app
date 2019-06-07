@@ -130,6 +130,7 @@ export default {
       storySelectedId: 'foulness',
       storySelectedData: null,
       storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
+      storyGeoData: null,
       loop: null,
     };
   },
@@ -160,10 +161,20 @@ export default {
     animationStop() {
       if (this.loop) {
         clearInterval(this.loop);
+        this.loop = null;
       }
     },
 
     changeStory() {
+      // prefetch story geo data
+      this.storyGeoData = {};
+
+      for (const year of this.years) {
+        d3.json(`/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`).then((geoJSON) => {
+          this.storyGeoData[year] = geoJSON;
+        });
+      }
+
       this.storySelectedData = this.stories[this.storySelectedId];
       this.year = Math.min(...this.years);
 
@@ -174,26 +185,30 @@ export default {
       this.removeLayers();
       this.animationStop();
 
-      // animation loop
-      this.$parent.$data.map.once('moveend', () => {
-        this.loop = setInterval(() => {
-          let yearIndexNext = this.years.indexOf(this.year);
-          if (yearIndexNext + 1 > this.years.length - 1) {
-            yearIndexNext = 0;
-          } else {
-            yearIndexNext = yearIndexNext + 1;
-          }
-          this.year = this.years[yearIndexNext];
-          this.renderYear();
-        }, 800);
-      });
-
       // add story photo marker to map
       if (this.storySelectedData.imageLocation) {
         new L.Marker.SVGMarker(L.latLng(...this.storySelectedData.imageLocation), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 }}).addTo(this.storyImageMapLayerGroup)
           .bindPopup(this.$t('photo_popup'))
           .openPopup();
       }
+
+      // animation loop
+      this.$parent.$data.map.once('moveend', () => {
+        const that = this;
+
+        function looper() {
+          let yearIndexNext = that.years.indexOf(that.year);
+          if (yearIndexNext + 1 > that.years.length - 1) {
+            yearIndexNext = 0;
+          } else {
+            yearIndexNext = yearIndexNext + 1;
+          }
+          that.year = that.years[yearIndexNext];
+          that.renderYear();
+        }
+
+        this.loop = setInterval(looper, 800);
+      });
     },
 
     renderYear(year) {
@@ -209,13 +224,11 @@ export default {
 
       this.$parent.removeLayers();
 
-      d3.json(`/data/sea_level_rise_stories/${this.storySelectedId}/${this.year}.geojson`).then((geoJSON) => {
-        L.geoJson(geoJSON, {
-          weight: 0,
-          fillColor: Colors.blue,
-          fillOpacity: 0.5,
-        }).addTo(this.$parent.$data.mapLayerGroup);
-      });
+      L.geoJson(this.storyGeoData[this.year], {
+        weight: 0,
+        fillColor: Colors.blue,
+        fillOpacity: 0.5,
+      }).addTo(this.$parent.$data.mapLayerGroup);
     },
 
     next() {
