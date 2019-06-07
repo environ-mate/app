@@ -5,8 +5,8 @@
     "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
-    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO2 Emissionen und kommt damit auf Platz 3 hinter den USA und China (Stand: 2017).",
-    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
+    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO₂ Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2017).",
+    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg}. Dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
     "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
     "next_btn": "weiter"
   },

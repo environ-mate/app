@@ -2,10 +2,10 @@
 {
   "de": {
     "title": "Zero Waste - Null Müll Regeln",
-    "rule_1": "Verzichte auf Dinge die du nicht wirklich benötigst. Frage dich vor einer neuen Anschaffung ob du sie wirklich brauchst und wie lange sie für dich nützlich sein wird.",
-    "rule_2": "Reduziere was du brauchst. Sehe dich zu Hause um und in deinem Alltag und finde Dinge, die nicht wirklich brauchst oder du mehrfach besitzt. Spende oder verkaufe diese Dinge.",
-    "rule_3": "Nutze wiederverwendbare Dinge. Vermeide Einwegartikel und versuche sie in deinem Alltag mit langlebigen Alternativen zu ersetzen oder zumindest Alternativen die z.B. kompostierbar sind.",
-    "rule_4": "Recycle was du nicht mit den ersten drei Regeln vermeiden kannst. Informiere dich wie in deiner Gegend Müll getrennt wird und halte dich an diese Regeln.",
+    "rule_1": "Verzichte auf Dinge, die du nicht wirklich benötigst. Frage dich vor einer neuen Anschaffung, ob du sie wirklich brauchst und wie lange sie für dich nützlich sein wird.",
+    "rule_2": "Reduziere, was du brauchst. Sieh dich zu Hause und in deinem Alltag um und finde Dinge, die du nicht wirklich brauchst oder mehrfach besitzt. Spende oder verkaufe diese Dinge.",
+    "rule_3": "Nutze wiederverwendbare Dinge. Vermeide Einwegartikel und versuche, sie in deinem Alltag mit langlebigen Alternativen zu ersetzen oder zumindest Alternativen, die z.B. kompostierbar sind.",
+    "rule_4": "Recycle, was du nicht mit den ersten drei Regeln vermeiden kannst. Informiere dich, wie in deiner Gegend Müll getrennt wird und halte dich an diese Regeln.",
     "rule_5": "Kompostiere den Rest. Mit den obigen Regeln sollte der Großteil des Mülls behandelt worden sein. Was jetzt noch übrig ist, sollten Essenreste und andere kompostierbare Abfälle sein.",
     "act_1": "#1 Verzichten",
     "act_2": "#2 Reduzieren",
