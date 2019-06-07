@@ -2,11 +2,11 @@
 {
   "de": {
     "title": "Was passiert eigentlich beim Anstieg des Meeresspiegels?",
-    "title_direct": "Es gibt drei Auswirkungen der Erderwärmung die den Anstieg überwiegend verursachen:",
-    "cause_direct_1": "Wärmeausdehnung: Warmes wasser dehnt sich weiter aus. Die Hälfte des Anstiegs in den letzten 25 Jahren geht auf diesen Effekt zurück.",
-    "cause_direct_2": "Abschmelzen der Gletscher: Durch kürzere und wärmere Winter können sich die Gletcher nicht mehr regenerieren und schmilzen nach und nach ab. Das Wasser fließt ins Meer ab.",
+    "title_direct": "Es gibt drei Auswirkungen der Erderwärmung, die den Anstieg überwiegend verursachen:",
+    "cause_direct_1": "Wärmeausdehnung: Warmes Wasser dehnt sich weiter aus. Die Hälfte des Anstiegs in den letzten 25 Jahren geht auf diesen Effekt zurück.",
+    "cause_direct_2": "Abschmelzen der Gletscher: Durch kürzere und wärmere Winter können sich die Gletscher nicht mehr regenerieren und schmelzen nach und nach ab. Das Wasser fließt ins Meer ab.",
     "cause_direct_3": "Abschmelzen der Eisschichten über Grönland und der Antarktis: Wie bei den Gletschern nehmen die Eisschichten in diesen Regionen sichtlich ab und geben das Wasser ins Meer ab.",
-    "subtitle_msg": "Der Anstieg des Meeresspiegels mag mit etwa 70cm bis 2100 gering wirken aber die Auswirkungen fallen regional äusserst unterschiedlich aus und wie sich der Anstieg über die kommenden Jahre beschleunigt kann man nicht exakt vorhersagen. Jedoch sehen wir bereits jetzt wie sich Hochwasser, Hurricanes (Wirbelstürme) und Starkregen häufen.",
+    "subtitle_msg": "Der Anstieg des Meeresspiegels mag mit etwa 70cm bis 2100 gering wirken, aber die Auswirkungen fallen regional äußerst unterschiedlich aus. Wie sich der Anstieg über die kommenden Jahre beschleunigt, kann man nicht exakt vorhersagen. Jedoch sehen wir bereits jetzt, wie sich Hochwasser, Hurricanes (Wirbelstürme) und Starkregen häufen.",
     "next_btn": "weiter"
   },
   "en": {

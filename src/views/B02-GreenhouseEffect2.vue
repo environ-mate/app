@@ -3,7 +3,7 @@
   "de": {
     "title": "Was ist eigentlich mit Treibhauseffekt gemeint? 🔆",
     "desc_1": "Ohne Treibhausgase wäre unsere Erdoberfläche sehr kalt (etwa -18°C).",
-    "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind, um so mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
+    "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind, umso mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
     "desc_3": "Eine Folge: Mehr Wasser verdunstet von den Meeren und die wärmere Atmosphäre kann mehr Wasserdampf ansammeln. Dadurch erhöht sich die Chance auf extreme Regenfälle.",
     "next_btn": "weiter"
   },

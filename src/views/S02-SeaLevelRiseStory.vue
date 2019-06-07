@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Anstieg des Meeresspiegels am Beispiel {storyName}",
-    "desc": "Einige Regionen werden stark vom Anstieg des Meeresspiegels betroffen sein. Hier kannst du dir eine Simulation in vier Küstenregionen ansehen. Durch aufwändige und sehr teure Baumaßnahmen wie Dämme kann eine Überflutung unter Umständen verhindert werden.",
+    "desc": "Einige Regionen werden stark vom Anstieg des Meeresspiegels betroffen sein. Hier kannst du dir eine Simulation in vier Küstenregionen ansehen. Durch aufwändige und sehr teure Maßnahmen, wie dem Bau von Dämmen, kann eine Überflutung unter Umständen verhindert werden.",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Rumänien",

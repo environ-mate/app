@@ -9,7 +9,7 @@
     "bullet_3": "Schwefelhexaflourid (SF₆)",
     "bullet_4": "Distickstoffmonoxid (N₂O)",
     "bullet_5": "Stickstofftrifluorid (NF₃)",
-    "bullet_6": "Fluorkohlenwasserstoffe auch FKW/HFKW",
+    "bullet_6": "Fluorkohlenwasserstoffe (auch FKW/HFKW)",
     "bullet_desc": "Sie können die Sonnenwärme auf der Erde unterschiedlich stark zurückhalten: SF₆ z.B. 23.500-fach stärker als CO₂",
     "cause_1_name": "Methan",
     "cause_1_examples": "Biogas, Rinderhaltung, Nassreisanbau",
