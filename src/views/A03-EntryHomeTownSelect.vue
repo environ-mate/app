@@ -7,7 +7,7 @@
   },
   "en": {
     "title": "Which city do you live in?",
-    "input_placeholder": "Please input the name of your place of residence",
+    "input_placeholder": "Please enter the name of your place of residence",
     "popup": "Your hometown %{city}"
   }
 }
