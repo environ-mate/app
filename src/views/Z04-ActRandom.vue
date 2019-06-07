@@ -11,8 +11,8 @@
    "next_btn": "Zurück zur Übersicht"
   },
   "en": {
-    "title": "5 practical advices for your everyday life",
-    "intro": "Many (even small) steps bring us closer to our goal to reduce emissions. Set yourself goals and figure out where to start. Here are some simple advices:",
+    "title": "5 practical pieces of advice for your everyday life",
+    "intro": "Many (even small) steps bring us closer to our goal of reducing emissions. Set yourself goals and figure out where to start. Here are some simple tips:",
     "act_1": "tipp1",
     "act_2": "tipp2",
     "act_3": "tipp3",

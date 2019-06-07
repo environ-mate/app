@@ -13,7 +13,7 @@
   },
   "en": {
     "title": "Example of sea level rise in {storyName}",
-    "desc": "Some regions will be severely affected by sea-level rise. Here you can see a simulation of four coastal regions. Flooding can be prevented under certain circumstances by expensive construction measures such as dams",
+    "desc": "Some regions will be severely affected by sea-level rise. Here you can see a simulation of four coastal regions. Flooding can be prevented under certain circumstances by expensive construction measures such as dams.",
     "story_name_aveiro": "Aveiro, Portugal",
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Romania",

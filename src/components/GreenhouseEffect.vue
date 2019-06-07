@@ -38,7 +38,7 @@
                 <text id="Atmosphäre" fill="#000000" font-family="Arial-BoldMT, Arial" font-size="15.4375" font-weight="bold">
                     <tspan x="93.4651642" y="233">{{ $t('atmosphere') }}</tspan>
                 </text>
-                <text id="Treibhausgase" fill="#FFFFFF" font-family="Arial-BoldMT, Arial" font-size="14.2025" font-weight="bold">
+                <text id="Treibhausgase" fill="#FFFFFF" font-family="Arial-BoldMT, Arial" font-size="14.2025" font-weight="bold" style="text-align:center">
                     <tspan x="89.2704456" y="277">{{ $t('greenhouse_gases') }}</tspan>
                 </text>
             </g>

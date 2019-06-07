@@ -11,7 +11,7 @@
   "en": {
     "title": "What is meant by the greenhouse effect? 🔆",
     "desc_1": "Around the earth is an air-envelope called the atmosphere. This consists of over 98% oxygen and nitrogen.",
-    "desc_2": "Sunlight hits the earth, warming the ground, and some of this radiation is thrown back into space. Part of this is stopped by the atmosphere and bounces back at the earth, the other part escapes into space.",
+    "desc_2": "Sunlight hits the earth, warming the ground, and some of this radiation is thrown back into space. Part of this is then stopped by the atmosphere and bounced back at the earth.",
     "desc_3": "Certain gases (like CO₂) in the atmosphere are responsible for this effect.",
     "desc_4": "The overall process is much like in a greenhouse. This is why the gases are called greenhouse gases.",
     "next_btn": "Continue"

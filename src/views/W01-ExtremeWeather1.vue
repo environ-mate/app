@@ -11,7 +11,7 @@
     "next_btn": "Übersicht"
   },
   "en": {
-    "title": "",
+    "title": "What  will happen with our weather?",
     "vis_title": "",
     "vis_legend_storm": "Storm",
     "vis_legend_wildfire": "Wildfire",

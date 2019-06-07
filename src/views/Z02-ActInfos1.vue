@@ -20,7 +20,7 @@
     "title": "Zero Waste Rules",
     "rule_1": "Refuse what you do not need. Ask yourself if you really need it before buying and how long it will actually be useful to you.",
     "rule_2": "Reduce what you do need. Examine your home and lifestyle to identify things that you do not actually need such as duplicates or unused items in the kitchen or wardrobe. Donate the extra items to secondhand stores or sell online!",
-    "rule_3": "Reuse by using reusables. Avoid single-use items with long-lasting alternatives that either A) will last into a foreseeable forever (think stainless steel or glass) or B) will effectively disappear into the Earth with time.",
+    "rule_3": "Reuse by using reusables. Avoid single-use items with long-lasting alternatives that either A) will last into a foreseeable future (think stainless steel or glass) or B) are compostable.",
     "rule_4": "Recycle what you cannot refuse, reduce or reuse. Research your local recycling policies and follow their rules.",
     "rule_5": "Rot (a.k.a. compost the rest). At this point, you should have taken care of the vast majority of your waste. All that’s left should in theory be food waste and compostable scraps.",
     "act_1": "#1 REFUSE",
