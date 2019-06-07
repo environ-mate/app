@@ -14,10 +14,10 @@
     "title": "What is climate change?",
     "intro_1": "You've likely heard of climate change. So, what's it all about?",
     "intro_2": "In recent decades the average temperature of earth has dramatically increased.  1-2 degrees doesn't sound like much, but has a very high impact on our environment.",
-    "chart_degress_desc": "If you take a look on the average temperatures in Europe and compare it to before 1900, you can see it is becoming hotter and hotter:",
+    "chart_degress_desc": "If you take a look at the average temperatures in Europe and compare it to before 1900, you can see it is becoming hotter and hotter:",
     "chart_degress": "Average temperatures",
     "next_desc": "But why the increase in temperatures on earth?",
-    "next_next_desc": "I'll explain that to you on the next pages.",
+    "next_next_desc": "I'll explain that to you over the next pages.",
     "next_btn": "Start explanation climate change"
   }
 }

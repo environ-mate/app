@@ -13,7 +13,7 @@
   },
   "en": {
     "title": "Further information regarding climate change and the role of the EU",
-    "intro": "If you want to know more about climate change and what the EU is doing to counter it, we recommend looking at the following sites. Open datasets are the core of our project and help us better understand climate change - in the EU Open Data Portal you'll find many interesting datasets and visualisations concerning climate change",
+    "intro": "If you want to know more about climate change and what the EU is doing to counter it, we recommend looking at the following sites. Open datasets are the core of our project and help us better understand climate change - in the EU Open Data Portal you'll find many interesting datasets and visualisations concerning climate change.",
     "act_1": "<a href='https://www.ipcc.ch/' target='_blank'>Intergovernmental Panel on Climate Change</a>",
     "act_2": "<a href='https://www.ipbes.net/' target='_blank'>Intergovernmental Platform on Biodiversity and Ecosystem Services</a>",
     "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>EU climate action</a>",

@@ -17,7 +17,7 @@
   },
   "en": {
     "title": "What are greenhouse gases and where do they come from?",
-    "desc_1": "The biggest contributor to the greenhouse effect is CO₂ gas. Car traffic and the burning of fossil fuels (gas, oil, coal) cause most of the CO₂ emissions (emissions of the gas into the environment).",
+    "desc_1": "The biggest contributor to the greenhouse effect is CO₂ gas. Car traffic and the burning of fossil fuels (gas, oil, coal) causes most of the CO₂ emissions (emissions of the gas into the environment).",
     "desc_2": "Once greenhouse gases are released their stay in the atmosphere varies - CO₂ for example lasts up to 120 years.",
     "desc_3": "Therefore, we cannot immediately reverse the effects with a sudden stop of emissions, but at least make sure that the situation does not get worse.",
     "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: e.g. SF₆ is 23,500 times stronger than CO₂",

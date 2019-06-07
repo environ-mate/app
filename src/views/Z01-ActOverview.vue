@@ -15,7 +15,7 @@
   },
   "en": {
     "title": "What can you do to help counter climate change and its consequences?",
-    "intro": "You've learnt much about the causes and consequences of climate change. But what can you, as a single person, do about all that? Here are some tips on how you can contribute to a better future for all",
+    "intro": "You've learnt much about the causes and consequences of climate change. But what can you, as a single person, do to help? Here are some tips on how you can contribute to a better future for all.",
     "act_1": "Discuss climate change with family, friends, and acquaintances to show off what you've learnt",
     "act_2": "Visit the next Fridays for Future demo in your area, to meet and collaborate with like-minded people: <a href='https://www.fridaysforfuture.org/events/list/' target='_blank'>https://www.fridaysforfuture.org/events/list/</a>",
     "act_3": "Calculate your ecological footprint to check how sustainable your lifestyle is: <a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>",
