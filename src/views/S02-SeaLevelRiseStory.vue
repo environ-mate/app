@@ -159,10 +159,7 @@ export default {
     },
 
     animationStop() {
-      if (this.loop) {
-        clearInterval(this.loop);
-        this.loop = null;
-      }
+      clearInterval(this.loop);
     },
 
     changeStory() {
@@ -174,6 +171,10 @@ export default {
 
       this.removeLayers();
       this.animationStop();
+
+      this.$parent.$data.map.flyTo(
+        this.storySelectedData.coords, this.storySelectedData.zoomLevel, this.$parent.$options.flyToOptions(60),
+      );
 
       // add story photo marker to map
       if (this.storySelectedData.imageLocation) {
@@ -205,14 +206,8 @@ export default {
       }
 
       Promise.all(promises).then(() => {
-        that.$parent.$data.map.flyTo(
-          that.storySelectedData.coords, that.storySelectedData.zoomLevel, that.$parent.$options.flyToOptions(60),
-        );
-
         // animation loop
-        that.$parent.$data.map.once('moveend', () => {
-          that.loop = setInterval(looper, 800);
-        });
+        that.loop = setInterval(looper, 800);
       });
     },
 
