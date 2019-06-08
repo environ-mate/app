@@ -10,10 +10,10 @@ Vue.config.productionTip = false;
 Vue.use(VueI18n);
 
 const locale = window.location.pathname.replace(/^\/([^/]+).*/i, '$1');
-const fallbackLocale = 'de';
+const fallbackLocale = 'en';
 
 const i18n = new VueI18n({
-  locale: (locale.trim().length && locale !== '/') ? locale : fallbackLocale,
+  locale: fallbackLocale,
 });
 
 new Vue({

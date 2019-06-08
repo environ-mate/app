@@ -34,7 +34,10 @@ export default {
   mounted() {
     if (this.tutor === null) {
       this.removeLayers();
-      this.$router.push({ name: 'A01-EntryLanguageSelect' });
+
+      if (this.$route.name !== 'Imprint') {
+        this.$router.push({ name: 'A01-EntryLanguageSelect' });
+      }
     }
 
     // add layer group

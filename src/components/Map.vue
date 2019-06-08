@@ -1,3 +1,14 @@
+<i18n>
+{
+  "de": {
+    "imprint": "Impressum & Datenschutzerklärung"
+  },
+   "en": {
+    "imprint": "Imprint & Privacy Policy"
+  }
+}
+</i18n>
+
 <template>
   <div id="map"></div>
 </template>
@@ -22,21 +33,17 @@ export default {
       // eslint-disable-next-line
       delete L.Icon.Default.prototype._getIconUrl;
 
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-        iconUrl: require('leaflet/dist/images/marker-icon.png'),
-        shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-      });
-
       this.$parent.map = L.map('map');
       const mainLayerGroup = L.layerGroup().addTo(this.$parent.map);
+      const imprintRoute = this.$router.resolve('Imprint').href;
 
       // https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">'
           + 'OpenStreetMap</a> contributors, &copy; '
           + '<a href="http://arcgisonline.com/attributions" target="_blank">ArcGIS</a> '
-          + '| Made With Love, by <b><a href="https://www.feld-m.de/" target="_blank">FELD M</a></b> ❤️ ',
+          + '| Made With Love, by <b><a href="https://www.feld-m.de/" target="_blank">FELD M</a></b> '
+          + '| <a href="' + imprintRoute + '"><b>' + this.$t('imprint') + '</b></a>',
       })
         .addTo(mainLayerGroup);
 
