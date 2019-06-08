@@ -37,7 +37,6 @@ export default {
       const mainLayerGroup = L.layerGroup().addTo(this.$parent.map);
       const imprintRoute = this.$router.resolve('Imprint').href;
 
-      // https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">'
           + 'OpenStreetMap</a> contributors, &copy; '
@@ -47,7 +46,7 @@ export default {
       })
         .addTo(mainLayerGroup);
 
-      L.easyButton('<span>H</span>', () => {
+      L.easyButton('<span class="helpButton">H</span>', () => {
         this.$parent.$data.modalOpen = true;
       }).addTo(this.$parent.$data.map);
 
