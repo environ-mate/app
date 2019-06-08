@@ -169,18 +169,8 @@ export default {
       // prefetch story geo data
       this.storyGeoData = {};
 
-      for (const year of this.years) {
-        d3.json(`/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`).then((geoJSON) => {
-          this.storyGeoData[year] = geoJSON;
-        });
-      }
-
       this.storySelectedData = this.stories[this.storySelectedId];
       this.year = Math.min(...this.years);
-
-      this.$parent.$data.map.flyTo(
-        this.storySelectedData.coords, this.storySelectedData.zoomLevel, this.$parent.$options.flyToOptions(60),
-      );
 
       this.removeLayers();
       this.animationStop();
@@ -192,22 +182,37 @@ export default {
           .openPopup();
       }
 
-      // animation loop
-      this.$parent.$data.map.once('moveend', () => {
-        const that = this;
+      const promises = [];
 
-        function looper() {
-          let yearIndexNext = that.years.indexOf(that.year);
-          if (yearIndexNext + 1 > that.years.length - 1) {
-            yearIndexNext = 0;
-          } else {
-            yearIndexNext = yearIndexNext + 1;
-          }
-          that.year = that.years[yearIndexNext];
-          that.renderYear();
+      for (const year of this.years) {
+        const promise = d3.json(`/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`).then((geoJSON) => {
+          this.storyGeoData[year] = geoJSON;
+        });
+        promises.push(promise);
+      }
+
+      const that = this;
+
+      function looper() {
+        let yearIndexNext = that.years.indexOf(that.year);
+        if (yearIndexNext + 1 > that.years.length - 1) {
+          yearIndexNext = 0;
+        } else {
+          yearIndexNext = yearIndexNext + 1;
         }
+        that.year = that.years[yearIndexNext];
+        that.renderYear();
+      }
 
-        this.loop = setInterval(looper, 800);
+      Promise.all(promises).then(() => {
+        that.$parent.$data.map.flyTo(
+          that.storySelectedData.coords, that.storySelectedData.zoomLevel, that.$parent.$options.flyToOptions(60),
+        );
+
+        // animation loop
+        that.$parent.$data.map.once('moveend', () => {
+          that.loop = setInterval(looper, 800);
+        });
       });
     },
 
