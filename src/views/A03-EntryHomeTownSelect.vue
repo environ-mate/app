@@ -153,7 +153,7 @@ export default {
           this.$parent.$data.map.once('moveend', () => {
             layer.addTo(this.$parent.$data.mapLayerGroup);
 
-            new L.Marker.SVGMarker(L.latLng(...this.$parent.$data.homeTownCoords), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 }}).addTo(this.$parent.$data.mapLayerGroup)
+            new L.Marker.SVGMarker(L.latLng(...this.$parent.$data.homeTownCoords), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }).addTo(this.$parent.$data.mapLayerGroup)
               .bindPopup(this.$t('popup', { city: this.$parent.$data.homeTownName }))
               .openPopup();
 

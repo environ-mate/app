@@ -129,9 +129,7 @@ export default {
       that.countryShare = emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
       that.capitaAvg = emisssionsForEU28['ghg.emissions.per.capita.tonnes'];
       that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
-
     });
-
 
 
     this.$parent.map.once('moveend', () => {

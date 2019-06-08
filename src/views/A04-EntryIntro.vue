@@ -73,11 +73,11 @@
 </template>
 
 <script>
-  import Colors from '@/utils/colors';
-  import Vue from 'vue';
-  import VueC3 from 'vue-c3';
+import Colors from '@/utils/colors';
+import Vue from 'vue';
+import VueC3 from 'vue-c3';
 
-  export default {
+export default {
   components: {
     VueC3,
   },

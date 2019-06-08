@@ -95,36 +95,36 @@ export default {
           coords: [40.7323, -8.65391],
           zoomLevel: 12,
           imageLocation: [40.661995, -8.647931],
-          imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg",
-          imageCopyrightText: "Sergei G.",
-          imageCopyrightLink: "https://www.flickr.com/photos/sergeigussev/",
+          imageURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg',
+          imageCopyrightText: 'Sergei G.',
+          imageCopyrightLink: 'https://www.flickr.com/photos/sergeigussev/',
         },
         foulness: {
           name: this.$t('story_name_foulness'),
           coords: [51.60542714, 0.8507641],
           zoomLevel: 13,
           imageLocation: [51.5855078, 0.8701842],
-          imageURL: "https://s0.geograph.org.uk/geophotos/01/49/08/1490822_b3982918.jpg",
-          imageCopyrightText: "Trevor H.",
-          imageCopyrightLink: "https://www.geograph.org.uk/profile/27744",
+          imageURL: 'https://s0.geograph.org.uk/geophotos/01/49/08/1490822_b3982918.jpg',
+          imageCopyrightText: 'Trevor H.',
+          imageCopyrightLink: 'https://www.geograph.org.uk/profile/27744',
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
           coords: [44.9885519, 29.2160797],
           zoomLevel: 11,
           imageLocation: null,
-          imageURL: "https://live.staticflickr.com/8458/29150953465_415df82b8e_z.jpg",
-          imageCopyrightText: "F.Micki",
-          imageCopyrightLink: "https://www.flickr.com/photos/f_micki/",
+          imageURL: 'https://live.staticflickr.com/8458/29150953465_415df82b8e_z.jpg',
+          imageCopyrightText: 'F.Micki',
+          imageCopyrightLink: 'https://www.flickr.com/photos/f_micki/',
         },
         the_broads: {
           name: this.$t('story_name_the_broads'),
           coords: [52.633363, 1.709751],
           zoomLevel: 11,
           imageLocation: [52.7004576, 1.6675209],
-          imageURL: "https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg",
-          imageCopyrightText: "Richard L.",
-          imageCopyrightLink: "https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg",
+          imageURL: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
+          imageCopyrightText: 'Richard L.',
+          imageCopyrightLink: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
         },
       },
       storySelectedId: 'foulness',
@@ -178,7 +178,7 @@ export default {
 
       // add story photo marker to map
       if (this.storySelectedData.imageLocation) {
-        new L.Marker.SVGMarker(L.latLng(...this.storySelectedData.imageLocation), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 }}).addTo(this.storyImageMapLayerGroup)
+        new L.Marker.SVGMarker(L.latLng(...this.storySelectedData.imageLocation), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }).addTo(this.storyImageMapLayerGroup)
           .bindPopup(this.$t('photo_popup'))
           .openPopup();
       }
@@ -199,7 +199,7 @@ export default {
         if (yearIndexNext + 1 > that.years.length - 1) {
           yearIndexNext = 0;
         } else {
-          yearIndexNext = yearIndexNext + 1;
+          yearIndexNext += 1;
         }
         that.year = that.years[yearIndexNext];
         that.renderYear();

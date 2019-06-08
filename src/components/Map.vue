@@ -37,17 +37,16 @@ export default {
       const mainLayerGroup = L.layerGroup().addTo(this.$parent.map);
       const imprintRoute = this.$router.resolve('Imprint').href;
 
-      // https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">'
+        attribution: `${'&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">'
           + 'OpenStreetMap</a> contributors, &copy; '
           + '<a href="http://arcgisonline.com/attributions" target="_blank">ArcGIS</a> '
           + '| Made With Love, by <b><a href="https://www.feld-m.de/" target="_blank">FELD M</a></b> '
-          + '| <a href="' + imprintRoute + '"><b>' + this.$t('imprint') + '</b></a>',
+          + '| <a href="'}${imprintRoute}"><b>${this.$t('imprint')}</b></a>`,
       })
         .addTo(mainLayerGroup);
 
-      L.easyButton('<span>H</span>', () => {
+      L.easyButton('<span class="helpButton">H</span>', () => {
         this.$parent.$data.modalOpen = true;
       }).addTo(this.$parent.$data.map);
 

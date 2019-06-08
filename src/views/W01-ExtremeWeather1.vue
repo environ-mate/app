@@ -84,7 +84,6 @@ export default {
   },
 
 
-
   mounted() {
     this.chart.$emit('init', {
       x: 'year',
