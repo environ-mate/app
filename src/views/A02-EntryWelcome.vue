@@ -3,13 +3,13 @@
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
     "hello_sub": "Ich begleite dich hier ab jetzt.",
-    "help": "Du kannst jederzeit die <span class='helpButton' ><b>H</b></span> Taste drücken - ich eile dir dann zu Hilfe!",
+    "help": "Du kannst jederzeit die <i><b>h</b></i> Taste drücken - ich eile dir dann zu Hilfe!",
     "start": "Klicke hier, um zu starten!"
   },
    "en": {
     "hello": "Howdi! My name is %{name}.",
     "hello_sub": "I will accompany you from here on.",
-    "help": "You can type the <span class='helpButton' ><b>H</b></span> key at any time, and I'll come to assist you!",
+    "help": "You can type the <i><b>h</b></i> key at any time, and I'll come to assist you!",
     "start": "Press here to start!"
   }
 }

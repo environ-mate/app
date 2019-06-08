@@ -131,10 +131,4 @@ export default {
     top: unset;
     left: unset;
   }
-
-  .helpButton {
-    color: #74c476;
-    font-size: 19px;
-    font-weight: bolder;
-  }
 </style>
