@@ -441,6 +441,47 @@ write.csv(data_tmp, file="output/extreme_weather_occurences.csv", row.names=F)
 
 
 
+#
+# Plot confidence intervals for future projections
+#
+#
+library(ggplot2)
+data <- read.csv("public/data/future-greenhouse-gas-emission-scenarios.csv", header=T)
+#data[,-c(1,2)] <- apply(data[,-c(1,2)], 2, function(x) ifelse(x<0, 0, x))
+
+
+# MEDIAN of last entry for label positioning
+# no climate policies: 4.1-4.8°C - 128.9
+# current policies: 3.1-3.7°C    - 62.75
+# pledges: (2.6-3.2°C)           - 41.67
+# pathway: 2°C                   - 2.97
+# pathway: 1.5°C                 - -5.46
+
+
+# plot
+image <- ggplot(data=data)+  
+  geom_line(aes(x = Year, y = Historic..billion.tonnes.CO..equivalent.), color = "black")+
+  geom_ribbon(aes(x = Year, ymin= No.climate.policies..low...billion.tonnes.CO..equivalent., ymax =  No.climate.policies..high...billion.tonnes.CO..equivalent.), fill= "red", alpha = 0.3)+  
+  geom_ribbon(aes(x = Year, ymin= Pledges..low...billion.tonnes.CO..equivalent., ymax =  Pledges..high...billion.tonnes.CO..equivalent.), fill= "green", alpha = 0.3)+ 
+  geom_ribbon(aes(x = Year, ymin= Current.policies..low...billion.tonnes.CO..equivalent., ymax =  Current.policies..high...billion.tonnes.CO..equivalent.), fill= "yellow", alpha = 0.3)+ 
+  geom_ribbon(aes(x = Year, ymin= X1.5C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X1.5C.pathways..high...billion.tonnes.CO..equivalent.), fill= "blue", alpha = 0.3)+ 
+  geom_ribbon(aes(x = Year, ymin= X2C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X2C.pathways..high...billion.tonnes.CO..equivalent.), fill= "orange", alpha = 0.3)+ 
+  ylim(-10,200) + xlim(1990,2100)+
+  theme_bw()+  
+  #theme (panel.border = element_blank()) + geom_hline(yintercept=0) + geom_vline(xintercept=1990) + 
+  labs(y="Gt CO2", x="t")+
+  scale_y_continuous(sec.axis=dup_axis(name=" ", breaks=c(-5.46, 2.97,41.67,62.75,128.9), labels=c("1.5°C","2°C","2.6-3.2°C","3.1-3.7°C","4.1-4.8°C")))
+  
+#save the plot as png
+ggsave(file="public/assests/emission_projection_2100.png", plot=image, width=12, height=6)  
+  
+  
+  
+  
+  
+  
+  
+
 
 
 

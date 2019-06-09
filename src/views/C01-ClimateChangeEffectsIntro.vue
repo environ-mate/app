@@ -101,7 +101,7 @@
 
           <div  class="column col-1"></div>
           <div  class="column col-10 flex-centered">
-            <h5>Welche Auswirkungen der Klimawandel auf unser Wetter und den Meeresspiegel hat, kannst dir jetzt anschauen</h5>
+            <h5>Welche Auswirkungen der Klimawandel auf unser Wetter und den Meeresspiegel hat, kannst du dir jetzt anschauen</h5>
           </div>
           <div  class="column col-1"></div>
 
