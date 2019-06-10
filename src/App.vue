@@ -28,6 +28,7 @@ export default {
       homeTownCountryCode: null,
       tutor: null,
       modalOpen: false,
+      referencesActive: false,
     };
   },
 
@@ -85,6 +86,10 @@ export default {
         this.mapLayerGroup.removeLayer(layer2rm);
       });
     },
+
+    toggleReferencesVisibility() {
+      this.referencesActive = !this.referencesActive;
+    }
   },
 
   flyToOptions(maxZoom, duration, easeLinearity) {
@@ -97,6 +102,12 @@ export default {
       easeLinearity: easeLinearity || 0.2,
     };
   },
+
+  watch: {
+    $route(to, from) {
+      this.referencesActive = false;
+    }
+  }
 };
 
 </script>

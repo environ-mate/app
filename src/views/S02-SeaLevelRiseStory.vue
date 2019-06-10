@@ -37,7 +37,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-6">
             <div class="btn-group btn-group-block">
                 <button @click="renderYear(y)" v-for="y in years" :key="y" :class="{ 'active': y === year  }" class="btn btn-action btn-sm">{{ y }}</button>
@@ -60,10 +62,11 @@
       </div>
       <div class="modal-footer">
        <div class="columns">
-          <div class="column col-1 flex-centered">
+          <div class="column col-2 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
-          <div class="column col-8 flex-centered">
+          <div class="column col-7 flex-centered">
             <select v-model="storySelectedId" @change="changeStory" @mousedown="animationStop" @click="animationStop" class="form-select">
               <option v-for="(story, storyId) in stories" v-bind:value="storyId" v-bind:key="storyId">{{ story.name }}</option>
             </select>
@@ -82,9 +85,13 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import Colors from '@/utils/colors';
 import '@/vendors/leaflet-svgicon/svg-icon';
-
+import References from '@/components/References.vue';
 
 export default {
+  components: {
+    References,
+  },
+
   data() {
     return {
       year: 2010,

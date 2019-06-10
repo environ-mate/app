@@ -26,7 +26,7 @@
 <template>
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
-      <div class="modal-header">
+      <div class="modal-header align-center">
         <a @click="modalClose" class="btn btn-clear float-right"
            aria-label="Close"></a>
 
@@ -35,7 +35,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-12">
             <p>
               {{ $t('intro_1') }}<br/>
@@ -54,9 +56,13 @@
             <vue-c3 :handler="chart"></vue-c3>
           </div>
           <div class="column col-1"></div>
-
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
           <div class="column col-7 flex-centered">
             {{ $t('next_desc') }}<br/>
@@ -76,56 +82,75 @@
 import Colors from '@/utils/colors';
 import Vue from 'vue';
 import VueC3 from 'vue-c3';
+import References from '@/components/References.vue';
+
 
 export default {
   components: {
+    References,
     VueC3,
   },
 
   data() {
     return {
       chart: new Vue(),
+      references: [
+        {
+          title: 'Global and European temperature',
+          link: 'https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment',
+          sourceName: 'EEA',
+          sourceLogo: 'https://www.eea.europa.eu/EEA-logo-25-anniversary.svg',
+        },
+      ],
     };
   },
 
   mounted() {
-    this.chart.$emit('init', {
-      x: 'year',
-      data: {
-        url: '/data/european_land_temperature_deviations_annual.csv',
-        x: 'year',
-        names: {
-          'temperature.deviation.degree.celcius': this.$t('chart_degress'),
-        },
-        type: 'bar',
-        colors: {
-          'temperature.deviation.degree.celcius': (d) => {
-            if (d.value < 0) {
-              return Colors.blue;
-            }
-            return Colors.red;
-          },
-        },
-      },
-      bar: {
-        width: {
-          ratio: 1.2,
-        },
-      },
-      axis: {
-        y: {
-          max: 2.4,
-          min: -0.5,
-          label: {
-            text: '°C',
-            position: 'outer-middle',
-          },
-        },
-      },
-    });
+    this.renderChart();
+  },
+
+  updated() {
+    this.renderChart();
   },
 
   methods: {
+    renderChart() {
+      this.chart.$emit('init', {
+        x: 'year',
+        data: {
+          url: '/data/european_land_temperature_deviations_annual.csv',
+          x: 'year',
+          names: {
+            'temperature.deviation.degree.celcius': this.$t('chart_degress'),
+          },
+          type: 'bar',
+          colors: {
+            'temperature.deviation.degree.celcius': (d) => {
+              if (d.value < 0) {
+                return Colors.blue;
+              }
+              return Colors.red;
+            },
+          },
+        },
+        bar: {
+          width: {
+            ratio: 1.2,
+          },
+        },
+        axis: {
+          y: {
+            max: 2.4,
+            min: -0.5,
+            label: {
+              text: '°C',
+              position: 'outer-middle',
+            },
+          },
+        },
+      });
+    },
+
     next() {
       this.$router.push({ name: 'B01-GreenhouseEffect1' });
     },

@@ -35,7 +35,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-4">
             <p>{{ $t('desc') }}</p>
           </div>
@@ -52,6 +54,7 @@
         <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
           <div class="column col-8 flex-centered">
           </div>
@@ -70,10 +73,12 @@ import Vue from 'vue';
 import VueC3 from 'vue-c3';
 import Mappings from '@/utils/mappings';
 import Colors from '@/utils/colors';
+import References from '@/components/References.vue';
 
 export default {
   components: {
     VueC3,
+    References,
   },
 
   data() {
