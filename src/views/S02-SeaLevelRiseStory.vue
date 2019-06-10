@@ -134,7 +134,7 @@ export default {
           imageCopyrightLink: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
         },
       },
-      storySelectedId: 'uzlina',
+      storySelectedId: 'foulness',
       storySelectedData: null,
       storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
       storyGeoData: null,
