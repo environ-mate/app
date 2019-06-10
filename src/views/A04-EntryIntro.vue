@@ -117,6 +117,9 @@ export default {
     renderChart() {
       this.chart.$emit('init', {
         x: 'year',
+        size: {
+          height: 280,
+        },
         data: {
           url: '/data/european_land_temperature_deviations_annual.csv',
           x: 'year',

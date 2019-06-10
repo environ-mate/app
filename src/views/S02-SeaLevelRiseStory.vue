@@ -100,7 +100,7 @@ export default {
         aveiro: {
           name: this.$t('story_name_aveiro'),
           coords: [40.7323, -8.65391],
-          zoomLevel: 12,
+          zoomLevel: 11,
           imageLocation: [40.661995, -8.647931],
           imageURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg',
           imageCopyrightText: 'Sergei G.',
@@ -109,7 +109,7 @@ export default {
         foulness: {
           name: this.$t('story_name_foulness'),
           coords: [51.60542714, 0.8507641],
-          zoomLevel: 13,
+          zoomLevel: 12,
           imageLocation: [51.5855078, 0.8701842],
           imageURL: 'https://s0.geograph.org.uk/geophotos/01/49/08/1490822_b3982918.jpg',
           imageCopyrightText: 'Trevor H.',
@@ -117,8 +117,8 @@ export default {
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
-          coords: [44.9885519, 29.2160797],
-          zoomLevel: 11,
+          coords: [44.9885519, 29.5160797],
+          zoomLevel: 10,
           imageLocation: null,
           imageURL: 'https://live.staticflickr.com/8458/29150953465_415df82b8e_z.jpg',
           imageCopyrightText: 'F.Micki',
@@ -134,7 +134,7 @@ export default {
           imageCopyrightLink: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
         },
       },
-      storySelectedId: 'foulness',
+      storySelectedId: 'uzlina',
       storySelectedData: null,
       storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
       storyGeoData: null,
