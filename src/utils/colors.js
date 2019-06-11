@@ -6,4 +6,5 @@ export default {
   purple: '#9e9ac8',
   yellow: '#fed976',
   brown: '#bf812d',
+  redScale: ['#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#990000',],
 };

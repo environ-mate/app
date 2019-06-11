@@ -51,8 +51,7 @@ export default {
 
   computed: {
     referencesData(){
-        console.log(this.references);
-        return this.references;
+      return this.references;
     }
   },
 

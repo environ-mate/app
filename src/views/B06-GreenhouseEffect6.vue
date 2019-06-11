@@ -103,9 +103,9 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 import Mappings from '@/utils/mappings';
+import Colors from '@/utils/colors';
 import References from '@/components/References.vue';
 
-const colors = ['#fcae91', '#fb6a4a', '#de2d26', '#a50f15'];
 
 const layerStyle = {
   weight: 0.5,
@@ -165,14 +165,9 @@ export default {
 
         let countriesProcessed = 0;
 
-        function renderInitial() {
-          countriesProcessed += 1;
-          if (countriesProcessed === Object.keys(Mappings.countryMapping).length) {
-            that.renderYear();
-          }
-        }
-
         // load country shapes
+        const promises = [];
+
         for (const countryMapping of Object.values(Mappings.countryMapping)) {
           const countryCode = countryMapping[1];
 
@@ -182,14 +177,20 @@ export default {
             },
           });
 
-          d3.json(`/data/geo_countries/${countryCode}-simplified.json`).then((countryInfo) => {
+          const promise = d3.json(`/data/geo_countries/${countryCode}-simplified.json`).then((countryInfo) => {
             const location = countryInfo.View[0].Result[0].Location;
             const layer = omnivore.wkt.parse(location.Shape.Value, null, layerTpl);
 
             that.countryLayer[countryCode] = layer;
             layer.addTo(that.$parent.$data.mapLayerGroup);
-          }).then(renderInitial);
+          });
+
+          promises.push(promise);
         }
+
+        Promise.all(promises).then(() => {
+          that.renderYear();
+        });
       });
     });
   },
@@ -200,13 +201,12 @@ export default {
 
       // filter by sector
       this.valueColumn = `${this.sectorSelected}.ghg.emissions.mio.tonnes`;
-
-      const valueMin = Math.min(...this.emissionData.map(r => r[this.valueColumn]));
-      const valueMax = Math.max(...this.emissionData.map(r => r[this.valueColumn]));
-      const valueRange = valueMax - valueMin;
-      const valueRangeDistributed = valueRange / colors.length;
-
       const rowsOfInterest = this.emissionData.filter(r => r.year === that.year);
+
+      const valueMin = Math.min(...rowsOfInterest.map(r => r[this.valueColumn]));
+      const valueMax = Math.max(...rowsOfInterest.map(r => r[this.valueColumn]));
+      const valueRange = valueMax - valueMin;
+      const valueRangeDistributed = valueRange / Colors.redScale.length;
 
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
@@ -222,11 +222,11 @@ export default {
           if (colorIndex < 0) {
             colorIndex = 0;
           }
-          if (colorIndex > colors.length - 1) {
-            colorIndex = colors.length - 1;
+          if (colorIndex > Colors.redScale.length - 1) {
+            colorIndex = Colors.redScale.length - 1;
           }
 
-          style.fillColor = colors[colorIndex];
+          style.fillColor = Colors.redScale[colorIndex];
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);

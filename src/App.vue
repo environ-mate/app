@@ -110,6 +110,7 @@ export default {
 
   watch: {
     $route(to, from) {
+      this.removeLayers();
       this.referencesActive = false;
     }
   }
