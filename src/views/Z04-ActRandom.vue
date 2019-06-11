@@ -14,13 +14,13 @@
   "en": {
     "title": "5 practical pieces of advice for your everyday life",
     "intro": "Many (even small) steps bring us closer to our goal of reducing emissions. Set yourself goals and figure out where to start. Here are some simple tips:",
-    "act_1": "tipp1",
-    "act_2": "tipp2",
-    "act_3": "tipp3",
-    "act_4": "tipp4",
-    "act_5": "tipp5",
-    "next_btn": "Overview Consequences",
-   "next_examples": "Overview Actions"
+    "act_1": "Fewer animal products - cattle and livestock farming harms the climate. Try to avoid meat and dairy products.",
+    "act_2": "Waste separation - avoid creating waste where possible. When this is unavoidable, make sure to seperate it so that it can be recycled.",
+    "act_3": "Avoid disposable paper cups - it's better to enjoy a drink from your own, reusable cup or bottle.",
+    "act_4": "Cycle! It's better to use a bicycle than a bus or a car to get to places. It's good for both you AND the environment. Win-win!",
+    "act_5": "Smarter ventilation - in winter, if your home gets a bit too warm, it's better to briefly open all your windows wide than to keep them continuously open.",
+    "next_btn": "Overview of Consequences",
+   "next_examples": "Overview of Actions"
   }
 }
 </i18n>
