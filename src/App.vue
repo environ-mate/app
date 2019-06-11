@@ -61,6 +61,7 @@ export default {
   created() {
     // key bindings
     const that = this;
+
     window.addEventListener('keyup', (event) => {
       if (event.keyCode === 72) {
         // bring modal back on h key press
@@ -68,6 +69,10 @@ export default {
       } else if (event.keyCode === 27) {
         // hide modal back on esc key press
         that.modalOpen = false;
+      } else if (event.keyCode === 37) {
+        // left arrow key => nav back
+        this.$router.back();
+        that.modalOpen = true;
       }
     });
   },
