@@ -6,7 +6,7 @@
     "act_1": "<a href='https://www.ipcc.ch/' target='_blank'>Intergovernmental Panel on Climate Change ('Weltklimarat')</a>",
     "act_2": "<a href='https://www.ipbes.net/' target='_blank'>Intergovernmental Platform on Biodiversity and Ecosystem Services ('Weltbiodiversitätsrat')</a>",
     "act_3": "<a href='https://ec.europa.eu/clima/index_de' target='_blank'>Klimapolitik der EU</a>",
-    "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>Umweltagentur</a>",
+    "act_4": "<a href='https://www.eea.europa.eu/deEuropäische' target='_blank'>Europäische Umweltagentur</a>",
     "act_5": "<a href='https://data.europa.eu/euodp/de/data/' target='_blank'>Offenes Datenportal der EU</a>",
     "next_btn": "Übersicht Auswirkungen",
     "next_examples": "Übersicht Handeln"

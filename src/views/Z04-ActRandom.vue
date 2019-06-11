@@ -5,7 +5,7 @@
     "intro": "Viele (auch kleine) Schritte bringen uns unserem Ziel näher, unsere Emissionen zu reduzieren. Stecke dir neue Ziele und überlege, womit du anfangen kannst. Hier sind ein paar einfache Tipps:",
     "act_1": "Weniger Tierprodukte - Rinderhaltung und Tierzucht sind schlecht für das Klima. Versuche daher auf Fleisch- und Milchprodukte zu verzichten.",
     "act_2": "Mülltrennung - Versuche immer, Müll zu vermeiden, aber wenn Müll anfällt, dann trenne ihn, damit er recyclet werden kann.",
-    "act_3": "Pappe-lapapp! - Verzichte auf Getränkebecher aus Pappe. Nimm dir lieber ein Getränk in einer wiederverschließbaren Flasche von zuhause mit.",
+    "act_3": "Pappe-lapapp! - Verzichte auf Getränkebecher aus Pappe. Nimm dir lieber ein Getränk in einer wiederverschließbaren Flasche von Zuhause mit.",
     "act_4": "Tritt in die Pedale! - Nimm lieber das Rad, anstatt Bus oder Auto. Hält fit und schont die Umwelt.",
     "act_5": "Stoßlüften - Im Winter regelmäßig alle Fenster öffnen und nicht die Fenster längere Zeit gekippt lassen.",
    "next_btn": "Übersicht Auswirkungen",

@@ -476,11 +476,16 @@ image <- ggplot(data=data)+
 ggsave(file="public/assests/emission_projection_2100.png", plot=image, width=12, height=6)  
   
   
+##
+## Calculate rank of GHG emissions per country and countries capita
+##
+library(tidyverse)
+data <- read.csv("ghg_emissions.csv", header=T)
+tmp <- data %>% filter(data$year == 2017) %>% select(country.name, country.code, year, total.ghg.emissions.mio.tonnes, ghg.emissions.per.capita.tonnes)
   
   
-  
-  
-  
+"country.name","country.code","total.ghg.emissions.mio.tonnes","ghg.emissions.per.capita.tonnes","total_eu28_ghg_tonnes_share","total_eu28_ghg_tonnes_rank"
+
 
 
 

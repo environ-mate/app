@@ -16,7 +16,7 @@
     "description_waste": "Abfall beinhaltet alles rund um die Müll- und Abwasserverarbeitung (Entsorgung, Kompostierung, Verbrennung, Wasseraufbereitung/-klärung. Auf diesen Sektor entfallen EU-weit 3%.",
     "description_transport": "Verkehr umfasst alle Inlandsflüge sowie Auto-, Bahn- und Lastwagenverkehr. Dieser Sektor hat einen Gesamtanteil in der EU von 21%.",
     "description_industry": "Zum Industrie-Sektor zählen alle Emissionen, die bei der Produktion von Gütern und Rohmaterialien entstehen. Dieser Sektor hat einen Gesamtanteil von 9%.",
-    "description_other": "Hierin sind verschiedene Sektoren zusammengefasst, wobei die EU-weit über 50% aus den Emissionen in Gebäuden (Heizung, Abwasser, Strom in Wohnungen oder Geschäften) stammen. Dieser Sektor hat einen Gesamtanteil von 28% an allen EU-Emissionen.",
+    "description_other": "Hierin sind verschiedene weitere Sektoren zusammengefasst, der Größte hiervon macht über 50% aus und umfasst die Emissionen von Gebäuden (Heizung, Abwasser, Strom in Wohnungen oder Geschäften). Der gesamte Sektor hat einen Gesamtanteil von 28% an allen EU-Emissionen.",
     "next_desc": "Zu den Auswirkungen erzähle ich dir jetzt mehr.",
     "next_btn": "weiter"
   },

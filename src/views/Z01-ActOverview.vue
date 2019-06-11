@@ -11,7 +11,8 @@
     "subtitle_msg": "Die folgenden Seiten geben dir noch weitere Tipps.",
     "next_btn": "Null Müll Regeln",
     "next_examples": "5 Praktische Beispiele",
-    "next_euact": "Weitere Infos"
+    "next_euact": "Weitere Infos",
+    "next_future": "Unsere Zukunft"
   },
   "en": {
     "title": "What can you do to help counter climate change and its consequences?",
@@ -22,9 +23,10 @@
     "act_4": "Check out the EU's tips for how you can help counter climate change: <a href='https://europa.eu/euandme/passion/fighting-climate-change_en' target='_blank'>https://europa.eu/euandme/passion/fighting-climate-change_en</a>",
     "act_5": "Try out the Zero Waste rules, to create a more sustainable and climate-friendly lifestyle: (link below)",
     "subtitle_msg": "The following sites can offer further tips.",
-    "next_btn": "Zero Waste rules",
+    "next_btn": "Zero Waste Rules",
     "next_examples": "5 Practical Examples",
-    "next_euact": "Further Infos"
+    "next_euact": "Further Infos",
+   "next_future": "Our Future"
   }
 }
 </i18n>
@@ -63,11 +65,9 @@
       <div class="modal-footer">
        <div class="columns">
           <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-          </div>
-          <div class="column col-2 flex-centered">
-          </div>
-         <div class="column col-3 flex-centered">
+            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>i
+         </div>
+         <div class="column col-2 flex-centered">
             <button @click="examples" class="btn btn btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
@@ -75,6 +75,9 @@
           </div>
           <div class="column col-3 flex-centered">
             <button @click="euact" class="btn btn btn-success float-right"> {{ $t('next_euact') }}<i class="icon icon-arrow-right"></i></button>
+          </div>
+          <div class="column col-3 flex-centered">
+            <button @click="future" class="btn btn btn-success float-right"> {{ $t('next_future') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -97,6 +100,10 @@ export default {
 
     euact() {
       this.$router.push({ name: 'Z03-ActInfos2' });
+    },
+
+    future() {
+      this.$router.push({ name: 'ZXX-ActInfos3' });
     },
 
     modalClose() {

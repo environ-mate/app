@@ -18,7 +18,9 @@ import ActInfos1 from '@/views/Z02-ActInfos1.vue';
 import ActInfos2 from '@/views/Z03-ActInfos2.vue';
 import ActRandom from '@/views/Z04-ActRandom.vue';
 import ExtremeWeather1 from '@/views/W01-ExtremeWeather1.vue';
+import ActInfos3 from '@/views/ZXX-ActInfos3.vue';
 import Imprint from '@/views/A00-Imprint.vue';
+
 
 
 Vue.use(Router);
@@ -118,6 +120,12 @@ export default new Router({
       name: 'W01-ExtremeWeather1',
       component: ExtremeWeather1,
     },
+    {
+      path: '/climate-change/effects/extreme-weather/',
+      name: 'ZXX-ActInfos3',
+      component: ActInfos3,
+    },
+
     {
       path: '/imprint/',
       name: 'Imprint',
