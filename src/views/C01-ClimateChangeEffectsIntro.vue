@@ -20,6 +20,7 @@
     "effect_indirect_7": "Überflutungen",
     "subtitle_msg": "In den letzten Jahrzehnten wurde ein Anstieg von ca. 0,5°C gemessen. Bis 2100 erwartet man weitere 1,5 bis 3°C. Die Auswirkungen sind regional sehr unterschiedlich und im Detail schwer vorherzusagen",
     "next_sea_level_btn": "Meeresspiegel",
+    "next_desc": "Welche Auswirkungen der Klimawandel auf unser Wetter und den Meeresspiegel hat, kannst du dir jetzt anschauen",
     "next_ew_btn": "Extremwetter",
     "next_act_btn": "Was kannst du dagegen tun?"
   },
@@ -43,6 +44,7 @@
     "effect_indirect_7": "Floods",
     "subtitle_msg": "Temperatures have risen around 0.5°C over the past decades. A further rise of between 1.5 to 3°C is expected by 2100. The consequences vary from region to region and are difficult to predict in detail.",
     "next_sea_level_btn": "Sea Level",
+    "next_desc": "Now you can see what effects climate change has on our weather and sea level",
     "next_ew_btn": "Extreme Weather",
     "next_act_btn": "What can I do about it?"
   }
@@ -101,7 +103,7 @@
 
           <div  class="column col-1"></div>
           <div  class="column col-10 flex-centered">
-            <h5>Welche Auswirkungen der Klimawandel auf unser Wetter und den Meeresspiegel hat, kannst du dir jetzt anschauen</h5>
+            <h5>{{ $t('next_desc') }}</h5>
           </div>
           <div  class="column col-1"></div>
 

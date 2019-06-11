@@ -39,7 +39,7 @@
     "description_industry": "",
     "description_other": "",
     "million_tons": "mio. tons",
-    "next_desc": "Now, I'll explain some of the consequences to you.",
+    "next_desc": "Now, we will have a look at the consequences.",
     "next_btn": "continue"
   }
 }
