@@ -45,7 +45,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-4">
             <p>{{ $t('desc_1') }}</p>
             <p>{{ $t('desc_2') }}</p>
@@ -64,6 +66,7 @@
         <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
           <div class="column col-8 flex-centered">
           </div>
@@ -82,76 +85,94 @@ import Vue from 'vue';
 import VueC3 from 'vue-c3';
 import Mappings from '@/utils/mappings';
 import Colors from '@/utils/colors';
+import References from '@/components/References.vue';
 
 export default {
   components: {
     VueC3,
+    References,
   },
 
   data() {
     return {
       chart: new Vue(),
       year: null,
+      references: [
+        {
+          title: 'TODO',
+          link: '',
+          sourceName: '',
+          sourceLogo: '',
+        },
+      ],
     };
   },
 
   mounted() {
-    // emissions data load csv
-    d3.csv('/data/ghg_emissions.csv')
-      .then((rows) => {
-        // map csv country name to home towbn
-        const homeCountryName = Object
-          .values(Mappings.countryMapping)
-          .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
+    this.renderChart();
+  },
 
-        let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r.year, 10) < new Date().getFullYear());
-
-        // take last year found
-        data = data.sort((a, b) => a.year - b.year);
-
-        // eslint-disable-next-line
-        data = data.slice(-1)[0];
-        this.year = data.year;
-
-        data = [
-          'agriculture.ghg.emissions.mio.tonnes',
-          'energy.ghg.emissions.mio.tonnes',
-          'waste.ghg.emissions.mio.tonnes',
-          'transport.ghg.emissions.mio.tonnes',
-          'industry.ghg.emissions.mio.tonnes',
-          'other.ghg.emissions.mio.tonnes',
-        ].reduce((result, key) => {
-          // eslint-disable-next-line no-param-reassign
-          result[key] = data[key];
-          return result;
-        }, {});
-
-        this.chart.$emit('init', {
-          data: {
-            json: data,
-            names: {
-              'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
-              'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
-              'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
-              'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
-              'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
-              'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
-            },
-            colors: {
-              'agriculture.ghg.emissions.mio.tonnes': Colors.green,
-              'energy.ghg.emissions.mio.tonnes': Colors.orange,
-              'waste.ghg.emissions.mio.tonnes': Colors.red,
-              'transport.ghg.emissions.mio.tonnes': Colors.blue,
-              'industry.ghg.emissions.mio.tonnes': Colors.purple,
-              'other.ghg.emissions.mio.tonnes': Colors.yellow,
-            },
-            type: 'donut',
-          },
-        });
-      });
+  updated() {
+    this.renderChart();
   },
 
   methods: {
+    renderChart() {
+      // emissions data load csv
+      d3.csv('/data/ghg_emissions.csv')
+        .then((rows) => {
+          // map csv country name to home towbn
+          const homeCountryName = Object
+            .values(Mappings.countryMapping)
+            .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
+
+          let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r.year, 10) < new Date().getFullYear());
+
+          // take last year found
+          data = data.sort((a, b) => a.year - b.year);
+
+          // eslint-disable-next-line
+          data = data.slice(-1)[0];
+          this.year = data.year;
+
+          data = [
+            'agriculture.ghg.emissions.mio.tonnes',
+            'energy.ghg.emissions.mio.tonnes',
+            'waste.ghg.emissions.mio.tonnes',
+            'transport.ghg.emissions.mio.tonnes',
+            'industry.ghg.emissions.mio.tonnes',
+            'other.ghg.emissions.mio.tonnes',
+          ].reduce((result, key) => {
+            // eslint-disable-next-line no-param-reassign
+            result[key] = data[key];
+            return result;
+          }, {});
+
+          this.chart.$emit('init', {
+            data: {
+              json: data,
+              names: {
+                'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
+                'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
+                'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
+                'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
+                'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
+                'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
+              },
+              colors: {
+                'agriculture.ghg.emissions.mio.tonnes': Colors.green,
+                'energy.ghg.emissions.mio.tonnes': Colors.orange,
+                'waste.ghg.emissions.mio.tonnes': Colors.red,
+                'transport.ghg.emissions.mio.tonnes': Colors.blue,
+                'industry.ghg.emissions.mio.tonnes': Colors.purple,
+                'other.ghg.emissions.mio.tonnes': Colors.yellow,
+              },
+              type: 'donut',
+            },
+          });
+        });
+    },
+
     next() {
       this.$router.push({ name: 'B05-GreenhouseEffect5' });
     },

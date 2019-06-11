@@ -37,7 +37,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-6">
             <div class="btn-group btn-group-block">
                 <button @click="renderYear(y)" v-for="y in years" :key="y" :class="{ 'active': y === year  }" class="btn btn-action btn-sm">{{ y }}</button>
@@ -60,10 +62,11 @@
       </div>
       <div class="modal-footer">
        <div class="columns">
-          <div class="column col-1 flex-centered">
+          <div class="column col-2 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
-          <div class="column col-8 flex-centered">
+          <div class="column col-7 flex-centered">
             <select v-model="storySelectedId" @change="changeStory" @mousedown="animationStop" @click="animationStop" class="form-select">
               <option v-for="(story, storyId) in stories" v-bind:value="storyId" v-bind:key="storyId">{{ story.name }}</option>
             </select>
@@ -82,9 +85,13 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import Colors from '@/utils/colors';
 import '@/vendors/leaflet-svgicon/svg-icon';
-
+import References from '@/components/References.vue';
 
 export default {
+  components: {
+    References,
+  },
+
   data() {
     return {
       year: 2010,
@@ -93,27 +100,27 @@ export default {
         aveiro: {
           name: this.$t('story_name_aveiro'),
           coords: [40.7323, -8.65391],
-          zoomLevel: 12,
+          zoomLevel: 11,
           imageLocation: [40.661995, -8.647931],
-          imageURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aveiro_%2825260330524%29.jpg/800px-Aveiro_%2825260330524%29.jpg',
+          imageURL: '/assets/sealevel_rise_story/aveiro.jpg',
           imageCopyrightText: 'Sergei G.',
           imageCopyrightLink: 'https://www.flickr.com/photos/sergeigussev/',
         },
         foulness: {
           name: this.$t('story_name_foulness'),
           coords: [51.60542714, 0.8507641],
-          zoomLevel: 13,
+          zoomLevel: 12,
           imageLocation: [51.5855078, 0.8701842],
-          imageURL: 'https://s0.geograph.org.uk/geophotos/01/49/08/1490822_b3982918.jpg',
+          imageURL: '/assets/sealevel_rise_story/foulness.jpg',
           imageCopyrightText: 'Trevor H.',
           imageCopyrightLink: 'https://www.geograph.org.uk/profile/27744',
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
-          coords: [44.9885519, 29.2160797],
-          zoomLevel: 11,
+          coords: [44.9885519, 29.5160797],
+          zoomLevel: 10,
           imageLocation: null,
-          imageURL: 'https://live.staticflickr.com/8458/29150953465_415df82b8e_z.jpg',
+          imageURL: '/assets/sealevel_rise_story/uzlina.jpg',
           imageCopyrightText: 'F.Micki',
           imageCopyrightLink: 'https://www.flickr.com/photos/f_micki/',
         },
@@ -122,9 +129,9 @@ export default {
           coords: [52.633363, 1.709751],
           zoomLevel: 11,
           imageLocation: [52.7004576, 1.6675209],
-          imageURL: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
+          imageURL: '/assets/sealevel_rise_story/the_broads.jpg',
           imageCopyrightText: 'Richard L.',
-          imageCopyrightLink: 'https://s3.geograph.org.uk/geophotos/03/71/70/3717027_900e3a83_1024x1024.jpg',
+          imageCopyrightLink: 'https://www.geograph.org.uk/profile/25319',
         },
       },
       storySelectedId: 'foulness',

@@ -55,7 +55,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references"/>
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-11">
             <input @input="renderYear" v-model="year" class="slider" type="range" min="1990" max="2016">
           </div>
@@ -81,6 +83,7 @@
         <div class="columns">
           <div class="column col-1 flex-centered">
             <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
           </div>
           <div class="column col-8 flex-centered">
             {{ $t('next_desc') }}
@@ -100,6 +103,7 @@ import * as d3 from 'd3';
 import L from 'leaflet';
 import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 import Mappings from '@/utils/mappings';
+import References from '@/components/References.vue';
 
 const colors = ['#fcae91', '#fb6a4a', '#de2d26', '#a50f15'];
 
@@ -112,6 +116,10 @@ const layerStyle = {
 };
 
 export default {
+  components: {
+    References,
+  },
+
   data() {
     return {
       year: '2016',
@@ -128,6 +136,14 @@ export default {
         agriculture: this.$t('sector_agriculture'),
         other: this.$t('sector_other'),
       },
+      references: [
+        {
+          title: 'TODO',
+          link: '',
+          sourceName: '',
+          sourceLogo: '',
+        },
+      ],
     };
   },
 
