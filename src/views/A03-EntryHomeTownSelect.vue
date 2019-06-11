@@ -93,7 +93,7 @@ export default {
 
         // get cities for autocomplete
         axios.get(
-          `http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2geoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`,
+          `https://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2geoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`,
         )
           .then((response) => {
             if (!response.data.suggestions) {
