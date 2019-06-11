@@ -121,7 +121,7 @@ export default new Router({
       component: ExtremeWeather1,
     },
     {
-      path: '/climate-change/effects/extreme-weather/',
+      path: '/climate-change/effects/future/',
       name: 'ZXX-ActInfos3',
       component: ActInfos3,
     },

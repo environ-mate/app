@@ -459,22 +459,25 @@ data <- read.csv("public/data/future-greenhouse-gas-emission-scenarios.csv", hea
 
 
 # plot
+alpha = 0.6
 image <- ggplot(data=data)+  
   geom_line(aes(x = Year, y = Historic..billion.tonnes.CO..equivalent.), color = "black")+
-  geom_ribbon(aes(x = Year, ymin= No.climate.policies..low...billion.tonnes.CO..equivalent., ymax =  No.climate.policies..high...billion.tonnes.CO..equivalent.), fill= "red", alpha = 0.3)+  
-  geom_ribbon(aes(x = Year, ymin= Pledges..low...billion.tonnes.CO..equivalent., ymax =  Pledges..high...billion.tonnes.CO..equivalent.), fill= "green", alpha = 0.3)+ 
-  geom_ribbon(aes(x = Year, ymin= Current.policies..low...billion.tonnes.CO..equivalent., ymax =  Current.policies..high...billion.tonnes.CO..equivalent.), fill= "yellow", alpha = 0.3)+ 
-  geom_ribbon(aes(x = Year, ymin= X1.5C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X1.5C.pathways..high...billion.tonnes.CO..equivalent.), fill= "blue", alpha = 0.3)+ 
-  geom_ribbon(aes(x = Year, ymin= X2C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X2C.pathways..high...billion.tonnes.CO..equivalent.), fill= "orange", alpha = 0.3)+ 
+  geom_ribbon(aes(x = Year, ymin= No.climate.policies..low...billion.tonnes.CO..equivalent., ymax =  No.climate.policies..high...billion.tonnes.CO..equivalent.), fill= "#fb6a4a", alpha = alpha)+  
+  geom_ribbon(aes(x = Year, ymin= Current.policies..low...billion.tonnes.CO..equivalent., ymax =  Current.policies..high...billion.tonnes.CO..equivalent.), fill= "#9e9ac8", alpha = alpha)+ 
+  geom_ribbon(aes(x = Year, ymin= Pledges..low...billion.tonnes.CO..equivalent., ymax =  Pledges..high...billion.tonnes.CO..equivalent.), fill= "#fed976", alpha = alpha)+ 
+  geom_ribbon(aes(x = Year, ymin= X2C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X2C.pathways..high...billion.tonnes.CO..equivalent.), fill= "#74c476", alpha = alpha)+ 
+  geom_ribbon(aes(x = Year, ymin= X1.5C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X1.5C.pathways..high...billion.tonnes.CO..equivalent.), fill= "#67a9cf", alpha = alpha)+ 
   ylim(-10,200) + xlim(1990,2100)+
-  theme_bw()+  
+  theme_bw()+ 
+  theme(axis.text=element_text(size=14))+
   #theme (panel.border = element_blank()) + geom_hline(yintercept=0) + geom_vline(xintercept=1990) + 
   labs(y="Gt CO2", x="t")+
   scale_y_continuous(sec.axis=dup_axis(name=" ", breaks=c(-5.46, 2.97,41.67,62.75,128.9), labels=c("1.5°C","2°C","2.6-3.2°C","3.1-3.7°C","4.1-4.8°C")))
   
 #save the plot as png
-ggsave(file="public/assests/emission_projection_2100.png", plot=image, width=12, height=6)  
+ggsave(file="public/assets/emission_projection_2100.png", plot=image, width=12, height=6)  
   
+
   
 ##
 ## Calculate rank of GHG emissions per country and countries capita
@@ -482,6 +485,8 @@ ggsave(file="public/assests/emission_projection_2100.png", plot=image, width=12,
 library(tidyverse)
 data <- read.csv("ghg_emissions.csv", header=T)
 tmp <- data %>% filter(data$year == 2017) %>% select(country.name, country.code, year, total.ghg.emissions.mio.tonnes, ghg.emissions.per.capita.tonnes)
+
+which(tmp$country.code %in% c(EU28)
   
   
 "country.name","country.code","total.ghg.emissions.mio.tonnes","ghg.emissions.per.capita.tonnes","total_eu28_ghg_tonnes_share","total_eu28_ghg_tonnes_rank"

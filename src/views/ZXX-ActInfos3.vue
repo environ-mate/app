@@ -3,7 +3,7 @@
   "de": {
     "title": "Wie könnte unsere Zukunft verlaufen?",
     "desc_1": "Mit den aktuellen Maßnahmen wird von einem Anstieg von mehr als 3 Grad bis 2100 im Vergleich zur vorindustriellen Zeit ausgegangen. Das Ziel des Paris Abkommens von 2015 fordert jedoch eine Beschränkung des Anstiegs auf deutlich weniger als 2 Grad, um die Konsequenzen des Klimawandels einzudämmen. Sollte dieses Ziel nicht erreicht werden, könnten die schon jetzt bemerkbaren Auswirkungen noch extremer werden.",
-    "legend": "1: Für 1,5 aber auch 2°C müsste die Emissionen schnell und drastisch gesenkt werden. 2: Sollten alle Länder ihre Ziele aus dem Pariser Abkommen erreichen, wird man immer noch über den 2°C liegen. 3: Erwärmung ausgehend von der aktuell umgesetzten Klimapolitik der Länder. 4: Prognose ohne jegliche Limitierungen in den Emissionen.",
+    "legend": "1: 1,5 bis 2°C Emissionen müssten schnell und drastisch gesenkt werden. 2: Ziele aus dem Pariser Abkommen erreicht (Vorhersage über den angestrebten 2°C). 3: Erwärmung mit der aktuell umgesetzten Klimapolitik der Länder. 4: Prognose ohne jegliche Limitierungen in den Emissionen.",
     "outro": "Nutze deine Chance und setze dich jetzt für den Kampf gegen den Klimawandel und eine bessere Zukunft für uns alle ein!",
     "next_btn": "weiter"
   },
@@ -34,10 +34,9 @@
             <img class="img-responsive flex-end" v-bind:src="'/assets/emissions_projection_2100.png'"/> 
           </div>
           <div class="column col-4">
+            <p>{{ $t('legend') }}</p>
             <p>{{ $t('desc_1') }}</p>
-            <p>{{ $t('desc_2') }}</p>
-            <p>{{ $t('desc_3') }}</p>
-            <p>{{ $t('desc_4') }}</p>
+            <p>{{ $t('outro') }}</p>
           </div>
           <div class="column col-1 flex-centered">
             <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
