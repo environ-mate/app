@@ -165,8 +165,6 @@ export default {
         that.emissionData = rows;
         that.emissionData = this.emissionData.filter(r => r['country.name'] !== 'EU28');
 
-        let countriesProcessed = 0;
-
         // load country shapes
         const promises = [];
 

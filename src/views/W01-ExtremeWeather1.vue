@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Was geschieht mit unserem Wetter?",
-    "vis_title": "Naturkatastrophen in der EU und Russland 1906 - 2018",
+    "vis_title": "Naturkatastrophen in der EU und Russland 1970 - 2018",
     "vis_legend_storm": "Sturm",
     "vis_legend_wildfire": "Flächenbrand",
     "vis_legend_flood": "Überschwemmung",
@@ -12,7 +12,7 @@
   },
   "en": {
     "title": "What is happening with our weather?",
-    "vis_title": "Natural Catastrophes in the EU and Russia 1906 - 2018",
+    "vis_title": "Natural Catastrophes in the EU and Russia 1970 - 2018",
     "vis_legend_storm": "Storm",
     "vis_legend_wildfire": "Wildfire",
     "vis_legend_flood": "Flood",
