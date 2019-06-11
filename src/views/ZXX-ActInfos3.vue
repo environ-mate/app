@@ -8,11 +8,11 @@
     "next_btn": "weiter"
   },
   "en": {
-    "title": "",
-    "desc_1": "", 
-    "legend": "",
-    "outro": "",
-    "next_btn": ""
+    "title": "How might our future unfold?",
+    "desc_1": "With current efforts against climate change we expect a rise in global temperatures of 3° Celsius above pre-industrial levels by 2100. The Paris Agreement of 2015 however aims to reduce the temperature rise to below 2°C in order to mitigate the consequences of climate change. If this target is not reached, the already noticeable effects today could get considerably worse.", 
+    "legend": "1: 1.5 to 2°C emissions would have to be drastically and rapidly reduced. 2: Targets of the Paris Agreement achieved (prediction over the targeted 2°C). 3: Warming with current climate policies. 4: Prediction for no limitations on emissions.",
+    "outro": "Take your opportunity to act against climate change and secure a brighter future for us all!",
+    "next_btn": "continue"
   }
 }
 </i18n>
