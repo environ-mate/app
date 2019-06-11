@@ -17,6 +17,7 @@
     "description_transport": "Verkehr umfasst alle Inlandsflüge sowie Auto-, Bahn- und Lastwagenverkehr. Dieser Sektor hat einen Gesamtanteil in der EU von 21%.",
     "description_industry": "Zum Industrie-Sektor zählen alle Emissionen, die bei der Produktion von Gütern und Rohmaterialien entstehen. Dieser Sektor hat einen Gesamtanteil von 9%.",
     "description_other": "Hierin sind verschiedene weitere Sektoren zusammengefasst, der Größte hiervon macht über 50% aus und umfasst die Emissionen von Gebäuden (Heizung, Abwasser, Strom in Wohnungen oder Geschäften). Der gesamte Sektor hat einen Gesamtanteil von 28% an allen EU-Emissionen.",
+    "million_tons": "mio. Tonnen",
     "next_desc": "Zu den Auswirkungen erzähle ich dir jetzt mehr.",
     "next_btn": "weiter"
   },
@@ -37,6 +38,7 @@
     "description_transport": "",
     "description_industry": "",
     "description_other": "",
+    "million_tons": "mio. tons",
     "next_desc": "Now, I'll explain some of the consequences to you.",
     "next_btn": "continue"
   }
@@ -208,6 +210,13 @@ export default {
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
 
+      // unset existing tooltips
+      this.$parent.$data.map.eachLayer(function(layer) {
+        if (layer.options.pane === 'tooltipPane') {
+          layer.removeFrom(that.$parent.$data.map);
+        }
+      });
+
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
@@ -230,6 +239,11 @@ export default {
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);
+
+            // open tooltip on mouse over
+            const unit = that.$i18n.t('million_tons');
+            that.countryLayer[countryCode]
+              .bindTooltip(`${value} ${unit} `, { sticky: true });
           }
         }
       }

@@ -69,4 +69,16 @@ export default {
     text-align: center;
     font-weight: bold;
   }
+
+  .leaflet-tooltip-left {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .leaflet-tooltip-right {
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+  }
 </style>

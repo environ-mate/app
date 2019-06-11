@@ -8,6 +8,7 @@
     "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO₂-Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2017).",
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg}. Dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
     "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
+    "million_tons": "mio. Tonnen",
     "next_btn": "weiter"
   },
   "en": {
@@ -18,6 +19,7 @@
     "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2017).",
     "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
     "description_footprint": "Check your own footprint in comparison: (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
+    "million_tons": "mio. tons",
     "next_btn": "continue"
   }
 }
@@ -202,8 +204,15 @@ export default {
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
 
+      // unset existing tooltips
+      this.$parent.$data.map.eachLayer(function(layer) {
+        if (layer.options.pane === 'tooltipPane') {
+          layer.removeFrom(that.$parent.$data.map);
+        }
+      });
+
       for (const row of rowsOfInterest) {
-        if (row.year === that.year) {const promises = [];
+        if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
           const countryCode = Object
             .values(Mappings.countryMapping)
@@ -224,6 +233,11 @@ export default {
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);
+
+            // open tooltip on mouse over
+            const unit = that.$i18n.t('million_tons');
+            that.countryLayer[countryCode]
+              .bindTooltip(`${value} ${unit} `, { sticky: true });
           }
         }
       }
