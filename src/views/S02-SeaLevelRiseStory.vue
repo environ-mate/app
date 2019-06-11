@@ -7,6 +7,7 @@
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Rumänien",
     "story_name_the_broads": "The Broads, UK",
+    "story_name_netherlands": " Niederlande",
     "photo_popup": "Hier wurde das Foto aufgenommen",
     "photo_cc_license": "ist lizenziert unter CC BY 2.0",
     "next_btn": "weiter"
@@ -18,6 +19,7 @@
     "story_name_foulness": "Foulness Island, UK",
     "story_name_uzlina": "Uzlina, Romania",
     "story_name_the_broads": "The Broads, UK",
+    "story_name_netherlands": "Netherlands",
     "photo_popup": "The photo was taken here",
     "photo_cc_license": "is licensed under CC BY 2.0",
     "next_btn": "continue"
@@ -52,8 +54,8 @@
             {{ $t('desc') }}
           </div>
           <div class="column col-5">
-            <img class="img-responsive" :src="this.storySelectedData.imageURL">
-            <em>
+            <img v-if="this.storySelectedData.imageURL" class="img-responsive" :src="this.storySelectedData.imageURL">
+            <em v-if="this.storySelectedData.imageURL">
               <a :href="this.storySelectedData.imageCopyrightLink" target="_blank">{{ this.storySelectedData.imageCopyrightText }}</a>,
               <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">{{ $t("photo_cc_license") }}</a>
             </em>
@@ -132,6 +134,15 @@ export default {
           imageURL: '/assets/sealevel_rise_story/the_broads.jpg',
           imageCopyrightText: 'Richard L.',
           imageCopyrightLink: 'https://www.geograph.org.uk/profile/25319',
+        },
+        netherlands: {
+          name: this.$t('story_name_netherlands'),
+          coords: [52.5387303, 5.2920731],
+          zoomLevel: 8,
+          imageLocation: null,
+          imageURL: null,
+          imageCopyrightText: null,
+          imageCopyrightLink: null,
         },
       },
       storySelectedId: 'foulness',

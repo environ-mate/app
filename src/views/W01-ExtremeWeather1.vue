@@ -88,31 +88,38 @@ export default {
     };
   },
 
+  updated() {
+    this.renderChart();
+  },
 
   mounted() {
-    this.chart.$emit('init', {
-      x: 'year',
-      data: {
-        url: '/data/extreme_weather_occurences.csv',
-        x: 'year',
-        names: {
-          'storm.occurrence': this.$t('vis_legend_storm'),
-          'wildfire.occurrence': this.$t('vis_legend_wildfire'),
-          'flood.occurrence': this.$t('vis_legend_flood'),
-          'drought.occurrence': this.$t('vis_legend_drought'),
-        },
-        type: 'area',
-        colors: {
-          'storm.occurrence': Colors.purple,
-          'wildfire.occurrence': Colors.orange,
-          'flood.occurrence': Colors.blue,
-          'drought.occurrence': Colors.brown,
-        },
-      },
-    });
+    this.renderChart();
   },
 
   methods: {
+    renderChart() {
+      this.chart.$emit('init', {
+        x: 'year',
+        data: {
+          url: '/data/extreme_weather_occurences.csv',
+          x: 'year',
+          names: {
+            'storm.occurrence': this.$t('vis_legend_storm'),
+            'wildfire.occurrence': this.$t('vis_legend_wildfire'),
+            'flood.occurrence': this.$t('vis_legend_flood'),
+            'drought.occurrence': this.$t('vis_legend_drought'),
+          },
+          type: 'area',
+          colors: {
+            'storm.occurrence': Colors.purple,
+            'wildfire.occurrence': Colors.orange,
+            'flood.occurrence': Colors.blue,
+            'drought.occurrence': Colors.brown,
+          },
+        },
+      });
+    },
+
     next() {
       this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
