@@ -24,7 +24,6 @@
           <tr>
             <th>{{ $t('dataset') }}</th>
             <th>{{ $t('publisher') }}</th>
-            <th>{{ $t('version') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +37,6 @@
               <img v-if="ref.publisherLogo" :src="ref.publisherLogo"/>
               <h5 v-if="ref.publisherName">{{ ref.publisherName }}</h5>
             </td>
-            <td>{{ref.version}}</td>
           </tr>
         </tbody>
       </table>
