@@ -1,7 +1,7 @@
 export default {
   sleep(s, callback) {
     if (window.webpackHotUpdate) {
-      s = 0;
+      //s = 0;
     }
     setTimeout(() => {
       callback();

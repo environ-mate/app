@@ -3,12 +3,14 @@
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
     "hello_sub": "Ich begleite dich hier ab jetzt.",
-  "help": "Du kannst jederzeit die <span class='helpButton'>H</span> Taste drücken - ich eile dir dann zu Hilfe!",
+    "journey": "Wir reisen nun gemeinsam über Europa in deine Heimatstadt.",
+    "help": "Du kannst jederzeit die <span class='helpButton'>H</span> Taste drücken - ich eile dir dann zu Hilfe!",
     "start": "Klicke hier, um zu starten!"
   },
    "en": {
     "hello": "Howdi! My name is %{name}.",
     "hello_sub": "I will accompany you from here on.",
+    "journey": "We now travel together across Europe to your hometown.",
     "help": "You can type the <span class='helpButton'>H</span> key at any time, and I'll come to assist you!",
     "start": "Press here to start!"
   }
@@ -20,12 +22,13 @@
     <div class="modal-container">
       <div class="modal-body">
         <center>
-          <h5>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h5>
+          <h4>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h4>
           <h6>{{ $t("hello_sub") }}</h6>
           <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          <h6>
-            <span v-html="$t('help')"/> 🐢 💨
-          </h6>
+          <h6>{{ $t("journey") }}</h6>
+          <p>
+            <h6><span v-html="$t('help')"/> 🐢 💨</h6>
+          </p>
           <p>
             <br/>
             <button @click="next()" class="btn btn-lg btn-success">
@@ -39,21 +42,10 @@
 </template>
 
 <script>
-import Helper from '@/utils/helper';
 
 export default {
   mounted() {
-    // fly map to europe
-    this.$parent.map.flyToBounds([
-      [50.99995, 9.99995],
-      [51.00005, 10.00005],
-    ], this.$parent.$options.flyToOptions(4, 5, 1.0));
-
-    this.$parent.map.once('moveend', () => {
-      Helper.sleep(3, () => {
-        this.$parent.$data.modalOpen = true;
-      });
-    });
+    this.$parent.$data.modalOpen = true;
   },
 
   methods: {
