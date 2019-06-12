@@ -55,7 +55,7 @@
           <div class="column col-6"></div>
 
           <div class="column col-7">
-            {{ $t('desc') }}
+            {{ this.storySelectedData.storyDesc }}
           </div>
           <div class="column col-5">
             <img v-if="this.storySelectedData.imageURL" class="img-responsive" :src="this.storySelectedData.imageURL">
@@ -105,6 +105,7 @@ export default {
       stories: {
         aveiro: {
           name: this.$t('story_name_aveiro'),
+          storyDesc: this.$t('story_desc_aveiro'),
           coords: [40.7323, -8.65391],
           zoomLevel: 11,
           imageLocation: [40.661995, -8.647931],
@@ -114,6 +115,7 @@ export default {
         },
         foulness: {
           name: this.$t('story_name_foulness'),
+          storyDesc: this.$t('desc'),
           coords: [51.60542714, 0.8507641],
           zoomLevel: 12,
           imageLocation: [51.5855078, 0.8701842],
@@ -123,6 +125,7 @@ export default {
         },
         uzlina: {
           name: this.$t('story_name_uzlina'),
+          storyDesc: this.$t('desc'),
           coords: [44.9885519, 29.5160797],
           zoomLevel: 10,
           imageLocation: null,
@@ -132,6 +135,7 @@ export default {
         },
         the_broads: {
           name: this.$t('story_name_the_broads'),
+          storyDesc: this.$t('desc'),
           coords: [52.633363, 1.709751],
           zoomLevel: 11,
           imageLocation: [52.7004576, 1.6675209],
@@ -141,6 +145,7 @@ export default {
         },
         netherlands: {
           name: this.$t('story_name_netherlands'),
+          storyDesc: this.$t('story_desc_netherlands'),
           coords: [52.5387303, 5.2920731],
           zoomLevel: 8,
           imageLocation: null,
