@@ -65,7 +65,7 @@
       <div class="modal-footer">
        <div class="columns">
           <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>i
+            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
          </div>
          <div class="column col-2 flex-centered">
             <button @click="examples" class="btn btn btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
@@ -77,7 +77,7 @@
             <button @click="euact" class="btn btn btn-success float-right"> {{ $t('next_euact') }}<i class="icon icon-arrow-right"></i></button>
           </div>
           <div class="column col-3 flex-centered">
-            <button @click="future" class="btn btn btn-success float-right"> {{ $t('next_future') }}<i class="icon icon-arrow-right"></i></button>
+            <button @click="future" class="btn btn btn-primary float-right"> {{ $t('next_future') }}<i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>

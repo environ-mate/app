@@ -33,7 +33,7 @@
            aria-label="Close"></a>
 
         <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
+           💪 {{ $t("title") }}
         </div>
       </div>
       <div class="modal-body">
@@ -44,7 +44,7 @@
           </div>
           <div class="column col-7">
             <ul>
-              <li>{{ $t('act_1') }}</li>
+              <li>🐖🐄 {{ $t('act_1') }}</li>
               <li>{{ $t('act_2') }}</li>
               <li>{{ $t('act_3') }}</li>
               <li>{{ $t('act_4') }}</li>
