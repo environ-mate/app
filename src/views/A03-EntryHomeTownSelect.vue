@@ -141,24 +141,34 @@ export default {
 
           this.modalOpen = false;
 
-          // fly to city
-          layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
+          // fly map to europe
+          this.$parent.map.flyToBounds([
+            [50.99995, 9.99995],
+            [51.00005, 10.00005],
+          ], this.$parent.$options.flyToOptions(4, 2, 1.0));
 
-          this.$parent.$data.map.flyToBounds(
-            layer.getBounds(), this.$parent.$options.flyToOptions(11),
-          );
+          this.$parent.map.once('moveend', () => {
+            Helper.sleep(1, () => {
+              // fly to city
+              layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
 
-          this.$parent.removeLayers();
+              this.$parent.$data.map.flyToBounds(
+                layer.getBounds(), this.$parent.$options.flyToOptions(11),
+              );
 
-          this.$parent.$data.map.once('moveend', () => {
-            layer.addTo(this.$parent.$data.mapLayerGroup);
+              this.$parent.removeLayers();
 
-            new L.Marker.SVGMarker(L.latLng(...this.$parent.$data.homeTownCoords), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }).addTo(this.$parent.$data.mapLayerGroup)
-              .bindPopup(this.$t('popup', { city: this.$parent.$data.homeTownName }))
-              .openPopup();
+              this.$parent.$data.map.once('moveend', () => {
+                layer.addTo(this.$parent.$data.mapLayerGroup);
 
-            Helper.sleep(5, () => {
-              this.$router.push({ name: 'A04-EntryIntro' });
+                new L.Marker.SVGMarker(L.latLng(...this.$parent.$data.homeTownCoords), { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }).addTo(this.$parent.$data.mapLayerGroup)
+                  .bindPopup(this.$t('popup', { city: this.$parent.$data.homeTownName }))
+                  .openPopup();
+
+                Helper.sleep(3, () => {
+                  this.$router.push({ name: 'A04-EntryIntro' });
+                });
+              });
             });
           });
         })
