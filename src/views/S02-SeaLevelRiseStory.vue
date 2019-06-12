@@ -9,6 +9,7 @@
     "story_name_uzlina": "Uzlina, Rumänien",
     "story_name_the_broads": "The Broads, UK",
     "story_name_netherlands": " Niederlande",
+    "story_desc_netherlands": "Die Niederlande liegen bereits weitgehend unter dem Meeresspiegel. Nur ein System von Deichen und Dämmen hält den Ozean in Schach. Hier zeigen wir, was ohne diese Innovationen überflutet wäre. Mit dem weiteren Anstieg des Meeresspiegels wird die Modernisierung und Aufrechterhaltung dieser Verteidigungsanlagen teurer werden.",
     "photo_popup": "Hier wurde das Foto aufgenommen",
     "photo_cc_license": "ist lizenziert unter CC BY 2.0",
     "next_btn": "weiter"
@@ -22,6 +23,7 @@
     "story_name_uzlina": "Uzlina, Romania",
     "story_name_the_broads": "The Broads, UK",
     "story_name_netherlands": "Netherlands",
+    "story_desc_netherlands": "The Netherlands already lie largely below sea level. Only a system of dikes, levees and dams keeps the ocean at bay. Here, we show what would be flooded without these innovations. As sea levels continue to rise, upgrading and maintaining these defences will become more expensive.",
     "photo_popup": "The photo was taken here",
     "photo_cc_license": "is licensed under CC BY 2.0",
     "next_btn": "continue"
