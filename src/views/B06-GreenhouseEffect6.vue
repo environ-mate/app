@@ -140,10 +140,18 @@ export default {
       },
       references: [
         {
-          title: 'TODO',
-          link: '',
+          title: 'Greenhouse gas emissions',
+          version: 'TODO',
+          link: 'https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10',
           publisherName: '',
-          publisherLogo: '',
+          publisherLogo: '/assets/data_source_publishers/eurostat.png',
+        },
+        {
+          title: 'National greenhouse gas inventories',
+          version: 'TODO',
+          link: 'https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15',
+          publisherName: '',
+          publisherLogo: '/assets/data_source_publishers/eea.png',
         },
       ],
     };
