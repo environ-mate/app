@@ -98,8 +98,8 @@ export default {
         {
           title: 'Global and European temperature',
           link: 'https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment',
-          sourceName: 'EEA',
-          sourceLogo: 'https://www.eea.europa.eu/EEA-logo-25-anniversary.svg',
+          publisherName: null,
+          publisherLogo: '/assets/data_source_publishers/eea.png',
         },
       ],
     };

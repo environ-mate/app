@@ -1,12 +1,16 @@
 <i18n>
 {
   "de": {
+    "references": "Quellenangaben",
     "dataset": "Datensatz",
-    "source": "Quelle"
+    "publisher": "Herausgeber",
+    "version": "Version"
   },
    "en": {
+    "references": "References",
     "dataset": "Dataset",
-    "source": "Source"
+    "publisher": "Publisher",
+    "version": "Version"
   }
 }
 </i18n>
@@ -14,22 +18,27 @@
 <template>
   <div class="columns">
     <div class="column col-12">
-      <h3>Quellenangaben</h3>
+      <h3>{{ $t('references') }}</h3>
       <table class="table table-striped table-hover">
         <thead>
           <tr>
             <th>{{ $t('dataset') }}</th>
-            <th>{{ $t('source') }}</th>
+            <th>{{ $t('publisher') }}</th>
+            <th>{{ $t('version') }}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="ref in referencesData" :key="ref.title">
+          <tr v-for="ref in references" :key="ref.title">
             <td>
               <a :href="ref.link">
               {{ref.title}}
               </a>
             </td>
-            <td>{{ref.sourceName}} <img :src="ref.sourceLogo"></td>
+            <td>
+              <img v-if="ref.publisherLogo" :src="ref.publisherLogo"/>
+              <h5 v-if="ref.publisherName">{{ ref.publisherName }}</h5>
+            </td>
+            <td>{{ref.version}}</td>
           </tr>
         </tbody>
       </table>
@@ -48,12 +57,6 @@ export default {
   name: 'References',
 
   props: ['references'],
-
-  computed: {
-    referencesData(){
-      return this.references;
-    }
-  },
 
   methods: {
   },

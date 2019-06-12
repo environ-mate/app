@@ -159,6 +159,22 @@ export default {
       storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
       storyGeoData: null,
       loop: null,
+      references: [
+        {
+          title: 'Digital Elevation Model Over Europe (EU-DEM)',
+          link: 'https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-eu-dem#tab-gis-data',
+          version: '07 Dec 2017',
+          publisherName: null,
+          publisherLogo: '/assets/data_source_publishers/copernicus.png',
+        },
+        {
+          title: 'RCP4.5 total sea level rise projections',
+          link: 'https://www.eea.europa.eu/data-and-maps/data/external/ar5-sea-level-rise-projections',
+          version: '2015-10-21T15:01:59Z',
+          publisherName: 'Integrated Climate Data Center (ICDC)',
+          publisherLogo: null,
+        },
+      ],
     };
   },
 

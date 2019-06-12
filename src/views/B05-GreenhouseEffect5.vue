@@ -121,8 +121,8 @@ export default {
         {
           title: 'TODO',
           link: '',
-          sourceName: '',
-          sourceLogo: '',
+          publisherName: '',
+          publisherLogo: '',
         },
       ],
     };
