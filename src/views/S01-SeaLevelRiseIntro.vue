@@ -11,11 +11,11 @@
   },
   "en": {
     "title": "What happens when the sea rises?",
-    "title_direct": "Direct consequences",
-    "cause_direct_1": "Rising temperatures",
-    "cause_direct_2": "Changes in amount and frequency of rainfall",
-    "cause_direct_3": "More frequent droughts and heatwaves",
-    "subtitle_msg": "A rise in sea level of around 70cm by 2100 might not sound like much, but the potential outcomes vary widely between different regions and it is difficult to predict how the sea level rise will accelerate in coming years.",
+    "title_direct": "Rising sea levels are mainly due to three effects of climate change:",
+    "cause_direct_1": "Thermal expansion: warmer water expands. Half of the sea level rise seen in the last 25 years is due to this effect.",
+    "cause_direct_2": "Glacial melting: With shorter and warmer winters glaciers aren't able to regenerate themselves and gradually melt, adding more water to the oceans.",
+    "cause_direct_3": "Melting of the ice sheets in Greenland and Antarctica: as with the glaciers, these ice sheets are noticeably shrinking and contributing to the global sea level.",
+    "subtitle_msg": "A rise in sea level of around 70cm by 2100 might not sound like much, but the potential outcomes vary widely between different regions and it is difficult to predict how the sea level rise will accelerate in coming years. However, even now we're starting to see more frequent and devastating instances of floods, hurricanes and heavier rainfall.",
     "next_btn": "continue"
   }
 }
