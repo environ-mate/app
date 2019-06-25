@@ -81,4 +81,8 @@ export default {
     text-align: center;
     font-weight: bold;
   }
+
+  .leaflet-bottom {
+    z-index: 500;
+  }
 </style>

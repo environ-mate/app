@@ -136,6 +136,10 @@ export default {
       justify-content: center;
   }
 
+  .modal {
+    bottom: 20px;
+  }
+
   .flex-end {
     align-self: flex-end;
   }
