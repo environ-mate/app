@@ -1,41 +1,19 @@
 <template>
   <div class="modal" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
-        <div class="modal-header">
-          <div class="modal-title h1 text-center">
-            Hello, Hallo! 🙌
-          </div>
-        </div>
-      <div class="modal-body">
-        <div class="columns col-gapless">
-          <div class="column col-6">
-            <center>
-              <h5>
-                What language do you speak?
-              </h5>
-              <button @click="next('en')" class="btn btn-lg btn-success">
-                💂‍♀️ English
-              </button>
-            </center>
-          </div>
-          <div class="column col-6">
-            <center>
-              <h5>
-                Welche Sprache sprichst du?
-              </h5>
-              <button @click="next('de')" class="btn btn-lg btn-success">
-                🥨 Deutsch
-              </button>
-            </center>
-          </div>
-        </div>
+      <div class="modal-header">
+        <div class="modal-title h1 text-center">Hello, Hallo! 🙌</div>
+      </div>
+      <div class="modal-body text-center mb-2">
+        <button @click="next('en')" class="btn btn-lg btn-success mx-2 mb-1">💂‍♀️ I speak English</button>
+        <button @click="next('de')" class="btn btn-lg btn-success mx-2 mb-1">🥨 Ich spreche Deutsch</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Helper from '@/utils/helper';
+import Helper from "@/utils/helper";
 
 export default {
   mounted() {
@@ -50,8 +28,8 @@ export default {
       this.$parent.$data.modalOpen = false;
       this.$i18n.locale = locale;
 
-      this.$router.push({ name: 'A02-EntryWelcome' });
-    },
-  },
+      this.$router.push({ name: "A02-EntryWelcome" });
+    }
+  }
 };
 </script>
