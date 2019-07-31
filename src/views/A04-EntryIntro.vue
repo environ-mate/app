@@ -29,7 +29,7 @@
       <div class="modal-header align-center">
         <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">{{ $t('title') }}</div>
+        <div class="modal-title h4">{{ $t('title') }}</div>
       </div>
       <div class="modal-body">
         <References v-if="$parent.$data.referencesActive" :references="references" />

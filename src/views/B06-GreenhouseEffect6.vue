@@ -54,12 +54,12 @@
       <div class="modal-header">
         <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">{{ $t('title') }} 🔆</div>
+        <div class="modal-title h4">{{ $t('title') }} 🔆</div>
       </div>
       <div class="modal-body">
         <References v-if="$parent.$data.referencesActive" :references="references" />
 
-        <div v-else class="mb-3">
+        <div v-else>
           <div class="d-flex mb-2">
             <div class="flex-1 mr-2">
               <input
@@ -83,7 +83,7 @@
               >{{ name }}</option>
             </select>
           </div>
-          <div>
+          <div class="mb-3">
             <div v-if="sectorSelected === 'total'">{{ $t('description_all') }}</div>
             <div v-if="sectorSelected === 'agriculture'">{{ $t('description_agriculture') }}</div>
             <div v-if="sectorSelected === 'waste'">{{ $t('description_waste') }}</div>
@@ -92,8 +92,8 @@
             <div v-if="sectorSelected === 'transport'">{{ $t('description_transport') }}</div>
             <div v-if="sectorSelected === 'other'">{{ $t('description_other') }}</div>
           </div>
+          <div class="text-right">{{ $t('next_desc') }}</div>
         </div>
-        <div class="text-right">{{ $t('next_desc') }}</div>
       </div>
       <div class="modal-footer">
         <div class="columns">

@@ -21,7 +21,7 @@
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    class="img-responsive"
+    class="graph img-responsive"
   >
     <defs>
       <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
@@ -75,7 +75,6 @@
             font-family="Arial-BoldMT, Arial"
             font-size="14.2025"
             font-weight="bold"
-            class="text"
             text-anchor="middle"
             x="140"
             y="280"
@@ -155,6 +154,9 @@ export default {
 </script>
 
 <style scoped>
+.graph {
+  margin: auto;
+}
 @keyframes atmosphere {
   0% {
     stroke-opacity: 0.4;
@@ -165,9 +167,5 @@ export default {
 }
 .atmosphereAnimation {
   animation: atmosphere 3s infinite;
-}
-
-.text {
-  transform: translateX(-50%);
 }
 </style>
