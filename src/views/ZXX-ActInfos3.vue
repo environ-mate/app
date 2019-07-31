@@ -8,7 +8,7 @@
     "legend_3": "Erwärmung mit der aktuell umgesetzten Klimapolitik der Länder.",
     "legend_4": "Prognose ohne jegliche Limitierungen in den Emissionen.",
     "outro": "Nutze deine Chance und setze dich jetzt für den Kampf gegen den Klimawandel und eine bessere Zukunft für uns alle ein!",
-    "next_btn": "zum Start"
+    "next_btn": "Zum Start"
   },
   "en": {
     "title": "How might our future unfold?",
@@ -18,7 +18,7 @@
     "legend_3": "Warming with current climate policies.",
     "legend_4": "Prediction for no limitations on emissions.s",
     "outro": "Take your opportunity to act against climate change and secure a brighter future for us all!",
-    "next_btn": "to start"
+    "next_btn": "To start"
   }
 }
 </i18n>
@@ -30,7 +30,7 @@
         <a @click="modalClose" class="btn btn-clear float-right"
            aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
+        <div class="modal-title h4">
            {{ $t("title") }}
         </div>
       </div>
@@ -39,11 +39,10 @@
           <div class="column col-12">
             <p>{{ $t('desc_1') }}</p>
           </div>
-
-          <div class="column col-6 flex-centered">
+          <div class="column col-6 col-sm-12 mb-2 d-flex align-center">
             <img class="img-responsive" v-bind:src="'/assets/emissions_projection_2100.png'"/>
           </div>
-          <div class="column col-6">
+          <div class="column col-6 col-sm-12 mb-3">
             <p>
               <ul>
                 <li>{{ $t('legend_1') }}</li>
@@ -52,31 +51,20 @@
                 <li>{{ $t('legend_4') }}</li>
               </ul>
             </p>
-
-            <br/>
-            <div class="columns">
-              <div class="column col-1">
-              </div>
-              <div class="column col-2">
-                <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-              </div>
-              <div class="column col-9 flex-centered">
-                <h4>{{ $t('outro') }}</h4>
-              </div>
-            </div>
-
+          </div>
+          <div class="column col-6 col-md-8 col-sm-10 col-xs-12 col-mx-auto outro">
+            <img class="tutor mr-2" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+            <h4>{{ $t('outro') }}</h4>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+        <div class="columns align-center">
+          <div class="column col-6 text-left">
+            <button @click="navBack" class="btn btn-lg btn"><i class="icon icon-arrow-left"></i></button>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success"> {{ $t('next_btn') }} <i class="icon icon-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -104,8 +92,13 @@ export default {
 </script>
 
 <style scoped>
-  .tutor {
-    max-height: 100px;
-    width: auto;
+@media (min-width: 380px) {
+  .outro {
+    display: flex;
   }
+}
+.tutor {
+  max-height: 100px;
+  width: auto;
+}
 </style>

@@ -18,7 +18,7 @@
     "chart_degress": "Temperature deviation from pre industrial average (1900)",
     "next_desc": "But why the increase in temperatures on earth?",
     "next_next_desc": "I'll explain that to you over the next pages.",
-    "next_btn": "Start explanation climate change"
+    "next_btn": "Start explanation of climate change"
   }
 }
 </i18n>
@@ -27,51 +27,65 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header align-center">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-          {{ $t('title') }}
-        </div>
+        <div class="modal-title h4 flex-centered">{{ $t('title') }}</div>
       </div>
       <div class="modal-body">
-        <References v-if="$parent.$data.referencesActive" :references="references"/>
+        <References v-if="$parent.$data.referencesActive" :references="references" />
 
-        <div v-if="!$parent.$data.referencesActive" class="columns">
-          <div class="column col-12">
-            <p>
-              {{ $t('intro_1') }}<br/>
-              {{ $t('intro_2') }}
-            </p>
+        <div v-else>
+          <p>
+            {{ $t('intro_1') }}
+            <br />
+            {{ $t('intro_2') }}
+          </p>
+
+          <h6>{{ $t('chart_degress_desc') }}</h6>
+
+          <div class="columns align-center mb-3 py-2">
+            <div class="entryIntro-chart column col-sm-12 col-10 px-2">
+              <vue-c3 :handler="chart"></vue-c3>
+            </div>
+            <div class="column col-sm-12 col-2 text-center">
+              <img
+                class="img-responsive"
+                width="160"
+                v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+              />
+            </div>
           </div>
 
-          <div class="column col-12">
-            <h6>{{ $t('chart_degress_desc') }}</h6>
+          <div class="d-flex flex-wrap align-center">
+            <div class="flex-1 pr-2 mr-2 mb-2" style="min-width:250px">
+              {{ $t('next_desc') }}
+              <br />
+              {{ $t('next_next_desc') }}
+            </div>
+            <div class>
+              <button @click="next" class="btn btn-lg btn-success btn-multiline">
+                {{ $t('next_btn') }}
+                <i class="icon icon-arrow-right"></i>
+              </button>
+            </div>
           </div>
-
-          <div class="column col-2 flex-centered">
-            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          </div>
-          <div class="column col-9">
-            <vue-c3 :handler="chart"></vue-c3>
-          </div>
-          <div class="column col-1"></div>
         </div>
       </div>
-      <div class="modal-footer">
-        <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
-          </div>
-          <div class="column col-7 flex-centered">
-            {{ $t('next_desc') }}<br/>
-            {{ $t('next_next_desc') }}
-          </div>
-          <div class="column col-4 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i
-              class="icon icon-arrow-right"></i></button>
-          </div>
+      <div class="modal-footer" style="text-align:left">
+        <div class="btn-group">
+          <button @click="navBack" class="btn btn-lg btn tooltip" data-tooltip="Back">
+            <i class="icon icon-arrow-left"></i>
+          </button>
+          <button
+            @click="$parent.toggleReferencesVisibility"
+            class="btn btn-lg tooltip"
+            data-tooltip="Reference"
+          >
+            <i
+              class="icon"
+              v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"
+            ></i>
+          </button>
         </div>
       </div>
     </div>
@@ -79,16 +93,15 @@
 </template>
 
 <script>
-import Colors from '@/utils/colors';
-import Vue from 'vue';
-import VueC3 from 'vue-c3';
-import References from '@/components/References.vue';
-
+import Colors from "@/utils/colors";
+import Vue from "vue";
+import VueC3 from "vue-c3";
+import References from "@/components/References.vue";
 
 export default {
   components: {
     References,
-    VueC3,
+    VueC3
   },
 
   data() {
@@ -96,12 +109,13 @@ export default {
       chart: new Vue(),
       references: [
         {
-          title: 'Global and European temperature',
-          link: 'https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment',
+          title: "Global and European temperature",
+          link:
+            "https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment",
           publisherName: null,
-          publisherLogo: '/assets/data_source_publishers/eea.png',
-        },
-      ],
+          publisherLogo: "/assets/data_source_publishers/eea.png"
+        }
+      ]
     };
   },
 
@@ -115,47 +129,47 @@ export default {
 
   methods: {
     renderChart() {
-      this.chart.$emit('init', {
-        x: 'year',
+      this.chart.$emit("init", {
+        x: "year",
         size: {
-          height: 280,
+          height: 280
         },
         data: {
-          url: '/data/european_land_temperature_deviations_annual.csv',
-          x: 'year',
+          url: "/data/european_land_temperature_deviations_annual.csv",
+          x: "year",
           names: {
-            'temperature.deviation.degree.celcius': this.$t('chart_degress'),
+            "temperature.deviation.degree.celcius": this.$t("chart_degress")
           },
-          type: 'bar',
+          type: "bar",
           colors: {
-            'temperature.deviation.degree.celcius': (d) => {
+            "temperature.deviation.degree.celcius": d => {
               if (d.value < 0) {
                 return Colors.blue;
               }
               return Colors.red;
-            },
-          },
+            }
+          }
         },
         bar: {
           width: {
-            ratio: 1.2,
-          },
+            ratio: 1.2
+          }
         },
         axis: {
           y: {
             max: 2.4,
             min: -0.5,
             label: {
-              text: '°C',
-              position: 'outer-middle',
-            },
-          },
-        },
+              text: "°C",
+              position: "outer-middle"
+            }
+          }
+        }
       });
     },
 
     next() {
-      this.$router.push({ name: 'B01-GreenhouseEffect1' });
+      this.$router.push({ name: "B01-GreenhouseEffect1" });
     },
 
     modalClose() {
@@ -164,14 +178,22 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>
 
 
-<style scoped>
-  .c3-grid {
-    height: 10px;
+<style>
+.entryIntro-chart .c3-grid {
+  height: 10px;
+}
+@media (max-width: 480px) {
+  .entryIntro-chart .c3-legend-item {
+    display: none;
   }
+  .entryIntro-chart .tick:nth-child(odd) text {
+    transform: translateY(10px);
+  }
+}
 </style>

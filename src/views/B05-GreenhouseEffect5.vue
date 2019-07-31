@@ -7,7 +7,7 @@
     "radio_button_capita": "Emissionen pro Kopf",
     "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO₂-Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2017).",
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg}. Dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
-    "description_footprint": "Teste deinen eigenen Footprint dazu im Vergleich (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
+    "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Teste deinen eigenen Footprint dazu im Vergleich (www.footprintcalculator.org)</a>",
     "million_tons": "mio. Tonnen",
     "next_btn": "weiter"
   },
@@ -18,50 +18,71 @@
     "radio_button_capita": "Emissions per person",
     "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2017).",
     "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
-    "description_footprint": "Check your own footprint in comparison: (<a href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>).",
+    "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Check your own footprint in comparison (www.footprintcalculator.org)</a>",
     "million_tons": "mio. tons",
-    "next_btn": "continue"
+    "next_btn": "Continue"
   }
 }
 </i18n>
 
 <template>
-  <div class="modal modal modal-bottom-right" v-bind:class="{ active: this.$parent.$data.modalOpen }">
+  <div
+    class="modal modal modal-bottom-right"
+    v-bind:class="{ active: this.$parent.$data.modalOpen }"
+  >
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h3 flex-centered">
-          {{ $t('title', {year: this.year}) }}
-        </div>
+        <div class="modal-title h3">{{ $t('title', {year: this.year}) }}</div>
       </div>
       <div class="modal-body">
-        <References v-if="$parent.$data.referencesActive" :references="references"/>
+        <References v-if="$parent.$data.referencesActive" :references="references" />
 
         <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-12">
-            <p>
-              {{ $t('desc', {year: this.year}) }}
-            </p>
+            <p>{{ $t('desc', {year: this.year}) }}</p>
           </div>
-          <div class="column col-4">
-            <label class="form-radio">
-              <input v-model="picked" value="total" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_total') }}
-            </label>
-            <label class="form-radio">
-              <input v-model="picked" value="capita" @change="renderEmissions" type="radio" name="capita-total"><i class="form-icon"></i> {{ $t('radio_button_capita') }}
-            </label>
+          <div class="column col-5 col-sm-12">
+            <div class="columns">
+              <div class="column col-12 col-sm-6 col-xs-12">
+                <label class="form-radio">
+                  <input
+                    v-model="picked"
+                    value="total"
+                    @change="renderEmissions"
+                    type="radio"
+                    name="capita-total"
+                  />
+                  <i class="form-icon"></i>
+                  {{ $t('radio_button_total') }}
+                </label>
+              </div>
+              <div class="column col-12 col-sm-6 col-xs-12">
+                <label class="form-radio">
+                  <input
+                    v-model="picked"
+                    value="capita"
+                    @change="renderEmissions"
+                    type="radio"
+                    name="capita-total"
+                  />
+                  <i class="form-icon"></i>
+                  {{ $t('radio_button_capita') }}
+                </label>
+              </div>
+            </div>
           </div>
-          <div class="column col-1"></div>
-          <div class="column col-7">
-            <p v-if="picked === 'total'">{{ $t('description_total', {countryShare: this.countryShare, countryIndex: this.countryIndex}) }}</p>
-            <p v-if="picked === 'capita'">{{ $t('description_capita', {capitaShare: this.capitaShare, capitaAvg: this.capitaAvg}) }}</p>
+          <div class="column col-7 col-sm-12">
+            <p
+              v-if="picked === 'total'"
+            >{{ $t('description_total', {countryShare: this.countryShare, countryIndex: this.countryIndex}) }}</p>
+            <p
+              v-if="picked === 'capita'"
+            >{{ $t('description_capita', {capitaShare: this.capitaShare, capitaAvg: this.capitaAvg}) }}</p>
           </div>
 
-          <div class="column col-12">
-            <p></p>
-          </div>
+          <div class="column col-12"></div>
           <div class="column col-12">
             <p v-html="$t('description_footprint')"></p>
           </div>
@@ -69,15 +90,24 @@
       </div>
       <div class="modal-footer">
         <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
+          <div class="column col-6 text-left">
+            <div class="btn-group">
+              <button @click="navBack" class="btn btn-lg">
+                <i class="icon icon-arrow-left"></i>
+              </button>
+              <button @click="$parent.toggleReferencesVisibility" class="btn btn-lg">
+                <i
+                  class="icon"
+                  v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"
+                ></i>
+              </button>
+            </div>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i
-              class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -86,53 +116,54 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
-import L from 'leaflet';
-import omnivore from 'leaflet-omnivore/leaflet-omnivore';
-import Mappings from '@/utils/mappings';
-import Colors from '@/utils/colors';
-import References from '@/components/References.vue';
-
+import * as d3 from "d3";
+import L from "leaflet";
+import omnivore from "leaflet-omnivore/leaflet-omnivore";
+import Mappings from "@/utils/mappings";
+import Colors from "@/utils/colors";
+import References from "@/components/References.vue";
 
 const layerStyle = {
   weight: 0.5,
-  color: 'black',
+  color: "black",
   opacity: 0.9,
-  fillColor: '#000000',
-  fillOpacity: 0.1,
+  fillColor: "#000000",
+  fillOpacity: 0.1
 };
 
 export default {
   components: {
-    References,
+    References
   },
 
   data() {
     return {
-      year: '2016',
+      year: "2016",
       countryLayer: {},
       emissionData: [],
-      picked: 'capita',
+      picked: "capita",
       countryIndex: null,
       countryShare: null,
       capitaAvg: null,
       capitaShare: null,
       references: [
         {
-          title: 'Greenhouse gas emissions',
-          version: 'TODO',
-          link: 'https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eurostat.png',
+          title: "Greenhouse gas emissions",
+          version: "TODO",
+          link:
+            "https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eurostat.png"
         },
         {
-          title: 'National greenhouse gas inventories',
-          version: 'TODO',
-          link: 'https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eea.png',
-        },
-      ],
+          title: "National greenhouse gas inventories",
+          version: "TODO",
+          link:
+            "https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eea.png"
+        }
+      ]
     };
   },
 
@@ -141,29 +172,40 @@ export default {
     const that = this;
 
     // fly map to europe
-    this.$parent.map.flyToBounds([
-      [50.99995, 9.99995],
-      [51.00005, 10.00005],
-    ], this.$parent.$options.flyToOptions(3, 1, 1.0));
+    this.$parent.map.flyToBounds(
+      [[50.99995, 9.99995], [51.00005, 10.00005]],
+      this.$parent.$options.flyToOptions(3, 1, 1.0)
+    );
 
     // read county based stats
-    d3.csv('/data/ghg_emissions_ranking-share-2016.csv').then((emissionsRanking) => {
-      const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(m => m[1][1] === this.$parent.$data.homeTownCountryCode)[0][0];
+    d3.csv("/data/ghg_emissions_ranking-share-2016.csv").then(
+      emissionsRanking => {
+        const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(
+          m => m[1][1] === this.$parent.$data.homeTownCountryCode
+        )[0][0];
 
-      const emisssionsForHomeCountry = emissionsRanking.filter(r => r['country.code'] === homeCountryCode2)[0];
-      const emisssionsForEU28 = emissionsRanking.filter(r => r['country.code'] === 'EU28')[0];
-      that.countryIndex = emisssionsForHomeCountry.total_eu28_ghg_tonnes_rank;
-      that.countryShare = emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
-      that.capitaAvg = emisssionsForEU28['ghg.emissions.per.capita.tonnes'];
-      that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
-    });
+        const emisssionsForHomeCountry = emissionsRanking.filter(
+          r => r["country.code"] === homeCountryCode2
+        )[0];
+        const emisssionsForEU28 = emissionsRanking.filter(
+          r => r["country.code"] === "EU28"
+        )[0];
+        that.countryIndex = emisssionsForHomeCountry.total_eu28_ghg_tonnes_rank;
+        that.countryShare =
+          emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
+        that.capitaAvg = emisssionsForEU28["ghg.emissions.per.capita.tonnes"];
+        that.capitaShare =
+          emisssionsForHomeCountry["ghg.emissions.per.capita.tonnes"];
+      }
+    );
 
-
-    this.$parent.map.once('moveend', () => {
+    this.$parent.map.once("moveend", () => {
       // emissions data load csv
-      d3.csv('/data/ghg_emissions.csv').then((rows) => {
+      d3.csv("/data/ghg_emissions.csv").then(rows => {
         that.emissionData = rows;
-        that.emissionData = this.emissionData.filter(r => r['country.name'] !== 'EU28');
+        that.emissionData = this.emissionData.filter(
+          r => r["country.name"] !== "EU28"
+        );
 
         // load country shapes
         const promises = [];
@@ -174,16 +216,22 @@ export default {
           const layerTpl = L.geoJson(null, {
             style() {
               return layerStyle;
-            },
+            }
           });
 
-          const promise = d3.json(`/data/geo_countries/${countryCode}-simplified.json`).then((countryInfo) => {
-            const location = countryInfo.View[0].Result[0].Location;
-            const layer = omnivore.wkt.parse(location.Shape.Value, null, layerTpl);
+          const promise = d3
+            .json(`/data/geo_countries/${countryCode}-simplified.json`)
+            .then(countryInfo => {
+              const location = countryInfo.View[0].Result[0].Location;
+              const layer = omnivore.wkt.parse(
+                location.Shape.Value,
+                null,
+                layerTpl
+              );
 
-            that.countryLayer[countryCode] = layer;
-            layer.addTo(that.$parent.$data.mapLayerGroup);
-          });
+              that.countryLayer[countryCode] = layer;
+              layer.addTo(that.$parent.$data.mapLayerGroup);
+            });
 
           promises.push(promise);
         }
@@ -199,22 +247,28 @@ export default {
     renderEmissions() {
       const that = this;
 
-      if (this.picked === 'capita') {
-        this.valueColumn = 'ghg.emissions.per.capita.tonnes';
+      if (this.picked === "capita") {
+        this.valueColumn = "ghg.emissions.per.capita.tonnes";
       } else {
-        this.valueColumn = 'total.ghg.emissions.mio.tonnes';
+        this.valueColumn = "total.ghg.emissions.mio.tonnes";
       }
 
-      const rowsOfInterest = this.emissionData.filter(r => r.year === that.year);
+      const rowsOfInterest = this.emissionData.filter(
+        r => r.year === that.year
+      );
 
-      const valueMin = Math.min(...rowsOfInterest.map(r => r[this.valueColumn]));
-      const valueMax = Math.max(...rowsOfInterest.map(r => r[this.valueColumn]));
+      const valueMin = Math.min(
+        ...rowsOfInterest.map(r => r[this.valueColumn])
+      );
+      const valueMax = Math.max(
+        ...rowsOfInterest.map(r => r[this.valueColumn])
+      );
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
 
       // unset existing tooltips
       this.$parent.$data.map.eachLayer(function(layer) {
-        if (layer.options.pane === 'tooltipPane') {
+        if (layer.options.pane === "tooltipPane") {
           layer.removeFrom(that.$parent.$data.map);
         }
       });
@@ -222,14 +276,16 @@ export default {
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
-          const countryCode = Object
-            .values(Mappings.countryMapping)
-            .filter(m => m[0] === row['country.name'])[0][1];
+          const countryCode = Object.values(Mappings.countryMapping).filter(
+            m => m[0] === row["country.name"]
+          )[0][1];
 
           const style = layerStyle;
           style.fillOpacity = 0.5;
 
-          let colorIndex = Math.ceil(((value - valueMin) / valueRangeDistributed) - 1);
+          let colorIndex = Math.ceil(
+            (value - valueMin) / valueRangeDistributed - 1
+          );
           if (colorIndex < 0) {
             colorIndex = 0;
           }
@@ -243,9 +299,10 @@ export default {
             that.countryLayer[countryCode].setStyle(style);
 
             // open tooltip on mouse over
-            const unit = that.$i18n.t('million_tons');
-            that.countryLayer[countryCode]
-              .bindTooltip(`${value} ${unit} `, { sticky: true });
+            const unit = that.$i18n.t("million_tons");
+            that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
+              sticky: true
+            });
           }
         }
       }
@@ -255,12 +312,12 @@ export default {
       this.$parent.modalClose();
     },
     next() {
-      this.$router.push({ name: 'B06-GreenhouseEffect6' });
+      this.$router.push({ name: "B06-GreenhouseEffect6" });
     },
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

@@ -27,24 +27,24 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
-        <References v-if="$parent.$data.referencesActive" :references="references"/>
+        <References v-if="$parent.$data.referencesActive" :references="references" />
 
-        <div v-if="!$parent.$data.referencesActive" class="columns">
-          <div class="column col-4">
+        <div v-else class="columns">
+          <div class="column col-4 col-md-10">
             <p>{{ $t('desc') }}</p>
           </div>
-          <div class="column col-1 flex">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <div class="column col-2 col-md-2">
+            <img
+              class="img-responsive"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
           </div>
-          <div class="column col-7">
+          <div class="column col-6 col-md-12">
             <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName, year: this.year}) }}</h5>
             <vue-c3 :handler="chart"></vue-c3>
           </div>
@@ -52,14 +52,24 @@
       </div>
       <div class="modal-footer">
         <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
+          <div class="column col-6 text-left">
+            <div class="btn-group">
+              <button @click="navBack" class="btn btn-lg btn">
+                <i class="icon icon-arrow-left"></i>
+              </button>
+              <button @click="$parent.toggleReferencesVisibility" class="btn btn-lg">
+                <i
+                  class="icon"
+                  v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"
+                ></i>
+              </button>
+            </div>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -68,23 +78,23 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
-import Vue from 'vue';
-import VueC3 from 'vue-c3';
-import Mappings from '@/utils/mappings';
-import Colors from '@/utils/colors';
-import References from '@/components/References.vue';
+import * as d3 from "d3";
+import Vue from "vue";
+import VueC3 from "vue-c3";
+import Mappings from "@/utils/mappings";
+import Colors from "@/utils/colors";
+import References from "@/components/References.vue";
 
 export default {
   components: {
     VueC3,
-    References,
+    References
   },
 
   data() {
     return {
       chart: new Vue(),
-      year: null,
+      year: null
     };
   },
 
@@ -98,30 +108,30 @@ export default {
 
   methods: {
     renderChart() {
-      this.chart.$emit('init', {
-        x: 'year',
+      this.chart.$emit("init", {
+        x: "year",
         data: {
-          url: '/data/extreme_weather_occurences.csv',
-          x: 'year',
+          url: "/data/extreme_weather_occurences.csv",
+          x: "year",
           names: {
-            'storm.occurrence': this.$t('vis_legend_storm'),
-            'wildfire.occurrence': this.$t('vis_legend_wildfire'),
-            'flood.occurrence': this.$t('vis_legend_flood'),
-            'drought.occurrence': this.$t('vis_legend_drought'),
+            "storm.occurrence": this.$t("vis_legend_storm"),
+            "wildfire.occurrence": this.$t("vis_legend_wildfire"),
+            "flood.occurrence": this.$t("vis_legend_flood"),
+            "drought.occurrence": this.$t("vis_legend_drought")
           },
-          type: 'area',
+          type: "area",
           colors: {
-            'storm.occurrence': Colors.purple,
-            'wildfire.occurrence': Colors.orange,
-            'flood.occurrence': Colors.blue,
-            'drought.occurrence': Colors.brown,
-          },
-        },
+            "storm.occurrence": Colors.purple,
+            "wildfire.occurrence": Colors.orange,
+            "flood.occurrence": Colors.blue,
+            "drought.occurrence": Colors.brown
+          }
+        }
       });
     },
 
     next() {
-      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
+      this.$router.push({ name: "C01-ClimateChangeEffectsIntro" });
     },
 
     modalClose() {
@@ -130,7 +140,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

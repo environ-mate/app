@@ -55,21 +55,17 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-12">
-          </div>
+          <div class="column col-12"></div>
         </div>
 
         <div class="columns">
-          <div class="column col-5">
+          <div class="column col-5 col-sm-10 col-xs-12 mb-2">
             <h5>{{ $t('title_direct') }}</h5>
             <ul>
               <li>{{ $t('effect_direct_1') }}</li>
@@ -81,10 +77,13 @@
               <li>{{ $t('effect_direct_7') }}</li>
             </ul>
           </div>
-          <div class="column col-2 flex-end">
-            <img class="img-responsive" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <div class="column col-2 col-sm-2 col-xs-5 flex-end mb-2">
+            <img
+              class="img-responsive"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
           </div>
-          <div class="column col-5">
+          <div class="column col-5 col-sm-12">
             <h5>{{ $t('title_indirect') }}</h5>
             <ul>
               <li>{{ $t('effect_indirect_1') }}</li>
@@ -96,54 +95,55 @@
               <li>{{ $t('effect_indirect_7') }}</li>
             </ul>
           </div>
-          </div>
-          <div  class="column col-12">
-            <p>{{ $t('subtitle_msg') }}</p>
-          </div>
-
-          <div  class="column col-1"></div>
-          <div  class="column col-10 flex-centered">
-            <h5>{{ $t('next_desc') }}</h5>
-          </div>
-          <div  class="column col-1"></div>
-
         </div>
-        <div class="modal-footer">
-          <div class="columns">
-            <div class="column col-1 flex-centered">
-              <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-            </div>
-            <div  class="column col-1"></div>
-            <div  class="column col-3 flex-centered">
-              <button @click="nextEw" class="btn btn btn-primary"><i class="icon icon-arrow-right"></i> {{ $t('next_ew_btn') }}</button>
-              </div>
-            <div  class="column col-1"></div>
-            <div  class="column col-3 flex-centered">
-              <button @click="nextseaLevel" class="btn btn btn-primary"><i class="icon icon-arrow-right"></i> {{ $t('next_sea_level_btn') }}</button>
-            </div>
-            <div  class="column col-2">
-              <button @click="nextAct" class="btn btn btn-success"><i class="icon icon-arrow-right"></i> {{ $t('next_act_btn') }}</button>
-            </div>
+        <div class="column col-12">
+          <p>{{ $t('subtitle_msg') }}</p>
+        </div>
+
+        <div class="column col-10">
+          <h5 class="mb-2">{{ $t('next_desc') }}</h5>
+          <button @click="nextEw" class="btn btn btn-primary mr-2">
+            <i class="icon icon-arrow-right"></i>
+            {{ $t('next_ew_btn') }}
+          </button>
+          <button @click="nextseaLevel" class="btn btn btn-primary">
+            <i class="icon icon-arrow-right"></i>
+            {{ $t('next_sea_level_btn') }}
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="columns">
+          <div class="column col-6 text-left">
+            <button @click="navBack" class="btn btn-lg btn">
+              <i class="icon icon-arrow-left"></i>
+            </button>
+          </div>
+          <div class="column col-6 text-right">
+            <button @click="nextAct" class="btn btn btn-success">
+              <i class="icon icon-arrow-right"></i>
+              {{ $t('next_act_btn') }}
+            </button>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   methods: {
     nextseaLevel() {
-      this.$router.push({ name: 'S01-SeaLevelRiseIntro' });
+      this.$router.push({ name: "S01-SeaLevelRiseIntro" });
     },
 
     nextEw() {
-      this.$router.push({ name: 'W01-ExtremeWeather1' });
+      this.$router.push({ name: "W01-ExtremeWeather1" });
     },
 
     nextAct() {
-      this.$router.push({ name: 'Z01-ActOverview' });
+      this.$router.push({ name: "Z01-ActOverview" });
     },
 
     modalClose() {
@@ -152,13 +152,13 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
-  .effect-btn {
-    width: 100%;
-  }
+.effect-btn {
+  width: 100%;
+}
 </style>

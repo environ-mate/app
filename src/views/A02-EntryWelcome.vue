@@ -11,7 +11,7 @@
     "hello": "Howdi! My name is %{name}.",
     "hello_sub": "I will accompany you from here on.",
     "journey": "We now travel together across Europe to your hometown.",
-    "help": "You can type the <span class='helpButton'>H</span> key at any time, and I'll come to assist you!",
+    "help": "You can press <span class='helpButton'>H</span> at any time and I'll come to assist you!",
     "start": "Press here to start!"
   }
 }
@@ -24,16 +24,14 @@
         <center>
           <h4>{{ $t("hello", {'name': this.$parent.$data.tutor.name}) }}</h4>
           <h6>{{ $t("hello_sub") }}</h6>
-          <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <img class="tutor" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image" />
           <h6>{{ $t("journey") }}</h6>
+          <h6>
+            <span v-html="$t('help')" /> 🐢 💨
+          </h6>
           <p>
-            <h6><span v-html="$t('help')"/> 🐢 💨</h6>
-          </p>
-          <p>
-            <br/>
-            <button @click="next()" class="btn btn-lg btn-success">
-              {{ $t("start") }}
-            </button>
+            <br />
+            <button @click="next()" class="btn btn-lg btn-success">{{ $t("start") }}</button>
           </p>
         </center>
       </div>
@@ -42,7 +40,6 @@
 </template>
 
 <script>
-
 export default {
   mounted() {
     this.$parent.$data.modalOpen = true;
@@ -50,34 +47,34 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
-    },
-  },
+      this.$router.push({ name: "A03-EntryHomeTownSelect" });
+    }
+  }
 };
 </script>
 
 <style scoped>
-  @media screen and (max-height: 640px) {
-    .tutor {
-      height: 85px;
-    }
+@media screen and (max-height: 640px) {
+  .tutor {
+    height: 85px;
   }
+}
 
-  @media screen and (min-height: 640px) and (max-height: 667px) {
-    .tutor {
-      height: 100px;
-    }
+@media screen and (min-height: 640px) and (max-height: 667px) {
+  .tutor {
+    height: 100px;
   }
+}
 
-  @media screen and (min-height: 667px) and (max-height: 736px) {
-    .tutor {
-      height: 220px;
-    }
+@media screen and (min-height: 667px) and (max-height: 736px) {
+  .tutor {
+    height: 220px;
   }
+}
 
-  @media screen and (min-height: 736px) and (max-height: 768px) {
-    .tutor {
-      height: 280px;
-    }
+@media screen and (min-height: 736px) and (max-height: 768px) {
+  .tutor {
+    height: 280px;
   }
+}
 </style>

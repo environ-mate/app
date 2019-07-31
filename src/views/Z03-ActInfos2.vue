@@ -29,20 +29,14 @@
   <div class="modal modal-lg" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
         {{ $t('intro') }}
         <div class="columns">
-          <div class="column col-2 flex-centered">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          </div>
-          <div class="column col-7">
+          <div class="column col-7 col-md-10 col-xs-12">
             <ul>
               <li v-html="$t('act_1')"></li>
               <li v-html="$t('act_2')"></li>
@@ -51,20 +45,30 @@
               <li v-html="$t('act_5')"></li>
             </ul>
           </div>
+          <div class="column col-2 col-xs-5">
+            <img
+              class="img-responsive mt-2"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
+          </div>
         </div>
       </div>
-     <div class="modal-footer">
-       <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn btn float-left"><i class="icon icon-arrow-left"></i></button>
+      <div class="modal-footer">
+        <div class="columns align-center">
+          <div class="column col-3 text-left">
+            <button @click="navBack" class="btn btn-lg btn">
+              <i class="icon icon-arrow-left"></i>
+            </button>
           </div>
-          <div class="column col-5 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="examples" class="btn btn btn-success float-right"> {{ $t('next_examples') }}<i class="icon icon-arrow-right"></i></button>
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-9 text-right">
+            <button @click="examples" class="btn btn btn-success mb-1">
+              {{ $t('next_examples') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
+            <button @click="next" class="btn btn-success btn-multiline ml-2 mb-1">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -73,15 +77,14 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
+      this.$router.push({ name: "C01-ClimateChangeEffectsIntro" });
     },
 
     examples() {
-      this.$router.push({ name: 'Z01-ActOverview' });
+      this.$router.push({ name: "Z01-ActOverview" });
     },
 
     modalClose() {
@@ -90,7 +93,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

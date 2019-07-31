@@ -18,7 +18,7 @@
     "effect_direct_2": "Changes in amount and frequency of rainfall",
     "effect_direct_3": "More frequent droughts and heatwaves",
     "effect_direct_4": "Major storms such as Hurricanes become more frequent and more severe (tornadoes in Europe)",
-    "next_btn": "continue"
+    "next_btn": "Continue"
   }
 }
 </i18n>
@@ -27,17 +27,17 @@
   <div class="modal modal-lg" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
         <div class="columns">
           <div class="column col-2 flex-centered">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+            <img
+              class="img-responsive flex-end"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
           </div>
           <div class="column col-3">
             <h5>{{ $t('story_one') }}</h5>
@@ -77,18 +77,21 @@
           </div>
         </div>
       </div>
-      <div  class="column col-12">
+      <div class="column col-12">
         <p>{{ $t('subtitle_msg') }}</p>
       </div>
       <div class="modal-footer">
-       <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+        <div class="columns">
+          <div class="column col-6 text-left">
+            <button @click="navBack" class="btn btn-lg btn">
+              <i class="icon icon-arrow-left"></i>
+            </button>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -97,11 +100,10 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'S01-SeaLevelRiseIntro' });
+      this.$router.push({ name: "S01-SeaLevelRiseIntro" });
     },
 
     modalClose() {
@@ -110,7 +112,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

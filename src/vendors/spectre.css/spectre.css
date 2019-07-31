@@ -2574,7 +2574,6 @@ summary.accordion-header::-webkit-details-marker {
 }
 
 .modal.modal-xl .modal-container {
-  box-shadow: none;
   max-width: 1280px;
 }
 

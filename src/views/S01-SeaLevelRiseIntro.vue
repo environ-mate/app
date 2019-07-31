@@ -16,7 +16,7 @@
     "cause_direct_2": "Glacial melting: With shorter and warmer winters glaciers aren't able to regenerate themselves and gradually melt, adding more water to the oceans.",
     "cause_direct_3": "Melting of the ice sheets in Greenland and Antarctica: as with the glaciers, these ice sheets are noticeably shrinking and contributing to the global sea level.",
     "subtitle_msg": "A rise in sea level of around 70cm by 2100 might not sound like much, but the potential outcomes vary widely between different regions and it is difficult to predict how the sea level rise will accelerate in coming years. However, even now we're starting to see more frequent and devastating instances of floods, hurricanes and heavier rainfall.",
-    "next_btn": "continue"
+    "next_btn": "Continue"
   }
 }
 </i18n>
@@ -25,19 +25,13 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }} 🌊
-        </div>
+        <div class="modal-title h4">{{ $t("title") }} 🌊</div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-2 flex-centered">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
-          </div>
-          <div class="column col-8">
+          <div class="column col-10 col-xs-12 mb-2">
             <h5>{{ $t('title_direct') }}</h5>
             <ul>
               <li>{{ $t('cause_direct_1') }}</li>
@@ -45,20 +39,29 @@
               <li>{{ $t('cause_direct_3') }}</li>
             </ul>
           </div>
+          <div class="column col-2 col-xs-5 d-flex mb-2">
+            <img
+              class="img-responsive flex-end"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
+          </div>
           <div class="column col-12">
             <p>{{ $t('subtitle_msg') }}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-       <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+        <div class="columns">
+          <div class="column col-6 text-left">
+            <button @click="navBack" class="btn btn-lg btn">
+              <i class="icon icon-arrow-left"></i>
+            </button>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -67,11 +70,10 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'S02-SeaLevelRiseStory' });
+      this.$router.push({ name: "S02-SeaLevelRiseStory" });
     },
 
     modalClose() {
@@ -80,7 +82,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

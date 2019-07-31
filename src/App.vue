@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <Map/>
-    <router-view/>
+    <Map />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Map from '@/components/Map.vue';
-import L from 'leaflet';
-import '@/vendors/spectre.css/spectre.css';
-import '@/vendors/spectre.css/spectre-icons.css';
-import '@/vendors/spectre.css/spectre-exp.css';
-import 'vue-i18n/dist/vue-i18n';
-import 'c3/c3.css';
-import '@/vendors/leaflet-svgicon/svg-icon';
+import Map from "@/components/Map.vue";
+import L from "leaflet";
+import "@/vendors/spectre.css/spectre.css";
+import "@/vendors/spectre.css/spectre-icons.css";
+import "@/vendors/spectre.css/spectre-exp.css";
+import "vue-i18n/dist/vue-i18n";
+import "c3/c3.css";
+import "@/vendors/leaflet-svgicon/svg-icon";
 
 export default {
-  name: 'App',
+  name: "App",
 
   data() {
     return {
@@ -28,7 +28,7 @@ export default {
       homeTownCountryCode: null,
       tutor: null,
       modalOpen: false,
-      referencesActive: false,
+      referencesActive: false
     };
   },
 
@@ -36,8 +36,8 @@ export default {
     if (this.tutor === null) {
       this.removeLayers();
 
-      if (this.$route.name !== 'Imprint') {
-        this.$router.push({ name: 'A01-EntryLanguageSelect' });
+      if (this.$route.name !== "Imprint") {
+        this.$router.push({ name: "A01-EntryLanguageSelect" });
       }
     }
 
@@ -47,13 +47,13 @@ export default {
     // choose random tutor
     const tutors = [
       {
-        name: 'Linda',
-        image: 'linda.png',
+        name: "Linda",
+        image: "linda.png"
       },
       {
-        name: 'Eliot',
-        image: 'eliot.png',
-      },
+        name: "Eliot",
+        image: "eliot.png"
+      }
     ];
     this.tutor = tutors[Math.floor(Math.random() * tutors.length)];
   },
@@ -62,7 +62,7 @@ export default {
     // key bindings
     const that = this;
 
-    window.addEventListener('keyup', (event) => {
+    window.addEventListener("keyup", event => {
       if (event.keyCode === 72) {
         // bring modal back on h key press
         that.modalOpen = true;
@@ -78,7 +78,7 @@ export default {
   },
 
   components: {
-    Map,
+    Map
   },
 
   methods: {
@@ -87,7 +87,7 @@ export default {
     },
 
     removeLayers() {
-      this.mapLayerGroup.eachLayer((layer2rm) => {
+      this.mapLayerGroup.eachLayer(layer2rm => {
         this.mapLayerGroup.removeLayer(layer2rm);
       });
     },
@@ -104,7 +104,7 @@ export default {
     return {
       maxZoom,
       duration: duration || 3.0,
-      easeLinearity: easeLinearity || 0.2,
+      easeLinearity: easeLinearity || 0.2
     };
   },
 
@@ -115,47 +115,70 @@ export default {
     }
   }
 };
-
 </script>
 
 <style>
-  body {
-    padding: 0;
-    margin: 0;
-  }
+body {
+  padding: 0;
+  margin: 0;
+}
 
-  html, body, #app {
-    height: 100%;
-    width: 100%;
-  }
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
 
-  .flex {
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-  }
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
 
-  .modal {
-    bottom: 20px;
-  }
+.flex {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .flex-end {
-    align-self: flex-end;
-  }
+.flex-1 {
+  flex: 1;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.align-center {
+  align-items: center;
+}
 
-  .modal-bottom-center {
-    top: unset;
-  }
+.modal {
+  bottom: 20px;
+}
+.modal-title {
+  line-height: 1.2;
+}
 
-  .modal-bottom-right {
-    top: unset;
-    left: unset;
-  }
+.flex-end {
+  align-self: flex-end;
+}
 
-  .helpButton {
-    color: #74c476;
-    font-size: 19px;
-    font-weight: bolder;
-  }
+.modal-bottom-center {
+  top: unset;
+}
+
+.modal-bottom-right {
+  top: auto;
+  left: auto;
+  max-width: 100%;
+}
+
+.helpButton {
+  color: #74c476;
+  font-size: 19px;
+  font-weight: bolder;
+}
+.btn.btn-multiline {
+  height: auto;
+  white-space: normal;
+}
 </style>

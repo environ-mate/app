@@ -37,26 +37,26 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
 
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
-        <References v-if="$parent.$data.referencesActive" :references="references"/>
+        <References v-if="$parent.$data.referencesActive" :references="references" />
 
         <div v-if="!$parent.$data.referencesActive" class="columns">
-          <div class="column col-4">
+          <div class="column col-4 col-sm-10">
             <p>{{ $t('desc_1') }}</p>
             <p>{{ $t('desc_2') }}</p>
             <p>{{ $t('desc_3') }}</p>
           </div>
-          <div class="column col-1 flex">
-            <img class="img-responsive flex-end" v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"/>
+          <div class="column col-1 col-sm-2">
+            <img
+              class="img-responsive"
+              v-bind:src="'/assets/wimmel/' + this.$parent.$data.tutor.image"
+            />
           </div>
-          <div class="column col-7">
+          <div class="column col-7 col-sm-12">
             <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName, year: this.year}) }}</h5>
             <vue-c3 :handler="chart"></vue-c3>
           </div>
@@ -64,14 +64,24 @@
       </div>
       <div class="modal-footer">
         <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
-            <a @click="$parent.toggleReferencesVisibility" class="btn btn-lg float-left"><i class="icon" v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"></i></a>
+          <div class="column col-6 text-left">
+            <div class="btn-group">
+              <button @click="navBack" class="btn btn-lg btn">
+                <i class="icon icon-arrow-left"></i>
+              </button>
+              <button @click="$parent.toggleReferencesVisibility" class="btn btn-lg">
+                <i
+                  class="icon"
+                  v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"
+                ></i>
+              </button>
+            </div>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -80,17 +90,17 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
-import Vue from 'vue';
-import VueC3 from 'vue-c3';
-import Mappings from '@/utils/mappings';
-import Colors from '@/utils/colors';
-import References from '@/components/References.vue';
+import * as d3 from "d3";
+import Vue from "vue";
+import VueC3 from "vue-c3";
+import Mappings from "@/utils/mappings";
+import Colors from "@/utils/colors";
+import References from "@/components/References.vue";
 
 export default {
   components: {
     VueC3,
-    References,
+    References
   },
 
   data() {
@@ -99,27 +109,30 @@ export default {
       year: null,
       references: [
         {
-          title: 'Greenhouse gas emissions',
-          version: 'TODO',
-          link: 'https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eurostat.png',
+          title: "Greenhouse gas emissions",
+          version: "TODO",
+          link:
+            "https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eurostat.png"
         },
         {
-          title: 'National greenhouse gas inventories',
-          version: 'TODO',
-          link: 'https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eea.png',
+          title: "National greenhouse gas inventories",
+          version: "TODO",
+          link:
+            "https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eea.png"
         },
         {
-          title: '2018 GHG projections',
-          version: 'TODO',
-          link: 'https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eea.png',
-        },
-      ],
+          title: "2018 GHG projections",
+          version: "TODO",
+          link:
+            "https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eea.png"
+        }
+      ]
     };
   },
 
@@ -134,62 +147,71 @@ export default {
   methods: {
     renderChart() {
       // emissions data load csv
-      d3.csv('/data/ghg_emissions.csv')
-        .then((rows) => {
-          // map csv country name to home towbn
-          const homeCountryName = Object
-            .values(Mappings.countryMapping)
-            .filter(m => m[1] === this.$parent.$data.homeTownCountryCode)[0][0];
+      d3.csv("/data/ghg_emissions.csv").then(rows => {
+        // map csv country name to home towbn
+        const homeCountryName = Object.values(Mappings.countryMapping).filter(
+          m => m[1] === this.$parent.$data.homeTownCountryCode
+        )[0][0];
 
-          let data = rows.filter(r => r['country.name'] === homeCountryName && parseInt(r.year, 10) < new Date().getFullYear());
+        let data = rows.filter(
+          r =>
+            r["country.name"] === homeCountryName &&
+            parseInt(r.year, 10) < new Date().getFullYear()
+        );
 
-          // take last year found
-          data = data.sort((a, b) => a.year - b.year);
+        // take last year found
+        data = data.sort((a, b) => a.year - b.year);
 
-          // eslint-disable-next-line
-          data = data.slice(-1)[0];
-          this.year = data.year;
+        // eslint-disable-next-line
+        data = data.slice(-1)[0];
+        this.year = data.year;
 
-          data = [
-            'agriculture.ghg.emissions.mio.tonnes',
-            'energy.ghg.emissions.mio.tonnes',
-            'waste.ghg.emissions.mio.tonnes',
-            'transport.ghg.emissions.mio.tonnes',
-            'industry.ghg.emissions.mio.tonnes',
-            'other.ghg.emissions.mio.tonnes',
-          ].reduce((result, key) => {
-            // eslint-disable-next-line no-param-reassign
-            result[key] = data[key];
-            return result;
-          }, {});
+        data = [
+          "agriculture.ghg.emissions.mio.tonnes",
+          "energy.ghg.emissions.mio.tonnes",
+          "waste.ghg.emissions.mio.tonnes",
+          "transport.ghg.emissions.mio.tonnes",
+          "industry.ghg.emissions.mio.tonnes",
+          "other.ghg.emissions.mio.tonnes"
+        ].reduce((result, key) => {
+          // eslint-disable-next-line no-param-reassign
+          result[key] = data[key];
+          return result;
+        }, {});
 
-          this.chart.$emit('init', {
-            data: {
-              json: data,
-              names: {
-                'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
-                'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
-                'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
-                'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
-                'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
-                'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
-              },
-              colors: {
-                'agriculture.ghg.emissions.mio.tonnes': Colors.green,
-                'energy.ghg.emissions.mio.tonnes': Colors.orange,
-                'waste.ghg.emissions.mio.tonnes': Colors.red,
-                'transport.ghg.emissions.mio.tonnes': Colors.blue,
-                'industry.ghg.emissions.mio.tonnes': Colors.purple,
-                'other.ghg.emissions.mio.tonnes': Colors.yellow,
-              },
-              type: 'donut',
+        this.chart.$emit("init", {
+          data: {
+            json: data,
+            names: {
+              "agriculture.ghg.emissions.mio.tonnes": this.$t(
+                "vis_legend_agriculture"
+              ),
+              "energy.ghg.emissions.mio.tonnes": this.$t("vis_legend_energy"),
+              "waste.ghg.emissions.mio.tonnes": this.$t("vis_legend_waste"),
+              "transport.ghg.emissions.mio.tonnes": this.$t(
+                "vis_legend_transport"
+              ),
+              "industry.ghg.emissions.mio.tonnes": this.$t(
+                "vis_legend_industry"
+              ),
+              "other.ghg.emissions.mio.tonnes": this.$t("vis_legend_other")
             },
-          });
+            colors: {
+              "agriculture.ghg.emissions.mio.tonnes": Colors.green,
+              "energy.ghg.emissions.mio.tonnes": Colors.orange,
+              "waste.ghg.emissions.mio.tonnes": Colors.red,
+              "transport.ghg.emissions.mio.tonnes": Colors.blue,
+              "industry.ghg.emissions.mio.tonnes": Colors.purple,
+              "other.ghg.emissions.mio.tonnes": Colors.yellow
+            },
+            type: "donut"
+          }
         });
+      });
     },
 
     next() {
-      this.$router.push({ name: 'B05-GreenhouseEffect5' });
+      this.$router.push({ name: "B05-GreenhouseEffect5" });
     },
 
     modalClose() {
@@ -198,7 +220,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>

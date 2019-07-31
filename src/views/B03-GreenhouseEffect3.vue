@@ -28,7 +28,7 @@
   "en": {
     "title": "What are greenhouse gases and where do they come from?",
     "title_1": "Where do greenhouse gases emerge?",
-    "title_2": "The most important greenhouse gases are called",
+    "title_2": "The most important greenhouse gases are:",
     "bullet_1": "carbon dioxide (CO₂)",
     "bullet_2": "methane (CH₄)",
     "bullet_3": "sulfur hexafluoride (SF₆)",
@@ -57,90 +57,13 @@
   <div class="modal modal-xl" v-bind:class="{ active: this.$parent.$data.modalOpen }">
     <div class="modal-container">
       <div class="modal-header">
-        <a @click="modalClose" class="btn btn-clear float-right"
-           aria-label="Close"></a>
-
-        <div class="modal-title h4 flex-centered">
-           {{ $t("title") }}
-        </div>
+        <a @click="modalClose" class="btn btn-clear float-right" aria-label="Close"></a>
+        <div class="modal-title h4">{{ $t("title") }}</div>
       </div>
       <div class="modal-body">
         <div class="columns">
-          <div class="column col-8">
-            <h5>{{ $t('title_1') }}</h5>
-          </div>
-          <div class="column col-4">
+          <div class="column col-4 col-md-12">
             <h5>{{ $t('title_2') }}</h5>
-          </div>
-          <div class="column col-8">
-            <div class="columns">
-              <div class="column col-6">
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5">🐮 🌾 🚜 {{ $t('cause_1_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_1_examples') }}
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5"> 🔌 {{ $t('cause_2_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_2_examples') }}
-                  </div>
-                  <div class="card-footer">
-                    <span class="text-bold"></span>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5">🐄💩 {{ $t('cause_3_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_3_examples') }}
-                  </div>
-                  <div class="card-footer">
-                    <span class="text-bold"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="column col-6">
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5">🖥 {{ $t('cause_4_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_4_examples') }}
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5">✈️ 🚍 🏭 {{ $t('cause_5_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_5_examples') }}
-                  </div>
-                  <div class="card-footer">
-                    <span class="text-bold"></span>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header">
-                    <div class="card-title h5">❄️ {{ $t('cause_6_name') }}</div>
-                  </div>
-                  <div class="card-body">
-                    {{ $t('cause_6_examples') }}
-                  </div>
-                  <div class="card-footer">
-                    <span class="text-bold"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column col-4">
             <ul>
               <li>{{ $t('bullet_1') }}</li>
               <li>{{ $t('bullet_2') }}</li>
@@ -151,17 +74,77 @@
             </ul>
             <p>{{ $t('bullet_desc') }}</p>
           </div>
+          <div class="column col-8 col-md-12 mb-3">
+            <h5 class="mb-3">{{ $t('title_1') }}</h5>
+            <div class="columns">
+              <div class="column col-6 col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🐮 🌾 🚜 {{ $t('cause_1_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_1_examples') }}</div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🔌 {{ $t('cause_2_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_2_examples') }}</div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🐄💩 {{ $t('cause_3_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_3_examples') }}</div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column col-6 col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">🖥 {{ $t('cause_4_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_4_examples') }}</div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">✈️ 🚍 🏭 {{ $t('cause_5_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_5_examples') }}</div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title h5">❄️ {{ $t('cause_6_name') }}</div>
+                  </div>
+                  <div class="card-body">{{ $t('cause_6_examples') }}</div>
+                  <div class="card-footer">
+                    <span class="text-bold"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <div class="columns">
-          <div class="column col-1 flex-centered">
-            <button @click="navBack" class="btn btn-lg btn float-left"><i class="icon icon-arrow-left"></i></button>
+          <div class="column col-6 text-left">
+            <button @click="navBack" class="btn btn-lg btn">
+              <i class="icon icon-arrow-left"></i>
+            </button>
           </div>
-          <div class="column col-8 flex-centered">
-          </div>
-          <div class="column col-3 flex-centered">
-            <button @click="next" class="btn btn-lg btn-success float-right"> {{ $t('next_btn') }}<i class="icon icon-arrow-right"></i></button>
+          <div class="column col-6 text-right">
+            <button @click="next" class="btn btn-lg btn-success">
+              {{ $t('next_btn') }}
+              <i class="icon icon-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -173,7 +156,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: 'B04-GreenhouseEffect4' });
+      this.$router.push({ name: "B04-GreenhouseEffect4" });
     },
 
     modalClose() {
@@ -182,7 +165,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>
