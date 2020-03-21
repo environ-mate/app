@@ -1,0 +1,1402 @@
+iso," country_name","disaster type",year,occurrence,"Total deaths",Injured,Affected,Homeless,"Total affected","Total damage  ('000 US$)"
+ALB,Albania,Drought,1989,1,,,3200000,,3200000,
+ALB,Albania,Earthquake,1967,1,11,134,,,134,
+ALB,Albania,Earthquake,1979,1,35,350,,,350,
+ALB,Albania,Earthquake,1982,1,1,5,,5000,5005,
+ALB,Albania,Earthquake,1988,1,,,690,,690,
+ALB,Albania,Earthquake,1998,1,,,2100,,2100,
+ALB,Albania,Earthquake,2009,1,,,,150,150,
+ALB,Albania,Epidemic,1996,1,7,,66,,66,
+ALB,Albania,Epidemic,2002,1,,,226,,226,
+ALB,Albania,"Extreme temperature ",1985,1,68,,5745,1340,7085,
+ALB,Albania,"Extreme temperature ",2004,1,3,,,,,
+ALB,Albania,"Extreme temperature ",2007,1,,,150,,150,
+ALB,Albania,"Extreme temperature ",2012,1,5,,230000,,230000,
+ALB,Albania,"Extreme temperature ",2017,1,6,,,,,
+ALB,Albania,Flood,1992,1,11,,35000,,35000,7000
+ALB,Albania,Flood,1995,2,4,,3500,,3500,
+ALB,Albania,Flood,1997,1,,,8000,,8000,
+ALB,Albania,Flood,2002,1,1,,66884,,66884,17500
+ALB,Albania,Flood,2004,1,,,2500,,2500,173
+ALB,Albania,Flood,2005,1,3,,500,,500,
+ALB,Albania,Flood,2009,1,,,6600,,6600,
+ALB,Albania,Flood,2010,1,,,14000,,14000,
+ALB,Albania,Flood,2015,3,1,,42300,,42300,
+ALB,Albania,Flood,2016,1,2,,4500,,4500,
+ALB,Albania,Flood,2017,1,1,2,21000,,21002,8900
+ALB,Albania,Flood,2018,1,,,800,,800,
+ALB,Albania,Landslide,1985,1,57,26,,,26,
+ALB,Albania,Storm,2002,1,6,,125000,,125000,
+ALB,Albania,Storm,2005,1,2,,400000,,400000,
+ALB,Albania,Wildfire,2007,1,,,,75,75,
+AUT,Austria,Earthquake,1998,1,,,,,,
+AUT,Austria,"Extreme temperature ",2003,1,345,,,,,280000
+AUT,Austria,"Extreme temperature ",2005,1,,,,,,
+AUT,Austria,"Extreme temperature ",2007,1,5,,,,,
+AUT,Austria,"Extreme temperature ",2009,1,2,,,,,
+AUT,Austria,"Extreme temperature ",2012,1,5,,,,,
+AUT,Austria,Flood,1980,1,,,,,,
+AUT,Austria,Flood,1982,1,,,,,,
+AUT,Austria,Flood,1983,1,,,,,,
+AUT,Austria,Flood,1985,1,12,,,,,
+AUT,Austria,Flood,1991,1,5,,,,,82000
+AUT,Austria,Flood,1995,1,2,,,,,200
+AUT,Austria,Flood,1996,1,,,,,,5000
+AUT,Austria,Flood,1997,1,3,,,,,175000
+AUT,Austria,Flood,1999,1,3,,,,,32000
+AUT,Austria,Flood,2002,1,9,,60000,,60000,2400000
+AUT,Austria,Flood,2005,2,4,,900,,900,700000
+AUT,Austria,Flood,2006,1,,,516,,516,
+AUT,Austria,Flood,2009,2,1,,,,,200000
+AUT,Austria,Flood,2013,1,4,,200,,200,1000000
+AUT,Austria,Flood,2016,1,,,,,,
+AUT,Austria,Landslide,1952,1,28,,,,,
+AUT,Austria,Landslide,1954,2,210,,380,,380,
+AUT,Austria,Landslide,1975,1,15,,,,,
+AUT,Austria,Landslide,1982,1,12,,,,,
+AUT,Austria,Landslide,1984,1,30,,,,,
+AUT,Austria,Landslide,1999,1,50,,10000,,10000,41570
+AUT,Austria,Landslide,2000,1,13,,,,,
+AUT,Austria,Storm,1976,1,,,,,,
+AUT,Austria,Storm,1981,1,,,,,,
+AUT,Austria,Storm,1984,1,12,,,,,
+AUT,Austria,Storm,1990,5,3,,,,,250000
+AUT,Austria,Storm,1991,1,,,,,,28000
+AUT,Austria,Storm,1993,1,,,,,,1000
+AUT,Austria,Storm,1994,1,,,,,,2000
+AUT,Austria,Storm,2000,1,,,,,,20000
+AUT,Austria,Storm,2002,2,3,,300,,300,5000
+AUT,Austria,Storm,2007,1,,,,,,400000
+AUT,Austria,Storm,2008,1,4,,,,,500000
+AUT,Austria,Storm,2009,1,,,,,,500000
+AUT,Austria,Storm,2017,2,5,120,210,,330,1200
+AUT,Austria,Storm,2019,1,11,,,,,
+AZO,"Azores Islands",Earthquake,1964,1,,,1000,,1000,
+AZO,"Azores Islands",Earthquake,1980,1,69,600,21300,,21900,
+AZO,"Azores Islands",Earthquake,1998,1,10,100,,1000,1100,72000
+AZO,"Azores Islands",Landslide,1997,1,29,5,,50,55,16300
+AZO,"Azores Islands",Storm,1946,1,27,,,,,
+AZO,"Azores Islands",Storm,1996,1,,,60,,60,66000
+BLR,Belarus,Epidemic,1995,1,13,,282,,282,
+BLR,Belarus,Epidemic,1997,1,,,605,,605,
+BLR,Belarus,"Extreme temperature ",2000,1,,,,,,30300
+BLR,Belarus,"Extreme temperature ",2006,1,5,1820,,,1820,
+BLR,Belarus,"Extreme temperature ",2012,1,,30,100,,130,
+BLR,Belarus,"Extreme temperature ",2013,1,4,1325,10000,,11325,
+BLR,Belarus,"Extreme temperature ",2014,1,2,1500,30000,,31500,
+BLR,Belarus,"Extreme temperature ",2017,1,43,539,50000,,50539,
+BLR,Belarus,Flood,1993,1,,,40000,,40000,100000
+BLR,Belarus,Flood,1996,1,,,,,,
+BLR,Belarus,Flood,1999,1,2,,2000,,2000,4380
+BLR,Belarus,Flood,2018,1,,,50000,,50000,
+BLR,Belarus,Storm,1997,1,5,45,21045,300,21390,33000
+BLR,Belarus,Storm,2007,1,,,,,,10000
+BEL,Belgium,Drought,1976,1,,,,,,
+BEL,Belgium,Earthquake,1983,1,2,30,1000,,1030,50000
+BEL,Belgium,Earthquake,1992,1,,,,,,100000
+BEL,Belgium,Epidemic,1945,1,,,104,,104,
+BEL,Belgium,"Extreme temperature ",1963,1,12,,,,,
+BEL,Belgium,"Extreme temperature ",1985,1,,,,,,
+BEL,Belgium,"Extreme temperature ",2003,1,1175,,,,,
+BEL,Belgium,"Extreme temperature ",2005,2,2,,,,,
+BEL,Belgium,"Extreme temperature ",2006,1,940,,,,,
+BEL,Belgium,"Extreme temperature ",2009,1,1,,,,,
+BEL,Belgium,"Extreme temperature ",2012,1,3,,,,,
+BEL,Belgium,"Extreme temperature ",2015,1,410,,,,,
+BEL,Belgium,"Extreme temperature ",2018,1,,,,,,
+BEL,Belgium,Flood,1906,2,6,,,,,
+BEL,Belgium,Flood,1926,1,,,,,,
+BEL,Belgium,Flood,1928,1,,,6000,,6000,
+BEL,Belgium,Flood,1930,1,,,,,,
+BEL,Belgium,Flood,1953,1,11,,350,,350,
+BEL,Belgium,Flood,1956,1,4,,,,,
+BEL,Belgium,Flood,1971,1,,,600,,600,
+BEL,Belgium,Flood,1984,1,,,,,,
+BEL,Belgium,Flood,1987,1,,,,,,
+BEL,Belgium,Flood,1993,2,,,600,,600,17000
+BEL,Belgium,Flood,1994,1,,,135,,135,
+BEL,Belgium,Flood,1998,1,1,,140,,140,10000
+BEL,Belgium,Flood,2002,4,2,,2400,,2400,
+BEL,Belgium,Flood,2003,1,,,,,,
+BEL,Belgium,Flood,2005,1,,,210,,210,
+BEL,Belgium,Flood,2010,1,3,,690,,690,238146
+BEL,Belgium,Flood,2011,1,,,,,,
+BEL,Belgium,Flood,2016,1,1,,,,,
+BEL,Belgium,Storm,1930,1,60,,,,,
+BEL,Belgium,Storm,1966,1,,,,,,
+BEL,Belgium,Storm,1967,1,,100,,,100,
+BEL,Belgium,Storm,1972,1,,,,,,
+BEL,Belgium,Storm,1976,1,,,,,,
+BEL,Belgium,Storm,1982,1,,,,,,
+BEL,Belgium,Storm,1984,1,,,,,,
+BEL,Belgium,Storm,1985,1,,,,,,
+BEL,Belgium,Storm,1990,6,16,,,,,980000
+BEL,Belgium,Storm,1995,1,6,,800,,800,100000
+BEL,Belgium,Storm,1998,1,,,,,,500
+BEL,Belgium,Storm,1999,2,2,5,900,,905,50486
+BEL,Belgium,Storm,2002,1,5,,,,,5000
+BEL,Belgium,Storm,2007,1,2,2,,,2,450000
+BEL,Belgium,Storm,2008,1,,,,,,
+BEL,Belgium,Storm,2010,2,1,,,,,160000
+BEL,Belgium,Storm,2011,1,5,71,,,71,99000
+BEL,Belgium,Storm,2013,2,,,,,,
+BEL,Belgium,Storm,2014,1,,,,,,
+BEL,Belgium,Storm,2016,1,1,,,,,
+BEL,Belgium,Storm,2018,1,1,,,,,
+BIH,"Bosnia and Herzegovina",Drought,2000,1,,,,,,158000
+BIH,"Bosnia and Herzegovina",Drought,2003,1,,,62575,,62575,140000
+BIH,"Bosnia and Herzegovina",Epidemic,2000,1,,,400,,400,
+BIH,"Bosnia and Herzegovina","Extreme temperature ",2007,1,,,,,,
+BIH,"Bosnia and Herzegovina","Extreme temperature ",2009,1,1,,10000,,10000,
+BIH,"Bosnia and Herzegovina","Extreme temperature ",2010,1,2,,,,,
+BIH,"Bosnia and Herzegovina","Extreme temperature ",2012,1,4,,10347,,10347,
+BIH,"Bosnia and Herzegovina",Flood,2001,1,,,9000,,9000,
+BIH,"Bosnia and Herzegovina",Flood,2004,2,,,278000,,278000,
+BIH,"Bosnia and Herzegovina",Flood,2005,1,,,3100,,3100,
+BIH,"Bosnia and Herzegovina",Flood,2009,2,,,3730,,3730,
+BIH,"Bosnia and Herzegovina",Flood,2010,2,3,,34910,,34910,87000
+BIH,"Bosnia and Herzegovina",Flood,2014,4,26,,1000600,,1000600,436580
+BIH,"Bosnia and Herzegovina",Flood,2015,1,,,,,,
+BIH,"Bosnia and Herzegovina",Landslide,2000,1,6,3,400,,403,
+BIH,"Bosnia and Herzegovina",Storm,1999,1,,,1000,90,1090,
+BIH,"Bosnia and Herzegovina",Storm,2005,1,4,,,,,
+BGR,Bulgaria,Drought,1983,1,,,,,,
+BGR,Bulgaria,Drought,2000,1,,,,,,
+BGR,Bulgaria,Earthquake,1928,1,107,,,,,
+BGR,Bulgaria,Earthquake,1977,1,20,165,,,165,
+BGR,Bulgaria,Earthquake,1986,1,3,60,,3000,3060,
+BGR,Bulgaria,Earthquake,1990,1,1,,,,,
+BGR,Bulgaria,Earthquake,2006,1,,2,525,,527,
+BGR,Bulgaria,Earthquake,2012,1,,70,140,,210,
+BGR,Bulgaria,"Extreme temperature ",1998,1,3,23,300,,323,
+BGR,Bulgaria,"Extreme temperature ",2000,2,7,,,,,50
+BGR,Bulgaria,"Extreme temperature ",2006,1,18,20,,,20,
+BGR,Bulgaria,"Extreme temperature ",2007,1,2,50,,,50,
+BGR,Bulgaria,"Extreme temperature ",2008,1,10,,,,,
+BGR,Bulgaria,"Extreme temperature ",2010,1,3,,,,,
+BGR,Bulgaria,"Extreme temperature ",2012,2,33,,,,,
+BGR,Bulgaria,Flood,1997,1,,,200,,200,
+BGR,Bulgaria,Flood,2002,1,1,,,,,1000
+BGR,Bulgaria,Flood,2005,5,39,,12200,,12200,457000
+BGR,Bulgaria,Flood,2006,2,,,,,,
+BGR,Bulgaria,Flood,2007,3,12,10,1060,,1070,
+BGR,Bulgaria,Flood,2010,1,,,90,,90,
+BGR,Bulgaria,Flood,2012,1,5,,37950,,37950,4400
+BGR,Bulgaria,Flood,2014,4,20,,7247,1260,8507,387000
+BGR,Bulgaria,Flood,2015,1,5,,,,,5800
+BGR,Bulgaria,Flood,2018,1,,,600,,600,
+BGR,Bulgaria,Landslide,1965,1,11,,,,,
+BGR,Bulgaria,Storm,1981,1,,,,,,
+BGR,Bulgaria,Storm,1993,1,,,5000,,5000,
+BGR,Bulgaria,Storm,1999,1,,,,850,850,
+BGR,Bulgaria,Storm,2001,1,2,,,,,
+BGR,Bulgaria,Storm,2005,1,,,,,,
+BGR,Bulgaria,Storm,2014,1,1,40,,,40,545000
+BGR,Bulgaria,Wildfire,2000,1,7,17,,150,167,17600
+BGR,Bulgaria,Wildfire,2001,1,,,,,,
+BGR,Bulgaria,Wildfire,2007,2,3,9,,,9,2454
+SPI,"Canary Is","Extreme temperature ",2004,1,13,113,,,113,
+SPI,"Canary Is",Flood,2001,1,7,,300,,300,
+SPI,"Canary Is",Flood,2002,1,16,30,400,,430,79923
+SPI,"Canary Is",Storm,1957,1,26,,,,,
+SPI,"Canary Is",Storm,1999,1,,,,,,415000
+SPI,"Canary Is",Storm,2005,1,19,,,,,375000
+SPI,"Canary Is",Wildfire,2007,1,,,300,105,405,
+HRV,Croatia,Drought,2003,1,,,,,,330000
+HRV,Croatia,Earthquake,1996,1,,,,2000,2000,
+HRV,Croatia,"Extreme temperature ",2000,1,40,200,,,200,240000
+HRV,Croatia,"Extreme temperature ",2003,1,788,,,,,
+HRV,Croatia,"Extreme temperature ",2005,1,5,,,,,
+HRV,Croatia,"Extreme temperature ",2010,1,,,,,,
+HRV,Croatia,"Extreme temperature ",2012,2,7,,,,,
+HRV,Croatia,Flood,2000,1,,,600,,600,
+HRV,Croatia,Flood,2001,1,,,1200,,1200,
+HRV,Croatia,Flood,2005,1,,,250,,250,
+HRV,Croatia,Flood,2006,1,,,,,,
+HRV,Croatia,Flood,2010,2,,,1110,,1110,80000
+HRV,Croatia,Flood,2012,1,,,1500,,1500,
+HRV,Croatia,Flood,2014,2,3,,9116,,9116,
+HRV,Croatia,Flood,2015,1,,,1200,,1200,
+HRV,Croatia,Flood,2018,1,,,450,21,471,
+HRV,Croatia,Storm,2005,1,2,,,,,
+HRV,Croatia,Storm,2017,1,,,3500,,3500,161000
+HRV,Croatia,Wildfire,1997,1,,,,,,
+HRV,Croatia,Wildfire,2000,1,1,,,,,17750
+HRV,Croatia,Wildfire,2003,1,,,,,,20000
+HRV,Croatia,Wildfire,2007,2,12,26,,,26,
+HRV,Croatia,Wildfire,2017,1,,80,,,80,
+CZE,"Czech Republic (the)","Extreme temperature ",2003,1,418,,,,,
+CZE,"Czech Republic (the)","Extreme temperature ",2005,1,15,,,,,
+CZE,"Czech Republic (the)","Extreme temperature ",2010,1,12,,,,,
+CZE,"Czech Republic (the)","Extreme temperature ",2012,2,32,,,,,
+CZE,"Czech Republic (the)","Extreme temperature ",2018,1,3,,,,,
+CZE,"Czech Republic (the)",Flood,1996,1,1,,60,,60,36000
+CZE,"Czech Republic (the)",Flood,1997,1,29,2409,87725,11973,102107,1850000
+CZE,"Czech Republic (the)",Flood,1998,1,6,,,,,52000
+CZE,"Czech Republic (the)",Flood,2000,1,,,,,,80000
+CZE,"Czech Republic (the)",Flood,2002,1,18,,200000,,200000,2400000
+CZE,"Czech Republic (the)",Flood,2005,1,1,,,,,
+CZE,"Czech Republic (the)",Flood,2006,2,6,,4315,,4315,
+CZE,"Czech Republic (the)",Flood,2009,1,13,,14450,,14450,150000
+CZE,"Czech Republic (the)",Flood,2010,3,11,,1400,,1400,347560
+CZE,"Czech Republic (the)",Flood,2013,1,15,,1300000,,1300000,828552
+CZE,"Czech Republic (the)",Storm,2002,2,2,,,,,20000
+CZE,"Czech Republic (the)",Storm,2005,1,,3,,,3,
+CZE,"Czech Republic (the)",Storm,2007,1,4,,,,,150000
+CZE,"Czech Republic (the)",Storm,2008,1,2,,,,,50000
+CZE,"Czech Republic (the)",Storm,2009,1,2,12,,,12,
+CZE,"Czech Republic (the)",Storm,2017,1,,,,,,2900
+CSK,Czechoslovakia,"Extreme temperature ",1981,1,,,,,,
+CSK,Czechoslovakia,"Extreme temperature ",1982,1,,,,,,
+CSK,Czechoslovakia,"Extreme temperature ",1985,1,,,,,,
+CSK,Czechoslovakia,Flood,1987,1,,,,,,1000
+CSK,Czechoslovakia,Landslide,1974,1,14,,,,,
+CSK,Czechoslovakia,Landslide,1985,1,10,,,,,
+CSK,Czechoslovakia,Storm,1981,1,,,600,,600,
+CSK,Czechoslovakia,Storm,1984,1,,,,,,
+CSK,Czechoslovakia,Storm,1987,1,,,,,,15000
+DNK,Denmark,Drought,1992,1,,,,,,751700
+DNK,Denmark,Storm,1976,1,,,,,,
+DNK,Denmark,Storm,1980,1,,,,,,
+DNK,Denmark,Storm,1981,1,9,,,,,250000
+DNK,Denmark,Storm,1983,1,2,,,,,
+DNK,Denmark,Storm,1985,1,,,,,,
+DNK,Denmark,Storm,1990,3,1,,,,,190000
+DNK,Denmark,Storm,1999,1,7,,,,,2604939
+DNK,Denmark,Storm,2002,1,1,,,,,
+DNK,Denmark,Storm,2005,1,4,,,,,1300000
+DNK,Denmark,Storm,2007,1,,,,,,100000
+DNK,Denmark,Storm,2010,1,,,,,,
+DNK,Denmark,Storm,2013,2,2,,,,,
+EST,Estonia,"Extreme temperature ",2006,1,3,,,,,
+EST,Estonia,"Extreme temperature ",2012,1,1,,,,,
+EST,Estonia,"Extreme temperature ",2018,1,7,,,,,
+EST,Estonia,Storm,2005,1,,,100,,100,130000
+FIN,Finland,Flood,2005,1,,,400,,400,
+FIN,Finland,Storm,1990,2,,,,,,10000
+FRA,France,Drought,1982,1,,,,,,
+FRA,France,Drought,1989,1,,,,,,1600000
+FRA,France,Drought,1991,1,,,,,,
+FRA,France,Drought,1997,1,,,,,,10000
+FRA,France,Earthquake,1909,1,46,,,,,
+FRA,France,Earthquake,1979,1,11,2,,,2,
+FRA,France,Epidemic,1992,1,20,,,,,
+FRA,France,Epidemic,2003,1,1,,6,,6,
+FRA,France,"Extreme temperature ",1985,1,,,,,,
+FRA,France,"Extreme temperature ",1990,1,5,,,,,
+FRA,France,"Extreme temperature ",1991,2,20,,,,,772000
+FRA,France,"Extreme temperature ",1997,1,23,,10000,,10000,
+FRA,France,"Extreme temperature ",2003,1,19490,,,,,4400000
+FRA,France,"Extreme temperature ",2005,2,8,,,,,
+FRA,France,"Extreme temperature ",2006,1,1388,,,,,
+FRA,France,"Extreme temperature ",2009,3,7,200,,,200,
+FRA,France,"Extreme temperature ",2010,1,3,,,,,
+FRA,France,"Extreme temperature ",2012,1,12,,,,,
+FRA,France,"Extreme temperature ",2015,1,3275,,,,,
+FRA,France,"Extreme temperature ",2018,2,3,,,,,
+FRA,France,Flood,1958,1,35,,,,,
+FRA,France,Flood,1977,1,26,,25000,,25000,
+FRA,France,Flood,1978,1,3,,1000,,1000,
+FRA,France,Flood,1980,1,6,13,300,,313,
+FRA,France,Flood,1981,1,,,,,,
+FRA,France,Flood,1983,3,18,12,3700,,3712,609500
+FRA,France,Flood,1987,1,23,,,,,
+FRA,France,Flood,1988,1,10,,300,,300,500000
+FRA,France,Flood,1992,1,3,,,,,
+FRA,France,Flood,1993,1,4,,,,,600000
+FRA,France,Flood,1994,3,13,,410,,410,100000
+FRA,France,Flood,1996,2,4,,1380,,1380,6000
+FRA,France,Flood,1999,3,36,5,3900,200,4105,500000
+FRA,France,Flood,2000,6,5,12,2300,,2312,
+FRA,France,Flood,2001,5,3,1,16881,,16882,132350
+FRA,France,Flood,2002,3,23,,3480,,3480,1190000
+FRA,France,Flood,2003,2,10,,27000,,27000,1500000
+FRA,France,Flood,2005,2,3,,4000,,4000,
+FRA,France,Flood,2010,1,25,,,,,1500000
+FRA,France,Flood,2011,1,6,,2300,,2300,
+FRA,France,Flood,2013,1,2,,2000,,2000,655000
+FRA,France,Flood,2014,3,14,,4000,,4000,303000
+FRA,France,Flood,2015,1,20,,,,,924000
+FRA,France,Flood,2016,1,5,24,,,24,2400000
+FRA,France,Flood,2017,1,1,,160,,160,
+FRA,France,Flood,2018,2,14,76,4150,,4226,712000
+FRA,France,Landslide,1926,1,28,,,,,
+FRA,France,Landslide,1930,1,40,,,,,
+FRA,France,Landslide,1932,1,30,,,,,
+FRA,France,Landslide,1961,1,21,,,,,
+FRA,France,Landslide,1970,2,114,37,,,37,
+FRA,France,Landslide,1982,2,16,,,,,
+FRA,France,Landslide,1983,2,14,20,,,20,
+FRA,France,Landslide,1990,1,14,,,,,
+FRA,France,Landslide,1998,1,9,21,,,21,
+FRA,France,Landslide,1999,1,11,,200,60,260,10790
+FRA,France,Storm,1967,1,5,,,,,20000
+FRA,France,Storm,1969,1,23,,,,,
+FRA,France,Storm,1976,1,,,,,,
+FRA,France,Storm,1982,2,12,,,,,350000
+FRA,France,Storm,1983,2,11,,,,,
+FRA,France,Storm,1984,3,4,,,,,
+FRA,France,Storm,1985,1,,,,,,
+FRA,France,Storm,1987,1,4,,,,,1700000
+FRA,France,Storm,1989,1,9,,,,,
+FRA,France,Storm,1990,8,43,,,,,1910000
+FRA,France,Storm,1992,2,48,,2000,,2000,400000
+FRA,France,Storm,1993,2,12,20,1700,,1720,550000
+FRA,France,Storm,1995,1,16,,5000,,5000,700000
+FRA,France,Storm,1996,1,1,,,,,10
+FRA,France,Storm,1998,1,6,,690,,690,150000
+FRA,France,Storm,1999,3,99,31,3500000,,3500031,12000000
+FRA,France,Storm,2000,1,6,7,,200,207,
+FRA,France,Storm,2001,2,14,120,300,,420,
+FRA,France,Storm,2002,2,5,3,250,,253,1000
+FRA,France,Storm,2003,2,6,70,,,70,50
+FRA,France,Storm,2004,1,11,,,,,
+FRA,France,Storm,2006,2,5,2,600,,602,
+FRA,France,Storm,2007,3,5,,900,,900,250000
+FRA,France,Storm,2008,3,5,6,2100,600,2706,80000
+FRA,France,Storm,2009,1,11,,,,,3200000
+FRA,France,Storm,2010,2,53,79,500000,,500079,4230000
+FRA,France,Storm,2011,1,,,,,,
+FRA,France,Storm,2013,2,2,,,,,
+FRA,France,Storm,2014,4,8,,,,,182000
+FRA,France,Storm,2015,1,3,,750,,750,
+FRA,France,Storm,2017,1,2,11,,,11,100000
+FRA,France,Storm,2018,3,6,30,,,30,200000
+FRA,France,Wildfire,1949,1,80,,,,,
+FRA,France,Wildfire,1982,1,2,18,,,18,
+FRA,France,Wildfire,1983,1,12,,,,,
+FRA,France,Wildfire,1984,2,,,,,,
+FRA,France,Wildfire,1985,1,6,130,,,130,
+FRA,France,Wildfire,1986,1,5,,2000,,2000,
+FRA,France,Wildfire,1997,1,,9,1250,,1259,
+FRA,France,Wildfire,1999,1,,,,6,6,
+FRA,France,Wildfire,2003,1,5,4,3000,,3004,
+FRA,France,Wildfire,2005,1,2,,,,,10000
+FRA,France,Wildfire,2009,1,,,,,,
+FRA,France,Wildfire,2017,1,,12,12000,,12012,
+DEU,Germany,Earthquake,1992,1,1,25,1500,,1525,50000
+DEU,Germany,Earthquake,2004,1,,,150,,150,12000
+DEU,Germany,Epidemic,2002,1,,,600,,600,
+DEU,Germany,Epidemic,2003,1,,,9,,9,
+DEU,Germany,"Extreme temperature ",1997,1,30,,,,,
+DEU,Germany,"Extreme temperature ",2003,1,9355,,,,,1650000
+DEU,Germany,"Extreme temperature ",2005,1,1,165,,,165,300000
+DEU,Germany,"Extreme temperature ",2006,2,12,,,,,
+DEU,Germany,"Extreme temperature ",2009,2,15,,,,,
+DEU,Germany,"Extreme temperature ",2010,1,1,,,,,
+DEU,Germany,"Extreme temperature ",2012,2,6,,,,,
+DEU,Germany,"Extreme temperature ",2018,1,,,,,,
+DEU,Germany,Flood,1992,1,,,,,,30100
+DEU,Germany,Flood,1993,1,5,,100000,,100000,600000
+DEU,Germany,Flood,1994,2,2,,,,,393500
+DEU,Germany,Flood,1997,1,,,5200,,5200,360000
+DEU,Germany,Flood,1999,1,7,,100000,,100000,430000
+DEU,Germany,Flood,2002,1,27,108,330000,,330108,11600000
+DEU,Germany,Flood,2005,2,1,,450,,450,220000
+DEU,Germany,Flood,2006,1,,,1000,,1000,
+DEU,Germany,Flood,2007,1,1,,,,,
+DEU,Germany,Flood,2009,1,,,,,,20000
+DEU,Germany,Flood,2010,1,3,,,,,
+DEU,Germany,Flood,2011,1,4,,,,,
+DEU,Germany,Flood,2013,1,4,,6350,,6350,12900000
+DEU,Germany,Flood,2016,1,7,,,,,2000000
+DEU,Germany,Flood,2017,1,,,600,,600,
+DEU,Germany,Landslide,1999,1,5,,,,,6230
+DEU,Germany,Storm,1990,6,64,,,,,4440000
+DEU,Germany,Storm,1991,1,,,,,,5000
+DEU,Germany,Storm,1993,2,6,,,,,410000
+DEU,Germany,Storm,1994,2,11,,,,,1045200
+DEU,Germany,Storm,1995,2,5,,30000,,30000,529600
+DEU,Germany,Storm,1996,1,,,,,,500
+DEU,Germany,Storm,1998,1,3,15,,,15,150000
+DEU,Germany,Storm,1999,2,18,,,,,1750000
+DEU,Germany,Storm,2001,1,6,,,,,300000
+DEU,Germany,Storm,2002,3,22,19,,,19,2050000
+DEU,Germany,Storm,2003,2,15,,,,,300000
+DEU,Germany,Storm,2004,1,2,,,,,130000
+DEU,Germany,Storm,2005,1,2,2,,,2,270000
+DEU,Germany,Storm,2006,3,11,300,,,300,
+DEU,Germany,Storm,2007,2,18,130,,,130,5500000
+DEU,Germany,Storm,2008,2,8,,,,,2700000
+DEU,Germany,Storm,2009,1,1,,,,,50000
+DEU,Germany,Storm,2010,2,4,,,,,1000000
+DEU,Germany,Storm,2013,3,7,2,,,2,4800000
+DEU,Germany,Storm,2014,2,8,1,,,1,400000
+DEU,Germany,Storm,2017,2,5,24,,,24,899000
+DEU,Germany,Storm,2018,1,5,12,,,12,588475
+DEU,Germany,Storm,2019,1,1,,,,,
+DDR,"Germany Dem Rep",Storm,1984,2,,,,,,
+DDR,"Germany Dem Rep",Storm,1985,1,,,,,,
+DFR,"Germany Fed Rep",Earthquake,1978,1,,35,,200,235,150000
+DFR,"Germany Fed Rep","Extreme temperature ",1979,1,,,,,,80000
+DFR,"Germany Fed Rep",Flood,1920,1,,,,,,20000
+DFR,"Germany Fed Rep",Flood,1925,1,,,,,,19000
+DFR,"Germany Fed Rep",Flood,1926,1,,,,,,31000
+DFR,"Germany Fed Rep",Flood,1978,1,2,,,,,330000
+DFR,"Germany Fed Rep",Flood,1983,1,,12,,,12,
+DFR,"Germany Fed Rep",Flood,1988,1,6,,3500,,3500,
+DFR,"Germany Fed Rep",Flood,1991,1,5,,,,,56000
+DFR,"Germany Fed Rep",Storm,1929,1,,,,,,55000
+DFR,"Germany Fed Rep",Storm,1953,1,,,,,,25000
+DFR,"Germany Fed Rep",Storm,1962,1,347,,,,,600000
+DFR,"Germany Fed Rep",Storm,1968,1,2,,,,,31000
+DFR,"Germany Fed Rep",Storm,1972,1,54,,,,,420000
+DFR,"Germany Fed Rep",Storm,1974,1,,,,,,22000
+DFR,"Germany Fed Rep",Storm,1976,1,82,,,,,1300000
+DFR,"Germany Fed Rep",Storm,1984,2,3,250,,,250,950000
+DFR,"Germany Fed Rep",Storm,1985,1,,,,,,
+DFR,"Germany Fed Rep",Wildfire,1983,1,,,,,,
+GRC,Greece,Drought,1990,1,,,,,,1000000
+GRC,Greece,Earthquake,1928,1,103,,,,,
+GRC,Greece,Earthquake,1953,1,455,,,,,100000
+GRC,Greece,Earthquake,1954,1,31,200,,,200,
+GRC,Greece,Earthquake,1956,1,53,100,,,100,
+GRC,Greece,Earthquake,1965,1,38,253,30000,,30253,8000
+GRC,Greece,Earthquake,1966,2,2,173,26000,,26173,18000
+GRC,Greece,Earthquake,1967,1,9,56,16527,,16583,5000
+GRC,Greece,Earthquake,1968,1,19,18,4000,3600,7618,600
+GRC,Greece,Earthquake,1978,1,50,100,600000,,600100,250000
+GRC,Greece,Earthquake,1980,1,1,17,,,17,
+GRC,Greece,Earthquake,1981,2,24,400,80450,,80850,900000
+GRC,Greece,Earthquake,1983,1,,7,480,,487,
+GRC,Greece,Earthquake,1985,1,,,186,,186,
+GRC,Greece,Earthquake,1986,1,20,300,45000,,45300,745000
+GRC,Greece,Earthquake,1988,1,,25,,,25,
+GRC,Greece,Earthquake,1990,2,1,61,,,61,
+GRC,Greece,Earthquake,1993,2,1,21,2100,,2121,
+GRC,Greece,Earthquake,1995,2,52,160,22500,6300,28960,872700
+GRC,Greece,Earthquake,1996,1,,,1500,,1500,
+GRC,Greece,Earthquake,1999,1,143,2000,113031,108,115139,4200000
+GRC,Greece,Earthquake,2000,1,,,600,,600,
+GRC,Greece,Earthquake,2001,1,,,300,,300,
+GRC,Greece,Earthquake,2002,1,,17,150,,167,
+GRC,Greece,Earthquake,2003,1,,50,,,50,
+GRC,Greece,Earthquake,2008,1,2,240,3468,,3708,
+GRC,Greece,Earthquake,2014,2,3,25,77000,,77025,628000
+GRC,Greece,Earthquake,2017,2,3,131,720,,851,
+GRC,Greece,"Extreme temperature ",1985,1,20,,,,,
+GRC,Greece,"Extreme temperature ",1987,1,1000,,,,,
+GRC,Greece,"Extreme temperature ",1988,1,56,,,,,
+GRC,Greece,"Extreme temperature ",1991,1,5,,,,,
+GRC,Greece,"Extreme temperature ",2000,1,27,176,,,176,3000
+GRC,Greece,"Extreme temperature ",2007,1,16,,,,,
+GRC,Greece,"Extreme temperature ",2012,1,5,,,,,
+GRC,Greece,"Extreme temperature ",2017,1,,,,,,
+GRC,Greece,Flood,1977,1,27,,1600,,1600,28000
+GRC,Greece,Flood,1979,1,15,,,,,
+GRC,Greece,Flood,1994,1,14,,1000,,1000,437700
+GRC,Greece,Flood,1997,1,9,,,,,160000
+GRC,Greece,Flood,1998,1,3,,900,,900,
+GRC,Greece,Flood,2000,2,1,,6600,,6600,
+GRC,Greece,Flood,2001,2,11,,1050,,1050,
+GRC,Greece,Flood,2002,4,,,390,,390,
+GRC,Greece,Flood,2003,3,,,450,,450,600000
+GRC,Greece,Flood,2006,2,1,,3090,,3090,5659
+GRC,Greece,Flood,2007,1,2,,600,,600,
+GRC,Greece,Flood,2010,1,1,,150,,150,
+GRC,Greece,Flood,2012,1,1,,200,,200,
+GRC,Greece,Flood,2014,1,,,,,,
+GRC,Greece,Flood,2015,2,3,,500,,500,
+GRC,Greece,Flood,2016,1,4,,200,,200,56000
+GRC,Greece,Flood,2017,1,23,24,6000,,6024,
+GRC,Greece,Storm,1930,1,22,,,,,
+GRC,Greece,Storm,1961,1,43,,,,,
+GRC,Greece,Storm,1987,1,48,,,,,350000
+GRC,Greece,Storm,1990,1,3,,,,,
+GRC,Greece,Storm,2002,1,2,12,,,12,
+GRC,Greece,Storm,2004,2,,,,,,340000
+GRC,Greece,Storm,2006,1,3,,600,,600,
+GRC,Greece,Wildfire,1983,1,12,,,,,
+GRC,Greece,Wildfire,1984,2,,,200,,200,
+GRC,Greece,Wildfire,1985,1,3,,,,,
+GRC,Greece,Wildfire,1987,1,,,,,,
+GRC,Greece,Wildfire,1995,1,,14,2000,,2014,
+GRC,Greece,Wildfire,1998,1,14,,,300,300,675000
+GRC,Greece,Wildfire,2000,2,9,19,,90,109,
+GRC,Greece,Wildfire,2007,2,68,68,1593,3735,5396,1750000
+GRC,Greece,Wildfire,2009,2,,,715,325,1040,
+GRC,Greece,Wildfire,2018,1,100,600,4118,,4718,
+HUN,Hungary,Drought,1986,1,,,,,,500000
+HUN,Hungary,Drought,1992,1,,,,,,384000
+HUN,Hungary,Drought,2003,1,,,,,,100000
+HUN,Hungary,Earthquake,2013,1,,,1800,,1800,
+HUN,Hungary,"Extreme temperature ",2001,1,81,,,,,
+HUN,Hungary,"Extreme temperature ",2005,1,48,,,,,
+HUN,Hungary,"Extreme temperature ",2007,1,500,,,,,
+HUN,Hungary,"Extreme temperature ",2008,1,17,500,,,500,
+HUN,Hungary,"Extreme temperature ",2012,1,16,,,,,
+HUN,Hungary,Flood,1970,1,300,,,,,85000
+HUN,Hungary,Flood,1996,1,,,,200,200,
+HUN,Hungary,Flood,1997,1,,,,,,10000
+HUN,Hungary,Flood,1999,2,8,,131441,2054,133495,293400
+HUN,Hungary,Flood,2000,1,1,,2000,,2000,55000
+HUN,Hungary,Flood,2001,1,,,10000,,10000,5000
+HUN,Hungary,Flood,2002,1,,,1430,,1430,30000
+HUN,Hungary,Flood,2004,1,,,384,9,393,
+HUN,Hungary,Flood,2005,2,,,,,,48000
+HUN,Hungary,Flood,2006,1,,,32000,,32000,
+HUN,Hungary,Flood,2010,1,1,,2000,,2000,440000
+HUN,Hungary,Flood,2013,1,,,48565,,48565,
+HUN,Hungary,Flood,2014,1,,,6500,,6500,
+HUN,Hungary,Flood,2016,1,,,2282,,2282,
+HUN,Hungary,Storm,1984,1,4,,,,,
+HUN,Hungary,Storm,1999,1,40,,,,,
+HUN,Hungary,Storm,2003,1,7,,,,,
+HUN,Hungary,Storm,2005,1,4,,,,,
+HUN,Hungary,Storm,2006,1,5,300,,,300,10000
+HUN,Hungary,Storm,2013,1,,,14000,,14000,
+HUN,Hungary,Storm,2017,1,,,1298,,1298,
+ISL,Iceland,Earthquake,1976,1,1,6,,,6,
+ISL,Iceland,Earthquake,2000,2,,1,129,69,199,24000
+ISL,Iceland,Flood,1988,1,,,280,,280,
+ISL,Iceland,Landslide,1974,1,12,,,,,
+ISL,Iceland,Landslide,1983,1,4,,,,,
+ISL,Iceland,Landslide,1995,2,34,20,63,,83,5789
+ISL,Iceland,"Volcanic activity",1973,1,,,5200,,5200,24700
+ISL,Iceland,"Volcanic activity",1983,1,,,,,,
+ISL,Iceland,"Volcanic activity",1984,1,,,,,,
+ISL,Iceland,"Volcanic activity",1996,1,,,,,,16500
+ISL,Iceland,"Volcanic activity",2010,1,,,,,,
+IRL,Ireland,Epidemic,2000,1,2,,1374,,1374,
+IRL,Ireland,Epidemic,2003,1,,,1,,1,
+IRL,Ireland,Flood,1987,1,,,,,,
+IRL,Ireland,Flood,1993,1,3,,3500,,3500,38000
+IRL,Ireland,Flood,2002,1,,,300,,300,
+IRL,Ireland,Flood,2009,1,,,,,,
+IRL,Ireland,Flood,2011,1,2,,600,,600,325000
+IRL,Ireland,Flood,2017,1,,,300,,300,
+IRL,Ireland,Storm,1983,1,10,,,,,
+IRL,Ireland,Storm,1986,1,11,,,,,
+IRL,Ireland,Storm,1990,4,2,,,,,110000
+IRL,Ireland,Storm,1991,1,,,,,,4000
+IRL,Ireland,Storm,1996,1,2,,,,,1000
+IRL,Ireland,Storm,1998,1,2,,,,,50
+IRL,Ireland,Storm,1999,1,8,,,,,100000
+IRL,Ireland,Storm,2000,1,1,,,,,100000
+IRL,Ireland,Storm,2004,1,,,200,,200,
+IRL,Ireland,Storm,2005,1,,,,,,
+IRL,Ireland,Storm,2014,1,1,,,,,
+IRL,Ireland,Storm,2015,1,1,,,,,
+IRL,Ireland,Storm,2018,1,2,,,,,
+ITA,Italy,Drought,1997,1,,,,,,800000
+ITA,Italy,Drought,2002,1,,,,,,
+ITA,Italy,Drought,2012,1,,,,,,1190000
+ITA,Italy,Drought,2017,1,,,,,,2300000
+ITA,Italy,Earthquake,1905,1,2500,,,,,
+ITA,Italy,Earthquake,1908,1,75000,,150000,,150000,116000
+ITA,Italy,Earthquake,1915,1,29980,,,,,60000
+ITA,Italy,Earthquake,1920,1,,650,,,650,
+ITA,Italy,Earthquake,1930,1,1883,,10000,,10000,
+ITA,Italy,Earthquake,1968,1,224,563,55000,,55563,250000
+ITA,Italy,Earthquake,1971,1,22,100,4120,,4220,41600
+ITA,Italy,Earthquake,1972,1,1,,450,,450,
+ITA,Italy,Earthquake,1976,2,934,1750,111472,137000,250222,3600000
+ITA,Italy,Earthquake,1978,1,5,,900,,900,
+ITA,Italy,Earthquake,1979,1,5,,,5000,5000,
+ITA,Italy,Earthquake,1980,1,4689,7700,400000,,407700,20000000
+ITA,Italy,Earthquake,1981,2,12,6,300,,306,
+ITA,Italy,Earthquake,1982,2,,,6000,,6000,35000
+ITA,Italy,Earthquake,1983,1,,30,20000,1000,21030,
+ITA,Italy,Earthquake,1984,3,4,285,5000,4300,9585,
+ITA,Italy,Earthquake,1990,2,21,216,,2500,2716,500000
+ITA,Italy,Earthquake,1997,1,14,100,,38000,38100,4524900
+ITA,Italy,Earthquake,1998,1,,5,900,,905,
+ITA,Italy,Earthquake,2002,3,32,42,,9500,9542,1296000
+ITA,Italy,Earthquake,2003,1,,2,230,,232,561352
+ITA,Italy,Earthquake,2009,1,295,1000,,55000,56000,2500000
+ITA,Italy,Earthquake,2012,2,24,400,11000,14000,25400,15800000
+ITA,Italy,Earthquake,2016,3,297,444,29729,,30173,5400000
+ITA,Italy,Earthquake,2017,2,31,53,2600,,2653,18000
+ITA,Italy,Epidemic,2002,1,3,,9997,,9997,
+ITA,Italy,Epidemic,2003,1,,,4,,4,
+ITA,Italy,"Extreme temperature ",1998,1,10,,,,,
+ITA,Italy,"Extreme temperature ",2003,1,20089,,,,,4400000
+ITA,Italy,"Extreme temperature ",2005,1,9,,,,,
+ITA,Italy,"Extreme temperature ",2007,1,6,,,,,
+ITA,Italy,"Extreme temperature ",2009,1,,,,,,
+ITA,Italy,"Extreme temperature ",2010,1,,,,,,
+ITA,Italy,"Extreme temperature ",2011,1,10,,,,,
+ITA,Italy,"Extreme temperature ",2012,1,45,,,,,132601
+ITA,Italy,"Extreme temperature ",2018,2,1,,,,,
+ITA,Italy,Flood,1939,1,10,,,,,
+ITA,Italy,Flood,1951,2,163,,,173500,173500,300000
+ITA,Italy,Flood,1953,1,100,,,4000,4000,
+ITA,Italy,Flood,1965,1,55,,,,,
+ITA,Italy,Flood,1966,1,70,,,1300000,1300000,2000000
+ITA,Italy,Flood,1968,1,72,,,3000,3000,
+ITA,Italy,Flood,1970,1,37,,1300000,1650,1301650,268300
+ITA,Italy,Flood,1977,2,23,,1000,,1000,194000
+ITA,Italy,Flood,1985,1,329,30,,,30,15000
+ITA,Italy,Flood,1986,1,2,,,,,20000
+ITA,Italy,Flood,1987,1,,,,,,70000
+ITA,Italy,Flood,1992,2,2,,1000,,1000,697300
+ITA,Italy,Flood,1994,1,68,,7000,10300,17300,9300000
+ITA,Italy,Flood,1996,2,17,,500,,500,32000
+ITA,Italy,Flood,2000,4,46,22,46000,,46022,8050000
+ITA,Italy,Flood,2001,2,2,,,,,100000
+ITA,Italy,Flood,2002,3,2,20,10000,,10020,646000
+ITA,Italy,Flood,2003,2,3,,1350,,1350,805000
+ITA,Italy,Flood,2008,3,9,,300,,300,278000
+ITA,Italy,Flood,2009,1,35,140,,5000,5140,20000
+ITA,Italy,Flood,2010,1,,,300,,300,
+ITA,Italy,Flood,2011,2,16,,,,,545000
+ITA,Italy,Flood,2012,1,4,,500,700,1200,15000
+ITA,Italy,Flood,2013,1,18,,2700,,2700,780000
+ITA,Italy,Flood,2014,4,10,1,8610,1000,9611,837000
+ITA,Italy,Flood,2015,3,6,,550,,550,274000
+ITA,Italy,Flood,2016,1,2,,400,,400,100000
+ITA,Italy,Flood,2017,1,,,1000,,1000,125000
+ITA,Italy,Flood,2018,1,10,,23,,23,
+ITA,Italy,Landslide,1922,1,100,,,,,
+ITA,Italy,Landslide,1948,1,25,,,,,
+ITA,Italy,Landslide,1954,1,297,,,5466,5466,
+ITA,Italy,Landslide,1960,1,12,,,,,
+ITA,Italy,Landslide,1963,1,1917,,,,,
+ITA,Italy,Landslide,1975,1,12,,,,,
+ITA,Italy,Landslide,1982,1,,,4000,,4000,700000
+ITA,Italy,Landslide,1983,1,,,,,,
+ITA,Italy,Landslide,1987,2,57,189,6000,,6189,625000
+ITA,Italy,Landslide,1996,1,,,100,,100,
+ITA,Italy,Landslide,1998,1,160,,3463,219,3682,28700
+ITA,Italy,Landslide,1999,1,1,,,,,5510
+ITA,Italy,Landslide,2006,1,4,9,150,,159,
+ITA,Italy,Landslide,2011,1,3,1,,,1,
+ITA,Italy,Storm,1948,1,80,,,,,
+ITA,Italy,Storm,1965,1,37,,,,,
+ITA,Italy,Storm,1970,1,35,,200,,200,3200
+ITA,Italy,Storm,1973,3,38,,5000,,5000,480000
+ITA,Italy,Storm,1978,1,1,19,,,19,1000
+ITA,Italy,Storm,1987,3,33,,,,,1203700
+ITA,Italy,Storm,1990,1,6,,,,,20000
+ITA,Italy,Storm,1993,1,8,,1000,,1000,625000
+ITA,Italy,Storm,1994,1,3,100,,,100,
+ITA,Italy,Storm,1997,1,22,,,,,
+ITA,Italy,Storm,2001,1,,,,,,175000
+ITA,Italy,Storm,2004,1,2,,200,,200,
+ITA,Italy,Storm,2006,1,1,,,,,
+ITA,Italy,Storm,2009,1,3,,,,,
+ITA,Italy,Storm,2010,1,3,5,,,5,872000
+ITA,Italy,Storm,2014,1,5,,,,,250000
+ITA,Italy,Storm,2015,1,3,,,,,869000
+ITA,Italy,Storm,2017,2,13,,1000,,1000,219500
+ITA,Italy,Storm,2018,1,12,,2200,,2200,1100000
+ITA,Italy,"Volcanic activity",1906,1,700,,,,,
+ITA,Italy,"Volcanic activity",1944,1,26,,,14000,14000,
+ITA,Italy,"Volcanic activity",1979,1,9,24,,,24,
+ITA,Italy,"Volcanic activity",1991,1,,,7000,,7000,
+ITA,Italy,"Volcanic activity",2001,1,,,,,,3100
+ITA,Italy,"Volcanic activity",2019,1,,28,300,,328,115000
+ITA,Italy,Wildfire,1983,1,7,20,,,20,
+ITA,Italy,Wildfire,1990,2,,,,,,1585000
+ITA,Italy,Wildfire,1994,1,1,,300,,300,
+ITA,Italy,Wildfire,1999,1,,,,,,
+ITA,Italy,Wildfire,2007,1,11,,,,,
+ITA,Italy,Wildfire,2009,1,2,,,,,115000
+LVA,Latvia,Epidemic,2000,1,,,102,,102,
+LVA,Latvia,"Extreme temperature ",2001,1,21,,,,,
+LVA,Latvia,"Extreme temperature ",2003,1,15,,,,,
+LVA,Latvia,"Extreme temperature ",2006,1,40,,,,,
+LVA,Latvia,"Extreme temperature ",2012,1,10,,,,,
+LVA,Latvia,Storm,1999,1,6,,,,,500
+LVA,Latvia,Storm,2005,2,,,,,,325000
+LVA,Latvia,Wildfire,2018,1,,,,,,
+LTU,Lithuania,Drought,1992,1,,,,,,52900
+LTU,Lithuania,Drought,2006,1,,,,,,225573
+LTU,Lithuania,Drought,2018,1,,,,,,
+LTU,Lithuania,"Extreme temperature ",1999,1,32,,,,,
+LTU,Lithuania,"Extreme temperature ",2001,1,20,,,,,
+LTU,Lithuania,"Extreme temperature ",2010,1,5,,,,,
+LTU,Lithuania,"Extreme temperature ",2012,2,30,,,,,
+LTU,Lithuania,"Extreme temperature ",2018,1,5,,,,,
+LTU,Lithuania,Flood,2005,1,,,,,,
+LTU,Lithuania,Flood,2010,1,4,,,,,
+LTU,Lithuania,Storm,1993,1,6,,780000,,780000,4600
+LTU,Lithuania,Storm,1999,1,2,,,,,500
+LTU,Lithuania,Storm,2005,1,,,,,,30000
+LUX,Luxembourg,"Extreme temperature ",2003,1,170,,,,,
+LUX,Luxembourg,Flood,1983,1,,,,,,
+LUX,Luxembourg,Flood,1993,1,,,,,,10000
+LUX,Luxembourg,Storm,1990,6,,,,,,370000
+LUX,Luxembourg,Storm,1995,1,,,,,,10000
+LUX,Luxembourg,Storm,2010,1,,,,,,31000
+MKD,"Macedonia (the former Yugoslav Republic of)",Drought,1993,1,,,10000,,10000,
+MKD,"Macedonia (the former Yugoslav Republic of)",Earthquake,2016,1,,100,,,100,10000
+MKD,"Macedonia (the former Yugoslav Republic of)",Epidemic,2002,1,,,200,,200,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2001,1,15,,,,,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2004,1,15,,,,,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2007,1,,,202,,202,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2012,1,1,,5100,,5100,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2014,1,,,8800,,8800,
+MKD,"Macedonia (the former Yugoslav Republic of)","Extreme temperature ",2017,1,3,,2220,,2220,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,1995,1,,,1500,,1500,245000
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2002,1,,,1500,150,1650,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2003,2,2,,4750,,4750,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2004,1,,,100000,,100000,3600
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2005,1,,,2000,,2000,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2006,1,,,1500,,1500,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2013,1,1,,4911,,4911,
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2015,2,7,30,105000,,105030,87000
+MKD,"Macedonia (the former Yugoslav Republic of)",Flood,2016,1,22,60,33522,,33582,50000
+MKD,"Macedonia (the former Yugoslav Republic of)",Storm,2005,1,1,3,,,3,
+MKD,"Macedonia (the former Yugoslav Republic of)",Wildfire,2000,1,,,,,,13563
+MKD,"Macedonia (the former Yugoslav Republic of)",Wildfire,2007,1,1,,1000000,,1000000,
+MDA,"Moldova (the Republic of)",Drought,2000,1,2,,,,,
+MDA,"Moldova (the Republic of)",Drought,2007,1,,,210394,,210394,406000
+MDA,"Moldova (the Republic of)",Drought,2012,1,,,5800,,5800,
+MDA,"Moldova (the Republic of)",Epidemic,1999,1,,,1647,,1647,
+MDA,"Moldova (the Republic of)","Extreme temperature ",2006,1,13,,,,,
+MDA,"Moldova (the Republic of)","Extreme temperature ",2012,1,10,,7374,,7374,
+MDA,"Moldova (the Republic of)","Extreme temperature ",2019,1,,,5460,,5460,
+MDA,"Moldova (the Republic of)",Flood,1994,1,47,,25000,,25000,300000
+MDA,"Moldova (the Republic of)",Flood,1997,1,9,,2148,96,2244,50000
+MDA,"Moldova (the Republic of)",Flood,1999,1,,,960,753,1713,4000
+MDA,"Moldova (the Republic of)",Flood,2002,1,1,,500,,500,832
+MDA,"Moldova (the Republic of)",Flood,2005,1,,,6500,,6500,7752
+MDA,"Moldova (the Republic of)",Flood,2008,1,3,,4000,,4000,
+MDA,"Moldova (the Republic of)",Flood,2010,1,1,,12000,,12000,
+MDA,"Moldova (the Republic of)",Storm,1994,1,3,80,,25500,25580,
+MDA,"Moldova (the Republic of)",Storm,2000,1,,,2600000,,2600000,31600
+MNE,Montenegro,"Extreme temperature ",2012,1,1,,4500,,4500,
+MNE,Montenegro,Flood,2007,1,,,1086,,1086,
+MNE,Montenegro,Flood,2009,1,,,450,,450,
+MNE,Montenegro,Flood,2010,2,,,6350,,6350,
+MNE,Montenegro,Wildfire,2017,1,,,200,,200,
+NLD,"Netherlands (the)",Earthquake,1992,1,,20,,,20,
+NLD,"Netherlands (the)",Epidemic,1999,1,13,,200,,200,
+NLD,"Netherlands (the)","Extreme temperature ",2003,1,965,,,,,
+NLD,"Netherlands (the)","Extreme temperature ",2005,2,,,,,,100000
+NLD,"Netherlands (the)","Extreme temperature ",2006,1,1000,,,,,
+NLD,"Netherlands (the)","Extreme temperature ",2012,1,1,,,,,
+NLD,"Netherlands (the)","Extreme temperature ",2018,1,,,,,,
+NLD,"Netherlands (the)",Flood,1953,1,2000,,300000,,300000,300000
+NLD,"Netherlands (the)",Flood,1992,1,,,,,,27600
+NLD,"Netherlands (the)",Flood,1993,1,1,,13000,,13000,53000
+NLD,"Netherlands (the)",Flood,1998,1,,,2000,,2000,530000
+NLD,"Netherlands (the)",Storm,1972,1,,,,,,
+NLD,"Netherlands (the)",Storm,1976,1,,,,,,
+NLD,"Netherlands (the)",Storm,1984,1,,,,,,
+NLD,"Netherlands (the)",Storm,1985,1,,,,,,
+NLD,"Netherlands (the)",Storm,1986,1,,,,,,
+NLD,"Netherlands (the)",Storm,1990,6,20,,,,,1750000
+NLD,"Netherlands (the)",Storm,1994,1,,,,,,2000
+NLD,"Netherlands (the)",Storm,1995,1,1,,250000,,250000,1180000
+NLD,"Netherlands (the)",Storm,1997,1,2,40,60,,100,
+NLD,"Netherlands (the)",Storm,1998,1,,,,,,100
+NLD,"Netherlands (the)",Storm,2002,1,4,,,,,300000
+NLD,"Netherlands (the)",Storm,2005,1,,1,,,1,
+NLD,"Netherlands (the)",Storm,2007,1,7,,,,,550000
+NLD,"Netherlands (the)",Storm,2008,1,,,,,,
+NLD,"Netherlands (the)",Storm,2010,1,,,,,,28000
+NLD,"Netherlands (the)",Storm,2013,3,2,,,,,10000
+NLD,"Netherlands (the)",Storm,2016,1,,,,,,844000
+NLD,"Netherlands (the)",Storm,2018,1,3,,,,,110011
+NOR,Norway,Flood,1995,1,1,,4000,,4000,300000
+NOR,Norway,Flood,2000,1,,,600,,600,
+NOR,Norway,Flood,2001,1,,,1500,,1500,
+NOR,Norway,Landslide,1936,1,73,,,,,
+NOR,Norway,Storm,1990,2,,,,,,130000
+NOR,Norway,Storm,1992,1,,,,,,
+NOR,Norway,Storm,1993,1,,,,,,3000
+NOR,Norway,Storm,2005,1,,,,,,130000
+NOR,Norway,Storm,2008,1,,100,,,100,
+NOR,Norway,Storm,2011,1,4,,500,,500,
+POL,Poland,Drought,2018,1,,,,,,
+POL,Poland,Earthquake,1982,1,,,1050,,1050,
+POL,Poland,"Extreme temperature ",1997,1,50,,,,,
+POL,Poland,"Extreme temperature ",1998,1,64,,,,,
+POL,Poland,"Extreme temperature ",1999,1,154,,,,,
+POL,Poland,"Extreme temperature ",2000,1,84,,,,,
+POL,Poland,"Extreme temperature ",2001,1,270,,,,,
+POL,Poland,"Extreme temperature ",2002,1,183,,,,,
+POL,Poland,"Extreme temperature ",2005,1,191,,,,,
+POL,Poland,"Extreme temperature ",2008,1,82,,,,,
+POL,Poland,"Extreme temperature ",2009,1,298,,,,,
+POL,Poland,"Extreme temperature ",2010,1,200,,,,,
+POL,Poland,"Extreme temperature ",2011,1,26,,,,,
+POL,Poland,"Extreme temperature ",2012,3,273,,,,,
+POL,Poland,"Extreme temperature ",2013,1,25,,,,,
+POL,Poland,"Extreme temperature ",2014,1,78,,,,,
+POL,Poland,"Extreme temperature ",2015,1,77,,,,,
+POL,Poland,"Extreme temperature ",2016,1,21,,,,,
+POL,Poland,"Extreme temperature ",2018,1,9,,,,,
+POL,Poland,Flood,1977,1,,,1000,,1000,
+POL,Poland,Flood,1980,1,,,4500,,4500,
+POL,Poland,Flood,1982,1,,,15000,1824,16824,53000
+POL,Poland,Flood,1987,1,,,,,,500000
+POL,Poland,Flood,1997,1,55,,162500,62000,224500,3500000
+POL,Poland,Flood,1998,1,9,,1200,,1200,
+POL,Poland,Flood,2001,1,27,,15000,,15000,700000
+POL,Poland,Flood,2004,1,,,600,,600,
+POL,Poland,Flood,2005,1,2,,3600,,3600,
+POL,Poland,Flood,2006,1,,,500,,500,
+POL,Poland,Flood,2009,1,1,,150,,150,100000
+POL,Poland,Flood,2010,2,19,,100700,,100700,3080000
+POL,Poland,Flood,2016,1,2,3,,,3,
+POL,Poland,Storm,1928,1,82,,,,,
+POL,Poland,Storm,1983,1,,,900,,900,2000
+POL,Poland,Storm,1990,1,,,,,,50000
+POL,Poland,Storm,1994,1,1,,,,,1000
+POL,Poland,Storm,1999,1,3,,,,,10000
+POL,Poland,Storm,2002,2,9,,,,,150
+POL,Poland,Storm,2005,2,,,,,,
+POL,Poland,Storm,2007,2,19,,,,,100000
+POL,Poland,Storm,2008,1,2,10,1050,,1060,50000
+POL,Poland,Storm,2009,1,8,82,,,82,
+POL,Poland,Storm,2012,1,1,10,300,,310,5900
+POL,Poland,Storm,2013,1,4,53,,,53,
+POL,Poland,Storm,2015,1,1,17,1200,,1217,
+POL,Poland,Storm,2017,1,6,45,5799,,5844,275000
+POL,Poland,Wildfire,1983,1,,,,,,
+POL,Poland,Wildfire,1992,1,35,,,,,
+PRT,Portugal,Drought,1983,1,,,,,,95000
+PRT,Portugal,Drought,1997,1,,,,,,10000
+PRT,Portugal,Drought,2004,1,,,,,,1338136
+PRT,Portugal,"Extreme temperature ",2003,1,2696,,,,,
+PRT,Portugal,"Extreme temperature ",2005,1,462,,,,,
+PRT,Portugal,"Extreme temperature ",2006,1,41,,,,,
+PRT,Portugal,"Extreme temperature ",2009,1,,,,,,
+PRT,Portugal,"Extreme temperature ",2010,1,,,,,,
+PRT,Portugal,"Extreme temperature ",2018,1,,,,,,
+PRT,Portugal,Flood,1967,1,462,100,1000,,1100,3000
+PRT,Portugal,Flood,1979,2,23,220,35000,10000,45220,32100
+PRT,Portugal,Flood,1981,1,30,,900,,900,
+PRT,Portugal,Flood,1983,1,19,,2000,,2000,95000
+PRT,Portugal,Flood,1996,2,10,,3050,,3050,13000
+PRT,Portugal,Flood,2001,1,6,,,200,200,
+PRT,Portugal,Flood,2002,1,1,,,60,60,
+PRT,Portugal,Flood,2003,1,,,36,,36,
+PRT,Portugal,Flood,2006,1,,,240,,240,
+PRT,Portugal,Flood,2008,1,2,,72,38,110,
+PRT,Portugal,Flood,2010,1,43,18,600,,618,1350000
+PRT,Portugal,Flood,2015,1,1,,,,,
+PRT,Portugal,Storm,1973,1,11,,,,,
+PRT,Portugal,Storm,1989,1,,,,,,
+PRT,Portugal,Storm,1997,1,29,,,200,200,25000
+PRT,Portugal,Storm,2000,1,4,10,,60,70,
+PRT,Portugal,Storm,2010,1,3,,,,,270000
+PRT,Portugal,Storm,2013,2,1,21,3900,46,3967,
+PRT,Portugal,Storm,2014,2,1,4,50,,54,
+PRT,Portugal,Storm,2018,1,2,28,60,,88,115500
+PRT,Portugal,Wildfire,1966,1,25,,,,,
+PRT,Portugal,Wildfire,1983,1,,,,,,
+PRT,Portugal,Wildfire,1985,1,14,,,,,95000
+PRT,Portugal,Wildfire,1986,1,15,50,,,50,
+PRT,Portugal,Wildfire,1991,1,,,,,,
+PRT,Portugal,Wildfire,2001,1,,,,,,
+PRT,Portugal,Wildfire,2003,1,14,,150000,,150000,1730000
+PRT,Portugal,Wildfire,2004,1,2,,,,,
+PRT,Portugal,Wildfire,2005,1,15,136,,,136,1650000
+PRT,Portugal,Wildfire,2013,1,9,,,,,
+PRT,Portugal,Wildfire,2016,1,3,,699,462,1161,157000
+PRT,Portugal,Wildfire,2017,2,109,275,500,2700,3475,732000
+PRT,Portugal,Wildfire,2018,1,,79,250,,329,
+ROU,Romania,Drought,1983,1,,,,,,
+ROU,Romania,Drought,2000,1,,,,,,500000
+ROU,Romania,Earthquake,1908,1,,,,,,
+ROU,Romania,Earthquake,1912,1,,,,,,
+ROU,Romania,Earthquake,1913,1,,,,,,
+ROU,Romania,Earthquake,1916,1,,,,,,
+ROU,Romania,Earthquake,1928,1,,,,,,
+ROU,Romania,Earthquake,1934,1,,,,,,
+ROU,Romania,Earthquake,1940,1,980,,,,,10000
+ROU,Romania,Earthquake,1945,2,,,,,,
+ROU,Romania,Earthquake,1977,1,1641,11300,200000,175000,386300,2000000
+ROU,Romania,Earthquake,1990,1,9,700,,,700,
+ROU,Romania,Earthquake,1991,2,,5,1845,4000,5850,
+ROU,Romania,Epidemic,1996,1,,,527,,527,
+ROU,Romania,Epidemic,1999,1,,,4743,,4743,
+ROU,Romania,Epidemic,2003,1,,,1,,1,
+ROU,Romania,"Extreme temperature ",1993,1,,,,,,
+ROU,Romania,"Extreme temperature ",1994,1,,,,,,
+ROU,Romania,"Extreme temperature ",1996,1,16,200,,,200,
+ROU,Romania,"Extreme temperature ",1998,2,80,,1700,,1700,
+ROU,Romania,"Extreme temperature ",2000,1,6,100,,,100,
+ROU,Romania,"Extreme temperature ",2001,1,10,,,,,
+ROU,Romania,"Extreme temperature ",2002,1,10,,,,,
+ROU,Romania,"Extreme temperature ",2004,1,27,,,,,
+ROU,Romania,"Extreme temperature ",2005,1,13,500,,,500,
+ROU,Romania,"Extreme temperature ",2006,2,94,200,,,200,
+ROU,Romania,"Extreme temperature ",2007,2,68,,,,,
+ROU,Romania,"Extreme temperature ",2009,2,54,20,,,20,
+ROU,Romania,"Extreme temperature ",2010,1,52,,,,,
+ROU,Romania,"Extreme temperature ",2012,1,86,239,7300,,7539,
+ROU,Romania,"Extreme temperature ",2014,1,13,,,,,
+ROU,Romania,"Extreme temperature ",2018,1,2,,,,,
+ROU,Romania,Flood,1926,1,1000,,,,,
+ROU,Romania,Flood,1970,1,215,,238755,,238755,500000
+ROU,Romania,Flood,1975,1,60,,1000000,,1000000,50000
+ROU,Romania,Flood,1984,1,,,2000,,2000,
+ROU,Romania,Flood,1991,1,108,,7000,8000,15000,50000
+ROU,Romania,Flood,1994,1,2,,,,,3000
+ROU,Romania,Flood,1995,1,2,,,5000,5000,3400
+ROU,Romania,Flood,1997,1,20,,,122320,122320,110000
+ROU,Romania,Flood,1998,1,31,,12000,,12000,150000
+ROU,Romania,Flood,1999,2,34,25,8418,590,9033,60000
+ROU,Romania,Flood,2000,2,9,,63000,431,63431,100500
+ROU,Romania,Flood,2001,2,7,3,14800,,14803,135000
+ROU,Romania,Flood,2002,3,9,1,4800,3900,8701,290
+ROU,Romania,Flood,2003,2,3,,,600,600,
+ROU,Romania,Flood,2004,2,10,,28128,,28128,
+ROU,Romania,Flood,2005,6,79,2,55769,800,56571,1313000
+ROU,Romania,Flood,2006,6,51,2,19581,5000,24583,
+ROU,Romania,Flood,2007,4,12,,4260,,4260,
+ROU,Romania,Flood,2008,1,5,,11000,,11000,
+ROU,Romania,Flood,2009,2,11,4,,,4,
+ROU,Romania,Flood,2010,1,26,,12237,,12237,1111428
+ROU,Romania,Flood,2013,1,9,,5400,,5400,11000
+ROU,Romania,Flood,2014,2,4,,525,,525,
+ROU,Romania,Flood,2015,1,1,,1500,,1500,
+ROU,Romania,Flood,2016,2,3,,300,,300,
+ROU,Romania,Flood,2018,2,,,2700,,2700,
+ROU,Romania,Landslide,1999,1,,,,330,330,
+ROU,Romania,Storm,1928,1,6,,,,,
+ROU,Romania,Storm,1993,1,3,,,200,200,
+ROU,Romania,Storm,1994,1,,6,,5400,5406,
+ROU,Romania,Storm,1997,1,12,60,,,60,
+ROU,Romania,Storm,2000,1,14,,,300,300,
+ROU,Romania,Storm,2004,3,12,,2400,,2400,
+ROU,Romania,Storm,2005,1,3,,,,,
+ROU,Romania,Storm,2008,1,,,90,,90,
+ROU,Romania,Storm,2017,1,9,137,,,137,7300
+RUS,"Russian Federation (the)",Drought,1993,1,,,,,,
+RUS,"Russian Federation (the)",Drought,1998,1,,,,,,
+RUS,"Russian Federation (the)",Drought,2003,1,,,1000000,,1000000,
+RUS,"Russian Federation (the)",Drought,2010,1,,,,,,1400000
+RUS,"Russian Federation (the)",Drought,2012,1,,,,,,1140000
+RUS,"Russian Federation (the)",Earthquake,1918,1,47,,,,,
+RUS,"Russian Federation (the)",Earthquake,1994,1,11,242,,2100,2342,
+RUS,"Russian Federation (the)",Earthquake,1995,1,1989,750,,,750,64100
+RUS,"Russian Federation (the)",Earthquake,1999,2,1,20,6000,5240,11260,900
+RUS,"Russian Federation (the)",Earthquake,2000,1,,8,,19100,19108,920
+RUS,"Russian Federation (the)",Earthquake,2003,1,3,5,,1800,1805,10600
+RUS,"Russian Federation (the)",Earthquake,2004,1,,,138,,138,
+RUS,"Russian Federation (the)",Earthquake,2006,1,,40,12000,,12040,55000
+RUS,"Russian Federation (the)",Earthquake,2007,1,2,12,,7500,7512,420000
+RUS,"Russian Federation (the)",Earthquake,2008,1,13,100,5135,,5235,
+RUS,"Russian Federation (the)",Epidemic,1995,1,,,150000,,150000,
+RUS,"Russian Federation (the)",Epidemic,1997,1,,,4538,,4538,
+RUS,"Russian Federation (the)",Epidemic,1999,2,33,,765,,765,
+RUS,"Russian Federation (the)",Epidemic,2000,5,,,2942,,2942,
+RUS,"Russian Federation (the)",Epidemic,2003,1,,,1,,1,
+RUS,"Russian Federation (the)","Extreme temperature ",1993,1,41,60,200,,260,
+RUS,"Russian Federation (the)","Extreme temperature ",1994,1,42,,,,,
+RUS,"Russian Federation (the)","Extreme temperature ",1995,2,228,108,,,108,
+RUS,"Russian Federation (the)","Extreme temperature ",1997,1,22,,,,,
+RUS,"Russian Federation (the)","Extreme temperature ",1998,1,69,263,,,263,
+RUS,"Russian Federation (the)","Extreme temperature ",1999,2,162,246,725000,,725246,
+RUS,"Russian Federation (the)","Extreme temperature ",2000,3,245,346,,,346,
+RUS,"Russian Federation (the)","Extreme temperature ",2001,3,753,294,6000,,6294,100
+RUS,"Russian Federation (the)","Extreme temperature ",2002,1,242,62,25000,,25062,
+RUS,"Russian Federation (the)","Extreme temperature ",2006,1,116,14,,,14,1000000
+RUS,"Russian Federation (the)","Extreme temperature ",2010,3,55760,11,,,11,400000
+RUS,"Russian Federation (the)","Extreme temperature ",2012,2,234,1594,,,1594,
+RUS,"Russian Federation (the)",Flood,1992,1,,,,,,48100
+RUS,"Russian Federation (the)",Flood,1993,2,138,453,14300,,14753,34000
+RUS,"Russian Federation (the)",Flood,1994,5,46,,797204,429,797633,281000
+RUS,"Russian Federation (the)",Flood,1996,2,4,,234000,,234000,298400
+RUS,"Russian Federation (the)",Flood,1997,1,2,,500,,500,174100
+RUS,"Russian Federation (the)",Flood,1998,4,14,,154100,36000,190100,16500
+RUS,"Russian Federation (the)",Flood,1999,1,,,,1200,1200,
+RUS,"Russian Federation (the)",Flood,2000,8,3,,76501,,76501,43895
+RUS,"Russian Federation (the)",Flood,2001,3,37,,375305,,375305,291000
+RUS,"Russian Federation (the)",Flood,2002,4,259,1200,381913,1500,384613,1007970
+RUS,"Russian Federation (the)",Flood,2003,1,,,600,,600,
+RUS,"Russian Federation (the)",Flood,2004,3,18,,6520,,6520,56759
+RUS,"Russian Federation (the)",Flood,2005,5,22,,9045,,9045,23668
+RUS,"Russian Federation (the)",Flood,2006,3,,,7720,,7720,132411
+RUS,"Russian Federation (the)",Flood,2007,1,,,14000,,14000,25752
+RUS,"Russian Federation (the)",Flood,2010,2,23,,48464,,48464,66000
+RUS,"Russian Federation (the)",Flood,2011,2,,,14169,,14169,21015
+RUS,"Russian Federation (the)",Flood,2012,4,179,3910,37397,5500,46807,617000
+RUS,"Russian Federation (the)",Flood,2013,2,4,,35635,,35635,1000000
+RUS,"Russian Federation (the)",Flood,2014,1,6,2000,22545,,24545,8000
+RUS,"Russian Federation (the)",Flood,2015,1,1,,1500,,1500,
+RUS,"Russian Federation (the)",Flood,2016,3,,,11696,,11696,12000
+RUS,"Russian Federation (the)",Flood,2017,1,,,15721,,15721,
+RUS,"Russian Federation (the)",Flood,2018,2,10,3,14972,,14975,10000
+RUS,"Russian Federation (the)",Impact,2013,1,,1491,300000,,301491,33000
+RUS,"Russian Federation (the)","Insect infestation",2001,1,,,,,,
+RUS,"Russian Federation (the)",Landslide,1992,1,,,1750,,1750,2600
+RUS,"Russian Federation (the)",Landslide,1993,2,299,,,,,
+RUS,"Russian Federation (the)",Landslide,1995,1,17,,,,,
+RUS,"Russian Federation (the)",Landslide,1996,1,,,300,,300,
+RUS,"Russian Federation (the)",Landslide,2000,2,27,8,500,,508,
+RUS,"Russian Federation (the)",Landslide,2002,1,122,,,,,
+RUS,"Russian Federation (the)",Landslide,2005,1,9,,,,,
+RUS,"Russian Federation (the)",Storm,1994,2,12,,62,,62,65800
+RUS,"Russian Federation (the)",Storm,1995,3,145,10,1350,1200,2560,44000
+RUS,"Russian Federation (the)",Storm,1998,1,8,160,,,160,160000
+RUS,"Russian Federation (the)",Storm,1999,1,12,,,,,
+RUS,"Russian Federation (the)",Storm,2000,1,9,,,,,50
+RUS,"Russian Federation (the)",Storm,2001,2,8,28,12000,400,12428,17200
+RUS,"Russian Federation (the)",Storm,2002,2,8,,,,,3000
+RUS,"Russian Federation (the)",Storm,2003,1,,,,,,
+RUS,"Russian Federation (the)",Storm,2004,3,9,62,6000,,6062,6000
+RUS,"Russian Federation (the)",Storm,2005,2,,2,,,2,
+RUS,"Russian Federation (the)",Storm,2007,1,,,,,,
+RUS,"Russian Federation (the)",Storm,2011,1,1,14,,,14,3000
+RUS,"Russian Federation (the)",Storm,2017,1,16,201,,,201,2000
+RUS,"Russian Federation (the)",Wildfire,1992,1,31,,,,,
+RUS,"Russian Federation (the)",Wildfire,1996,1,19,,,600,600,
+RUS,"Russian Federation (the)",Wildfire,1997,2,14,,,,,
+RUS,"Russian Federation (the)",Wildfire,1998,1,3,,100000,683,100683,270000
+RUS,"Russian Federation (the)",Wildfire,1999,2,,,,,,113336
+RUS,"Russian Federation (the)",Wildfire,2000,5,,,,,,
+RUS,"Russian Federation (the)",Wildfire,2001,2,,,,,,
+RUS,"Russian Federation (the)",Wildfire,2002,3,,,,120,120,
+RUS,"Russian Federation (the)",Wildfire,2003,1,,,,,,
+RUS,"Russian Federation (the)",Wildfire,2004,1,9,,,1000,1000,
+RUS,"Russian Federation (the)",Wildfire,2010,2,61,996,5000,1200,7196,1800000
+RUS,"Russian Federation (the)",Wildfire,2012,1,2,346,,252,598,
+RUS,"Russian Federation (the)",Wildfire,2015,1,30,977,5000,,5977,136820
+SRB,Serbia,Earthquake,2010,1,2,120,25440,1470,27030,132260
+SRB,Serbia,"Extreme temperature ",2007,1,,,,,,
+SRB,Serbia,"Extreme temperature ",2009,1,,500,,,500,
+SRB,Serbia,"Extreme temperature ",2010,2,5,,,,,
+SRB,Serbia,"Extreme temperature ",2012,3,25,,88234,,88234,
+SRB,Serbia,"Extreme temperature ",2014,1,,,3000,,3000,
+SRB,Serbia,"Extreme temperature ",2017,1,6,,,,,
+SRB,Serbia,Flood,2007,1,,,12370,,12370,
+SRB,Serbia,Flood,2009,1,,,3210,,3210,
+SRB,Serbia,Flood,2010,3,2,,4900,,4900,
+SRB,Serbia,Flood,2013,2,,,3000,,3000,
+SRB,Serbia,Flood,2014,4,56,,59600,,59600,2048262
+SRB,Serbia,Flood,2016,2,,,8655,,8655,100000
+SRB,Serbia,Flood,2018,1,,,231,,231,
+SCG,"Serbia Montenegro",Earthquake,2002,1,1,100,,,100,
+SCG,"Serbia Montenegro",Epidemic,1999,1,,,699,,699,
+SCG,"Serbia Montenegro",Epidemic,2001,1,,,170,,170,
+SCG,"Serbia Montenegro","Extreme temperature ",2000,1,3,70,,,70,
+SCG,"Serbia Montenegro","Extreme temperature ",2006,1,3,,,,,
+SCG,"Serbia Montenegro",Flood,1992,1,1,,,6000,6000,
+SCG,"Serbia Montenegro",Flood,1999,2,11,,60639,10369,71008,
+SCG,"Serbia Montenegro",Flood,2000,2,,,6000,,6000,
+SCG,"Serbia Montenegro",Flood,2002,1,,,2400,,2400,
+SCG,"Serbia Montenegro",Flood,2005,1,2,,1945,1845,3790,
+SCG,"Serbia Montenegro",Flood,2006,2,,,36200,,36200,
+SCG,"Serbia Montenegro",Storm,2005,1,,,8750,,8750,
+SCG,"Serbia Montenegro",Wildfire,2000,1,,,,12,12,
+SVK,Slovakia,"Extreme temperature ",2003,1,,,,,,150000
+SVK,Slovakia,"Extreme temperature ",2005,1,,,,,,
+SVK,Slovakia,"Extreme temperature ",2007,1,1,89,,,89,
+SVK,Slovakia,"Extreme temperature ",2010,1,122,,,,,
+SVK,Slovakia,"Extreme temperature ",2012,1,5,,,,,
+SVK,Slovakia,Flood,1997,1,,,,,,60000
+SVK,Slovakia,Flood,1998,1,54,61,10850,756,11667,45000
+SVK,Slovakia,Flood,1999,1,2,,35207,941,36148,113300
+SVK,Slovakia,Flood,2001,1,1,,,,,6000
+SVK,Slovakia,Flood,2002,1,,,,,,3000
+SVK,Slovakia,Flood,2004,1,1,,230,,230,
+SVK,Slovakia,Flood,2005,1,1,,,,,
+SVK,Slovakia,Flood,2006,2,1,,100,,100,
+SVK,Slovakia,Flood,2010,2,4,,850,,850,25000
+SVK,Slovakia,Flood,2013,1,1,,,,,
+SVK,Slovakia,Storm,2004,1,2,24,10300,,10324,383300
+SVK,Slovakia,Storm,2017,1,,,,,,
+SVK,Slovakia,Wildfire,2000,1,6,,,,,
+SVN,Slovenia,Earthquake,1998,1,,,,700,700,
+SVN,Slovenia,Earthquake,2004,1,1,5,600,,605,10000
+SVN,Slovenia,"Extreme temperature ",2003,1,289,,,,,80000
+SVN,Slovenia,"Extreme temperature ",2014,1,1,,50000,,50000,
+SVN,Slovenia,Flood,2005,1,,,,,,5000
+SVN,Slovenia,Flood,2012,1,,,12000,,12000,265000
+SVN,Slovenia,Flood,2014,1,3,,2550,,2550,
+SVN,Slovenia,Storm,2007,2,6,,,1050,1050,392000
+SUN,"Soviet Union",Drought,1921,1,1200000,,5000000,,5000000,
+SUN,"Soviet Union",Earthquake,1902,1,4562,,,,,
+SUN,"Soviet Union",Earthquake,1907,1,12000,,,,,
+SUN,"Soviet Union",Earthquake,1923,1,18,,,,,
+SUN,"Soviet Union",Earthquake,1930,1,151,208,,,208,
+SUN,"Soviet Union",Earthquake,1931,1,231,882,,,882,
+SUN,"Soviet Union",Earthquake,1934,1,456,1189,,,1189,
+SUN,"Soviet Union",Earthquake,1948,1,110000,,,,,25000
+SUN,"Soviet Union",Earthquake,1952,1,2300,,,,,
+SUN,"Soviet Union",Earthquake,1966,1,10,,100000,,100000,300000
+SUN,"Soviet Union",Earthquake,1976,1,,,,,,85000
+SUN,"Soviet Union",Earthquake,1980,1,87,,,,,5000
+SUN,"Soviet Union",Earthquake,1983,1,,,,14000,14000,
+SUN,"Soviet Union",Earthquake,1984,1,,100,,20000,20100,
+SUN,"Soviet Union",Earthquake,1985,1,29,80,8000,,8080,
+SUN,"Soviet Union",Earthquake,1986,2,3,558,225000,4500,230058,730000
+SUN,"Soviet Union",Earthquake,1988,1,25000,12000,1100000,530000,1642000,14000000
+SUN,"Soviet Union",Earthquake,1989,1,274,51,12000,,12051,24800
+SUN,"Soviet Union",Earthquake,1990,4,5,8,,24500,24508,
+SUN,"Soviet Union",Earthquake,1991,4,274,1500,95000,160000,256500,1700000
+SUN,"Soviet Union",Epidemic,1917,1,2500000,,,,,
+SUN,"Soviet Union",Epidemic,1923,1,,,18000000,,18000000,
+SUN,"Soviet Union",Flood,1981,1,,,,2000,2000,
+SUN,"Soviet Union",Flood,1982,2,,,,586,586,
+SUN,"Soviet Union",Flood,1983,2,,,1000,,1000,
+SUN,"Soviet Union",Flood,1984,2,,,,,,
+SUN,"Soviet Union",Flood,1985,2,,,10000,,10000,10000
+SUN,"Soviet Union",Flood,1987,1,110,,20000,16000,36000,546000
+SUN,"Soviet Union",Flood,1988,1,,,,,,
+SUN,"Soviet Union",Flood,1989,1,17,,,,,640000
+SUN,"Soviet Union",Flood,1990,3,19,,23208,,23208,177900
+SUN,"Soviet Union",Flood,1991,2,2,,42000,,42000,2022000
+SUN,"Soviet Union",Landslide,1949,1,12000,,,,,
+SUN,"Soviet Union",Landslide,1961,1,145,,,,,
+SUN,"Soviet Union",Landslide,1974,1,13,,,,,
+SUN,"Soviet Union",Landslide,1987,1,26,,,,,
+SUN,"Soviet Union",Landslide,1989,2,98,,,2500,2500,423000
+SUN,"Soviet Union",Landslide,1990,1,43,,,,,
+SUN,"Soviet Union","Mass movement (dry)",1987,1,52,6,500,,506,
+SUN,"Soviet Union","Mass movement (dry)",1989,1,,,8000,,8000,
+SUN,"Soviet Union","Mass movement (dry)",1991,1,50,,,,,
+SUN,"Soviet Union",Storm,1923,1,23,,,,,
+SUN,"Soviet Union",Storm,1981,1,,,10000,,10000,
+SUN,"Soviet Union",Storm,1983,1,,,,,,
+SUN,"Soviet Union",Storm,1984,1,400,,,,,
+SUN,"Soviet Union",Storm,1991,1,41,,,,,24000
+SUN,"Soviet Union","Volcanic activity",1956,1,,,,,,
+SUN,"Soviet Union",Wildfire,1987,1,,,,,,
+ESP,Spain,Drought,1980,1,,,,,,1500000
+ESP,Spain,Drought,1981,1,,,,,,1460000
+ESP,Spain,Drought,1990,1,,,6000000,,6000000,4500000
+ESP,Spain,Drought,1999,1,,,,,,3200000
+ESP,Spain,Earthquake,1956,1,11,70,,,70,
+ESP,Spain,Earthquake,1999,1,,20,,,20,44004
+ESP,Spain,Earthquake,2011,1,10,300,,15000,15300,200000
+ESP,Spain,Epidemic,1997,1,,,1383,,1383,
+ESP,Spain,Epidemic,2001,1,2,,751,,751,
+ESP,Spain,Epidemic,2003,1,,,1,,1,
+ESP,Spain,"Extreme temperature ",1971,1,400,,,,,100000
+ESP,Spain,"Extreme temperature ",1985,1,40,,,,,
+ESP,Spain,"Extreme temperature ",1995,2,30,70,,,70,824300
+ESP,Spain,"Extreme temperature ",2003,1,15090,,,,,880000
+ESP,Spain,"Extreme temperature ",2004,1,26,,,,,
+ESP,Spain,"Extreme temperature ",2005,1,9,,,,,
+ESP,Spain,"Extreme temperature ",2006,1,21,,,,,
+ESP,Spain,"Extreme temperature ",2018,1,9,,,,,
+ESP,Spain,Flood,1953,1,50,,,,,
+ESP,Spain,Flood,1957,1,77,,,,,
+ESP,Spain,Flood,1962,1,445,,,,,80000
+ESP,Spain,Flood,1972,1,,,,,,20000
+ESP,Spain,Flood,1973,1,500,,,,,400000
+ESP,Spain,Flood,1978,1,2,,,,,25000
+ESP,Spain,Flood,1979,1,20,50,,,50,
+ESP,Spain,Flood,1982,2,77,1600,225000,,226600,930000
+ESP,Spain,Flood,1983,2,45,,501600,6000,507600,3900000
+ESP,Spain,Flood,1987,1,5,,2000,,2000,1283000
+ESP,Spain,Flood,1989,1,12,,,,,375000
+ESP,Spain,Flood,1994,1,10,,,,,
+ESP,Spain,Flood,1996,1,1,,4000,,4000,576600
+ESP,Spain,Flood,1997,1,5,,400,,400,
+ESP,Spain,Flood,2000,2,24,,1000,,1000,75000
+ESP,Spain,Flood,2002,1,6,50,,,50,87000
+ESP,Spain,Flood,2004,1,,,600,,600,14285
+ESP,Spain,Flood,2006,1,,,,,,
+ESP,Spain,Flood,2007,3,5,,4430,,4430,400000
+ESP,Spain,Flood,2010,1,2,,30,,30,
+ESP,Spain,Flood,2011,1,1,,2400,,2400,
+ESP,Spain,Flood,2012,1,10,35,600,,635,395000
+ESP,Spain,Flood,2013,1,,,600,,600,
+ESP,Spain,Flood,2015,2,8,,150,,150,2000
+ESP,Spain,Flood,2016,1,5,,150,,150,50000
+ESP,Spain,Flood,2018,1,13,,,,,150000
+ESP,Spain,Landslide,1996,1,84,129,,,129,20000
+ESP,Spain,Storm,1971,1,,,,,,55000
+ESP,Spain,Storm,1973,1,19,,,,,
+ESP,Spain,Storm,1984,2,9,60,60000,,60060,1001000
+ESP,Spain,Storm,1987,1,,,,,,8000
+ESP,Spain,Storm,1989,2,33,,,,,
+ESP,Spain,Storm,1990,2,9,,,,,
+ESP,Spain,Storm,1994,1,12,,,,,
+ESP,Spain,Storm,1997,1,21,,350,,350,5000
+ESP,Spain,Storm,1998,1,,,,,,1000
+ESP,Spain,Storm,1999,1,6,,,,,100000
+ESP,Spain,Storm,2000,2,14,2,,,2,
+ESP,Spain,Storm,2001,1,10,,,,,72000
+ESP,Spain,Storm,2007,1,1,,,,,
+ESP,Spain,Storm,2009,1,14,,,,,1900000
+ESP,Spain,Storm,2010,1,3,,,,,340000
+ESP,Spain,Storm,2013,1,,,,,,
+ESP,Spain,Storm,2014,1,3,,,,,
+ESP,Spain,Storm,2018,1,2,,,,,
+ESP,Spain,Wildfire,1984,1,17,,,,,
+ESP,Spain,Wildfire,1985,2,,,300,,300,
+ESP,Spain,Wildfire,1991,1,,,,,,
+ESP,Spain,Wildfire,1994,2,20,20,16500,,16520,
+ESP,Spain,Wildfire,1998,1,,,600,,600,42108
+ESP,Spain,Wildfire,2000,1,,,,,,
+ESP,Spain,Wildfire,2003,1,5,,200,,200,
+ESP,Spain,Wildfire,2004,1,3,100,1000,,1100,3000
+ESP,Spain,Wildfire,2005,1,11,1,,,1,2050000
+ESP,Spain,Wildfire,2006,1,4,,,,,659000
+ESP,Spain,Wildfire,2009,1,6,,,,,
+ESP,Spain,Wildfire,2012,1,4,6,,,6,
+ESP,Spain,Wildfire,2017,2,4,,1500,,1500,
+ESP,Spain,Wildfire,2018,1,,,,,,
+SWE,Sweden,Epidemic,2002,1,,,350,,350,
+SWE,Sweden,Epidemic,2003,1,,,,,,
+SWE,Sweden,"Extreme temperature ",2005,1,,,,,,
+SWE,Sweden,Flood,1977,1,,,,,,170000
+SWE,Sweden,Flood,1985,1,11,,,,,5800
+SWE,Sweden,Landslide,1977,1,13,50,,,50,11000
+SWE,Sweden,Storm,1976,1,,,,,,
+SWE,Sweden,Storm,1990,2,,,,,,10000
+SWE,Sweden,Storm,1999,1,3,,,,,160000
+SWE,Sweden,Storm,2002,1,1,,,,,
+SWE,Sweden,Storm,2005,1,7,,,,,2800000
+SWE,Sweden,Storm,2013,1,7,,,,,
+SWE,Sweden,Wildfire,2018,1,,,,,,102000
+CHE,Switzerland,Epidemic,2003,1,,,1,,1,
+CHE,Switzerland,"Extreme temperature ",2001,1,,,,,,
+CHE,Switzerland,"Extreme temperature ",2003,1,1039,,,,,280000
+CHE,Switzerland,"Extreme temperature ",2005,1,,,,,,
+CHE,Switzerland,"Extreme temperature ",2010,1,,,,,,
+CHE,Switzerland,"Extreme temperature ",2012,2,11,,,,,
+CHE,Switzerland,Flood,1977,1,,,,,,
+CHE,Switzerland,Flood,1983,1,,,,,,
+CHE,Switzerland,Flood,1987,1,,,,,,
+CHE,Switzerland,Flood,1997,1,,,,,,68500
+CHE,Switzerland,Flood,1999,1,3,,,,,330000
+CHE,Switzerland,Flood,2005,1,6,,2500,,2500,2100000
+CHE,Switzerland,Flood,2006,1,,,3000,,3000,
+CHE,Switzerland,Flood,2007,1,1,1,100,,101,350000
+CHE,Switzerland,Landslide,1951,1,92,,,,,20000
+CHE,Switzerland,Landslide,1965,1,90,,,,,
+CHE,Switzerland,Landslide,1968,1,20,,22,,22,
+CHE,Switzerland,Landslide,1970,1,30,,48,,48,
+CHE,Switzerland,Landslide,1975,1,13,,,,,
+CHE,Switzerland,Landslide,1988,1,,,2000,,2000,
+CHE,Switzerland,Landslide,1999,1,30,,,,,685000
+CHE,Switzerland,Landslide,2000,1,16,,1500,,1500,330000
+CHE,Switzerland,Landslide,2002,2,4,,281,,281,180000
+CHE,Switzerland,"Mass movement (dry)",2017,1,8,,200,,200,
+CHE,Switzerland,Storm,1976,1,,,,,,
+CHE,Switzerland,Storm,1982,1,,,,,,1000
+CHE,Switzerland,Storm,1983,2,,,140,,140,1000
+CHE,Switzerland,Storm,1984,1,,,,,,9600
+CHE,Switzerland,Storm,1985,1,,,,,,2000
+CHE,Switzerland,Storm,1986,2,,,,,,105000
+CHE,Switzerland,Storm,1987,1,1,,,,,138900
+CHE,Switzerland,Storm,1990,4,5,,,,,280000
+CHE,Switzerland,Storm,1993,3,2,,,,,443760
+CHE,Switzerland,Storm,1994,1,,,,,,5000
+CHE,Switzerland,Storm,1998,1,,,,,,1000
+CHE,Switzerland,Storm,1999,1,12,,,,,1500000
+CHE,Switzerland,Storm,2002,1,1,2,,,2,
+CHE,Switzerland,Storm,2003,1,,7,,,7,5000
+CHE,Switzerland,Storm,2006,1,1,,,,,
+CHE,Switzerland,Storm,2007,2,,,,,,100000
+CHE,Switzerland,Storm,2009,1,,,,,,1000000
+CHE,Switzerland,Storm,2010,1,,,,,,14000
+CHE,Switzerland,Storm,2011,1,,3,,,3,
+CHE,Switzerland,Storm,2013,2,,84,,,84,250000
+CHE,Switzerland,Storm,2014,1,2,,,,,
+CHE,Switzerland,Storm,2018,1,,16,,,16,
+CHE,Switzerland,Storm,2019,1,4,,,,,
+UKR,Ukraine,Drought,2012,1,,,,,,1690000
+UKR,Ukraine,Epidemic,1994,1,71,,1333,,1333,
+UKR,Ukraine,Epidemic,1995,1,204,,5336,,5336,
+UKR,Ukraine,Epidemic,1997,1,,,102,,102,
+UKR,Ukraine,"Extreme temperature ",2000,1,,,,,,85000
+UKR,Ukraine,"Extreme temperature ",2006,1,801,9600,50000,,59600,
+UKR,Ukraine,"Extreme temperature ",2009,2,32,,,,,
+UKR,Ukraine,"Extreme temperature ",2012,2,195,3026,85000,,88026,
+UKR,Ukraine,"Extreme temperature ",2016,1,37,,,,,
+UKR,Ukraine,"Extreme temperature ",2017,1,37,,,,,
+UKR,Ukraine,Flood,1993,2,9,,325000,,325000,239000
+UKR,Ukraine,Flood,1995,1,,,1700000,,1700000,
+UKR,Ukraine,Flood,1996,1,,,10000,,10000,
+UKR,Ukraine,Flood,1997,1,,,,,,17000
+UKR,Ukraine,Flood,1998,1,18,230,,24340,24570,1259
+UKR,Ukraine,Flood,2001,1,9,,300000,,300000,15000
+UKR,Ukraine,Flood,2003,1,,,600,,600,
+UKR,Ukraine,Flood,2005,1,,,8340,,8340,
+UKR,Ukraine,Flood,2006,2,2,,5000,,5000,23855
+UKR,Ukraine,Flood,2008,1,38,,224725,,224725,1000000
+UKR,Ukraine,Flood,2010,1,6,59,40000,,40059,1900
+UKR,Ukraine,Flood,2013,1,2,,265,1995,2260,21000
+UKR,Ukraine,Flood,2016,1,3,,200,,200,
+UKR,Ukraine,Storm,1992,1,,,1000,,1000,1600
+UKR,Ukraine,Storm,1997,1,11,,,,,34000
+UKR,Ukraine,Storm,2000,3,10,710,47400,,48110,120000
+UKR,Ukraine,Storm,2007,2,,17,6268,1267,7552,100000
+UKR,Ukraine,Storm,2018,1,,,600,,600,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Earthquake,1990,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Earthquake,2007,1,,1,4500,,4501,60000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Epidemic,1984,1,26,,16,,16,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Epidemic,1985,1,34,,144,,144,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Epidemic,2001,1,11,,30,,30,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Epidemic,2003,1,,,4,,4,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",1991,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",1997,1,14,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2003,1,301,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2005,2,1,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2009,1,3,47,,,47,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2010,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2013,1,760,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)","Extreme temperature ",2018,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1952,1,34,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1977,1,6,,,,,1000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1993,2,4,,600,,600,187000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1994,2,7,,700,,700,236000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1997,2,1,,,,,248400
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1998,1,5,,300,,300,500000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,1999,1,,,330,,330,32680
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2000,3,,,1440,,1440,5918150
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2001,2,,,240,,240,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2002,3,1,,750,,750,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2004,1,,8,1000,,1008,96000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2007,3,14,,340200,30000,370200,8448000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2008,2,8,,3300,,3300,50000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2009,1,3,,3900,,3900,484000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2012,5,8,,3785,,3785,2946000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2013,1,2,,600,,600,1500000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2014,1,,,540,,540,624000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2015,1,,,48000,,48000,1200000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Flood,2017,1,,,70,,70,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Fog,1952,1,4000,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Landslide,1966,1,140,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1968,1,20,,700,,700,2500
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1972,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1976,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1981,1,12,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1983,1,5,12,,,12,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1984,1,22,,,,,81500
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1986,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1987,1,20,,,,,1565000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1989,1,13,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1990,7,83,,,,,4790000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1991,1,48,,,,,900000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1995,1,9,,,,,650000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1996,1,5,,12000,,12000,300000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1998,3,35,,253000,,253000,1365400
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,1999,2,11,,200,,200,101000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2000,3,16,4,20100,,20104,1500000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2002,2,14,,,,,400050
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2005,2,10,,3000,,3000,700000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2007,1,13,,,,,1200000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2008,1,,,,,,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2009,1,2,,180,,180,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2010,1,,,,,,500
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2013,3,11,,4200,,4200,
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2014,1,5,,18000,,18000,100000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2015,1,3,,15600,,15600,1200000
+GBR,"United Kingdom of Great Britain and Northern Ireland (the)",Storm,2018,1,,4,,,4,
+YUG,Yugoslavia,Drought,1990,1,,,,,,1000000
+YUG,Yugoslavia,Earthquake,1963,1,1100,3383,,,3383,600000
+YUG,Yugoslavia,Earthquake,1967,1,7,70,16400,5400,21870,20000
+YUG,Yugoslavia,Earthquake,1968,1,1,30,15000,,15030,38600
+YUG,Yugoslavia,Earthquake,1969,1,15,1116,200000,85000,286116,50000
+YUG,Yugoslavia,Earthquake,1979,2,121,180,300000,10000,310180,450000
+YUG,Yugoslavia,Earthquake,1980,1,,100,5000,,5100,
+YUG,Yugoslavia,Earthquake,1981,1,,44,,,44,
+YUG,Yugoslavia,Earthquake,1983,1,12,,,,,
+YUG,Yugoslavia,Earthquake,1985,1,,16,1500,,1516,
+YUG,Yugoslavia,Epidemic,1972,1,35,,174,,174,
+YUG,Yugoslavia,"Extreme temperature ",1988,1,38,,,,,
+YUG,Yugoslavia,Flood,1964,1,,,200000,40000,240000,62600
+YUG,Yugoslavia,Flood,1965,1,3,15000,80000,,95000,347000
+YUG,Yugoslavia,Flood,1979,1,22,,12000,,12000,
+YUG,Yugoslavia,Flood,1981,1,70,,,,,
+YUG,Yugoslavia,Flood,1986,1,,,1000,,1000,
+YUG,Yugoslavia,Flood,1990,1,,,,,,766100
+YUG,Yugoslavia,Wildfire,1983,1,,,,,,200000
+YUG,Yugoslavia,Wildfire,1985,1,,,,,,
+
+
+"Created on: May 23, 2019"
+"Source: EM-DAT: The Emergency Events Database - Universite catholique de Louvain (UCL) - CRED, D. Guha-Sapir - www.emdat.be, Brussels, Belgium"
