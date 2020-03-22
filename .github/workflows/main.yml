@@ -39,7 +39,7 @@ jobs:
         ssh-agent -a $SSH_AUTH_SOCK > /dev/null
         ssh-add - <<< "${{ secrets.DEPLOYMENT_KEY }}"
 
-    - name: Some task that fetches dependencies
+    - name: Deploy to GH pages
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
@@ -48,7 +48,7 @@ jobs:
         git clone git@github.com:environ-mate/environ-mate.github.io.git out/
         cd out/
         rm -fr *
-        cp -R ../public/* .
+        cp -R ../dist/* .
         git commit -a -m "bump"
         git push
 
