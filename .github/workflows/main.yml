@@ -52,6 +52,7 @@ jobs:
         cp ../data/static/404.html .
         cp ../data/static/CNAME .
         cp ../LICENSE .
+        git add .
         git commit -a -m "bump"
         git push
 
