@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request 
+# Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
@@ -29,3 +29,25 @@ jobs:
       run: |
         yarn install
         npm run build
+
+    - name: Setup SSH Keys and known_hosts
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+        ssh-add - <<< "${{ secrets.DEPLOYMENT_KEY }}"
+
+    - name: Some task that fetches dependencies
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+        git clone git@github.com:environ-mate/environ-mate.github.io.git out/
+        cd out/
+        rm -fr *
+        cp -R ../public/* .
+        git commit -a -m "bump"
+        git push
+
+
