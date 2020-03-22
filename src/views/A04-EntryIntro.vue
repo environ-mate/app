@@ -135,7 +135,7 @@ export default {
           height: 280
         },
         data: {
-          url: "/data/european_land_temperature_deviations_annual.csv",
+          url: "/data/temperature/european_land_temperature_deviations_annual.csv",
           x: "year",
           names: {
             "temperature.deviation.degree.celcius": this.$t("chart_degress")
