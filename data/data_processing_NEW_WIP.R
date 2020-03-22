@@ -2,7 +2,7 @@
 
 ##### Setup #####
 
-# set working directory to /app/data/
+# set working directory to /app/
 
 # load libraries
 library(tidyverse)
@@ -32,13 +32,13 @@ library(tidyverse)
 # move to ../app/data/raw_data/temperature/
 
 # load, process and write temperature data
-read_csv("raw_data/temperature/european-average-air-temperature-anomalies-9.csv",
+read_csv("data/raw_data/temperature/european-average-air-temperature-anomalies-9.csv",
          col_names = c("year", "temperature.deviation.degree.celcius", "type"),
          col_types = "i--n---c-",
          skip = 1) %>% 
   filter(type == "European annual") %>% 
   select(-type) %>% 
-  write_csv("processed_data/temperature/european_land_temperature_deviations_annual.csv")
+  write_csv("public/data/temperature/european_land_temperature_deviations_annual.csv")
 
 
 
