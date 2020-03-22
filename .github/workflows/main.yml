@@ -43,6 +43,8 @@ jobs:
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
+        git config --global user.email "deploybot@feld-m.de"
+        git config --global user.name "Deploy bot"
         git clone git@github.com:environ-mate/environ-mate.github.io.git out/
         cd out/
         rm -fr *
