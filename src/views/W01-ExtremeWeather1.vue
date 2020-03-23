@@ -2,22 +2,26 @@
 {
   "de": {
     "title": "Was geschieht mit unserem Wetter?",
-    "vis_title": "Naturkatastrophen in der EU und Russland 1970 - 2018",
-    "vis_legend_storm": "Sturm",
-    "vis_legend_wildfire": "Flächenbrand",
-    "vis_legend_flood": "Überschwemmung",
-    "vis_legend_drought": "Dürre",
-    "desc": "Überschwemmungen, Dürren, Hitzewellen und andere klimabedingte Extreme verursachten zwischen 1980 und 2017 Schäden in Höhe von 453 Milliarden Euro und forderten über 115.000 Menschenleben in ganz Europa. Die Grafik auf der rechten Seite zeigt wie in den letzten Jahren die Anzahl der wetterbedingten Naturkatastrophen zugenommen hat seit den 80er Jahren. Frühe Messungen mögen unvollständig sein aber man sieht in den letzten Jahren einen deutlichen anstieg. Wir können erwarten, dass sowohl die Häufigkeit als auch die Schwere von Stürmen und Überschwemmungen im Laufe der Zeit zunehmen werden, was Eigentum und Leben bedroht.",
+    "vis_title": "Extremwetter in Europa 1960 - 2019",
+    "vis_legend_drought": "Dürren",
+    "vis_legend_extreme_temperature": "Hitzewellen",
+    "vis_legend_flood": "Überschwemmungen",
+    "vis_legend_landslide": "Lawinen",
+    "vis_legend_storm": "Stürme",
+    "vis_legend_wildfire": "Waldbrände",
+    "desc": "Dürren, Hitzewellen, Überschwemmungen, Lawinen, Stürme und Waldbrände verursachten zwischen 1960 und 2019 Schäden in Höhe von etwa 313 Milliarden Dollar und forderten über 162.000 Menschenleben in ganz Europa. Die Grafik auf der rechten Seite zeigt wie die Anzahl der Extremwetterereignisse seit den 1980er Jahren zugenommen hat. Frühe Messungen mögen unvollständig sein aber man sieht in den letzten Jahren einen deutlichen Anstieg. Wir können erwarten, dass sowohl die Häufigkeit als auch die Schwere von Extremwetterereignissen im Laufe der Zeit zunehmen werden, was Leben und Eigentum bedroht.",
     "next_btn": "Übersicht Auswirkungen"
   },
   "en": {
     "title": "What is happening with our weather?",
-    "vis_title": "Natural Catastrophes in the EU and Russia 1970 - 2018",
-    "vis_legend_storm": "Storm",
-    "vis_legend_wildfire": "Wildfire",
-    "vis_legend_flood": "Flood",
-    "vis_legend_drought": "Drought",
-    "desc": "Floods, droughts, heatwaves, and other climate-related extremes caused €453 billion in damages between 1980 and 2017, killing over 115,000 people across Europe. The graph on the right demonstrates how the number of extreme weather catastrophes has increased since the 80ies. Early measurements might be not completely documented but we see a clear increase in the last decades. We can expect both the frequency and severity of storms and floods to rise as time goes on, threatening property and lives.",
+    "vis_title": "Extreme weather in Europe 1960 - 2019",
+    "vis_legend_drought": "Droughts",
+    "vis_legend_extreme_temperature": "Heatwaves",
+    "vis_legend_flood": "Floods",
+    "vis_legend_landslide": "Landslides",
+    "vis_legend_storm": "Storms",
+    "vis_legend_wildfire": "Wildfires",
+    "desc": "Droughts, heatwaves, floods, landslides, storms and wildfires caused around 313 billion dollars in damages between 1960 and 2019, killing over 162,000 people across Europe. The graph on the right demonstrates how the number of extreme weather events has increased since the 1980ies. Early measurements might be not completely documented but we see a clear increase in the last decades. We can expect both the frequency and severity of extrem weather events to rise as time goes on, threatening lives and property.",
     "next_btn": "Overview Consequences"
   }
 }
@@ -111,20 +115,24 @@ export default {
       this.chart.$emit("init", {
         x: "year",
         data: {
-          url: "/data/extreme_weather_occurences.csv",
+          url: "/data/extreme_weather/extreme_weather_occurrences_europe_since_1960.csv",
           x: "year",
           names: {
-            "storm.occurrence": this.$t("vis_legend_storm"),
-            "wildfire.occurrence": this.$t("vis_legend_wildfire"),
+            "drought.occurrence": this.$t("vis_legend_drought"),
+            "extreme.temperature.occurrence": this.$t("vis_legend_extreme_temperature"),
             "flood.occurrence": this.$t("vis_legend_flood"),
-            "drought.occurrence": this.$t("vis_legend_drought")
+            "landslide.occurrence": this.$t("vis_legend_landslide"),
+            "storm.occurrence": this.$t("vis_legend_storm"),
+            "wildfire.occurrence": this.$t("vis_legend_wildfire")
           },
           type: "area",
           colors: {
-            "storm.occurrence": Colors.purple,
-            "wildfire.occurrence": Colors.orange,
+            "drought.occurrence": Colors.purple,
+            "extreme.temperature.occurrence": Colors.orange,
             "flood.occurrence": Colors.blue,
-            "drought.occurrence": Colors.brown
+            "landslide.occurrence": Colors.brown,
+            "storm.occurrence": Colors.green,
+            "wildfire.occurrence": Colors.red
           }
         }
       });
