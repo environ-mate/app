@@ -43,18 +43,18 @@
 </template>
 
 <script>
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
-import "leaflet-easybutton/src/easy-button";
-import "leaflet-easybutton/src/easy-button.css";
+import 'leaflet-easybutton/src/easy-button';
+import 'leaflet-easybutton/src/easy-button.css';
 
 export default {
-  name: "References",
+  name: 'References',
 
-  props: ["references"],
+  props: ['references'],
 
-  methods: {}
+  methods: {},
 };
 </script>
 

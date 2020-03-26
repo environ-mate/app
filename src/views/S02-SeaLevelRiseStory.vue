@@ -121,15 +121,15 @@
 </template>
 
 <script>
-import * as d3 from "d3";
-import L from "leaflet";
-import Colors from "@/utils/colors";
-import "@/vendors/leaflet-svgicon/svg-icon";
-import References from "@/components/References.vue";
+import * as d3 from 'd3';
+import L from 'leaflet';
+import Colors from '@/utils/colors';
+import '@/vendors/leaflet-svgicon/svg-icon';
+import References from '@/components/References.vue';
 
 export default {
   components: {
-    References
+    References,
   },
 
   data() {
@@ -138,79 +138,79 @@ export default {
       years: [2010, 2040, 2070, 2100],
       stories: {
         aveiro: {
-          name: this.$t("story_name_aveiro"),
-          storyDesc: this.$t("story_desc_aveiro"),
+          name: this.$t('story_name_aveiro'),
+          storyDesc: this.$t('story_desc_aveiro'),
           coords: [40.7323, -8.65391],
           zoomLevel: 11,
           imageLocation: [40.661995, -8.647931],
-          imageURL: "/assets/sealevel_rise_story/aveiro.jpg",
-          imageCopyrightText: "Sergei G.",
-          imageCopyrightLink: "https://www.flickr.com/photos/sergeigussev/"
+          imageURL: '/assets/sealevel_rise_story/aveiro.jpg',
+          imageCopyrightText: 'Sergei G.',
+          imageCopyrightLink: 'https://www.flickr.com/photos/sergeigussev/',
         },
         foulness: {
-          name: this.$t("story_name_foulness"),
-          storyDesc: this.$t("desc"),
+          name: this.$t('story_name_foulness'),
+          storyDesc: this.$t('desc'),
           coords: [51.60542714, 0.8507641],
           zoomLevel: 12,
           imageLocation: [51.5855078, 0.8701842],
-          imageURL: "/assets/sealevel_rise_story/foulness.jpg",
-          imageCopyrightText: "Trevor H.",
-          imageCopyrightLink: "https://www.geograph.org.uk/profile/27744"
+          imageURL: '/assets/sealevel_rise_story/foulness.jpg',
+          imageCopyrightText: 'Trevor H.',
+          imageCopyrightLink: 'https://www.geograph.org.uk/profile/27744',
         },
         uzlina: {
-          name: this.$t("story_name_uzlina"),
-          storyDesc: this.$t("desc"),
+          name: this.$t('story_name_uzlina'),
+          storyDesc: this.$t('desc'),
           coords: [44.9885519, 29.5160797],
           zoomLevel: 10,
           imageLocation: null,
-          imageURL: "/assets/sealevel_rise_story/uzlina.jpg",
-          imageCopyrightText: "F.Micki",
-          imageCopyrightLink: "https://www.flickr.com/photos/f_micki/"
+          imageURL: '/assets/sealevel_rise_story/uzlina.jpg',
+          imageCopyrightText: 'F.Micki',
+          imageCopyrightLink: 'https://www.flickr.com/photos/f_micki/',
         },
         the_broads: {
-          name: this.$t("story_name_the_broads"),
-          storyDesc: this.$t("desc"),
+          name: this.$t('story_name_the_broads'),
+          storyDesc: this.$t('desc'),
           coords: [52.633363, 1.709751],
           zoomLevel: 11,
           imageLocation: [52.7004576, 1.6675209],
-          imageURL: "/assets/sealevel_rise_story/the_broads.jpg",
-          imageCopyrightText: "Richard L.",
-          imageCopyrightLink: "https://www.geograph.org.uk/profile/25319"
+          imageURL: '/assets/sealevel_rise_story/the_broads.jpg',
+          imageCopyrightText: 'Richard L.',
+          imageCopyrightLink: 'https://www.geograph.org.uk/profile/25319',
         },
         netherlands: {
-          name: this.$t("story_name_netherlands"),
-          storyDesc: this.$t("story_desc_netherlands"),
+          name: this.$t('story_name_netherlands'),
+          storyDesc: this.$t('story_desc_netherlands'),
           coords: [52.5387303, 5.2920731],
           zoomLevel: 8,
           imageLocation: null,
           imageURL: null,
           imageCopyrightText: null,
-          imageCopyrightLink: null
-        }
+          imageCopyrightLink: null,
+        },
       },
-      storySelectedId: "foulness",
+      storySelectedId: 'foulness',
       storySelectedData: null,
       storyImageMapLayerGroup: L.layerGroup().addTo(this.$parent.$data.map),
       storyGeoData: null,
       loop: null,
       references: [
         {
-          title: "Digital Elevation Model Over Europe (EU-DEM)",
+          title: 'Digital Elevation Model Over Europe (EU-DEM)',
           link:
-            "https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-eu-dem#tab-gis-data",
-          version: "07 Dec 2017",
+            'https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-eu-dem#tab-gis-data',
+          version: '07 Dec 2017',
           publisherName: null,
-          publisherLogo: "/assets/data_source_publishers/copernicus.png"
+          publisherLogo: '/assets/data_source_publishers/copernicus.png',
         },
         {
-          title: "RCP4.5 total sea level rise projections",
+          title: 'RCP4.5 total sea level rise projections',
           link:
-            "https://www.eea.europa.eu/data-and-maps/data/external/ar5-sea-level-rise-projections",
-          version: "2015-10-21T15:01:59Z",
-          publisherName: "Integrated Climate Data Center (ICDC)",
-          publisherLogo: null
-        }
-      ]
+            'https://www.eea.europa.eu/data-and-maps/data/external/ar5-sea-level-rise-projections',
+          version: '2015-10-21T15:01:59Z',
+          publisherName: 'Integrated Climate Data Center (ICDC)',
+          publisherLogo: null,
+        },
+      ],
     };
   },
 
@@ -232,7 +232,7 @@ export default {
 
   methods: {
     removeLayers() {
-      this.storyImageMapLayerGroup.eachLayer(layer2rm => {
+      this.storyImageMapLayerGroup.eachLayer((layer2rm) => {
         this.storyImageMapLayerGroup.removeLayer(layer2rm);
       });
     },
@@ -254,17 +254,17 @@ export default {
       this.$parent.$data.map.flyTo(
         this.storySelectedData.coords,
         this.storySelectedData.zoomLevel,
-        this.$parent.$options.flyToOptions(60)
+        this.$parent.$options.flyToOptions(60),
       );
 
       // add story photo marker to map
       if (this.storySelectedData.imageLocation) {
         new L.Marker.SVGMarker(
           L.latLng(...this.storySelectedData.imageLocation),
-          { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }
+          { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } },
         )
           .addTo(this.storyImageMapLayerGroup)
-          .bindPopup(this.$t("photo_popup"))
+          .bindPopup(this.$t('photo_popup'))
           .openPopup();
       }
 
@@ -273,9 +273,9 @@ export default {
       for (const year of this.years) {
         const promise = d3
           .json(
-            `/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`
+            `/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`,
           )
-          .then(geoJSON => {
+          .then((geoJSON) => {
             this.storyGeoData[year] = geoJSON;
           });
         promises.push(promise);
@@ -316,12 +316,12 @@ export default {
       L.geoJson(this.storyGeoData[this.year], {
         weight: 0,
         fillColor: Colors.blue,
-        fillOpacity: 0.5
+        fillOpacity: 0.5,
       }).addTo(this.$parent.$data.mapLayerGroup);
     },
 
     next() {
-      this.$router.push({ name: "C01-ClimateChangeEffectsIntro" });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     modalClose() {
@@ -330,7 +330,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

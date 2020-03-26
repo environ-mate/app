@@ -93,15 +93,15 @@
 </template>
 
 <script>
-import Colors from "@/utils/colors";
-import Vue from "vue";
-import VueC3 from "vue-c3";
-import References from "@/components/References.vue";
+import Colors from '@/utils/colors';
+import Vue from 'vue';
+import VueC3 from 'vue-c3';
+import References from '@/components/References.vue';
 
 export default {
   components: {
     References,
-    VueC3
+    VueC3,
   },
 
   data() {
@@ -109,13 +109,13 @@ export default {
       chart: new Vue(),
       references: [
         {
-          title: "Global and European temperature",
+          title: 'Global and European temperature',
           link:
-            "https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment",
+            'https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment',
           publisherName: null,
-          publisherLogo: "/assets/data_source_publishers/eea.png"
-        }
-      ]
+          publisherLogo: '/assets/data_source_publishers/eea.png',
+        },
+      ],
     };
   },
 
@@ -129,47 +129,47 @@ export default {
 
   methods: {
     renderChart() {
-      this.chart.$emit("init", {
-        x: "year",
+      this.chart.$emit('init', {
+        x: 'year',
         size: {
-          height: 280
+          height: 280,
         },
         data: {
-          url: "/data/temperature/european_land_temperature_deviations_annual.csv",
-          x: "year",
+          url: '/data/temperature/european_land_temperature_deviations_annual.csv',
+          x: 'year',
           names: {
-            "temperature.deviation.degree.celcius": this.$t("chart_degress")
+            'temperature.deviation.degree.celcius': this.$t('chart_degress'),
           },
-          type: "bar",
+          type: 'bar',
           colors: {
-            "temperature.deviation.degree.celcius": d => {
+            'temperature.deviation.degree.celcius': (d) => {
               if (d.value < 0) {
                 return Colors.blue;
               }
               return Colors.red;
-            }
-          }
+            },
+          },
         },
         bar: {
           width: {
-            ratio: 1.2
-          }
+            ratio: 1.2,
+          },
         },
         axis: {
           y: {
             max: 2.4,
             min: -0.5,
             label: {
-              text: "°C",
-              position: "outer-middle"
-            }
-          }
-        }
+              text: '°C',
+              position: 'outer-middle',
+            },
+          },
+        },
       });
     },
 
     next() {
-      this.$router.push({ name: "B01-GreenhouseEffect1" });
+      this.$router.push({ name: 'B01-GreenhouseEffect1' });
     },
 
     modalClose() {
@@ -178,8 +178,8 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>
 

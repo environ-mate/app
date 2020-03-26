@@ -90,17 +90,17 @@
 </template>
 
 <script>
-import * as d3 from "d3";
-import Vue from "vue";
-import VueC3 from "vue-c3";
-import Mappings from "@/utils/mappings";
-import Colors from "@/utils/colors";
-import References from "@/components/References.vue";
+import * as d3 from 'd3';
+import Vue from 'vue';
+import VueC3 from 'vue-c3';
+import Mappings from '@/utils/mappings';
+import Colors from '@/utils/colors';
+import References from '@/components/References.vue';
 
 export default {
   components: {
     VueC3,
-    References
+    References,
   },
 
   data() {
@@ -109,30 +109,30 @@ export default {
       year: null,
       references: [
         {
-          title: "Greenhouse gas emissions",
-          version: "TODO",
+          title: 'Greenhouse gas emissions',
+          version: 'TODO',
           link:
-            "https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10",
-          publisherName: "",
-          publisherLogo: "/assets/data_source_publishers/eurostat.png"
+            'https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10',
+          publisherName: '',
+          publisherLogo: '/assets/data_source_publishers/eurostat.png',
         },
         {
-          title: "National greenhouse gas inventories",
-          version: "TODO",
+          title: 'National greenhouse gas inventories',
+          version: 'TODO',
           link:
-            "https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15",
-          publisherName: "",
-          publisherLogo: "/assets/data_source_publishers/eea.png"
+            'https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15',
+          publisherName: '',
+          publisherLogo: '/assets/data_source_publishers/eea.png',
         },
         {
-          title: "2018 GHG projections",
-          version: "TODO",
+          title: '2018 GHG projections',
+          version: 'TODO',
           link:
-            "https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4",
-          publisherName: "",
-          publisherLogo: "/assets/data_source_publishers/eea.png"
-        }
-      ]
+            'https://www.eea.europa.eu/data-and-maps/data/greenhouse-gas-emission-projections-for-4',
+          publisherName: '',
+          publisherLogo: '/assets/data_source_publishers/eea.png',
+        },
+      ],
     };
   },
 
@@ -147,16 +147,15 @@ export default {
   methods: {
     renderChart() {
       // emissions data load csv
-      d3.csv("/data/ghg_emissions.csv").then(rows => {
+      d3.csv('/data/ghg_emissions.csv').then((rows) => {
         // map csv country name to home towbn
         const homeCountryName = Object.values(Mappings.countryMapping).filter(
-          m => m[1] === this.$parent.$data.homeTownCountryCode
+          m => m[1] === this.$parent.$data.homeTownCountryCode,
         )[0][0];
 
         let data = rows.filter(
-          r =>
-            r["country.name"] === homeCountryName &&
-            parseInt(r.year, 10) < new Date().getFullYear()
+          r => r['country.name'] === homeCountryName
+            && parseInt(r.year, 10) < new Date().getFullYear(),
         );
 
         // take last year found
@@ -167,51 +166,51 @@ export default {
         this.year = data.year;
 
         data = [
-          "agriculture.ghg.emissions.mio.tonnes",
-          "energy.ghg.emissions.mio.tonnes",
-          "waste.ghg.emissions.mio.tonnes",
-          "transport.ghg.emissions.mio.tonnes",
-          "industry.ghg.emissions.mio.tonnes",
-          "other.ghg.emissions.mio.tonnes"
+          'agriculture.ghg.emissions.mio.tonnes',
+          'energy.ghg.emissions.mio.tonnes',
+          'waste.ghg.emissions.mio.tonnes',
+          'transport.ghg.emissions.mio.tonnes',
+          'industry.ghg.emissions.mio.tonnes',
+          'other.ghg.emissions.mio.tonnes',
         ].reduce((result, key) => {
           // eslint-disable-next-line no-param-reassign
           result[key] = data[key];
           return result;
         }, {});
 
-        this.chart.$emit("init", {
+        this.chart.$emit('init', {
           data: {
             json: data,
             names: {
-              "agriculture.ghg.emissions.mio.tonnes": this.$t(
-                "vis_legend_agriculture"
+              'agriculture.ghg.emissions.mio.tonnes': this.$t(
+                'vis_legend_agriculture',
               ),
-              "energy.ghg.emissions.mio.tonnes": this.$t("vis_legend_energy"),
-              "waste.ghg.emissions.mio.tonnes": this.$t("vis_legend_waste"),
-              "transport.ghg.emissions.mio.tonnes": this.$t(
-                "vis_legend_transport"
+              'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
+              'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
+              'transport.ghg.emissions.mio.tonnes': this.$t(
+                'vis_legend_transport',
               ),
-              "industry.ghg.emissions.mio.tonnes": this.$t(
-                "vis_legend_industry"
+              'industry.ghg.emissions.mio.tonnes': this.$t(
+                'vis_legend_industry',
               ),
-              "other.ghg.emissions.mio.tonnes": this.$t("vis_legend_other")
+              'other.ghg.emissions.mio.tonnes': this.$t('vis_legend_other'),
             },
             colors: {
-              "agriculture.ghg.emissions.mio.tonnes": Colors.green,
-              "energy.ghg.emissions.mio.tonnes": Colors.orange,
-              "waste.ghg.emissions.mio.tonnes": Colors.red,
-              "transport.ghg.emissions.mio.tonnes": Colors.blue,
-              "industry.ghg.emissions.mio.tonnes": Colors.purple,
-              "other.ghg.emissions.mio.tonnes": Colors.yellow
+              'agriculture.ghg.emissions.mio.tonnes': Colors.green,
+              'energy.ghg.emissions.mio.tonnes': Colors.orange,
+              'waste.ghg.emissions.mio.tonnes': Colors.red,
+              'transport.ghg.emissions.mio.tonnes': Colors.blue,
+              'industry.ghg.emissions.mio.tonnes': Colors.purple,
+              'other.ghg.emissions.mio.tonnes': Colors.yellow,
             },
-            type: "donut"
-          }
+            type: 'donut',
+          },
         });
       });
     },
 
     next() {
-      this.$router.push({ name: "B05-GreenhouseEffect5" });
+      this.$router.push({ name: 'B05-GreenhouseEffect5' });
     },
 
     modalClose() {
@@ -220,7 +219,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

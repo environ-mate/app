@@ -80,11 +80,11 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: "C01-ClimateChangeEffectsIntro" });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     examples() {
-      this.$router.push({ name: "Z01-ActOverview" });
+      this.$router.push({ name: 'Z01-ActOverview' });
     },
 
     modalClose() {
@@ -93,7 +93,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

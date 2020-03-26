@@ -99,19 +99,19 @@
 export default {
   methods: {
     examples() {
-      this.$router.push({ name: "Z04-ActRandom" });
+      this.$router.push({ name: 'Z04-ActRandom' });
     },
 
     next() {
-      this.$router.push({ name: "Z02-ActInfos1" });
+      this.$router.push({ name: 'Z02-ActInfos1' });
     },
 
     euact() {
-      this.$router.push({ name: "Z03-ActInfos2" });
+      this.$router.push({ name: 'Z03-ActInfos2' });
     },
 
     future() {
-      this.$router.push({ name: "ZXX-ActInfos3" });
+      this.$router.push({ name: 'ZXX-ActInfos3' });
     },
 
     modalClose() {
@@ -120,7 +120,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

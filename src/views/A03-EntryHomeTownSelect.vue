@@ -69,19 +69,19 @@
 </template>
 
 <script>
-import L from "leaflet";
-import Colors from "@/utils/colors";
-import Helper from "@/utils/helper";
-import axios from "axios";
-import omnivore from "leaflet-omnivore/leaflet-omnivore";
+import L from 'leaflet';
+import Colors from '@/utils/colors';
+import Helper from '@/utils/helper';
+import axios from 'axios';
+import omnivore from 'leaflet-omnivore/leaflet-omnivore';
 
 export default {
   data() {
     return {
       modalOpen: true,
-      city2geoCode: "",
+      city2geoCode: '',
       city2geoCodeIsLoading: false,
-      citySuggestions: []
+      citySuggestions: [],
     };
   },
 
@@ -102,18 +102,18 @@ export default {
         // get cities for autocomplete
         axios
           .get(
-            `https://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2geoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`
+            `https://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&query=${this.city2geoCode}&beginHighlight=<mark>&endHighlight=</mark>&resultType=areas&maxresults=10`,
           )
-          .then(response => {
+          .then((response) => {
             if (!response.data.suggestions) {
               return;
             }
 
             this.citySuggestions = response.data.suggestions.filter(
-              s => s.matchLevel === "district" || s.matchLevel === "city"
+              s => s.matchLevel === 'district' || s.matchLevel === 'city',
             );
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
           })
           .finally(() => {
@@ -129,9 +129,9 @@ export default {
       // get selected city polygon
       axios
         .get(
-          `https://geocoder.api.here.com/6.2/geocode.json?locationid=${locationId}&gen=9&app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&maxresults=1&additionaldata=IncludeShapeLevel,city`
+          `https://geocoder.api.here.com/6.2/geocode.json?locationid=${locationId}&gen=9&app_id=7gCIVwMlioSBU1tFJoeg&app_code=SWuBVOU9R325PSRgsuxFIQ&maxresults=1&additionaldata=IncludeShapeLevel,city`,
         )
-        .then(response => {
+        .then((response) => {
           const location = response.data.Response.View[0].Result[0].Location;
 
           let layer = L.geoJson(null, {
@@ -141,20 +141,19 @@ export default {
                 color: Colors.blue,
                 opacity: 0.9,
                 fillColor: Colors.blue,
-                fillOpacity: 0.3
+                fillOpacity: 0.3,
               };
-            }
+            },
           });
 
           this.$parent.$data.homeTownCoords = [
             location.DisplayPosition.Latitude,
-            location.DisplayPosition.Longitude
+            location.DisplayPosition.Longitude,
           ];
-          this.$parent.$data.homeTownName =
-            location.Address.District || location.Address.City;
+          this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
           this.$parent.$data.homeTownCountryCode = location.Address.Country;
           this.$parent.$data.homeTownCountryName = location.Address.AdditionalData.filter(
-            d => d.key === "CountryName"
+            d => d.key === 'CountryName',
           )[0].value;
 
           this.modalOpen = false;
@@ -162,48 +161,48 @@ export default {
           // fly map to europe
           this.$parent.map.flyToBounds(
             [[50.99995, 9.99995], [51.00005, 10.00005]],
-            this.$parent.$options.flyToOptions(4, 2, 1.0)
+            this.$parent.$options.flyToOptions(4, 2, 1.0),
           );
 
-          this.$parent.map.once("moveend", () => {
+          this.$parent.map.once('moveend', () => {
             Helper.sleep(1, () => {
               // fly to city
               layer = omnivore.wkt.parse(location.Shape.Value, null, layer);
 
               this.$parent.$data.map.flyToBounds(
                 layer.getBounds(),
-                this.$parent.$options.flyToOptions(11)
+                this.$parent.$options.flyToOptions(11),
               );
 
               this.$parent.removeLayers();
 
-              this.$parent.$data.map.once("moveend", () => {
+              this.$parent.$data.map.once('moveend', () => {
                 layer.addTo(this.$parent.$data.mapLayerGroup);
 
                 new L.Marker.SVGMarker(
                   L.latLng(...this.$parent.$data.homeTownCoords),
-                  { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } }
+                  { iconOptions: { color: Colors.orange, fillOpacity: 0.8 } },
                 )
                   .addTo(this.$parent.$data.mapLayerGroup)
                   .bindPopup(
-                    this.$t("popup", { city: this.$parent.$data.homeTownName })
+                    this.$t('popup', { city: this.$parent.$data.homeTownName }),
                   )
                   .openPopup();
 
                 Helper.sleep(3, () => {
-                  this.$router.push({ name: "A04-EntryIntro" });
+                  this.$router.push({ name: 'A04-EntryIntro' });
                 });
               });
             });
           });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         })
         .finally(() => {
           this.city2geoCodeIsLoading = false;
         });
-    }
-  }
+    },
+  },
 };
 </script>

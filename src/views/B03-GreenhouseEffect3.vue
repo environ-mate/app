@@ -156,7 +156,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: "B04-GreenhouseEffect4" });
+      this.$router.push({ name: 'B04-GreenhouseEffect4' });
     },
 
     modalClose() {
@@ -165,7 +165,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>
