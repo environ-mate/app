@@ -4,6 +4,9 @@
 
 # set working directory to /app/
 
+# path to raw data
+path <- "data/raw_data/"
+
 # load libraries
 library(tidyverse)
 
@@ -15,9 +18,9 @@ library(tidyverse)
 
 ##### Topics
 
-# temperature
-# emissions
-# extreme weather
+# annual average temperature deviations europe
+# greenhouse gas emissions europe
+# extreme weather occurrences
 
 
 
@@ -27,18 +30,18 @@ library(tidyverse)
 
 ##### Temperature #####
 
-### european average temperatures over land areas relative to the pre-industrial period in degrees celcius 1880 to 2018
+### european average temperatures over land areas relative to the pre-industrial period in degrees celcius 1880 to 2018 (HadCRUT4)
 # download csv from https://www.eea.europa.eu/data-and-maps/daviz/european-average-air-temperature-anomalies-9#tab-chart_9
 # rename file to european_land_temperature_deviations_annual_raw.csv
 # move to ../app/data/raw_data/temperature/
 
-# load, process and write data
-col_names <- c("year",
-               "temperature.deviation.degree.celcius",
-               "type")
+# load data, select model and filter measurement type
+column_names <- c("year",
+                  "temperature.deviation.degree.celcius",
+                  "type")
 
-read_csv("data/raw_data/temperature/european_land_temperature_deviations_annual_raw.csv",
-         col_names = col_names,
+read_csv(paste0(path, "temperature/european_land_temperature_deviations_annual_raw.csv"),
+         col_names = column_names,
          col_types = "i--n---c-",
          skip = 1) %>% 
   filter(type == "European annual") %>% 
@@ -60,14 +63,15 @@ read_csv("data/raw_data/temperature/european_land_temperature_deviations_annual_
 # extract and rename file to ghg_emissions_total_and_per_sector_europe_raw.csv
 # move to ../app/data/raw_data/ghg_emissions/
 
-col_names <- c("country.name",
-               "ghg.emissions.giga.tonnes",
-               "pollutant.name",
-               "sector.name",
-               "year")
+# load data, filter countries, sectors and years and transform ghg emissions per sector
+column_names <- c("country.name",
+                  "ghg.emissions.giga.tonnes",
+                  "pollutant.name",
+                  "sector.name",
+                  "year")
 
-ghg_emissions_total_and_per_sector_europe_raw <- read_csv("data/raw_data/ghg_emissions/ghg_emissions_total_and_per_sector_europe_raw.csv",
-                                                      col_names = col_names,
+ghg_emissions_total_and_per_sector_europe <- read_csv(paste0(path, "ghg_emissions/ghg_emissions_total_and_per_sector_europe_raw.csv"),
+                                                      col_names = column_names,
                                                       col_types = "--c-n---c-c-c",
                                                       skip = 1) %>% 
   filter(!(country.name %in% c("EU (KP)")) & 
@@ -81,22 +85,19 @@ ghg_emissions_total_and_per_sector_europe_raw <- read_csv("data/raw_data/ghg_emi
     TRUE ~ country.name)) %>% 
   mutate(year = as.integer(year)) %>% 
   mutate(sector.name = case_when(
-    sector.name == "1 - Energy" ~ "energy",
-    sector.name == "1.A.3 - Transport" ~ "transport",
-    sector.name == "2 - Industrial Processes and Product Use" ~ "industry",
-    sector.name == "3 - Agriculture" ~ "agriculture",
-    sector.name == "5 - Waste management" ~ "waste",
-    sector.name == "Total (without LULUCF, without indirect CO2)" ~ "total")) %>% 
+    sector.name == "1 - Energy" ~ "ghg.emissions.energy.mio.tonnes",
+    sector.name == "1.A.3 - Transport" ~ "ghg.emissions.transport.mio.tonnes",
+    sector.name == "2 - Industrial Processes and Product Use" ~ "ghg.emissions.industry.mio.tonnes",
+    sector.name == "3 - Agriculture" ~ "ghg.emissions.agriculture.mio.tonnes",
+    sector.name == "5 - Waste management" ~ "ghg.emissions.waste.mio.tonnes",
+    sector.name == "Total (without LULUCF, without indirect CO2)" ~ "ghg.emissions.total.mio.tonnes")) %>% 
   mutate(ghg.emissions.mio.tonnes = round(ghg.emissions.giga.tonnes / 1000, 1)) %>% 
   select(country.name,
          year,
          sector.name,
          ghg.emissions.mio.tonnes) %>% 
-  arrange(country.name,
-          year,
-          sector.name) %>% 
   spread(sector.name, ghg.emissions.mio.tonnes) %>% 
-  mutate(energy = energy - transport)
+  mutate(ghg.emissions.energy.mio.tonnes = ghg.emissions.energy.mio.tonnes - ghg.emissions.transport.mio.tonnes)
 
 
 
@@ -109,10 +110,11 @@ ghg_emissions_total_and_per_sector_europe_raw <- read_csv("data/raw_data/ghg_emi
 # extract and rename file to ghg_emissions_per_capita_europe_raw.tsv
 # move to ../app/data/raw_data/ghg_emissions/
 
-# load and process data
-ghg_emissions_per_capita_europe_raw <- read_tsv("data/raw_data/ghg_emissions/ghg_emissions_per_capita_europe_raw.tsv") %>% 
+# load data, filter indicator and countries and transform ghg emissions per capita
+ghg_emissions_per_capita_europe <- read_tsv(paste0(path, "ghg_emissions/ghg_emissions_per_capita_europe_raw.tsv")) %>% 
   separate(`indic_env,geo\\time`, c("indicator", "country.code"), sep = ",") %>% 
-  filter(indicator == "GHG_T_HAB") %>% 
+  filter(indicator == "GHG_T_HAB" & 
+         country.code != "EU27_2020") %>% 
   mutate(country.name = case_when(
     country.code == "AT" ~ "Austria",
     country.code == "BE" ~ "Belgium",
@@ -136,7 +138,7 @@ ghg_emissions_per_capita_europe_raw <- read_tsv("data/raw_data/ghg_emissions/ghg
     country.code == "IT" ~ "Italy",
     country.code == "LI" ~ "Liechtenstein",
     country.code == "LT" ~ "Lithuania",
-    country.code == "LU" ~ "Luxembourgh",
+    country.code == "LU" ~ "Luxembourg",
     country.code == "LV" ~ "Latvia",
     country.code == "MT" ~ "Malta",
     country.code == "NL" ~ "Netherlands",
@@ -147,31 +149,11 @@ ghg_emissions_per_capita_europe_raw <- read_tsv("data/raw_data/ghg_emissions/ghg
     country.code == "SE" ~ "Sweden",
     country.code == "SI" ~ "Slovenia",
     country.code == "SK" ~ "Slovakia",
-    country.code == "TR" ~ "Turkey",
-    TRUE ~ NA_character_)) %>% 
-  filter(country.code != "EU27_2020")
-
-# # extract and process ghg emissions total indexed
-# ghg_emissions_total_indexed <- ghg_emissions_total_and_per_capita_europe_raw %>% 
-#   filter(indicator == "GHG_I90") %>% 
-#   gather("year", "ghg.emissions.total.indexed", 3:30) %>% 
-#   select(country.name,
-#          year,
-#          ghg.emissions.total.indexed) %>% 
-#   arrange(country.name,
-#           year) %>% 
-#   mutate(year = as.integer(year)) %>% 
-#   mutate(ghg.emissions.total.indexed = as.numeric(ghg.emissions.total.indexed))
-
-# extract and process ghg emissions per capita
-ghg_emissions_per_capita <- ghg_emissions_per_capita_europe_raw %>% 
-  filter(indicator == "GHG_T_HAB") %>% 
+    country.code == "TR" ~ "Turkey")) %>% 
   gather("year", "ghg.emissions.per.capita.tonnes", 3:30) %>% 
   select(country.name,
          year,
          ghg.emissions.per.capita.tonnes) %>% 
-  arrange(country.name,
-          year) %>% 
   mutate(year = as.integer(year)) %>% 
   mutate(ghg.emissions.per.capita.tonnes = str_replace(ghg.emissions.per.capita.tonnes, "b", "")) %>% 
   mutate(ghg.emissions.per.capita.tonnes = str_replace(ghg.emissions.per.capita.tonnes, "e", "")) %>% 
@@ -189,21 +171,20 @@ ghg_emissions_per_capita <- ghg_emissions_per_capita_europe_raw %>%
 # extract and rename file to ghg_emissions_projections_total_and_per_sector_europe_raw.csv
 # move to ../app/data/raw_data/ghg_emissions/
 
-# load and process data (select most recent full year, categories and scenario)
-col_names <- c("country.code",
-               "year",
-               "category",
-               "category.name",
-               "scenario",
-               "gas",
-               "ghg.emissions.kilo.tonnes.co2e")
+# load data, select years, categories, scenario and gas and transform ghg emissions projections
+column_names <- c("country.code",
+                  "year",
+                  "category",
+                  "scenario",
+                  "gas",
+                  "ghg.emissions.kilo.tonnes.co2e")
 
-ghg_emissions_projections_total_and_per_sector_europe_raw <- read_csv("data/raw_data/ghg_emissions/ghg_emissions_projections_total_and_per_sector_europe_raw.csv",
-                                                                      col_names = col_names,
-                                                                      col_types = "ci-cccc--n",
-                                                                      skip = 1) %>% 
-  filter(year == 2019 & 
-         category.name == "Total w.out LULUCF" & 
+ghg_emissions_projections_total_and_per_sector_europe <- read_csv(paste0(path, "ghg_emissions/ghg_emissions_projections_total_and_per_sector_europe_raw.csv"),
+                                                                  col_names = column_names,
+                                                                  col_types = "ci-c-cc--n",
+                                                                  skip = 1) %>% 
+  filter(year %in% c(2018, 2019, 2020, 2030, 2040) & 
+         category %in% c("Total w.out LULUCF", "1.", "1.A.3.", "2.", "3.", "5.") & 
          scenario == "WEM" & 
          gas == "Total GHGs (ktCO2e)") %>% 
   mutate(country.name = case_when(
@@ -229,7 +210,7 @@ ghg_emissions_projections_total_and_per_sector_europe_raw <- read_csv("data/raw_
     country.code == "IT" ~ "Italy",
     country.code == "LI" ~ "Liechtenstein",
     country.code == "LT" ~ "Lithuania",
-    country.code == "LU" ~ "Luxembourgh",
+    country.code == "LU" ~ "Luxembourg",
     country.code == "LV" ~ "Latvia",
     country.code == "MT" ~ "Malta",
     country.code == "NL" ~ "Netherlands",
@@ -240,14 +221,193 @@ ghg_emissions_projections_total_and_per_sector_europe_raw <- read_csv("data/raw_
     country.code == "SE" ~ "Sweden",
     country.code == "SI" ~ "Slovenia",
     country.code == "SK" ~ "Slovakia",
-    country.code == "TR" ~ "Turkey",
-    TRUE ~ NA_character_)) %>% 
-  mutate(ghg.emissions.kilo.tonnes.co2e = round(ghg.emissions.kilo.tonnes.co2e / 1000, 1)) %>% 
+    country.code == "TR" ~ "Turkey")) %>% 
+  mutate(category = case_when(
+    category == "1." ~ "ghg.emissions.energy.mio.tonnes",
+    category == "1.A.3." ~ "ghg.emissions.transport.mio.tonnes",
+    category == "2." ~ "ghg.emissions.industry.mio.tonnes",
+    category == "3." ~ "ghg.emissions.agriculture.mio.tonnes",
+    category == "5." ~ "ghg.emissions.waste.mio.tonnes",
+    category == "Total w.out LULUCF" ~ "ghg.emissions.total.mio.tonnes")) %>% 
+  mutate(ghg.emissions.mio.tonnes = round(ghg.emissions.kilo.tonnes.co2e / 1000, 1)) %>% 
   select(country.name,
          year,
          category,
-         category.name,
-         ghg.emissions.kilo.tonnes.co2e)
+         ghg.emissions.mio.tonnes) %>% 
+  spread(category, ghg.emissions.mio.tonnes) %>% 
+  mutate(ghg.emissions.energy.mio.tonnes = ghg.emissions.energy.mio.tonnes - ghg.emissions.transport.mio.tonnes)
+
+
+
+### population europe 1975 to 2019 to compute ghg emissions projections per capita for 2018 and 2019
+# download zipped tsv from https://ec.europa.eu/eurostat/web/products-datasets/-/namq_10_pe
+# extract and rename file to population_europe_raw.tsv
+# move to ../app/data/raw_data/population/
+
+# load data, select indicators and countries and compute mean population for 2018 and 2019 per country
+population_europe <- read_tsv(paste0(path, "population/population_europe_raw.tsv")) %>% 
+  separate(`unit,s_adj,na_item,geo\\time`, c("unit", "s_adj", "na_item", "geo"), sep = ",") %>% 
+  filter(unit == "THS_PER" & 
+         s_adj == "NSA" & 
+         na_item == "POP_NC" & 
+         !(geo %in% c("EA", "EA12", "EA19", "EU15", "EU27_2020", "RS"))) %>% 
+  select(geo,
+         `2019Q4`,
+         `2019Q3`,
+         `2019Q2`,
+         `2019Q1`,
+         `2018Q4`,
+         `2018Q3`,
+         `2018Q2`,
+         `2018Q1`) %>% 
+  mutate(country.name = case_when(
+    geo == "AT" ~ "Austria",
+    geo == "BE" ~ "Belgium",
+    geo == "BG" ~ "Bulgaria",
+    geo == "CH" ~ "Switzerland",
+    geo == "CY" ~ "Cyprus",
+    geo == "CZ" ~ "Czech Republic",
+    geo == "DE" ~ "Germany",
+    geo == "DK" ~ "Denmark",
+    geo == "EE" ~ "Estonia",
+    geo == "ES" ~ "Spain",
+    geo == "EU" | geo == "EU28" ~ "EU28",
+    geo == "FI" ~ "Finland",
+    geo == "FR" ~ "France",
+    geo == "GB" | geo == "UK" ~ "UK",
+    geo == "GR" | geo == "EL" ~ "Greece",
+    geo == "HR" ~ "Croatia",
+    geo == "HU" ~ "Hungary",
+    geo == "IE" ~ "Ireland",
+    geo == "IS" ~ "Iceland",
+    geo == "IT" ~ "Italy",
+    geo == "LI" ~ "Liechtenstein",
+    geo == "LT" ~ "Lithuania",
+    geo == "LU" ~ "Luxembourg",
+    geo == "LV" ~ "Latvia",
+    geo == "MT" ~ "Malta",
+    geo == "NL" ~ "Netherlands",
+    geo == "NO" ~ "Norway",
+    geo == "PL" ~ "Poland",
+    geo == "PT" ~ "Portugal",
+    geo == "RO" ~ "Romania",
+    geo == "SE" ~ "Sweden",
+    geo == "SI" ~ "Slovenia",
+    geo == "SK" ~ "Slovakia",
+    geo == "TR" ~ "Turkey")) %>% 
+  gather("year.quarter", "population.thousands", 2:9) %>% 
+  mutate(population.mio = round(as.numeric(str_replace_all(population.thousands, "[^0-9.-]", "")) / 1000, 1)) %>% 
+  separate(year.quarter, c("year", "quarter"), sep = "Q") %>% 
+  mutate(year = as.integer(year)) %>% 
+  group_by(country.name,
+           year) %>% 
+  summarise(population.mio = round(mean(population.mio, na.rm = TRUE), 1))
+
+# # population Luxembourg 1995 to 2017
+# population_luxembourg <- read_tsv(paste0(path, "population/population_europe_raw.tsv")) %>% 
+#   separate(`unit,s_adj,na_item,geo\\time`, c("unit", "s_adj", "na_item", "geo"), sep = ",") %>% 
+#   filter(unit == "THS_PER" & 
+#            s_adj == "NSA" & 
+#            na_item == "POP_NC" & 
+#            geo == "LU") %>% 
+#   gather("year.quarter", "population.thousands", 5:184) %>% 
+#   separate(year.quarter, c("year", "quarter"), sep = "Q") %>% 
+#   mutate(country.name = "Luxembourg") %>%
+#   mutate(year = as.integer(year)) %>% 
+#   filter(year >= 1990 & 
+#            year <= 2017) %>% 
+#   mutate(population.thousands = case_when(
+#     year == 1990 ~ "382",
+#     year == 1991 ~ "386",
+#     year == 1992 ~ "391",
+#     year == 1993 ~ "397",
+#     year == 1994 ~ "402",
+#     TRUE ~ population.thousands)) %>% 
+#   group_by(country.name,
+#            year) %>% 
+#   summarise(population.mio = round(mean(as.numeric(population.thousands) / 1000), 1))
+
+
+
+### population projections europe 2018 to 2100 to compute ghg emissions projections per capita for 2020, 2030 and 2040
+# download zipped tsv from https://ec.europa.eu/eurostat/web/products-datasets/-/tps00002
+# extract and rename file to population_projections_europe_raw.tsv
+# move to ../app/data/raw_data/population/
+
+population_projections_europe <- read_tsv(paste0(path, "population/population_projections_europe_raw.tsv")) %>% 
+  separate(`projection,unit,sex,age,geo\\time`, c("projection", "unit", "sex", "age", "geo"), sep = ",") %>% 
+  filter(sex == "T" & 
+         !(geo %in% c("EA19", "EU27_2020"))) %>% 
+  mutate(country.name = case_when(
+    geo == "AT" ~ "Austria",
+    geo == "BE" ~ "Belgium",
+    geo == "BG" ~ "Bulgaria",
+    geo == "CH" ~ "Switzerland",
+    geo == "CY" ~ "Cyprus",
+    geo == "CZ" ~ "Czech Republic",
+    geo == "DE" ~ "Germany",
+    geo == "DK" ~ "Denmark",
+    geo == "EE" ~ "Estonia",
+    geo == "ES" ~ "Spain",
+    geo == "EU" | geo == "EU28" ~ "EU28",
+    geo == "FI" ~ "Finland",
+    geo == "FR" ~ "France",
+    geo == "GB" | geo == "UK" ~ "UK",
+    geo == "GR" | geo == "EL" ~ "Greece",
+    geo == "HR" ~ "Croatia",
+    geo == "HU" ~ "Hungary",
+    geo == "IE" ~ "Ireland",
+    geo == "IS" ~ "Iceland",
+    geo == "IT" ~ "Italy",
+    geo == "LI" ~ "Liechtenstein",
+    geo == "LT" ~ "Lithuania",
+    geo == "LU" ~ "Luxembourg",
+    geo == "LV" ~ "Latvia",
+    geo == "MT" ~ "Malta",
+    geo == "NL" ~ "Netherlands",
+    geo == "NO" ~ "Norway",
+    geo == "PL" ~ "Poland",
+    geo == "PT" ~ "Portugal",
+    geo == "RO" ~ "Romania",
+    geo == "SE" ~ "Sweden",
+    geo == "SI" ~ "Slovenia",
+    geo == "SK" ~ "Slovakia",
+    geo == "TR" ~ "Turkey")) %>% 
+  select(country.name,
+         `2020`,
+         `2030`,
+         `2040`) %>% 
+  gather("year", "population", 2:4) %>% 
+  mutate(year = as.integer(year)) %>% 
+  mutate(population.mio = round(population / 1000000, 1)) %>% 
+  select(-population)
+
+
+
+### put everything together
+
+# # Luxembourg
+# luxembourg <- ghg_emissions_total_and_per_sector_europe %>% 
+#   filter(country.name == "Luxembourg") %>% 
+#   left_join(population_luxembourg, by = c("country.name", "year")) %>% 
+#   mutate(ghg.emissions.per.capita.tonnes = round(ghg.emissions.total.mio.tonnes / population.mio, 1)) %>% 
+#   select(-population.mio)
+  
+# projections
+ghg_emissions_projections <- population_europe %>% 
+  bind_rows(population_projections_europe) %>% 
+  right_join(ghg_emissions_projections_total_and_per_sector_europe, by = c("country.name", "year")) %>% 
+  mutate(ghg.emissions.per.capita.tonnes = round(ghg.emissions.total.mio.tonnes / population.mio, 1)) %>% 
+  select(-population.mio)
+
+# everything
+ghg_emissions <- ghg_emissions_total_and_per_sector_europe %>% 
+  # filter(country.name != "Luxembourg") %>% 
+  # bind_rows(luxembourg) %>% 
+  left_join(ghg_emissions_per_capita_europe, by = c("country.name", "year")) %>% 
+  bind_rows(ghg_emissions_projections)
+
+
 
 ### todo
 # select correct sectors (agriculture, energy, industry, total, transport, waste and other)
