@@ -116,58 +116,54 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
-import L from 'leaflet';
-import omnivore from 'leaflet-omnivore/leaflet-omnivore';
-import Mappings from '@/utils/mappings';
-import Colors from '@/utils/colors';
-import References from '@/components/References.vue';
+import * as d3 from "d3";
+import L from "leaflet";
+import omnivore from "leaflet-omnivore/leaflet-omnivore";
+import Mappings from "@/utils/mappings";
+import Colors from "@/utils/colors";
+import References from "@/components/References.vue";
 
 const layerStyle = {
   weight: 0.5,
-  color: 'black',
+  color: "black",
   opacity: 0.9,
-  fillColor: '#000000',
-  fillOpacity: 0.1,
+  fillColor: "#000000",
+  fillOpacity: 0.1
 };
 
 export default {
   components: {
-    References,
+    References
   },
 
   data() {
     return {
-<<<<<<< HEAD
-      year: '2016',
-=======
       year: "2019",
->>>>>>> data_update_march_2020
       countryLayer: {},
       emissionData: [],
-      picked: 'capita',
+      picked: "capita",
       countryIndex: null,
       countryShare: null,
       capitaAvg: null,
       capitaShare: null,
       references: [
         {
-          title: 'Greenhouse gas emissions',
-          version: 'TODO',
+          title: "Greenhouse gas emissions",
+          version: "TODO",
           link:
-            'https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eurostat.png',
+            "https://ec.europa.eu/eurostat/web/products-datasets/-/sdg_13_10",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eurostat.png"
         },
         {
-          title: 'National greenhouse gas inventories',
-          version: 'TODO',
+          title: "National greenhouse gas inventories",
+          version: "TODO",
           link:
-            'https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15',
-          publisherName: '',
-          publisherLogo: '/assets/data_source_publishers/eea.png',
-        },
-      ],
+            "https://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-15",
+          publisherName: "",
+          publisherLogo: "/assets/data_source_publishers/eea.png"
+        }
+      ]
     };
   },
 
@@ -178,34 +174,22 @@ export default {
     // fly map to europe
     this.$parent.map.flyToBounds(
       [[50.99995, 9.99995], [51.00005, 10.00005]],
-      this.$parent.$options.flyToOptions(3, 1, 1.0),
+      this.$parent.$options.flyToOptions(3, 1, 1.0)
     );
 
     // read county based stats
-<<<<<<< HEAD
-    d3.csv('/data/ghg_emissions_ranking-share-2016.csv').then(
-      (emissionsRanking) => {
-=======
     d3.csv("/data/ghg_emissions/ghg_emissions_most_recent_full_year.csv").then(
       emissionsRanking => {
->>>>>>> data_update_march_2020
         const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(
-          m => m[1][1] === this.$parent.$data.homeTownCountryCode,
+          m => m[1][1] === this.$parent.$data.homeTownCountryCode
         )[0][0];
 
         const emisssionsForHomeCountry = emissionsRanking.filter(
-          r => r['country.code'] === homeCountryCode2,
+          r => r["country.code"] === homeCountryCode2
         )[0];
         const emisssionsForEU28 = emissionsRanking.filter(
-          r => r['country.code'] === 'EU28',
+          r => r["country.code"] === "EU28"
         )[0];
-<<<<<<< HEAD
-        that.countryIndex = emisssionsForHomeCountry.total_eu28_ghg_tonnes_rank;
-        that.countryShare = emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
-        that.capitaAvg = emisssionsForEU28['ghg.emissions.per.capita.tonnes'];
-        that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
-      },
-=======
         that.countryIndex = emisssionsForHomeCountry["total.ghg.emissions.mio.tonnes.rank"];
         that.countryShare =
           emisssionsForHomeCountry["total.ghg.emissions.EU28.share"];
@@ -213,19 +197,14 @@ export default {
         that.capitaShare =
           emisssionsForHomeCountry["ghg.emissions.per.capita.tonnes"];
       }
->>>>>>> data_update_march_2020
     );
 
-    this.$parent.map.once('moveend', () => {
+    this.$parent.map.once("moveend", () => {
       // emissions data load csv
-<<<<<<< HEAD
-      d3.csv('/data/ghg_emissions.csv').then((rows) => {
-=======
       d3.csv("/data/ghg_emissions/ghg_emissions.csv").then(rows => {
->>>>>>> data_update_march_2020
         that.emissionData = rows;
         that.emissionData = this.emissionData.filter(
-          r => r['country.name'] !== 'EU28',
+          r => r["country.name"] !== "EU28"
         );
 
         // load country shapes
@@ -237,17 +216,17 @@ export default {
           const layerTpl = L.geoJson(null, {
             style() {
               return layerStyle;
-            },
+            }
           });
 
           const promise = d3
             .json(`/data/geo_countries/${countryCode}-simplified.json`)
-            .then((countryInfo) => {
+            .then(countryInfo => {
               const location = countryInfo.View[0].Result[0].Location;
               const layer = omnivore.wkt.parse(
                 location.Shape.Value,
                 null,
-                layerTpl,
+                layerTpl
               );
 
               that.countryLayer[countryCode] = layer;
@@ -268,28 +247,28 @@ export default {
     renderEmissions() {
       const that = this;
 
-      if (this.picked === 'capita') {
-        this.valueColumn = 'ghg.emissions.per.capita.tonnes';
+      if (this.picked === "capita") {
+        this.valueColumn = "ghg.emissions.per.capita.tonnes";
       } else {
-        this.valueColumn = 'total.ghg.emissions.mio.tonnes';
+        this.valueColumn = "total.ghg.emissions.mio.tonnes";
       }
 
       const rowsOfInterest = this.emissionData.filter(
-        r => r.year === that.year,
+        r => r.year === that.year
       );
 
       const valueMin = Math.min(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map(r => r[this.valueColumn])
       );
       const valueMax = Math.max(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map(r => r[this.valueColumn])
       );
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
 
       // unset existing tooltips
-      this.$parent.$data.map.eachLayer((layer) => {
-        if (layer.options.pane === 'tooltipPane') {
+      this.$parent.$data.map.eachLayer(function(layer) {
+        if (layer.options.pane === "tooltipPane") {
           layer.removeFrom(that.$parent.$data.map);
         }
       });
@@ -298,14 +277,14 @@ export default {
         if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
           const countryCode = Object.values(Mappings.countryMapping).filter(
-            m => m[0] === row['country.name'],
+            m => m[0] === row["country.name"]
           )[0][1];
 
           const style = layerStyle;
           style.fillOpacity = 0.5;
 
           let colorIndex = Math.ceil(
-            (value - valueMin) / valueRangeDistributed - 1,
+            (value - valueMin) / valueRangeDistributed - 1
           );
           if (colorIndex < 0) {
             colorIndex = 0;
@@ -320,9 +299,9 @@ export default {
             that.countryLayer[countryCode].setStyle(style);
 
             // open tooltip on mouse over
-            const unit = that.$i18n.t('million_tons');
+            const unit = that.$i18n.t("million_tons");
             that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
-              sticky: true,
+              sticky: true
             });
           }
         }
@@ -333,12 +312,12 @@ export default {
       this.$parent.modalClose();
     },
     next() {
-      this.$router.push({ name: 'B06-GreenhouseEffect6' });
+      this.$router.push({ name: "B06-GreenhouseEffect6" });
     },
 
     navBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 };
 </script>
