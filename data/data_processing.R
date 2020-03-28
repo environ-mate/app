@@ -118,7 +118,7 @@ ghg_emissions_per_capita_europe <- read_tsv("https://ec.europa.eu/eurostat/estat
     country.code == "EU" | country.code == "EU28" ~ "EU28",
     country.code == "FI" ~ "Finland",
     country.code == "FR" ~ "France",
-    country.code == "GB" | country.code == "UK" ~ "UK",
+    country.code == "GB" | country.code == "UK" ~ "United Kingdom",
     country.code == "GR" | country.code == "EL" ~ "Greece",
     country.code == "HR" ~ "Croatia",
     country.code == "HU" ~ "Hungary",
@@ -183,7 +183,7 @@ ghg_emissions_projections_total_and_per_sector_europe <- read_csv(paste0(path, "
     country.code == "EU" | country.code == "EU28" ~ "EU28",
     country.code == "FI" ~ "Finland",
     country.code == "FR" ~ "France",
-    country.code == "GB" | country.code == "UK" ~ "UK",
+    country.code == "GB" | country.code == "UK" ~ "United Kingdom",
     country.code == "GR" | country.code == "EL" ~ "Greece",
     country.code == "HR" ~ "Croatia",
     country.code == "HU" ~ "Hungary",
@@ -239,7 +239,7 @@ population_europe <- read_tsv("https://ec.europa.eu/eurostat/estat-navtree-portl
     geo == "EU" | geo == "EU28" ~ "EU28",
     geo == "FI" ~ "Finland",
     geo == "FR" ~ "France",
-    geo == "GB" | geo == "UK" ~ "UK",
+    geo == "GB" | geo == "UK" ~ "United Kingdom",
     geo == "GR" | geo == "EL" ~ "Greece",
     geo == "HR" ~ "Croatia",
     geo == "HU" ~ "Hungary",
@@ -289,7 +289,7 @@ population_projections_europe <- read_tsv("https://ec.europa.eu/eurostat/estat-n
     geo == "EU" | geo == "EU28" ~ "EU28",
     geo == "FI" ~ "Finland",
     geo == "FR" ~ "France",
-    geo == "GB" | geo == "UK" ~ "UK",
+    geo == "GB" | geo == "UK" ~ "United Kingdom",
     geo == "GR" | geo == "EL" ~ "Greece",
     geo == "HR" ~ "Croatia",
     geo == "HU" ~ "Hungary",
@@ -346,17 +346,17 @@ ghg_emissions_eu28 <- ghg_emissions %>%
 # ghg emissions with national and EU28 shares
 ghg_emissions_with_shares <- ghg_emissions %>% 
   left_join(ghg_emissions_eu28, by = c("year" = "EU28.year")) %>% 
-  mutate(agriculture.ghg.emissions.national.share = round(agriculture.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4),
-         energy.ghg.emissions.national.share = round(energy.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4),
-         industry.ghg.emissions.national.share = round(industry.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4),
-         transport.ghg.emissions.national.share = round(transport.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4),
-         waste.ghg.emissions.national.share = round(waste.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 2),
-         agriculture.ghg.emissions.EU28.share = round(agriculture.ghg.emissions.mio.tonnes / EU28.agriculture.ghg.emissions.mio.tonnes, 4),
-         energy.ghg.emissions.EU28.share = round(energy.ghg.emissions.mio.tonnes /EU28.energy.ghg.emissions.mio.tonnes, 4),
-         industry.ghg.emissions.EU28.share = round(industry.ghg.emissions.mio.tonnes / EU28.industry.ghg.emissions.mio.tonnes, 4),
-         total.ghg.emissions.EU28.share = round(total.ghg.emissions.mio.tonnes / EU28.total.ghg.emissions.mio.tonnes, 4),
-         transport.ghg.emissions.EU28.share = round(transport.ghg.emissions.mio.tonnes / EU28.transport.ghg.emissions.mio.tonnes, 4),
-         waste.ghg.emissions.EU28.share = round(waste.ghg.emissions.mio.tonnes / EU28.waste.ghg.emissions.mio.tonnes, 4)) %>% 
+  mutate(agriculture.ghg.emissions.national.share = round(agriculture.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4) * 100,
+         energy.ghg.emissions.national.share = round(energy.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4) * 100,
+         industry.ghg.emissions.national.share = round(industry.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4) * 100,
+         transport.ghg.emissions.national.share = round(transport.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 4) * 100,
+         waste.ghg.emissions.national.share = round(waste.ghg.emissions.mio.tonnes / total.ghg.emissions.mio.tonnes, 2) * 100,
+         agriculture.ghg.emissions.EU28.share = round(agriculture.ghg.emissions.mio.tonnes / EU28.agriculture.ghg.emissions.mio.tonnes, 4) * 100,
+         energy.ghg.emissions.EU28.share = round(energy.ghg.emissions.mio.tonnes /EU28.energy.ghg.emissions.mio.tonnes, 4) * 100,
+         industry.ghg.emissions.EU28.share = round(industry.ghg.emissions.mio.tonnes / EU28.industry.ghg.emissions.mio.tonnes, 4) * 100,
+         total.ghg.emissions.EU28.share = round(total.ghg.emissions.mio.tonnes / EU28.total.ghg.emissions.mio.tonnes, 4) * 100,
+         transport.ghg.emissions.EU28.share = round(transport.ghg.emissions.mio.tonnes / EU28.transport.ghg.emissions.mio.tonnes, 4) * 100,
+         waste.ghg.emissions.EU28.share = round(waste.ghg.emissions.mio.tonnes / EU28.waste.ghg.emissions.mio.tonnes, 4) * 100) %>% 
   select(-EU28.agriculture.ghg.emissions.mio.tonnes,
          -EU28.energy.ghg.emissions.mio.tonnes,
          -EU28.industry.ghg.emissions.mio.tonnes,
@@ -364,13 +364,49 @@ ghg_emissions_with_shares <- ghg_emissions %>%
          -EU28.transport.ghg.emissions.mio.tonnes,
          -EU28.waste.ghg.emissions.mio.tonnes,
          -EU28.ghg.emissions.per.capita.tonnes) %>% 
+  mutate(country.code = case_when(
+    country.name == "Austria" ~ "AT",
+    country.name == "Belgium" ~ "BE",
+    country.name == "Bulgaria" ~ "BG",
+    country.name == "Switzerland" ~ "CH",
+    country.name == "Cyprus" ~ "CY",
+    country.name == "Czech Republic" ~ "CZ",
+    country.name == "Germany" ~ "DE",
+    country.name == "Denmark" ~ "DK",
+    country.name == "Estonia" ~ "EE",
+    country.name == "Spain" ~ "ES",
+    country.name == "EU28" ~ "EU28",
+    country.name == "Finland" ~ "FI",
+    country.name == "France" ~ "FR",
+    country.name == "United Kingdom" ~ "UK",
+    country.name == "Greece" ~ "GR",
+    country.name == "Croatia" ~ "HR",
+    country.name == "Hungary" ~ "HU",
+    country.name == "Ireland" ~ "IE",
+    country.name == "Iceland" ~ "IS",
+    country.name == "Italy" ~ "IT",
+    country.name == "Liechtenstein" ~ "LI",
+    country.name == "Lithuania" ~ "LT",
+    country.name == "Luxembourg" ~ "LU",
+    country.name == "Latvia" ~ "LV",
+    country.name == "Malta" ~ "MT",
+    country.name == "Netherlands" ~ "NL",
+    country.name == "Norway" ~ "NO",
+    country.name == "Poland" ~ "PL",
+    country.name == "Portugal" ~ "PT",
+    country.name == "Romania" ~ "RO",
+    country.name == "Sweden" ~ "SE",
+    country.name == "Slovenia" ~ "SI",
+    country.name == "Slovakia" ~ "SK",
+    country.name == "Turkey" ~ "TR")) %>% 
+  select(country.code, 1:20) %>% 
   arrange(country.name, year) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions.csv")
 
 # ghg emissions most recent full year
 ghg_emissions_with_shares %>% 
   filter(year == 2019) %>% 
-  select(country.name, total.ghg.emissions.mio.tonnes, ghg.emissions.per.capita.tonnes, total.ghg.emissions.EU28.share) %>% 
+  select(country.code, country.name, total.ghg.emissions.mio.tonnes, ghg.emissions.per.capita.tonnes, total.ghg.emissions.EU28.share) %>% 
   mutate(total.ghg.emissions.mio.tonnes.rank = row_number(-total.ghg.emissions.mio.tonnes) - 1) %>% 
   arrange(total.ghg.emissions.mio.tonnes.rank) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions_most_recent_full_year.csv")

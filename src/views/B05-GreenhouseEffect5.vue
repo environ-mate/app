@@ -5,10 +5,10 @@
     "desc": "Neben den Gesamtemissionen pro Land ist es auch wichtig, auf die Emissionen pro Kopf zu schauen. Hier am Beispiel des Pro-Kopf-Ausstoßes von {year}.",
     "radio_button_total": "Gesamtemissionen",
     "radio_button_capita": "Emissionen pro Kopf",
-    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 10% aller CO₂-Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2017).",
-    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg}. Dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 15.7 und China: 7.7).",
+    "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 11% aller CO₂-Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2019).",
+    "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg}. Dein Land liegt bei {capitaShare}. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 (USA: 20.1 und China: 9.4).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Teste deinen eigenen Footprint dazu im Vergleich (www.footprintcalculator.org)</a>",
-    "million_tons": "mio. Tonnen",
+    "million_tons": "Mio. Tonnen",
     "next_btn": "weiter"
   },
   "en": {
@@ -16,8 +16,8 @@
     "desc": "Alongside the total emissions of each country, it's also important to show the emissions per person. Here, for example, are the emissions per person in {year}.",
     "radio_button_total": "Total emissions",
     "radio_button_capita": "Emissions per person",
-    "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 10% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2017).",
-    "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 15.7 and China: 7.7).",
+    "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 11% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2019).",
+    "description_capita": "The average in the EU is {capitaAvg} and your country is at {capitaShare}. The global average is 4.9 (USA: 20.1 and China: 9.4).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Check your own footprint in comparison (www.footprintcalculator.org)</a>",
     "million_tons": "mio. tons",
     "next_btn": "Continue"
@@ -138,7 +138,7 @@ export default {
 
   data() {
     return {
-      year: "2016",
+      year: "2019",
       countryLayer: {},
       emissionData: [],
       picked: "capita",
@@ -178,7 +178,7 @@ export default {
     );
 
     // read county based stats
-    d3.csv("/data/ghg_emissions_ranking-share-2016.csv").then(
+    d3.csv("/data/ghg_emissions/ghg_emissions_most_recent_full_year.csv").then(
       emissionsRanking => {
         const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(
           m => m[1][1] === this.$parent.$data.homeTownCountryCode
@@ -190,9 +190,9 @@ export default {
         const emisssionsForEU28 = emissionsRanking.filter(
           r => r["country.code"] === "EU28"
         )[0];
-        that.countryIndex = emisssionsForHomeCountry.total_eu28_ghg_tonnes_rank;
+        that.countryIndex = emisssionsForHomeCountry["total.ghg.emissions.mio.tonnes.rank"];
         that.countryShare =
-          emisssionsForHomeCountry.total_eu28_ghg_tonnes_share;
+          emisssionsForHomeCountry["total.ghg.emissions.EU28.share"];
         that.capitaAvg = emisssionsForEU28["ghg.emissions.per.capita.tonnes"];
         that.capitaShare =
           emisssionsForHomeCountry["ghg.emissions.per.capita.tonnes"];
@@ -201,7 +201,7 @@ export default {
 
     this.$parent.map.once("moveend", () => {
       // emissions data load csv
-      d3.csv("/data/ghg_emissions.csv").then(rows => {
+      d3.csv("/data/ghg_emissions/ghg_emissions.csv").then(rows => {
         that.emissionData = rows;
         that.emissionData = this.emissionData.filter(
           r => r["country.name"] !== "EU28"
