@@ -82,23 +82,22 @@
 </template>
 
 <script>
-import * as d3 from "d3";
-import Vue from "vue";
-import VueC3 from "vue-c3";
-import Mappings from "@/utils/mappings";
-import Colors from "@/utils/colors";
-import References from "@/components/References.vue";
+import * as d3 from 'd3';
+import Vue from 'vue';
+import VueC3 from 'vue-c3';
+import Colors from '@/utils/colors';
+import References from '@/components/References.vue';
 
 export default {
   components: {
     VueC3,
-    References
+    References,
   },
 
   data() {
     return {
       chart: new Vue(),
-      year: null
+      year: null,
     };
   },
 
@@ -112,34 +111,34 @@ export default {
 
   methods: {
     renderChart() {
-      this.chart.$emit("init", {
-        x: "year",
+      this.chart.$emit('init', {
+        x: 'year',
         data: {
-          url: "/data/extreme_weather/extreme_weather_occurrences_europe_since_1960.csv",
-          x: "year",
+          url: '/data/extreme_weather/extreme_weather_occurrences_europe_since_1960.csv',
+          x: 'year',
           names: {
-            "drought.occurrence": this.$t("vis_legend_drought"),
-            "extreme.temperature.occurrence": this.$t("vis_legend_extreme_temperature"),
-            "flood.occurrence": this.$t("vis_legend_flood"),
-            "landslide.occurrence": this.$t("vis_legend_landslide"),
-            "storm.occurrence": this.$t("vis_legend_storm"),
-            "wildfire.occurrence": this.$t("vis_legend_wildfire")
+            'drought.occurrence': this.$t('vis_legend_drought'),
+            'extreme.temperature.occurrence': this.$t('vis_legend_extreme_temperature'),
+            'flood.occurrence': this.$t('vis_legend_flood'),
+            'landslide.occurrence': this.$t('vis_legend_landslide'),
+            'storm.occurrence': this.$t('vis_legend_storm'),
+            'wildfire.occurrence': this.$t('vis_legend_wildfire'),
           },
-          type: "area",
+          type: 'area',
           colors: {
-            "drought.occurrence": Colors.purple,
-            "extreme.temperature.occurrence": Colors.orange,
-            "flood.occurrence": Colors.blue,
-            "landslide.occurrence": Colors.brown,
-            "storm.occurrence": Colors.green,
-            "wildfire.occurrence": Colors.red
-          }
-        }
+            'drought.occurrence': Colors.purple,
+            'extreme.temperature.occurrence': Colors.orange,
+            'flood.occurrence': Colors.blue,
+            'landslide.occurrence': Colors.brown,
+            'storm.occurrence': Colors.green,
+            'wildfire.occurrence': Colors.red,
+          },
+        },
       });
     },
 
     next() {
-      this.$router.push({ name: "C01-ClimateChangeEffectsIntro" });
+      this.$router.push({ name: 'C01-ClimateChangeEffectsIntro' });
     },
 
     modalClose() {
@@ -148,7 +147,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

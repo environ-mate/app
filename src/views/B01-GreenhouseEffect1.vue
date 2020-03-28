@@ -66,16 +66,16 @@
 </template>
 
 <script>
-import GreenhouseEffect from "@/components/GreenhouseEffect.vue";
+import GreenhouseEffect from '@/components/GreenhouseEffect.vue';
 
 export default {
   components: {
-    GreenhouseEffect
+    GreenhouseEffect,
   },
 
   methods: {
     next() {
-      this.$router.push({ name: "B02-GreenhouseEffect2" });
+      this.$router.push({ name: 'B02-GreenhouseEffect2' });
     },
 
     modalClose() {
@@ -84,7 +84,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

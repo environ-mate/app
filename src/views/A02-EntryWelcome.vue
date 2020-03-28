@@ -47,9 +47,9 @@ export default {
 
   methods: {
     next() {
-      this.$router.push({ name: "A03-EntryHomeTownSelect" });
-    }
-  }
+      this.$router.push({ name: 'A03-EntryHomeTownSelect' });
+    },
+  },
 };
 </script>
 

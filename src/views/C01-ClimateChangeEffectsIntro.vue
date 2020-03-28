@@ -135,15 +135,15 @@
 export default {
   methods: {
     nextseaLevel() {
-      this.$router.push({ name: "S01-SeaLevelRiseIntro" });
+      this.$router.push({ name: 'S01-SeaLevelRiseIntro' });
     },
 
     nextEw() {
-      this.$router.push({ name: "W01-ExtremeWeather1" });
+      this.$router.push({ name: 'W01-ExtremeWeather1' });
     },
 
     nextAct() {
-      this.$router.push({ name: "Z01-ActOverview" });
+      this.$router.push({ name: 'Z01-ActOverview' });
     },
 
     modalClose() {
@@ -152,8 +152,8 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>
 

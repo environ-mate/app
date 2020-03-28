@@ -73,7 +73,7 @@
 export default {
   methods: {
     next() {
-      this.$router.push({ name: "S02-SeaLevelRiseStory" });
+      this.$router.push({ name: 'S02-SeaLevelRiseStory' });
     },
 
     modalClose() {
@@ -82,7 +82,7 @@ export default {
 
     navBack() {
       this.$router.back();
-    }
-  }
+    },
+  },
 };
 </script>

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Helper from "@/utils/helper";
+import Helper from '@/utils/helper';
 
 export default {
   mounted() {
@@ -28,8 +28,8 @@ export default {
       this.$parent.$data.modalOpen = false;
       this.$i18n.locale = locale;
 
-      this.$router.push({ name: "A02-EntryWelcome" });
-    }
-  }
+      this.$router.push({ name: 'A02-EntryWelcome' });
+    },
+  },
 };
 </script>

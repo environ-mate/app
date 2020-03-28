@@ -148,8 +148,8 @@
 
 <script>
 export default {
-  name: "GreenhouseEffect",
-  props: ["animate"]
+  name: 'GreenhouseEffect',
+  props: ['animate'],
 };
 </script>
 
