@@ -12,6 +12,7 @@
     "vis_legend_waste": "Abfall",
     "vis_legend_transport": "Verkehr",
     "vis_legend_industry": "Industrie",
+    "vis_legend_other": "Sonstige",
     "next_btn": "weiter"
   },
   "en": {
@@ -26,6 +27,7 @@
     "vis_legend_waste": "waste",
     "vis_legend_transport": "transport",
     "vis_legend_industry": "industry",
+    "vis_legend_other": "other",
     "next_btn": "Continue"
   }
 }
@@ -145,7 +147,7 @@ export default {
   methods: {
     renderChart() {
       // emissions data load csv
-      d3.csv("/data/ghg_emissions/ghg_emissions.csv").then(rows => {
+      d3.csv("/data/ghg_emissions.csv").then(rows => {
         // map csv country name to home towbn
         const homeCountryName = Object.values(Mappings.countryMapping).filter(
           m => m[1] === this.$parent.$data.homeTownCountryCode
@@ -169,7 +171,8 @@ export default {
           "energy.ghg.emissions.mio.tonnes",
           "waste.ghg.emissions.mio.tonnes",
           "transport.ghg.emissions.mio.tonnes",
-          "industry.ghg.emissions.mio.tonnes"
+          "industry.ghg.emissions.mio.tonnes",
+          "other.ghg.emissions.mio.tonnes"
         ].reduce((result, key) => {
           // eslint-disable-next-line no-param-reassign
           result[key] = data[key];
@@ -190,14 +193,16 @@ export default {
               ),
               "industry.ghg.emissions.mio.tonnes": this.$t(
                 "vis_legend_industry"
-              )
+              ),
+              "other.ghg.emissions.mio.tonnes": this.$t("vis_legend_other")
             },
             colors: {
               "agriculture.ghg.emissions.mio.tonnes": Colors.green,
               "energy.ghg.emissions.mio.tonnes": Colors.orange,
               "waste.ghg.emissions.mio.tonnes": Colors.red,
               "transport.ghg.emissions.mio.tonnes": Colors.blue,
-              "industry.ghg.emissions.mio.tonnes": Colors.purple
+              "industry.ghg.emissions.mio.tonnes": Colors.purple,
+              "other.ghg.emissions.mio.tonnes": Colors.yellow
             },
             type: "donut"
           }

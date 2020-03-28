@@ -9,13 +9,15 @@
     "sector_transport": "Verkehr",
     "sector_industry": "Industrie",
     "sector_agriculture": "Landwirtschaft",
-    "description_all": "2019 wurden durch die EU 4160 millionen Tonnen Treibhausgas-Emissionen produziert. Damit liegt die EU weltweit auf Platz 3, hinter den USA und China. Im Ländervergleich unterscheiden sich die einzelnen Sektoren oft in ihren Anteilen.",
+    "sector_other": "Sonstige",
+    "description_all": "2017 wurden durch die EU 4168 millionen Tonnen Treibhausgas-Emissionen produziert. Damit liegt die EU weltweit auf Platz 3, hinter den USA und China. Im Ländervergleich unterscheiden sich die einzelnen Sektoren oft in ihren Anteilen.",
     "description_agriculture": "In der Landwirtschaft wird der größte Anteil an Nicht-CO₂-Gasen erzeugt. NO₂ entsteht bei der Düngung der Felder. CH₄ (Methan) bei der Verdauung in Nutztieren (Kühe, Schweine, Schafe, …) und beim Reisanbau. Dieser Sektor hat einen Gesamtanteil in der EU von 10%.",
-    "description_energy": "Bei der Stromerzeugung werden gerade durch die Verbrennung von Braunkohle viele CO₂-Emissionen freigesetzt, aber auch bei der Herstellung von Treibstoff und Benzin entstehen Emissionen. Dies ist mit 55% Anteil in der EU einer der größten Sektoren.",
+    "description_energy": "Bei der Stromerzeugung werden gerade durch die Verbrennung von Braunkohle viele CO₂-Emissionen freigesetzt, aber auch bei der Herstellung von Treibstoff und Benzin entstehen Emissionen. Dies ist mit 28% Anteil in der EU einer der größten Sektoren.",
     "description_waste": "Abfall beinhaltet alles rund um die Müll- und Abwasserverarbeitung (Entsorgung, Kompostierung, Verbrennung, Wasseraufbereitung/-klärung. Auf diesen Sektor entfallen EU-weit 3%.",
-    "description_transport": "Verkehr umfasst alle Inlandsflüge sowie Auto-, Bahn- und Lastwagenverkehr. Dieser Sektor hat einen Gesamtanteil in der EU von 23%.",
+    "description_transport": "Verkehr umfasst alle Inlandsflüge sowie Auto-, Bahn- und Lastwagenverkehr. Dieser Sektor hat einen Gesamtanteil in der EU von 21%.",
     "description_industry": "Zum Industrie-Sektor zählen alle Emissionen, die bei der Produktion von Gütern und Rohmaterialien entstehen. Dieser Sektor hat einen Gesamtanteil von 9%.",
-    "million_tons": "Mio. Tonnen",
+    "description_other": "Hierin sind verschiedene weitere Sektoren zusammengefasst, der Größte hiervon macht über 50% aus und umfasst die Emissionen von Gebäuden (Heizung, Abwasser, Strom in Wohnungen oder Geschäften). Der gesamte Sektor hat einen Gesamtanteil von 28% an allen EU-Emissionen.",
+    "million_tons": "mio. Tonnen",
     "next_desc": "Zu den Auswirkungen erzähle ich dir jetzt mehr.",
     "next_btn": "weiter"
   },
@@ -28,12 +30,14 @@
     "sector_transport": "Transport",
     "sector_industry": "Industry",
     "sector_agriculture": "Agriculture",
-    "description_all": "In 2019 the EU produced 4160 million tons of greenhouse gases. This makes the EU the 3rd biggest global greenhouse gas emitter, after the USA and China. However, individual EU nations differ both in how much each sector contributes, and their overall contribution to total EU emissions.",
+    "sector_other": "Other",
+    "description_all": "In 2017 the EU produced 4168 million tons of greenhouse gases. This makes the EU the 3rd biggest global greenhouse gas emitter, after the USA and China. However, individual EU nations differ both in how much each sector contributes, and their overall contribution to total EU emissions.",
     "description_agriculture": "In agriculture most emissions come from non-CO₂ gases. NO₂ is produced by the fertilisation of fields. CH₄ (methane) is produced by the digestive systems of livestock (cows, pigs, sheep, etc.) and by rice fields. This sector is responsible for 10% of the total emissions in the EU.",
-    "description_energy": "When it comes to energy generation, the burning of brown coal in particular contributes heavily to CO₂ emissions - the use of fuels such as petrol doesn't help either. This is one of the biggest sectors in terms of emissions, contributing 55% of the EU's total CO₂ output.",
+    "description_energy": "When it comes to energy generation, the burning of brown coal in particular contributes heavily to CO₂ emissions - the use of fuels such as petrol doesn't help either. This is one of the biggest sectors in terms of emissions, contributing 28% of the EU's total CO₂ output.",
     "description_waste": "Waste includes everything around waste and waste water processing (disposal, composting, incineration and water treatment). This sector is responsible for 3% of the EU total emissions.",
-    "description_transport": "Transport covers all inland traffic by car, train and truck. This sector is responsible for 23% of all EU emissions.",
+    "description_transport": "Transport covers all inland traffic by car, train and truck. This sector is responsible for 21% of all EU emissions.",
     "description_industry": "The industry sector covers emissions resulting from the production of goods and raw materials. This sector is responsible for 9% of total EU emissions.",
+    "description_other": "This represents the aggregation of various other sectors. The largest of these is the emissions from housing (heating, sewage treatment, home electrification, businesses) which make up 50% of this sector. The whole sector contributes to 28% of all EU emissions.",
     "million_tons": "mio. tons",
     "next_desc": "Now, we will have a look at the consequences.",
     "next_btn": "Continue"
@@ -64,7 +68,7 @@
                 class="slider"
                 type="range"
                 min="1990"
-                max="2040"
+                max="2016"
               />
             </div>
             <h5>{{ this.year }}</h5>
@@ -86,6 +90,7 @@
             <div v-if="sectorSelected === 'energy'">{{ $t('description_energy') }}</div>
             <div v-if="sectorSelected === 'industry'">{{ $t('description_industry') }}</div>
             <div v-if="sectorSelected === 'transport'">{{ $t('description_transport') }}</div>
+            <div v-if="sectorSelected === 'other'">{{ $t('description_other') }}</div>
           </div>
           <div class="text-right">{{ $t('next_desc') }}</div>
         </div>
@@ -140,7 +145,7 @@ export default {
 
   data() {
     return {
-      year: "2019",
+      year: "2016",
       countryLayer: {},
       emissionData: [],
       sectorSelected: "total",
@@ -151,7 +156,8 @@ export default {
         waste: this.$t("sector_waste"),
         transport: this.$t("sector_transport"),
         industry: this.$t("sector_industry"),
-        agriculture: this.$t("sector_agriculture")
+        agriculture: this.$t("sector_agriculture"),
+        other: this.$t("sector_other")
       },
       references: [
         {
@@ -186,7 +192,7 @@ export default {
 
     this.$parent.map.once("moveend", () => {
       // emissions data load csv
-      d3.csv("/data/ghg_emissions/ghg_emissions.csv").then(rows => {
+      d3.csv("/data/ghg_emissions.csv").then(rows => {
         that.emissionData = rows;
         that.emissionData = this.emissionData.filter(
           r => r["country.name"] !== "EU28"
