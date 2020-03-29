@@ -109,9 +109,9 @@ export default {
       chart: new Vue(),
       references: [
         {
-          title: 'Global and European temperature',
+          title: 'European average temperatures over land areas relative to the pre-industrial period ',
           link:
-            'https://www.eea.europa.eu/data-and-maps/indicators/global-and-european-temperature-8/assessment',
+            'https://www.eea.europa.eu/data-and-maps/daviz/european-average-air-temperature-anomalies-9#tab-chart_9',
           publisherName: null,
           publisherLogo: '/assets/data_source_publishers/eea.png',
         },

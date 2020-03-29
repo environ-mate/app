@@ -98,6 +98,15 @@ export default {
     return {
       chart: new Vue(),
       year: null,
+	  references: [
+        {
+          title: 'EM-DAT The International Disaster Database (Centre for Research on the Epidemiology of Disasters - CRED) ',
+          link:
+            'https://www.emdat.be/',
+          publisherName: null,
+          publisherLogo: '',
+        },
+      ],
     };
   },
 
