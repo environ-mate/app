@@ -8,7 +8,7 @@
     "description_total": "Dein Land ist der {countryIndex}-größte Produzent in der EU und für {countryShare}% des EU-weiten Ausstoßes verantwortlich. Weltweit verursacht die EU etwa 11% aller CO₂-Emissionen und kommt damit auf Platz 3, hinter den USA und China (Stand: 2019).",
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} Tonnen pro Kopf. Dein Land liegt bei {capitaShare} Tonnen pro Kopf. Weltweit liegt der Schnitt bezogen auf CO₂-Emissionen bei 4.9 Tonnen pro Kopf (USA 20.1 und China 9.4 Tonnen pro Kopf).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Teste deinen eigenen Footprint dazu im Vergleich (www.footprintcalculator.org)</a>",
-    "million_tons": "mio. Tonnen",
+    "million_tons": "Mio. Tonnen",
     "next_btn": "Weiter"
   },
   "en": {
@@ -19,7 +19,7 @@
     "description_total": "Your country is the {countryIndex}-biggest emitter in the EU and is responsible for {countryShare}% of all EU emissions. Globally, the EU produces around 11% of all CO₂ emissions, making it the 3rd biggest producer after USA and China (2019).",
     "description_capita": "The average in the EU is {capitaAvg} tonnes per capita and your country is at {capitaShare} tonnes per capita. The global average is 4.9 tonnes per capita (USA 20.1 and China 9.1 tonnes per capita, respectively).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Check your own footprint in comparison (www.footprintcalculator.org)</a>",
-    "million_tons": "mio. tons",
+    "million_tons": "mio. tonnes",
     "next_btn": "Continue"
   }
 }
@@ -274,7 +274,6 @@ export default {
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
-          console.log(row['country.name']);
           const countryCode = Object.values(Mappings.countryMapping).filter(
             m => m[0] === row['country.name'],
           )[0][1];
