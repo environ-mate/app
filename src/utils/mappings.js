@@ -5,7 +5,7 @@ export default {
     TR: ['Turkey', 'TUR'],
     BG: ['Bulgaria', 'BGR'],
     GR: ['Greece', 'GRC'],
-    CZ: ['Czechia', 'CZE'],
+    CZ: ['Czech Republic', 'CZE'],
     AT: ['Austria', 'AUT'],
     IE: ['Ireland', 'IRL'],
     EE: ['Estonia', 'EST'],

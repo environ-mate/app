@@ -274,6 +274,7 @@ export default {
       for (const row of rowsOfInterest) {
         if (row.year === that.year) {
           const value = parseFloat(row[this.valueColumn]);
+          console.log(row['country.name']);
           const countryCode = Object.values(Mappings.countryMapping).filter(
             m => m[0] === row['country.name'],
           )[0][1];
