@@ -2,14 +2,14 @@
 {
   "de": {
     "hello": "Howdi! Mein Name ist %{name}.",
-    "hello_sub": "Ich begleite dich hier ab jetzt.",
-    "journey": "Wir reisen nun gemeinsam über Europa in deine Heimatstadt.",
+    "hello_sub": "Ich begleite dich ab hier auf unserer gemeinsamen Reise während wir über den Klimawandel und seine Folgen lernen.",
+    "journey": "Wir reisen nun gemeinsam durch Europa in deine Heimatstadt.",
     "help": "Du kannst jederzeit die <span class='helpButton'>H</span> Taste drücken - ich eile dir dann zu Hilfe!",
     "start": "Klicke hier, um zu starten!"
   },
    "en": {
     "hello": "Howdi! My name is %{name}.",
-    "hello_sub": "I will accompany you from here on.",
+    "hello_sub": "I will accompany you from here on our joint trip while we learn about climate change and its consequences.",
     "journey": "We now travel together across Europe to your hometown.",
     "help": "You can press <span class='helpButton'>H</span> at any time and I'll come to assist you!",
     "start": "Press here to start!"

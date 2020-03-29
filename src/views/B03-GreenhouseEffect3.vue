@@ -23,7 +23,7 @@
     "cause_5_examples": "Energieerzeugung, Industrie, Verkehr",
     "cause_6_name": "FKW/HFKW",
     "cause_6_examples": "Kältemittel, Klimaanlagen",
-    "next_btn": "weiter"
+    "next_btn": "Weiter"
   },
   "en": {
     "title": "What are greenhouse gases and where do they come from?",
