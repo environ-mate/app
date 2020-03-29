@@ -8,7 +8,7 @@
     "effect_direct_2": "Änderung der Regenmenge und -häufigkeit (u.a. Starkregen)",
     "effect_direct_3": "Häufigere Dürre- und Hitzeperioden",
     "effect_direct_4": "Wirbelstürme wie Hurricanes treten häufiger und stärker auf (Tornados in Europa)",
-    "next_btn": "weiter"
+    "next_btn": "Weiter"
   },
   "en": {
     "title": "What stories do the outcomes tell?",
