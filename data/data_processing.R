@@ -158,12 +158,6 @@ ghg_emissions_projections_europe <- read_csv(paste0(path_to_raw_data, "ghg_emiss
     TRUE ~ transport.ghg.emissions.mio.tonnes)) %>% 
   mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes)
 
-# ghg emissions projections europe total and per sector per country 2019
-ghg_emissions_projections_europe %>% 
-  filter(year == 2019) %>% 
-  select(-total.ghg.emissions.mio.tonnes) %>% 
-  write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country_most_recent_full_year.csv")
-
 
 
 ##################################################
@@ -253,6 +247,16 @@ population_europe <- read_tsv("https://ec.europa.eu/eurostat/estat-navtree-portl
   mutate(year = as.integer(year)) %>% 
   group_by(country.name, year) %>% 
   summarise(population.mio = round(mean(population.mio, na.rm = TRUE), 1))
+
+
+
+### ghg emissions projections europe total and per sector per country 2019
+ghg_emissions_projections_europe %>% 
+  filter(year == 2019) %>% 
+  left_join(population_europe, by = c("country.name", "year")) %>% 
+  mutate(ghg.emissions.per.capita.tonnes = round(total.ghg.emissions.mio.tonnes / population.mio, 1)) %>% 
+  select(-population.mio) %>% 
+  write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country_most_recent_full_year.csv")
 
 
 
@@ -349,6 +353,7 @@ read_csv(paste0(path_to_raw_data, "ghg_emissions/ghg_emissions_europe_raw.csv"),
   spread(sector.name, ghg.emissions.mio.tonnes) %>% 
   mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes) %>% 
   bind_rows(ghg_emissions_projections_europe) %>% 
+  arrange(country.name, year) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country.csv")
 
 
