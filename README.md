@@ -1,7 +1,7 @@
 Environ-Mate
 =========================================
 
-Source code for [EU Datathon 2019](https://publications.europa.eu/en/web/eudatathon/home)
+Source code for [EU Datathon 2019](https://op.europa.eu/en/web/eudatathon/-2019)
 
 Former project name: ODCCI (Open Data Climate Change Insights)
 

@@ -2,12 +2,12 @@
 {
   "de": {
     "title": "In welcher Stadt wohnst du?",
-    "input_placeholder": "Gebe hier den Namen deines Wohnortes ein",
+    "input_placeholder": "Gib hier den Namen deiner Stadt ein",
     "popup": "Deine Heimatstadt %{city}"
   },
   "en": {
     "title": "Which city do you live in?",
-    "input_placeholder": "Please enter the name of your place of residence",
+    "input_placeholder": "Please enter the name of your city",
     "popup": "Your hometown %{city}"
   }
 }
