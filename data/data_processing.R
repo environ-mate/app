@@ -23,7 +23,8 @@ library(tidyverse)
 # ghg emissions total, per capita, EU rank and EU share per country 2019
 # ghg emissions total and per sector per country 1990 to 2040
 # ghg emissions USA, China and World 2019
-# extreme weather occurrences europe 1960 to 2019
+# extreme weather occurrences europe since 1960
+# plot confidence intervals for future projections
 
 
 
@@ -250,6 +251,10 @@ population_europe <- read_tsv("https://ec.europa.eu/eurostat/estat-navtree-portl
 
 
 
+##################################################
+
+
+
 ### ghg emissions projections europe total and per sector per country 2019
 ghg_emissions_projections_europe %>% 
   filter(year == 2019) %>% 
@@ -257,6 +262,10 @@ ghg_emissions_projections_europe %>%
   mutate(ghg.emissions.per.capita.tonnes = round(total.ghg.emissions.mio.tonnes / population.mio, 1)) %>% 
   select(-population.mio) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country_most_recent_full_year.csv")
+
+
+
+##################################################
 
 
 
@@ -387,7 +396,7 @@ ghg_emissions_world_2019_per_capita <- round(ghg_emissions_world_2019_mio_tonnes
 
 # #
 # # Plot confidence intervals for future projections
-# #
+# # https://ourworldindata.org/grapher/future-greenhouse-gas-emission-scenarios?time=1990..2100
 # #
 # library(ggplot2)
 # data <- read.csv("public/data/future-greenhouse-gas-emission-scenarios.csv", header=T)
@@ -429,7 +438,8 @@ ghg_emissions_world_2019_per_capita <- round(ghg_emissions_world_2019_mio_tonnes
 
 ##### Extreme weather #####
 
-### extreme weather occurences europe
+### extreme weather occurences europe since 1960
+
 # sign up at and download csv from https://www.emdat.be/emdat_db/
 # period: 1900 to most recent full year
 # location: continent -> europe

@@ -8,7 +8,7 @@
     "legend_3": "Erwärmung mit der aktuell umgesetzten Klimapolitik der Länder.",
     "legend_4": "Prognose ohne jegliche Limitierungen in den Emissionen.",
     "outro": "Nutze deine Chance und setze dich jetzt für den Kampf gegen den Klimawandel und eine bessere Zukunft für uns alle ein!",
-    "next_btn": "Zum Start"
+    "next_btn": "Zurück zum Start"
   },
   "en": {
     "title": "How might our future unfold?",
@@ -18,7 +18,7 @@
     "legend_3": "Warming with current climate policies.",
     "legend_4": "Prediction for no limitations on emissions.s",
     "outro": "Take your opportunity to act against climate change and secure a brighter future for us all!",
-    "next_btn": "To start"
+    "next_btn": "Back to Start"
   }
 }
 </i18n>
