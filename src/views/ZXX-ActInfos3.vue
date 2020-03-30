@@ -35,7 +35,9 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class="columns">
+        <References v-if="$parent.$data.referencesActive" :references="references" />
+
+        <div v-if="!$parent.$data.referencesActive" class="columns">
           <div class="column col-12">
             <p>{{ $t('desc_1') }}</p>
           </div>
@@ -62,6 +64,12 @@
         <div class="columns align-center">
           <div class="column col-6 text-left">
             <button @click="navBack" class="btn btn-lg btn"><i class="icon icon-arrow-left"></i></button>
+              <button @click="$parent.toggleReferencesVisibility" class="btn btn-lg">
+                <i
+                  class="icon"
+                  v-bind:class="[$parent.$data.referencesActive ? 'icon-cross' : 'icon-message']"
+                ></i>
+              </button>
           </div>
           <div class="column col-6 text-right">
             <button @click="next" class="btn btn-lg btn-success"> {{ $t('next_btn') }} <i class="icon icon-arrow-right"></i></button>
@@ -74,7 +82,30 @@
 
 <script>
 
+import Vue from 'vue';
+import References from '@/components/References.vue';
+
 export default {
+  components: {
+    References,
+  },
+
+  data() {
+    return {
+      chart: new Vue(),
+      year: null,
+      references: [
+        {
+          title: 'Future greenhouse gas emission scenarios',
+          version: 'TODO',
+          link:
+            'https://ourworldindata.org/grapher/future-greenhouse-gas-emission-scenarios?time=1990..2100',
+          publisherName: 'Our World In Data',
+          publisherLogo: '/assets/data_source_publishers/ourworldindata.png',
+        },
+      ],
+    };
+  },
   methods: {
     next() {
       this.$router.push({ name: 'A01-EntryLanguageSelect' });
