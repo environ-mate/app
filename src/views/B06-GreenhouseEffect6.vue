@@ -26,7 +26,7 @@
 	"sector_industry": "Industry",
     "sector_transport": "Transport",
     "sector_waste": "Waste",
-    "description_all_sectors": "In 2019 the EU produced 4,160 million tons of greenhouse gases. This makes the EU the 3rd biggest global greenhouse gas emitter - after the USA and China. However, individual EU nations differ both in how much each sector contributes, and their overall contribution to total EU emissions.",
+    "description_all_sectors": "In 2019 the EU produced 4,160 million tons of greenhouse gases. This makes the EU the 3rd biggest global greenhouse gas emitter - after the USA and China. However, individual EU nations differ both in how much each sector contributes and their overall contribution to total EU emissions.",
     "description_agriculture": "In agriculture most emissions come from non-CO₂ gases. NO₂ is produced by the fertilisation of fields. CH₄ (methane) is produced by the digestive systems of livestock (cows, pigs, sheep, etc.) and by rice fields. This sector is responsible for 10% of the total emissions in the EU.",
     "description_energy": "When it comes to energy generation, the burning of brown coal in particular contributes heavily to CO₂ emissions - the use of fuels such as petrol doesn't help either. This is one of the biggest sectors in terms of emissions, contributing 55% of the EU's total CO₂ output.",
     "description_industry": "The industry sector covers emissions resulting from the production of goods and raw materials. This sector is responsible for 9% of total EU emissions.",
