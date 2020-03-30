@@ -157,7 +157,7 @@ ghg_emissions_projections_europe <- read_csv(paste0(path_to_raw_data, "ghg_emiss
   mutate(transport.ghg.emissions.mio.tonnes = case_when(
     country.name == "Switzerland" ~ 15.5, # fill missing transport ghg emissions projections for Switzerland with Swiss average 1990 to 2017
     TRUE ~ transport.ghg.emissions.mio.tonnes)) %>% 
-  mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes)
+  mutate(energy.ghg.emissions.mio.tonnes = round(energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes, 1))
 
 
 
@@ -360,7 +360,7 @@ read_csv(paste0(path_to_raw_data, "ghg_emissions/ghg_emissions_europe_raw.csv"),
   mutate(ghg.emissions.mio.tonnes = round(ghg.emissions.giga.tonnes / 1000, 1)) %>% 
   select(country.code, country.name, year, sector.name, ghg.emissions.mio.tonnes) %>% 
   spread(sector.name, ghg.emissions.mio.tonnes) %>% 
-  mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes) %>% 
+  mutate(energy.ghg.emissions.mio.tonnes = round(energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes, 1)) %>% 
   bind_rows(ghg_emissions_projections_europe) %>% 
   arrange(country.name, year) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country.csv")
