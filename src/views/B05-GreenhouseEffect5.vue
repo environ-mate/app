@@ -9,7 +9,7 @@
     "description_capita": "Der Durchschnitt in der EU liegt bei {capitaAvg} Tonnen pro Person. Dein Land liegt bei {capitaShare} Tonnen pro Person. Weltweit liegt der Schnitt bezogen auf Treibhausgas-Emissionen bei 4.9 Tonnen pro Person (USA 20.1 und China 9.4 Tonnen pro Person).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Teste deinen eigenen Footprint dazu im Vergleich (www.footprintcalculator.org)</a>",
     "tonnes": "Tonnen pro Person",
-	"million_tonnes": "Mio. Tonnen",
+    "million_tonnes": "Mio. Tonnen",
     "next_btn": "Weiter"
   },
   "en": {
@@ -21,7 +21,7 @@
     "description_capita": "The average in the EU is {capitaAvg} tonnes per person and your country is at {capitaShare} tonnes per person. The global average is 4.9 tonnes per person (USA 20.1 and China 9.1 tonnes per person, respectively).",
     "description_footprint": "<a href='https://www.footprintcalculator.org/' target='_blank'>Check your own footprint in comparison (www.footprintcalculator.org)</a>",
     "tonnes": "tonnes per person",
-	"million_tonnes": "mio. tonnes",
+    "million_tonnes": "mio. tonnes",
     "next_btn": "Continue"
   }
 }
@@ -192,8 +192,8 @@ export default {
         const emisssionsForEU = emissionsRanking.filter(
           r => r['country.code'] === 'EU',
         )[0];
-        that.countryIndex = emisssionsForHomeCountry["total.ghg.emissions.EU.rank"];
-        that.countryShare = emisssionsForHomeCountry["total.ghg.emissions.EU.share"];
+        that.countryIndex = emisssionsForHomeCountry['total.ghg.emissions.EU.rank'];
+        that.countryShare = emisssionsForHomeCountry['total.ghg.emissions.EU.share'];
         that.capitaAvg = emisssionsForEU['ghg.emissions.per.capita.tonnes'];
         that.capitaShare = emisssionsForHomeCountry['ghg.emissions.per.capita.tonnes'];
       },
@@ -297,22 +297,19 @@ export default {
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);
-			
-			if (this.picked === 'capita') {
-			  
-			  // open tooltip on mouse over
+            if (this.picked === 'capita') {
+              // open tooltip on mouse over
               const unit = that.$i18n.t('tonnes');
               that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
-              sticky: true,
-              });			
-              
-               } else {
-                 // open tooltip on mouse over
-                 const unit = that.$i18n.t('million_tonnes');
-                 that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
-                 sticky: true,
-                 });
-               }
+                sticky: true,
+              });
+            } else {
+              // open tooltip on mouse over
+              const unit = that.$i18n.t('million_tonnes');
+              that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
+                sticky: true,
+              });
+            }
           }
         }
       }
