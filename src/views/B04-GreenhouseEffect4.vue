@@ -6,10 +6,11 @@
     "desc_2": "Wenn Treibhausgase einmal freigesetzt sind, bleiben sie unterschiedlich lange in der Atmosphäre - CO₂ zum Beispiel bis zu 120 Jahre.",
     "desc_3": "Daher können wir die Effekte auch mit einem unmittelbaren Stopp der Emissionen nicht sofort umkehren, aber zumindest dafür sorgen, dass sich die Situation nicht verschlimmert.",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF₆ z.B. 23.500-fach stärker als CO₂",
+    "chart_desc": "Titel bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
     "vis_title": "Treibhausgas-Emissionen {year} in deinem Heimatland {homeTown}",
     "vis_legend_agriculture": "Landwirtschaft",
     "vis_legend_energy": "Energie",
-	"vis_legend_industry": "Industrie",
+    "vis_legend_industry": "Industrie",
     "vis_legend_transport": "Verkehr",
     "vis_legend_waste": "Abfall",
     "next_btn": "Weiter"
@@ -20,12 +21,13 @@
     "desc_2": "Once greenhouse gases are released their stay in the atmosphere varies - CO₂ for example lasts up to 120 years.",
     "desc_3": "Therefore, we cannot immediately reverse the effects with a sudden stop of emissions, but at least make sure that the situation does not get worse.",
     "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: e.g. SF₆ is 23,500 times stronger than CO₂",
+    "chart_desc": "Titel bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
     "vis_title": "Greenhouse gas emissions {year} in your country {homeTown}",
     "vis_legend_agriculture": "agriculture",
     "vis_legend_energy": "energy",
-	"vis_legend_industry": "industry",
+    "vis_legend_industry": "industry",
     "vis_legend_transport": "transport",
-	"vis_legend_waste": "waste",
+    "vis_legend_waste": "waste",
     "next_btn": "Continue"
   }
 }
@@ -57,6 +59,7 @@
           <div class="column col-7 col-sm-12">
             <h5>{{ $t('vis_title', {homeTown: this.$parent.$data.homeTownCountryName, year: this.year}) }}</h5>
             <vue-c3 :handler="chart"></vue-c3>
+            {{ $t('chart_desc') }}
           </div>
         </div>
       </div>
