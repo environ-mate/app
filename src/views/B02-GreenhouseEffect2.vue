@@ -2,14 +2,14 @@
 {
   "de": {
     "title": "Was genau ist eigentlich der Treibhauseffekt? 🔆",
-    "desc_1": "Ohne Treibhausgase wäre unsere Erdoberfläche sehr kalt (etwa -18 Grad Celsius).",
+    "desc_1": "Ohne Treibhausgase wäre unsere Erdoberfläche sehr kalt (etwa -18 °C).",
     "desc_2": "Je mehr aber dieser Gase in der Atmosphäre sind, umso mehr Wärme wird zurückgehalten und umso mehr erwärmt sich unsere Erde.",
     "desc_3": "Eine Folge: Mehr Wasser aus den Meeren verdunstet und die wärmere Atmosphäre kann mehr Wasserdampf ansammeln. Dadurch erhöht sich beispielsweise die Chance auf extreme Regenfälle.",
     "next_btn": "Weiter"
   },
   "en": {
     "title": "What exactly is the greenhouse effect? 🔆",
-    "desc_1": "Without greenhouse gases the earth's surface would be very cold (around -18 degree celsius).",
+    "desc_1": "Without greenhouse gases the earth's surface would be very cold (around -18 °C).",
     "desc_2": "But the more of these gases are in the atmosphere, the more heat is retained and the more our earth warms up.",
     "desc_3": "As a consequence, more water in the oceans evaporates and the warmer atmosphere can accumulate more water vapor. This increases the probability of extreme rainfall, for example.",
     "next_btn": "Continue"

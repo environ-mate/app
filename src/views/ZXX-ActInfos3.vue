@@ -2,7 +2,7 @@
 {
   "de": {
     "title": "Wie könnte unsere Zukunft verlaufen? ",
-    "desc_1": "Mit den aktuellen Maßnahmen wird von einem Anstieg von mehr als 3 Grad bis 2100 im Vergleich zur vorindustriellen Zeit ausgegangen. Das Ziel des Paris Abkommens von 2015 fordert jedoch eine Beschränkung des Anstiegs auf deutlich weniger als 2 Grad, um die Konsequenzen des Klimawandels einzudämmen. Sollte dieses Ziel nicht erreicht werden, könnten die schon jetzt bemerkbaren Auswirkungen noch extremer werden.",
+    "desc_1": "Mit den aktuellen Maßnahmen wird von einem Anstieg von mehr als 3 °C bis 2100 im Vergleich zur vorindustriellen Zeit ausgegangen. Das Ziel des Paris Abkommens von 2015 fordert jedoch eine Beschränkung des Anstiegs auf deutlich weniger als 2 °C, um die Konsequenzen des Klimawandels einzudämmen. Sollte dieses Ziel nicht erreicht werden, könnten die schon jetzt bemerkbaren Auswirkungen noch extremer werden.",
     "legend_1": "1,5 bis 2°C Emissionen müssten schnell und drastisch gesenkt werden.",
     "legend_2": "Ziele aus dem Pariser Abkommen erreicht (Vorhersage über den angestrebten 2°C).",
     "legend_3": "Erwärmung mit der aktuell umgesetzten Klimapolitik der Länder.",
@@ -12,7 +12,7 @@
   },
   "en": {
     "title": "How might our future unfold?",
-    "desc_1": "With current efforts against climate change we expect a rise in global temperatures of 3° Celsius above pre-industrial levels by 2100. The Paris Agreement of 2015 however aims to reduce the temperature rise to below 2°C in order to mitigate the consequences of climate change. If this target is not reached, the already noticeable effects today could get considerably worse.",
+    "desc_1": "With current efforts against climate change we expect a rise in global temperatures of 3 °C above pre-industrial levels by 2100. The Paris Agreement of 2015 however aims to reduce the temperature rise to below 2°C in order to mitigate the consequences of climate change. If this target is not reached, the already noticeable effects today could get considerably worse.",
     "legend_1": "1.5 to 2°C emissions would have to be drastically and rapidly reduced.",
     "legend_2": "Targets of the Paris Agreement achieved (prediction over the targeted 2°C).",
     "legend_3": "Warming with current climate policies.",
