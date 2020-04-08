@@ -2,11 +2,11 @@
 {
   "de": {
     "title": "Was sind Treibhausgase und woher kommen sie?",
-    "desc_1": "Den größten Anteil am Treibhauseffekt hat das Gas CO₂. Der Autoverkehr und die Verbrennung fossiler Brennstoffe (z.B. Gas, Erdöl, Kohle) verursachen die meisten CO₂-Emissionen (Ausstoß des Gases in die Umwelt).",
+    "desc_1": "Den größten Anteil am Treibhauseffekt hat das Gas CO₂. Der Autoverkehr und die Verbrennung fossiler Brennstoffe (Gas, Erdöl, Kohle) verursachen die meisten CO₂-Emissionen (Ausstoß des Gases in die Umwelt).",
     "desc_2": "Wenn Treibhausgase einmal freigesetzt sind, bleiben sie unterschiedlich lange in der Atmosphäre - CO₂ zum Beispiel bis zu 120 Jahre.",
     "desc_3": "Daher können wir die Effekte auch mit einem unmittelbaren Stopp der Emissionen nicht sofort umkehren, aber zumindest dafür sorgen, dass sich die Situation nicht verschlimmert.",
     "bullet_desc": "Sie halten unterschiedlich stark die Sonnenwärme zurück auf der Erde: SF₆ z.B. 23.500-fach stärker als CO₂",
-    "chart_desc": "Anmerkungen: Tatsächliche Emissionsdaten gibt es von der EU bis 2017. Ab 2018 nutzen wir daher offizielle Prognosen der EU. Der Energie-Sektor enthält Emissionen von privaten Haushalten.",
+    "chart_desc": "Titel bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
     "vis_title": "Treibhausgas-Emissionen {year} in deinem Heimatland {homeTown}",
     "vis_legend_agriculture": "Landwirtschaft",
     "vis_legend_energy": "Energie",
@@ -17,11 +17,11 @@
   },
   "en": {
     "title": "What are greenhouse gases and where do they come from?",
-    "desc_1": "The biggest contributor to the greenhouse effect is CO₂ gas. Car traffic and the burning of fossil fuels (e.g. gas, oil, coal) causes most of the CO₂ emissions (emissions of the gas into the environment).",
+    "desc_1": "The biggest contributor to the greenhouse effect is CO₂ gas. Car traffic and the burning of fossil fuels (gas, oil, coal) causes most of the CO₂ emissions (emissions of the gas into the environment).",
     "desc_2": "Once greenhouse gases are released their stay in the atmosphere varies - CO₂ for example lasts up to 120 years.",
     "desc_3": "Therefore, we cannot immediately reverse the effects with a sudden stop of emissions, but at least make sure that the situation does not get worse.",
     "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: e.g. SF₆ is 23,500 times stronger than CO₂",
-    "chart_desc": "Notes: The EU provides actual emissions data until 2017. From 2018 on we therefore use official EU projections. The energy sector includes emissions of private household.",
+    "chart_desc": "Titel bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
     "vis_title": "Greenhouse gas emissions {year} in your country {homeTown}",
     "vis_legend_agriculture": "agriculture",
     "vis_legend_energy": "energy",

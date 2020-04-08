@@ -3,7 +3,7 @@
   "de": {
     "title": "Klimawandel - was ist das eigentlich?",
     "intro_1": "Du hast sicher schon mal vom Klimawandel gehört. Was aber hat es damit genau auf sich?",
-    "intro_2": "In den letzten Jahrzehnten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. 1 bis 2 Grad Celsius (°C) hören sich dabei wenig an, haben aber einen großen Effekt auf unsere Umwelt.",
+    "intro_2": "In den letzten Jahrzehnten hat sich die Durchschnittstemperatur auf unserer Erde drastisch erhöht. 1 bis 2 Grad Celsius hören sich dabei wenig an, haben aber einen großen Effekt auf unsere Umwelt.",
     "chart_degress_desc": "Schaut man sich die jährlichen mittleren Temperaturabweichungen in Europa im Vergleich zur Zeit vor 1900 an, sieht man wie gerade die letzten Jahre im Durchschnitt immer wärmer wurden:",
     "chart_degress": "Jährliche mittlere Temperaturabweichungen im Vergleich zur Zeit vor der Industrialisierung (vor 1900)",
     "next_desc": "Aber wieso erwärmt sich die Erde immer weiter?",
@@ -13,7 +13,7 @@
   "en": {
     "title": "What is climate change?",
     "intro_1": "You've likely heard of climate change. So, what's it all about?",
-    "intro_2": "In recent decades the average temperature of earth has dramatically increased. 1 to 2 degrees celsius (°C) doesn't sound like much, but has a big impact on our environment.",
+    "intro_2": "In recent decades the average temperature of earth has dramatically increased. 1 to 2 degrees celsius doesn't sound like much, but has a big impact on our environment.",
     "chart_degress_desc": "If you take a look at the annual average temperature deviations in Europe and compare it to the time before 1900, you see that recent years in particular become increasingly warmer:",
     "chart_degress": "Annual average temperature deviations compared to pre-industrial average (pre 1900)",
     "next_desc": "But why does the temperature on earth keep increasing?",
