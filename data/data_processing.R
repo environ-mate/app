@@ -157,7 +157,7 @@ ghg_emissions_projections_europe <- read_csv(paste0(path_to_raw_data, "ghg_emiss
   mutate(transport.ghg.emissions.mio.tonnes = case_when(
     country.name == "Switzerland" ~ 15.5, # fill missing transport ghg emissions projections for Switzerland with Swiss average 1990 to 2017
     TRUE ~ transport.ghg.emissions.mio.tonnes)) %>% 
-  mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes)
+  mutate(energy.ghg.emissions.mio.tonnes = round(energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes, 1))
 
 
 
@@ -360,7 +360,7 @@ read_csv(paste0(path_to_raw_data, "ghg_emissions/ghg_emissions_europe_raw.csv"),
   mutate(ghg.emissions.mio.tonnes = round(ghg.emissions.giga.tonnes / 1000, 1)) %>% 
   select(country.code, country.name, year, sector.name, ghg.emissions.mio.tonnes) %>% 
   spread(sector.name, ghg.emissions.mio.tonnes) %>% 
-  mutate(energy.ghg.emissions.mio.tonnes = energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes) %>% 
+  mutate(energy.ghg.emissions.mio.tonnes = round(energy.ghg.emissions.mio.tonnes - transport.ghg.emissions.mio.tonnes, 1)) %>% 
   bind_rows(ghg_emissions_projections_europe) %>% 
   arrange(country.name, year) %>% 
   write_csv("public/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country.csv")
@@ -394,41 +394,52 @@ ghg_emissions_world_2019_per_capita <- round(ghg_emissions_world_2019_mio_tonnes
 
 
 
-# #
-# # Plot confidence intervals for future projections
-# # https://ourworldindata.org/grapher/future-greenhouse-gas-emission-scenarios?time=1990..2100
-# #
-# library(ggplot2)
-# data <- read.csv("public/data/future-greenhouse-gas-emission-scenarios.csv", header=T)
-# #data[,-c(1,2)] <- apply(data[,-c(1,2)], 2, function(x) ifelse(x<0, 0, x))
-# 
-# 
-# # MEDIAN of last entry for label positioning
-# # no climate policies: 4.1-4.8°C - 128.9
-# # current policies: 3.1-3.7°C    - 62.75
-# # pledges: (2.6-3.2°C)           - 41.67
-# # pathway: 2°C                   - 2.97
-# # pathway: 1.5°C                 - -5.46
-# 
-# 
-# # plot
-# alpha = 0.6
-# image <- ggplot(data=data)+  
-#   geom_line(aes(x = Year, y = Historic..billion.tonnes.CO..equivalent.), color = "black")+
-#   geom_ribbon(aes(x = Year, ymin= No.climate.policies..low...billion.tonnes.CO..equivalent., ymax =  No.climate.policies..high...billion.tonnes.CO..equivalent.), fill= "#fb6a4a", alpha = alpha)+  
-#   geom_ribbon(aes(x = Year, ymin= Current.policies..low...billion.tonnes.CO..equivalent., ymax =  Current.policies..high...billion.tonnes.CO..equivalent.), fill= "#9e9ac8", alpha = alpha)+ 
-#   geom_ribbon(aes(x = Year, ymin= Pledges..low...billion.tonnes.CO..equivalent., ymax =  Pledges..high...billion.tonnes.CO..equivalent.), fill= "#fed976", alpha = alpha)+ 
-#   geom_ribbon(aes(x = Year, ymin= X2C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X2C.pathways..high...billion.tonnes.CO..equivalent.), fill= "#74c476", alpha = alpha)+ 
-#   geom_ribbon(aes(x = Year, ymin= X1.5C.pathways..low...billion.tonnes.CO..equivalent., ymax =  X1.5C.pathways..high...billion.tonnes.CO..equivalent.), fill= "#67a9cf", alpha = alpha)+ 
-#   ylim(-10,200) + xlim(1990,2100)+
-#   theme_bw()+ 
-#   theme(axis.text=element_text(size=14))+
-#   #theme (panel.border = element_blank()) + geom_hline(yintercept=0) + geom_vline(xintercept=1990) + 
-#   labs(y="Gt CO2", x="t")+
-#   scale_y_continuous(sec.axis=dup_axis(name=" ", breaks=c(-5.46, 2.97,41.67,62.75,128.9), labels=c("1.5°C","2°C","2.6-3.2°C","3.1-3.7°C","4.1-4.8°C")))
-# 
-# #save the plot as png
-# ggsave(file="public/assets/emission_projection_2100.png", plot=image, width=12, height=6)
+### future greenhouse gas emission scenarios with confidence intervals
+
+# download csv from https://ourworldindata.org/grapher/future-greenhouse-gas-emission-scenarios?time=1990..2100
+# move to ../app/data/raw_data/ghg_emissions/
+
+# load data and select pathways
+column_names <- c("year",
+                  "1.5.pathway.high.bn.tonnes.co2e",
+                  "1.5.pathway.low.bn.tonnes.co2e",
+                  "2.pathway.high.bn.tonnes.co2e",
+                  "2.pathway.low.bn.tonnes.co2e",
+                  "current.policies.pathway.high.bn.tonnes.co2e",
+                  "current.policies.pathway.low.bn.tonnes.co2e",
+                  "historic.emissions.bn.tonnes.co2e",
+                  "no.climate.policies.pathway.high.bn.tonnes.co2e",
+                  "no.climate.policies.pathway.low.bn.tonnes.co2e",
+                  "pledges.pathway.high.bn.tonnes.co2e",
+                  "pledges.pathway.low.bn.tonnes.co2e")
+
+future_ghg_emissions_scenarios <- read_csv(paste0(path_to_raw_data, "ghg_emissions/future-greenhouse-gas-emission-scenarios.csv"),
+                                           col_names = column_names,
+                                           col_types = "--inn-nn-nnnnnnn",
+                                           skip = 1)
+
+# last entry for each pathway for label positioning
+# 1.5°C:                            -5.46
+# 2°C:                              2.97
+# pledges (2.6-3.2°C):              41.67
+# current policies (3.1-3.7°C):     62.75
+# no climate policies (4.1-4.8°C):  128.9
+
+# create and save plot
+alpha = 0.6
+ggplot(data = future_ghg_emissions_scenarios) + 
+  geom_line(aes(x = year, y = historic.emissions.bn.tonnes.co2e), color = "black") + 
+  geom_ribbon(aes(x = year, ymin = `1.5.pathway.low.bn.tonnes.co2e`, ymax = `1.5.pathway.high.bn.tonnes.co2e`), fill= "#67a9cf", alpha = alpha) + 
+  geom_ribbon(aes(x = year, ymin = `2.pathway.low.bn.tonnes.co2e`, ymax = `2.pathway.high.bn.tonnes.co2e`), fill= "#74c476", alpha = alpha) + 
+  geom_ribbon(aes(x = year, ymin = pledges.pathway.low.bn.tonnes.co2e, ymax = pledges.pathway.high.bn.tonnes.co2e), fill= "#fed976", alpha = alpha) + 
+  geom_ribbon(aes(x = year, ymin = current.policies.pathway.low.bn.tonnes.co2e, ymax = current.policies.pathway.high.bn.tonnes.co2e), fill= "#9e9ac8", alpha = alpha) + 
+  geom_ribbon(aes(x = year, ymin = no.climate.policies.pathway.low.bn.tonnes.co2e, ymax = no.climate.policies.pathway.high.bn.tonnes.co2e), fill= "#fb6a4a", alpha = alpha) + 
+  ylim(-10, 200) + xlim(1990, 2100) + 
+  theme_bw() + 
+  theme(axis.text = element_text(size = 14)) + 
+  labs(y="Gt CO2e", x= "Year") + 
+  scale_y_continuous(sec.axis = dup_axis(name =" ", breaks = c(-5.46, 2.97, 41.67, 62.75, 128.9), labels = c("1.5°C", "2°C", "2.6-3.2°C", "3.1-3.7°C", "4.1-4.8°C"))) + 
+  ggsave("public/assets/future_ghg_emissions_scenarios_1990_to_2100.png", width = 12, height = 6)
 
 
 

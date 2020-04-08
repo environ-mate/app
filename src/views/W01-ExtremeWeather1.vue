@@ -103,8 +103,8 @@ export default {
           title: 'EM-DAT The International Disaster Database (Centre for Research on the Epidemiology of Disasters - CRED) ',
           link:
             'https://www.emdat.be/',
-          publisherName: null,
-          publisherLogo: '',
+          publisherName: '',
+          publisherLogo: '/assets/data_source_publishers/cred.png',
         },
       ],
     };
