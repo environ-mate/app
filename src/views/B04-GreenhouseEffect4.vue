@@ -21,7 +21,7 @@
     "desc_2": "Once greenhouse gases are released their stay in the atmosphere varies - CO₂ for example lasts up to 120 years.",
     "desc_3": "Therefore, we cannot immediately reverse the effects with a sudden stop of emissions, but at least make sure that the situation does not get worse.",
     "bullet_desc": "They can hold back the sun's heat on earth with varying degrees of intensity: e.g. SF₆ is 23,500 times stronger than CO₂",
-    "chart_desc": "Notes: The EU provides actual emissions data until 2017. From 2018 on we therefore use official EU projections. The energy sector includes emissions of private household.",
+    "chart_desc": "Notes: The EU provides actual emissions data until 2017. From 2018 on we therefore use official EU projections. The energy sector includes emissions of private households.",
     "vis_title": "Greenhouse gas emissions {year} in your country {homeTown}",
     "vis_legend_agriculture": "agriculture",
     "vis_legend_energy": "energy",
@@ -161,9 +161,9 @@ export default {
         data = [
           'agriculture.ghg.emissions.mio.tonnes',
           'energy.ghg.emissions.mio.tonnes',
-		  'industry.ghg.emissions.mio.tonnes',
+          'industry.ghg.emissions.mio.tonnes',
           'transport.ghg.emissions.mio.tonnes',
-          'waste.ghg.emissions.mio.tonnes'
+          'waste.ghg.emissions.mio.tonnes',
         ].reduce((result, key) => {
           // eslint-disable-next-line no-param-reassign
           result[key] = data[key];
@@ -174,17 +174,17 @@ export default {
           data: {
             json: data,
             names: {
-              'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture',),
-              'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy',),
-			  'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry',),
-              'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport',),
-              'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste')
+              'agriculture.ghg.emissions.mio.tonnes': this.$t('vis_legend_agriculture'),
+              'energy.ghg.emissions.mio.tonnes': this.$t('vis_legend_energy'),
+              'industry.ghg.emissions.mio.tonnes': this.$t('vis_legend_industry'),
+              'transport.ghg.emissions.mio.tonnes': this.$t('vis_legend_transport'),
+              'waste.ghg.emissions.mio.tonnes': this.$t('vis_legend_waste'),
             },
             colors: {
               'agriculture.ghg.emissions.mio.tonnes': Colors.green,
               'energy.ghg.emissions.mio.tonnes': Colors.orange,
               'industry.ghg.emissions.mio.tonnes': Colors.purple,
-			  'transport.ghg.emissions.mio.tonnes': Colors.blue,
+              'transport.ghg.emissions.mio.tonnes': Colors.blue,
               'waste.ghg.emissions.mio.tonnes': Colors.red,
             },
             type: 'donut',
