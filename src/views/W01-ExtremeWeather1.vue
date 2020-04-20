@@ -9,7 +9,7 @@
     "vis_legend_landslide": "Lawinen",
     "vis_legend_storm": "Stürme",
     "vis_legend_wildfire": "Waldbrände",
-    "desc": "Dürren, Hitzewellen, Überschwemmungen, Lawinen, Stürme und Waldbrände verursachten zwischen 1960 und 2019 Schäden in Höhe von etwa 313 Milliarden Dollar und forderten über 162.000 Menschenleben in ganz Europa. Die Grafik auf der rechten Seite zeigt wie die Anzahl der Extremwetterereignisse seit den 1980er Jahren zugenommen hat. Frühe Messungen mögen unvollständig sein aber man sieht in den letzten Jahren einen deutlichen Anstieg. Wir können erwarten, dass sowohl die Häufigkeit als auch die Schwere von Extremwetterereignissen im Laufe der Zeit zunehmen werden, was Leben und Eigentum bedroht.",
+    "desc": "Dürren, Hitzewellen, Überschwemmungen, Lawinen, Stürme und Waldbrände verursachten zwischen 1960 und 2019 Schäden in Höhe von etwa 313 Milliarden Dollar und forderten über 162.000 Menschenleben in ganz Europa. Die Grafik auf der rechten Seite zeigt, wie die Anzahl der Extremwetterereignisse seit den 1980er Jahren zugenommen hat. Frühe Messungen mögen unvollständig sein, aber man sieht in den letzten Jahren einen deutlichen Anstieg. Wir können erwarten, dass sowohl die Häufigkeit als auch die Schwere von Extremwetterereignissen im Laufe der Zeit zunehmen werden, was Leben und Eigentum bedroht.",
     "next_btn": "Übersicht Auswirkungen"
   },
   "en": {
@@ -98,7 +98,7 @@ export default {
     return {
       chart: new Vue(),
       year: null,
-	  references: [
+      references: [
         {
           title: 'EM-DAT The International Disaster Database (Centre for Research on the Epidemiology of Disasters - CRED) ',
           link:

@@ -2,13 +2,13 @@
 {
   "de": {
     "title": "Was kannst du tun, um dem Klimawandel und seinen Konsequenzen entgegenzuwirken?",
-    "intro": "Du hast jetzt viele Informationen zum Klimawandel, seinen Ursachen und seinen Konsequenzen erhalten. Sicher fragst du dich nun, was du als einzelne Person tun kannst, um alldem entgegenzuwirken. Hier sind ein paar Tipps, wie du deinen eigenen Beitrag für eine bessere Zukunft für uns alle leisten kannst:",
+    "intro": "Du hast jetzt viele Informationen zum Klimawandel, seinen Ursachen und seinen Konsequenzen erhalten. Sicher fragst du dich nun, was du als einzelne Person tun kannst, um all dem entgegenzuwirken. Hier sind ein paar Tipps, wie du deinen eigenen Beitrag für eine bessere Zukunft für uns alle leisten kannst:",
     "act_1": "Sprich mit Familie, Freunden und Bekannten über das Thema und zeig, was du über den Klimawandel gelernt hast",
-    "act_2": "Gehe zur nächsten Fridays for Future Demo in deiner Nähe, um Gleichgesinnte zu treffen und dich auszutauschen:  <a class='text-break' href='https://www.fridaysforfuture.org/events/list/' target='_blank'>https://www.fridaysforfuture.org/events/list/</a>",
+    "act_2": "Gehe zur nächsten Fridays-for-Future-Demo in deiner Nähe, um Gleichgesinnte zu treffen und dich auszutauschen:  <a class='text-break' href='https://www.fridaysforfuture.org/events/list/' target='_blank'>https://www.fridaysforfuture.org/events/list/</a>",
     "act_3": "Berechne deinen ökologischen Fußabdruck, um zu überprüfen, wie nachhaltig dein Lebensstil ist: <a class='text-break' href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>",
     "act_4": "Schaue dir die Tipps der EU an, was du gegen den Klimawandel tun kannst: <a class='text-break' href='https://europa.eu/euandme/passion/fighting-climate-change_en' target='_blank'>https://europa.eu/euandme/passion/fighting-climate-change_en</a>",
-    "act_5": "Probiere die Zero Waste (Null Müll) Regeln aus, um dein Leben noch nachhaltiger und klimwaverträglicher zu gestalten (Button unten).",
-	"act_6": "Entwickle deine eigenen Stories mit Environ-Mate und hilf dabei das Verständnis des Klimawandel zu verbessern: <a class='text-break' href='https://github.com/environ-mate/' target='_blank'>https://github.com/environ-mate/</a>",
+    "act_5": "Probiere die Zero-Waste-Regeln (Null-Müll-Regeln) aus, um dein Leben noch nachhaltiger und klimwaverträglicher zu gestalten (Button unten).",
+    "act_6": "Entwickle deine eigenen Stories mit Environ-Mate und hilf dabei, das Verständnis des Klimawandel zu verbessern: <a class='text-break' href='https://github.com/environ-mate/' target='_blank'>https://github.com/environ-mate/</a>",
     "subtitle_msg": "Die folgenden Seiten geben dir weitere Tipps.",
     "next_btn": "Null Müll Regeln",
     "next_examples": "5 Praktische Beispiele",
@@ -23,8 +23,8 @@
     "act_3": "Calculate your ecological footprint to check how sustainable your lifestyle is: <a class='text-break' href='https://www.footprintcalculator.org/' target='_blank'>https://www.footprintcalculator.org/</a>",
     "act_4": "Check out the EU's tips for how you can help counter climate change: <a class='text-break' href='https://europa.eu/euandme/passion/fighting-climate-change_en' target='_blank'>https://europa.eu/euandme/passion/fighting-climate-change_en</a>",
     "act_5": "Try out the Zero Waste rules, to create a more sustainable and climate-friendly lifestyle: (button below)",
-	"act_6": "Develop your own Stories with Environ-Mate and help improve the understanding of climate change: <a class='text-break' href='https://github.com/environ-mate/' target='_blank'>https://github.com/environ-mate/</a>",
-	"subtitle_msg": "The following sites present further tips.",
+    "act_6": "Develop your own Stories with Environ-Mate and help improve the understanding of climate change: <a class='text-break' href='https://github.com/environ-mate/' target='_blank'>https://github.com/environ-mate/</a>",
+    "subtitle_msg": "The following sites present further tips.",
     "next_btn": "Zero Waste Rules",
     "next_examples": "5 Practical Examples",
     "next_euact": "Further Infos",
@@ -51,7 +51,7 @@
               <li v-html="$t('act_3')"></li>
               <li v-html="$t('act_4')"></li>
               <li v-html="$t('act_5')"></li>
-			  <li v-html="$t('act_6')"></li>
+              <li v-html="$t('act_6')"></li>
             </ul>
           </div>
           <div class="column col-2 flex-centered mb-3">
