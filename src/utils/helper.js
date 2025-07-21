@@ -1,10 +1,8 @@
 export default {
   sleep(s, callback) {
-    if (window.webpackHotUpdate) {
-      s = 0;
-    }
+    const delay = window.webpackHotUpdate ? 0 : s;
     setTimeout(() => {
       callback();
-    }, s * 1000);
+    }, delay * 1000);
   },
 };

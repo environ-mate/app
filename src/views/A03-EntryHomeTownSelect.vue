@@ -110,7 +110,7 @@ export default {
             }
 
             this.citySuggestions = response.data.suggestions.filter(
-              s => s.matchLevel === 'district' || s.matchLevel === 'city',
+              (s) => s.matchLevel === 'district' || s.matchLevel === 'city',
             );
           })
           .catch((error) => {
@@ -153,7 +153,7 @@ export default {
           this.$parent.$data.homeTownName = location.Address.District || location.Address.City;
           this.$parent.$data.homeTownCountryCode = location.Address.Country;
           this.$parent.$data.homeTownCountryName = location.Address.AdditionalData.filter(
-            d => d.key === 'CountryName',
+            (d) => d.key === 'CountryName',
           )[0].value;
 
           this.modalOpen = false;

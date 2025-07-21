@@ -183,14 +183,14 @@ export default {
     d3.csv('/data/ghg_emissions/ghg_emissions_total_per_capita_EU_share_EU_rank.csv').then(
       (emissionsRanking) => {
         const homeCountryCode2 = Object.entries(Mappings.countryMapping).filter(
-          m => m[1][1] === this.$parent.$data.homeTownCountryCode,
+          (m) => m[1][1] === this.$parent.$data.homeTownCountryCode,
         )[0][0];
 
         const emisssionsForHomeCountry = emissionsRanking.filter(
-          r => r['country.code'] === homeCountryCode2,
+          (r) => r['country.code'] === homeCountryCode2,
         )[0];
         const emisssionsForEU = emissionsRanking.filter(
-          r => r['country.code'] === 'EU',
+          (r) => r['country.code'] === 'EU',
         )[0];
         that.countryIndex = emisssionsForHomeCountry['total.ghg.emissions.EU.rank'];
         that.countryShare = emisssionsForHomeCountry['total.ghg.emissions.EU.share'];
@@ -202,15 +202,12 @@ export default {
     this.$parent.map.once('moveend', () => {
       // emissions data load csv
       d3.csv('/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country_most_recent_full_year.csv').then((rows) => {
-        that.emissionData = rows;
-        that.emissionData = this.emissionData.filter(
-          r => r['country.name'] !== 'EU',
+        that.emissionData = rows.filter(
+          (r) => r['country.name'] !== 'EU',
         );
 
         // load country shapes
-        const promises = [];
-
-        for (const countryMapping of Object.values(Mappings.countryMapping)) {
+        const promises = Object.values(Mappings.countryMapping).map((countryMapping) => {
           const countryCode = countryMapping[1];
 
           const layerTpl = L.geoJson(null, {
@@ -219,7 +216,7 @@ export default {
             },
           });
 
-          const promise = d3
+          return d3
             .json(`/data/geo_countries/${countryCode}-simplified.json`)
             .then((countryInfo) => {
               const location = countryInfo.View[0].Result[0].Location;
@@ -232,9 +229,7 @@ export default {
               that.countryLayer[countryCode] = layer;
               layer.addTo(that.$parent.$data.mapLayerGroup);
             });
-
-          promises.push(promise);
-        }
+        });
 
         Promise.all(promises).then(() => {
           that.renderEmissions();
@@ -254,14 +249,14 @@ export default {
       }
 
       const rowsOfInterest = this.emissionData.filter(
-        r => r.year === that.year,
+        (r) => r.year === that.year,
       );
 
       const valueMin = Math.min(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map((r) => r[this.valueColumn]),
       );
       const valueMax = Math.max(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map((r) => r[this.valueColumn]),
       );
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
@@ -273,19 +268,20 @@ export default {
         }
       });
 
-      for (const row of rowsOfInterest) {
+      rowsOfInterest.forEach((row) => {
         if (row.year === that.year) {
-          const value = parseFloat(row[this.valueColumn]);
-          const countryCode = Object.values(Mappings.countryMapping).filter(
-            m => m[0] === row['country.name'],
-          )[0][1];
+          const value = parseFloat(row[that.valueColumn]);
+          const countryMappingEntry = Object.values(Mappings.countryMapping).find(
+            (m) => m[0] === row['country.name'],
+          );
+          if (!countryMappingEntry) return; // guard against missing mapping
+          const countryCode = countryMappingEntry[1];
 
-          const style = layerStyle;
+          // Clone layerStyle to avoid mutating the shared object
+          const style = { ...layerStyle };
           style.fillOpacity = 0.5;
 
-          let colorIndex = Math.ceil(
-            (value - valueMin) / valueRangeDistributed - 1,
-          );
+          let colorIndex = Math.ceil((value - valueMin) / valueRangeDistributed - 1);
           if (colorIndex < 0) {
             colorIndex = 0;
           }
@@ -297,22 +293,18 @@ export default {
 
           if (that.countryLayer[countryCode]) {
             that.countryLayer[countryCode].setStyle(style);
-            if (this.picked === 'capita') {
-              // open tooltip on mouse over
-              const unit = that.$i18n.t('tonnes');
-              that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
-                sticky: true,
-              });
-            } else {
-              // open tooltip on mouse over
-              const unit = that.$i18n.t('million_tonnes');
-              that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
-                sticky: true,
-              });
-            }
+
+            // Open tooltip with conditional unit text
+            const unit = this.picked === 'capita'
+              ? that.$i18n.t('tonnes')
+              : that.$i18n.t('million_tonnes');
+
+            that.countryLayer[countryCode].bindTooltip(`${value} ${unit} `, {
+              sticky: true,
+            });
           }
         }
-      }
+      });
     },
 
     modalClose() {

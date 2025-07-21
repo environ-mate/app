@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 import Vue from 'vue';
 import VueC3 from 'vue-c3';
 import Colors from '@/utils/colors';

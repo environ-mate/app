@@ -36,7 +36,7 @@ export default {
     if (this.tutor === null) {
       this.removeLayers();
 
-      if (this.$route.name !== 'Imprint') {
+      if (this.$route.name !== 'Imprint' && this.$route.name !== 'A01-EntryLanguageSelect') {
         this.$router.push({ name: 'A01-EntryLanguageSelect' });
       }
     }
@@ -98,18 +98,15 @@ export default {
   },
 
   flyToOptions(maxZoom, duration, easeLinearity) {
-    if (window.webpackHotUpdate) {
-      duration = 0.1;
-    }
     return {
       maxZoom,
-      duration: duration || 3.0,
+      duration: window.webpackHotUpdate ? 0.1 : (duration || 3.0),
       easeLinearity: easeLinearity || 0.2,
     };
   },
 
   watch: {
-    $route(to, from) {
+    $route() { // to, from
       this.removeLayers();
       this.referencesActive = false;
     },

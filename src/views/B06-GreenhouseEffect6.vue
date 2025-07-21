@@ -182,47 +182,32 @@ export default {
       this.$parent.$options.flyToOptions(3, 1, 1.0),
     );
 
-    this.$parent.map.once('moveend', () => {
-      // emissions data load csv
-      d3.csv('/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country.csv').then((rows) => {
-        that.emissionData = rows;
-        that.emissionData = this.emissionData.filter(
-          r => r['country.name'] !== 'EU',
-        );
+    const promises = Object.values(Mappings.countryMapping).map((countryMapping) => {
+      const countryCode = countryMapping[1];
 
-        // load country shapes
-        const promises = [];
-
-        for (const countryMapping of Object.values(Mappings.countryMapping)) {
-          const countryCode = countryMapping[1];
-
-          const layerTpl = L.geoJson(null, {
-            style() {
-              return layerStyle;
-            },
-          });
-
-          const promise = d3
-            .json(`/data/geo_countries/${countryCode}-simplified.json`)
-            .then((countryInfo) => {
-              const location = countryInfo.View[0].Result[0].Location;
-              const layer = omnivore.wkt.parse(
-                location.Shape.Value,
-                null,
-                layerTpl,
-              );
-
-              that.countryLayer[countryCode] = layer;
-              layer.addTo(that.$parent.$data.mapLayerGroup);
-            });
-
-          promises.push(promise);
-        }
-
-        Promise.all(promises).then(() => {
-          that.renderYear();
-        });
+      const layerTpl = L.geoJson(null, {
+        style() {
+          return layerStyle;
+        },
       });
+
+      return d3
+        .json(`/data/geo_countries/${countryCode}-simplified.json`)
+        .then((countryInfo) => {
+          const location = countryInfo.View[0].Result[0].Location;
+          const layer = omnivore.wkt.parse(
+            location.Shape.Value,
+            null,
+            layerTpl,
+          );
+
+          that.countryLayer[countryCode] = layer;
+          layer.addTo(that.$parent.$data.mapLayerGroup);
+        });
+    });
+
+    Promise.all(promises).then(() => {
+      that.renderYear();
     });
   },
 
@@ -233,14 +218,14 @@ export default {
       // filter by sector
       this.valueColumn = `${this.sectorSelected}.ghg.emissions.mio.tonnes`;
       const rowsOfInterest = this.emissionData.filter(
-        r => r.year === that.year,
+        (r) => r.year === that.year,
       );
 
       const valueMin = Math.min(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map((r) => r[this.valueColumn]),
       );
       const valueMax = Math.max(
-        ...rowsOfInterest.map(r => r[this.valueColumn]),
+        ...rowsOfInterest.map((r) => r[this.valueColumn]),
       );
       const valueRange = valueMax - valueMin;
       const valueRangeDistributed = valueRange / Colors.redScale.length;
@@ -252,14 +237,14 @@ export default {
         }
       });
 
-      for (const row of rowsOfInterest) {
+      rowsOfInterest.forEach((row) => {
         if (row.year === that.year) {
-          const value = parseFloat(row[this.valueColumn]);
+          const value = parseFloat(row[that.valueColumn]);
           const countryCode = Object.values(Mappings.countryMapping).filter(
-            m => m[0] === row['country.name'],
+            (m) => m[0] === row['country.name'],
           )[0][1];
 
-          const style = layerStyle;
+          const style = { ...layerStyle };// clone to avoid mutating shared object
           style.fillOpacity = 0.5;
 
           let colorIndex = Math.ceil(
@@ -284,7 +269,7 @@ export default {
             });
           }
         }
-      }
+      });
     },
 
     modalClose() {

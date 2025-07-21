@@ -1,96 +1,93 @@
+/* global L */
+
 // Leaflet-SVGIcon
 // SVG icon for any marker class
 // Ilya Atkin
-// ilya.atkin@unh.edu
 
 L.DivIcon.SVGIcon = L.DivIcon.extend({
   options: {
     circleText: '',
     className: 'svg-icon',
-    circleAnchor: null, // defaults to [iconSize.x/2, iconSize.x/2]
-    circleColor: null, // defaults to color
-    circleOpacity: null, // defaults to opacity
+    circleAnchor: null,
+    circleColor: null,
+    circleOpacity: null,
     circleFillColor: 'rgb(255,255,255)',
-    circleFillOpacity: null, // default to opacity
+    circleFillOpacity: null,
     circleRatio: 0.5,
-    circleWeight: null, // defaults to weight
+    circleWeight: null,
     color: 'rgb(0,102,255)',
-    fillColor: null, // defaults to color
+    fillColor: null,
     fillOpacity: 0.4,
     fontColor: 'rgb(0, 0, 0)',
     fontOpacity: '1',
-    fontSize: null, // defaults to iconSize.x/4
+    fontSize: null,
     fontWeight: 'normal',
-    iconAnchor: null, // defaults to [iconSize.x/2, iconSize.y] (point tip)
+    iconAnchor: null,
     iconSize: L.point(32, 48),
     opacity: 1,
     popupAnchor: null,
     weight: 2,
   },
-  initialize(options) {
-    options = L.Util.setOptions(this, options);
 
-    // iconSize needs to be converted to a Point object if it is not passed as one
-    options.iconSize = L.point(options.iconSize);
+  initialize(rawOptions) {
+    const options = L.Util.setOptions(this, rawOptions);
 
-    // in addition to setting option dependant defaults, Point-based options are converted to Point objects
+    const { iconSize } = options;
+    options.iconSize = L.point(iconSize);
+
     if (!options.circleAnchor) {
-      options.circleAnchor = L.point(Number(options.iconSize.x) / 2, Number(options.iconSize.x) / 2);
+      options.circleAnchor = L.point(iconSize.x / 2, iconSize.x / 2);
     } else {
       options.circleAnchor = L.point(options.circleAnchor);
     }
-    if (!options.circleColor) {
-      options.circleColor = options.color;
-    }
-    if (!options.circleFillOpacity) {
-      options.circleFillOpacity = options.opacity;
-    }
-    if (!options.circleOpacity) {
-      options.circleOpacity = options.opacity;
-    }
-    if (!options.circleWeight) {
-      options.circleWeight = options.weight;
-    }
-    if (!options.fillColor) {
-      options.fillColor = options.color;
-    }
-    if (!options.fontSize) {
-      options.fontSize = Number(options.iconSize.x / 4);
-    }
+    if (!options.circleColor) options.circleColor = options.color;
+    if (!options.circleFillOpacity) options.circleFillOpacity = options.opacity;
+    if (!options.circleOpacity) options.circleOpacity = options.opacity;
+    if (!options.circleWeight) options.circleWeight = options.weight;
+    if (!options.fillColor) options.fillColor = options.color;
+    if (!options.fontSize) options.fontSize = iconSize.x / 4;
+
     if (!options.iconAnchor) {
-      options.iconAnchor = L.point(Number(options.iconSize.x) / 2, Number(options.iconSize.y));
+      options.iconAnchor = L.point(iconSize.x / 2, iconSize.y);
     } else {
       options.iconAnchor = L.point(options.iconAnchor);
     }
+
     if (!options.popupAnchor) {
-      options.popupAnchor = L.point(0, (-0.75) * (options.iconSize.y));
+      options.popupAnchor = L.point(0, (-0.75) * iconSize.y);
     } else {
       options.popupAnchor = L.point(options.popupAnchor);
     }
 
-    options.html = this._createSVG();
+    options.html = this.createSVG();
   },
-  _createCircle() {
-    const cx = Number(this.options.circleAnchor.x);
-    const cy = Number(this.options.circleAnchor.y);
-    const radius = this.options.iconSize.x / 2 * Number(this.options.circleRatio);
-    const fill = this.options.circleFillColor;
-    const fillOpacity = this.options.circleFillOpacity;
-    const stroke = this.options.circleColor;
-    const strokeOpacity = this.options.circleOpacity;
-    const strokeWidth = this.options.circleWeight;
-    const className = `${this.options.className}-circle`;
 
-    const circle = `<circle class="${className}" cx="${cx}" cy="${cy}" r="${radius
-    }" fill="${fill}" fill-opacity="${fillOpacity
-    }" stroke="${stroke}" stroke-opacity=${strokeOpacity}" stroke-width="${strokeWidth}"/>`;
+  createCircle() {
+    const {
+      circleAnchor,
+      iconSize,
+      circleFillColor,
+      circleFillOpacity,
+      circleColor,
+      circleOpacity,
+      circleWeight,
+      className,
+    } = this.options;
+    const cx = circleAnchor.x;
+    const cy = circleAnchor.y;
+    const radius = (iconSize.x / 2) * this.options.circleRatio;
 
-    return circle;
+    return (
+      `<circle class="${className}-circle" cx="${cx}" cy="${cy}" r="${radius}" `
+      + `fill="${circleFillColor}" fill-opacity="${circleFillOpacity}" `
+      + `stroke="${circleColor}" stroke-opacity="${circleOpacity}" stroke-width="${circleWeight}"/>`
+    );
   },
-  _createPathDescription() {
-    const height = Number(this.options.iconSize.y);
-    const width = Number(this.options.iconSize.x);
-    const weight = Number(this.options.weight);
+
+  createPathDescription() {
+    const { iconSize, weight } = this.options;
+    const height = iconSize.y;
+    const width = iconSize.x;
     const margin = weight / 2;
 
     const startPoint = `M ${margin} ${width / 2} `;
@@ -98,50 +95,52 @@ L.DivIcon.SVGIcon = L.DivIcon.extend({
     const rightLine = `L ${width - margin} ${width / 2} `;
     const arc = `A ${width / 4} ${width / 4} 0 0 0 ${margin} ${width / 2} Z`;
 
-    const d = startPoint + leftLine + rightLine + arc;
-
-    return d;
+    return startPoint + leftLine + rightLine + arc;
   },
-  _createPath() {
-    const pathDescription = this._createPathDescription();
-    const strokeWidth = this.options.weight;
-    const stroke = this.options.color;
-    const strokeOpacity = this.options.opacity;
-    const fill = this.options.fillColor;
-    const { fillOpacity } = this.options;
-    const className = `${this.options.className}-path`;
 
-    const path = `<path class="${className}" d="${pathDescription
-    }" stroke-width="${strokeWidth}" stroke="${stroke}" stroke-opacity="${strokeOpacity
-    }" fill="${fill}" fill-opacity="${fillOpacity}"/>`;
+  createPath() {
+    const {
+      weight, color, opacity, fillColor, fillOpacity, className,
+    } = this.options;
 
-    return path;
+    const d = this.createPathDescription();
+
+    return (
+      `<path class="${className}-path" d="${d}" stroke-width="${weight}" `
+      + `stroke="${color}" stroke-opacity="${opacity}" `
+      + `fill="${fillColor}" fill-opacity="${fillOpacity}"/>`
+    );
   },
-  _createSVG() {
-    const path = this._createPath();
-    const circle = this._createCircle();
-    const text = this._createText();
-    const className = `${this.options.className}-svg`;
 
-    const style = `width:${this.options.iconSize.x}px; height:${this.options.iconSize.y}px;`;
+  createText() {
+    const {
+      fontSize, fontWeight, circleAnchor, circleText, fontColor, fontOpacity,
+    } = this.options;
 
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="${className}" style="${style}">${path}${circle}${text}</svg>`;
+    const { x } = circleAnchor;
+    const y = circleAnchor.y + fontSize * 0.35;
+    const fill = fontColor.replace('rgb(', 'rgba(').replace(')', `,${fontOpacity})`);
 
-    return svg;
+    return (
+      `<text text-anchor="middle" x="${x}" y="${y}" `
+      + `style="font-size: ${fontSize}px; font-weight: ${fontWeight}" `
+      + `fill="${fill}">${circleText}</text>`
+    );
   },
-  _createText() {
-    const fontSize = `${this.options.fontSize}px`;
-    const { fontWeight } = this.options;
-    const lineHeight = Number(this.options.fontSize);
 
-    const { x } = this.options.circleAnchor;
-    const y = this.options.circleAnchor.y + (lineHeight * 0.35); // 35% was found experimentally
-    const { circleText } = this.options;
-    const textColor = this.options.fontColor.replace('rgb(', 'rgba(').replace(')', `,${this.options.fontOpacity})`);
+  createSVG() {
+    const { className, iconSize } = this.options;
 
-    const text = `<text text-anchor="middle" x="${x}" y="${y}" style="font-size: ${fontSize}; font-weight: ${fontWeight}" fill="${textColor}">${circleText}</text>`;
+    const path = this.createPath();
+    const circle = this.createCircle();
+    const text = this.createText();
 
-    return text;
+    const style = `width:${iconSize.x}px; height:${iconSize.y}px;`;
+
+    return (
+      `<svg xmlns='http://www.w3.org/2000/svg' version='1.1' `
+      + `class='${className}-svg' style='${style}'>${path}${circle}${text}</svg>`
+    );
   },
 });
 
@@ -154,39 +153,59 @@ L.Marker.SVGMarker = L.Marker.extend({
     iconFactory: L.divIcon.svgIcon,
     iconOptions: {},
   },
-  initialize(latlng, options) {
-    options = L.Util.setOptions(this, options);
+
+  initialize(latlng, rawOptions) {
+    const options = L.Util.setOptions(this, rawOptions);
     options.icon = options.iconFactory(options.iconOptions);
-    this._latlng = latlng;
+    // eslint-disable-next-line no-underscore-dangle
+    this.__latlng = latlng; // private var
   },
+
+  // eslint-disable-next-line no-underscore-dangle
+  getLatLng() {
+    // eslint-disable-next-line no-underscore-dangle
+    return this.__latlng;
+  },
+
   onAdd(map) {
     L.Marker.prototype.onAdd.call(this, map);
   },
-  setStyle(style) {
-    if (this._icon) {
-      const svg = this._icon.children[0];
-      const iconBody = this._icon.children[0].children[0];
-      const iconCircle = this._icon.children[0].children[1];
 
-      if (style.color && !style.iconOptions) {
-        const stroke = style.color.replace('rgb', 'rgba').replace(')', `,${this.options.icon.options.opacity})`);
-        const fill = style.color.replace('rgb', 'rgba').replace(')', `,${this.options.icon.options.fillOpacity})`);
-        iconBody.setAttribute('stroke', stroke);
-        iconBody.setAttribute('fill', fill);
-        iconCircle.setAttribute('stroke', stroke);
+  setStyle(incomingStyle) {
+    if (!this.iconEl) return;
 
-        this.options.icon.fillColor = fill;
-        this.options.icon.color = stroke;
-        this.options.icon.circleColor = stroke;
+    const svg = this.iconEl.children[0];
+    const iconBody = svg.children[0];
+    const iconCircle = svg.children[1];
+
+    const styleOpts = { ...incomingStyle }; // Avoid param reassignment
+
+    if (styleOpts.color && !styleOpts.iconOptions) {
+      const stroke = styleOpts.color
+        .replace('rgb', 'rgba')
+        .replace(')', `,${this.options.icon.options.opacity})`);
+      const fill = styleOpts.color
+        .replace('rgb', 'rgba')
+        .replace(')', `,${this.options.icon.options.fillOpacity})`);
+      iconBody.setAttribute('stroke', stroke);
+      iconBody.setAttribute('fill', fill);
+      iconCircle.setAttribute('stroke', stroke);
+
+      this.options.icon.fillColor = fill;
+      this.options.icon.color = stroke;
+      this.options.icon.circleColor = stroke;
+    }
+
+    if (styleOpts.opacity) {
+      this.setOpacity(styleOpts.opacity);
+    }
+
+    if (styleOpts.iconOptions) {
+      if (styleOpts.color) {
+        styleOpts.iconOptions.color = styleOpts.color;
       }
-      if (style.opacity) {
-        this.setOpacity(style.opacity);
-      }
-      if (style.iconOptions) {
-        if (style.color) { style.iconOptions.color = style.color; }
-        const iconOptions = L.Util.setOptions(this.options.icon, style.iconOptions);
-        this.setIcon(L.divIcon.svgIcon(iconOptions));
-      }
+      const iconOptions = L.Util.setOptions(this.options.icon, styleOpts.iconOptions);
+      this.setIcon(L.divIcon.svgIcon(iconOptions));
     }
   },
 });

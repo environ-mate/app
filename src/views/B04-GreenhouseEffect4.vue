@@ -143,11 +143,11 @@ export default {
       d3.csv('/data/ghg_emissions/ghg_emissions_europe_total_and_per_sector_per_country_most_recent_full_year.csv').then((rows) => {
         // map csv country name to home towbn
         const homeCountryName = Object.values(Mappings.countryMapping).filter(
-          m => m[1] === this.$parent.$data.homeTownCountryCode,
+          (m) => m[1] === this.$parent.$data.homeTownCountryCode,
         )[0][0];
 
         let data = rows.filter(
-          r => r['country.name'] === homeCountryName
+          (r) => r['country.name'] === homeCountryName
             && parseInt(r.year, 10) < new Date().getFullYear(),
         );
 

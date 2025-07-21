@@ -268,18 +268,11 @@ export default {
           .openPopup();
       }
 
-      const promises = [];
-
-      for (const year of this.years) {
-        const promise = d3
-          .json(
-            `/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`,
-          )
-          .then((geoJSON) => {
-            this.storyGeoData[year] = geoJSON;
-          });
-        promises.push(promise);
-      }
+      const promises = this.years.map((year) => d3
+        .json(`/data/sea_level_rise_stories/${this.storySelectedId}/${year}.geojson`)
+        .then((geoJSON) => {
+          this.storyGeoData[year] = geoJSON;
+        }));
 
       const that = this;
 

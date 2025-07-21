@@ -21,9 +21,7 @@ import ExtremeWeather1 from '@/views/W01-ExtremeWeather1.vue';
 import ActInfos3 from '@/views/ZXX-ActInfos3.vue';
 import Imprint from '@/views/A00-Imprint.vue';
 
-
 Vue.use(Router);
-
 
 export default new Router({
   mode: 'history',

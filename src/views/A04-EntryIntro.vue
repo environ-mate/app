@@ -183,7 +183,6 @@ export default {
 };
 </script>
 
-
 <style>
 .entryIntro-chart .c3-grid {
   height: 10px;
